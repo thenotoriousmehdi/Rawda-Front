@@ -1,5 +1,3 @@
-# Rawda-Front
-This repository contains the source code for a web application called Rawda .It's a search engine for nursery schools in Algeria.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
