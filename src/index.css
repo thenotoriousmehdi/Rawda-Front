@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-image: url('./assets/Ellipse.svg');
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: 110% -90%;
+  }
+  
+@media (max-width: 640px) {
+    
+    #pub{
+        display: none;
+    }
+}
+@media (min-width: 640px) {
+    #mobile-search{
+        display: none;
+    }
+}
+@media (max-width: 640px) {
+    #desktop-search{
+        display: none;
+    }
+}
