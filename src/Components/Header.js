@@ -138,13 +138,22 @@ export default function Header() {
                     <button
                       id="pub"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-violet-100 px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      Help
+                      Se Connecter
+                    </button>
+                  </a>
+                  <a href="/posturad">
+                    <button
+                      id="pub"
+                      type="button"
+                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                    >
+                      S'inscrire
                     </button>
                   </a>
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
+                  {/* <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800">
                         <span className="sr-only">Open user menu</span>
@@ -207,7 +216,7 @@ export default function Header() {
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
                 </div>
               </div>
             </div>
