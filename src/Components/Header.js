@@ -30,6 +30,7 @@ export default function Header() {
     "Béjaïa",
     "Biskra",
     "Bechar",
+
     "Blida",
     "Bouira",
     "Tamanrasset",
@@ -121,7 +122,7 @@ export default function Header() {
                       <input
                         id="desktop-search"
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Rechercher..."
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -230,7 +231,19 @@ export default function Header() {
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
                   >
-                    Aide
+                    Se Connecter
+                  </button>
+                </a>
+              </div>
+              <div className="space-y-1 px-2 pt-2 pb-3">
+              
+                <a href="/posturad">
+                  <button
+                    fullWidth
+                    type="button"
+                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
+                  >
+                    S'inscrire
                   </button>
                 </a>
               </div>
@@ -259,7 +272,7 @@ export default function Header() {
                     <div className="flex space-x-4">
                       <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-white border border-gray-400 rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="categorie"
                       >
                         <option value="">Pedagogie</option>
@@ -275,7 +288,7 @@ export default function Header() {
                     <div className="flex space-x-4">
                       <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-white border border-gray-400 rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-2 text-gray-700 bg-white border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="wilaya"
                       >
                         <option value="">Wilaya</option>
@@ -293,9 +306,9 @@ export default function Header() {
                     <input
                       type="text"
                       id="localisation-commune"
-                      placeholder="Enter a commune"
+                      placeholder="Entrer le nom"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -304,9 +317,9 @@ export default function Header() {
                     <input
                       type="text"
                       id="Date-max"
-                      placeholder="PD Minimum mm/dd/yyyy"
+                      placeholder="mm/dd/yyyy"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -315,9 +328,9 @@ export default function Header() {
                     <input
                       type="text"
                       id="Date-min"
-                      placeholder="PD Maximum mm/dd/yyyy"
+                      placeholder="mm/dd/yyyy"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -328,7 +341,7 @@ export default function Header() {
                     type="submit"
                     class="py-2 px-4  bg-violet-700 hover:bg-violet-900 focus:ring-violet-700 focus:ring-offset-violet-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                   >
-                    Filter Search
+                  Rechercher
                   </button>
                 </a>
               </div>
