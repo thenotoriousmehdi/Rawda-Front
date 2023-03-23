@@ -1,15 +1,3 @@
-/* const About = () => {
-return(
-
-
-
-);
-}
-export default About;
-
-
-
- */
 
 import React from "react";
 import Image from "../assets/Image.png";

@@ -1,5 +1,6 @@
 import * as React from "react";
 import mehdi1 from "../assets/mehdi1.png"
+import Footer from "../Components/Footer.js"
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -15,6 +16,11 @@ function classNames(...classes) {
 
 export default function Header() {
   const [fopen, setFOpen] = React.useState(false);
+  const mehdi = () => {
+    return (
+<Footer/>
+    );
+  }
 
   const handleClick = () => {
     if (fopen === true) {
@@ -22,64 +28,15 @@ export default function Header() {
     } else setFOpen(true);
   };
   const wilaya = [
-    "Adrar",
-    "Chlef",
-    "Laghouat",
-    "Oum El Bouaghi",
-    "Batna",
-    "Béjaïa",
-    "Biskra",
-    "Bechar",
-    "Blida",
-    "Bouira",
-    "Tamanrasset",
-    "Tbessa",
-    "Tlemcen",
-    "Tiaret",
-    "Tizi Ouzou",
-    "Alger",
-    "Djelfa",
-    "Jijel",
-    "Setif",
-    "Saeda",
-    "Skikda",
-    "Sidi Bel Abbes",
-    "Annaba",
-    "Guelma",
-    "Constantine",
-    "Medea",
-    "Mostaganem",
-    "M'Sila",
-    "Mascara",
-    "Ouargla",
-    "Oran",
-    "El Bayadh",
-    "Illizi",
-    "Bordj Bou Arreridj",
-    "Boumerdes",
-    "El Tarf",
-    "Tindouf",
-    "Tissemsilt",
-    "El Oued",
-    "Khenchela",
-    "Souk Ahras",
-    "Tipaza",
-    "Mila",
-    "Ain Defla",
-    "Naama",
-    "Ain Temouchent",
-    "Ghardaefa",
-    "Relizane",
-    "El M'ghair",
-    "El Menia",
-    "Ouled Djellal",
-    "Bordj Baji Mokhtar",
-    "Béni Abbès",
-    "Timimoun",
-    "Touggourt",
-    "Djanet",
-    "In Salah",
-    "In Guezzam",
+    "Adrar", "Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
+    "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
+    "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Setif",  "Saeda", "Skikda",  "Sidi Bel Abbes",
+    "Annaba", "Guelma",  "Constantine", "Medea", "Mostaganem",  "M'Sila", "Mascara",
+    "Ouargla",  "Oran", "El Bayadh", "Illizi", "Bordj Bou Arreridj",  "Boumerdes",
+    "El Tarf", "Tindouf", "Tissemsilt", "El Oued", "Khenchela", "Souk Ahras", "Tipaza", "Mila",
+    "Ain Defla", "Naama",  "Ain Temouchent",  "Ghardaefa", "Relizane", "El M'ghair",  "El Menia",
+    "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès",  "Timimoun", "Touggourt",
+    "Djanet",  "In Salah",  "In Guezzam",
   ];
  
   return (
@@ -121,7 +78,7 @@ export default function Header() {
                       <input
                         id="desktop-search"
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Rechercher..."
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -138,13 +95,22 @@ export default function Header() {
                     <button
                       id="pub"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-violet-100 px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      Help
+                      Se Connecter
+                    </button>
+                  </a>
+                  <a href="/posturad">
+                    <button
+                      id="pub"
+                      type="button"
+                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                    >
+                      S'inscrire
                     </button>
                   </a>
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
+                  {/* <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800">
                         <span className="sr-only">Open user menu</span>
@@ -207,7 +173,7 @@ export default function Header() {
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
                 </div>
               </div>
             </div>
@@ -221,7 +187,19 @@ export default function Header() {
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
                   >
-                    Aide
+                    Se Connecter
+                  </button>
+                </a>
+              </div>
+              <div className="space-y-1 px-2 pt-2 pb-3">
+              
+                <a href="/posturad">
+                  <button
+                    fullWidth
+                    type="button"
+                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
+                  >
+                    S'inscrire
                   </button>
                 </a>
               </div>
@@ -242,7 +220,7 @@ export default function Header() {
               <div className="relative flex h-16 items-center justify-between">
                 <div className="flex flex-1  items-center justify-center sm:items-stretch sm:justify-start">
                   <div className=" sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
+                    <div className="flex-col space-x-4">
                 
                     </div>
                   </div>
@@ -250,7 +228,7 @@ export default function Header() {
                     <div className="flex space-x-4">
                       <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-white border border-gray-400 rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="categorie"
                       >
                         <option value="">Pedagogie</option>
@@ -265,8 +243,22 @@ export default function Header() {
                   <div className=" sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       <select
+                        id="Type d’établissement"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        name="categorie"
+                      >
+                        <option value="">Type d’établissement</option>
+                        <option value="">Prive</option>
+                        <option value="">Public</option>
+      
+                      </select>
+                    </div>
+                  </div>
+                  <div className=" sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
+                      <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-white border border-gray-400 rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-2 text-gray-700 bg-white border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="wilaya"
                       >
                         <option value="">Wilaya</option>
@@ -277,16 +269,59 @@ export default function Header() {
                     </div>
                   </div>
                 </div>
+                
               </div>
+              <div className=" flex-col sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
+                      <select
+                        id="Type d'accueil"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        name="categorie"
+                      >
+                        <option value="">Type d’accueil</option>
+                        <option value="">Regulier</option>
+                        <option value="">Ocasionnel</option>
+      
+                      </select>
+                    </div>
+                    <div className="flex space-x-4">
+                      <select
+                        id="Langue"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        name="categorie"
+                      >
+                        <option value="">Langue</option>
+                        <option value="">Arabe</option>
+                        <option value="">Francais</option>
+                        <option value="">Anglais</option>
+      
+                      </select>
+                    </div>
+                  </div>
+                 {/*  <div className=" sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
+                      <select
+                        id="Langue"
+                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        name="categorie"
+                      >
+                        <option value="">Langue</option>
+                        <option value="">Arabe</option>
+                        <option value="">Francais</option>
+                        <option value="">Anglais</option>
+      
+                      </select>
+                    </div>
+                  </div> */}
               <div className="flex flex-1  items-center justify-center sm:items-stretch sm:justify-start">
                 <div className=" sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     <input
                       type="text"
                       id="localisation-commune"
-                      placeholder="Enter a commune"
+                      placeholder="Commune"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -294,10 +329,10 @@ export default function Header() {
                   <div className="flex space-x-4">
                     <input
                       type="text"
-                      id="Date-max"
-                      placeholder="PD Minimum mm/dd/yyyy"
+                      id="Type accueil"
+                      placeholder="Age"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -305,21 +340,22 @@ export default function Header() {
                   <div className="flex space-x-4">
                     <input
                       type="text"
-                      id="Date-min"
-                      placeholder="PD Maximum mm/dd/yyyy"
+                      id="Jours d'accueil"
+                      placeholder="Jours d'accueil"
                       required
-                      className=" rounded-lg border-gray-400 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
                   </div>
                 </div>
-              </div>
+              </div> 
+              
               <div className="p-5">
                 <a href="#Filter-search">
                   <button
                     type="submit"
                     class="py-2 px-4  bg-violet-700 hover:bg-violet-900 focus:ring-violet-700 focus:ring-offset-violet-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                   >
-                    Filter Search
+                  Rechercher
                   </button>
                 </a>
               </div>
