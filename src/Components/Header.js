@@ -28,6 +28,7 @@ export default function Header() {
     } else setFOpen(true);
   };
   const wilaya = [
+
     "Adrar", "Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
     "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
     "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Setif",  "Saeda", "Skikda",  "Sidi Bel Abbes",
@@ -37,6 +38,7 @@ export default function Header() {
     "Ain Defla", "Naama",  "Ain Temouchent",  "Ghardaefa", "Relizane", "El M'ghair",  "El Menia",
     "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès",  "Timimoun", "Touggourt",
     "Djanet",  "In Salah",  "In Guezzam",
+    
   ];
  
   return (
@@ -319,7 +321,11 @@ export default function Header() {
                     <input
                       type="text"
                       id="localisation-commune"
+
                       placeholder="Commune"
+
+                  
+
                       required
                       className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
@@ -329,8 +335,12 @@ export default function Header() {
                   <div className="flex space-x-4">
                     <input
                       type="text"
-                      id="Type accueil"
-                      placeholder="Age"
+
+      
+
+                      id="Date-max"
+                      placeholder="mm/dd/yyyy"
+
                       required
                       className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
@@ -340,8 +350,12 @@ export default function Header() {
                   <div className="flex space-x-4">
                     <input
                       type="text"
+
                       id="Jours d'accueil"
                       placeholder="Jours d'accueil"
+
+                
+
                       required
                       className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />
