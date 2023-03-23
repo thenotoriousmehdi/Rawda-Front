@@ -3,10 +3,9 @@ function Footer (){
 return (
 
 
-<footer className="bg-rawdawhite">
-    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-10 container">
-    <div className="relative flex flex-row h-16 items-center justify-between">
-        
+<footer className="bg-rawdapurple">
+    <div className="mx-auto  px-2 sm:px-6 lg:px-10 ">
+    <div className="relative flex flex-row h-2 items-center justify-between">
         
        
     </div>
