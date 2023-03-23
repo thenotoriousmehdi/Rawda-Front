@@ -2,6 +2,7 @@ import Header from "./Components/Header";
 //import Headerr from "./Components/Headerr.js";
 import Hero from "./Components/Hero";
 import Footer from "./Components/Footer";
+import CarteCreche from "./Components/CarteCreche";
 /* import About from "./Components/About"; */
 /* import FaqCard from "./Components/FaqCard"; */
 /* import Faq from "./Components/Faq"; */
@@ -17,6 +18,7 @@ function App() {
 {/*   <About />  */}
  {/*  <Faq/> */}
 {/*   <FaqCard/> */}
+{/*  <CarteCreche/>  */}
   <Footer/>
       
     </div>
