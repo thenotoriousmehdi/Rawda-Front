@@ -1,23 +1,19 @@
-
-import React from "react";
-import Image from "../assets/Image.png";
-
-const About = () => {
+ const About = () => {
   return (
-    <div id="about" className="flex flex-row opacity-30 bg-violet-700  ">
-      <div className=" flex justify-center w-1/6 items-center ml-4 h-40">
-        <img height={300} width={10} alt="deco"></img>
-      </div>
-      <div className=" flex flex-wrap md:w-4/6 w-full justify-center items-center">
-        <div className="relative flex-wrap w-full h-max justify-center items-center md:mb-10 mb-4">
+    <div id="about" className="opacity-60 bg-rawdapurple  ">
+       <div className="mx-auto  sm:px-6 lg:px-10 ">
+        <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
+      <div className="container flex flex-wrap p-6 md:flex-row 
+        items-center justify-between px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+          <div className="flex flex-col gap-6">
           <h1
-            className=" text-4xl font-bold text-center text-black justify-center
-            md:text-4xl md:center"
+            className=" text-4xl font-bold text-center text-rawdablack justify-center
+            md:text-4xl md:center "
           >
             A propos de Rawda.
           </h1>
-
-          <text className="text-white mt-20 font-light md:text-xl text-xl leading-9 text-center justify-center font-sans mb-36">
+          <div>
+          <text className="text-white mt-20 font-light md:text-xl text-xl leading-9 text-center justify-center mb-8">
             Rawda est un moteur de recherche de crèches en Algérie. Nous
             comprenons à quel point le choix de la crèche est crucial pour le
             développement de votre enfant. C'est pourquoi nous avons créé Rawda.
@@ -28,10 +24,17 @@ const About = () => {
             gagner ! Essayez Rawda dès maintenant et profitez de toutes les
             fonctionnalités qu'elle offre.
           </text>
+          </div>
+          </div>
+      
         </div>
+
       </div>
+      </div>
+    
     </div>
   );
 };
 
 export default About;
+ 
