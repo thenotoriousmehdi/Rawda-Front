@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Footer from "./Components/Footer";
 import CarteCreche from "./Components/CarteCreche";
-/* import About from "./Components/About"; */
+ import About from "./Components/About"; 
 /* import FaqCard from "./Components/FaqCard"; */
 /* import Faq from "./Components/Faq"; */
 //import Login from "./Components/Login"
@@ -15,7 +15,7 @@ function App() {
     <div className="bg-rawdawhite">
   <Header />
   <Hero />
-{/*   <About />  */}
+<About /> 
  {/*  <Faq/> */}
 {/*   <FaqCard/> */}
 {/*  <CarteCreche/>  */}
