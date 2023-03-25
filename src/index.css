@@ -4,12 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
     background-image: url('./assets/Ellipse.svg');
     background-repeat: no-repeat;
     background-size: 400px;
     background-position: 110% -90%;
-  }
+  } */
   
 @media (max-width: 640px) {
     
