@@ -7,10 +7,14 @@ module.exports = {
     extend: {
 colors: {
 rawdapurple: '#6938EF' ,
-rawdayellow: '#D9D9D9'  ,
+rawdayellow: '#F9F54B'  ,
 rawdawhite:   '#FAF9F9' ,
 rawdablack: '1E1E1E' ,
 mehdi: 'CEA9EC'
+
+},
+fontFamily: {
+body: ['Poppins']
 
 }
 

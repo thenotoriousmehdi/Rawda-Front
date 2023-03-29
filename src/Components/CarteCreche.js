@@ -1,4 +1,51 @@
-import React, { useState } from "react";
+/* import { CPlaceholder } from '@coreui/react'
+
+3import CPlaceholder from '@coreui/react/src/components/placeholder/CPlaceholder'
+export default function CarteCreche(){
+return (
+
+
+
+<CCard style={{ width: '18rem' }}>
+2  <CCardImage orientation="top" src={ReactImg} />
+3  <CCardBody>
+4    <CCardTitle>Card title</CCardTitle>
+5    <CCardText>
+6      Some quick example text to build on the card title and make up the bulk of the card's
+7      content.
+8    </CCardText>
+9    <CButton href="#">Go somewhere</CButton>
+10  </CCardBody>
+11</CCard>
+12<CCard style={{ width: '18rem' }}>
+13  <CCardImage component="svg" orientation="top" width="100%" height="162" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+14    <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect>
+15  </CCardImage>
+16  <CCardBody>
+17    <CPlaceholder component={CCardTitle} animation="glow" xs={7}>
+18      <CPlaceholder xs={6} />
+19    </CPlaceholder>
+20    <CPlaceholder component={CCardText} animation="glow">
+21      <CPlaceholder xs={7} />
+22      <CPlaceholder xs={4} />
+23      <CPlaceholder xs={4} />
+24      <CPlaceholder xs={6} />
+25      <CPlaceholder xs={8} />
+26    </CPlaceholder>
+27    <CPlaceholder component={CButton} disabled href="#" tabIndex={-1} xs={6}></CPlaceholder>
+28  </CCardBody>
+29</CCard>
+);
+}
+ */
+
+
+
+
+
+
+
+/* import React, { useState } from "react";
 import { Badge } from "reactstrap";
 const CarteCreche = (props) => {
   const [badgeColor, setBadgeColor] = useState("white");
@@ -85,4 +132,4 @@ const CarteCreche = (props) => {
   );
 };
 
-export default CarteCreche;
+export default CarteCreche; */

@@ -354,8 +354,6 @@ export default function Header() {
                       id="Jours d'accueil"
                       placeholder="Jours d'accueil"
 
-                
-
                       required
                       className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     />

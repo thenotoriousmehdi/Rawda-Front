@@ -4,13 +4,16 @@ import Footer from "./Components/Footer";
 import CarteCreche from "./Components/CarteCreche";
  import About from "./Components/About"; 
  import Home from "./Pages/Home";
+ import AddCreche from "./Pages/AddCreche";
+ import Login from "./Pages/Login";
 
 function App() {
   return (
-    
-    <div className="bg-rawdawhite">
+   /*  <Login/> */
+   <AddCreche /> 
+    /* <div className="bg-rawdawhite">
      <Home /> 
-    </div>
+    </div> */
   );
 }
 export default App;
