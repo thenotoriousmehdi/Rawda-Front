@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import About from "../Components/About"; 
 import Promo from "../Components/Promo";
 import deco1 from "../assets/deco1.png";
-
+import Services from "../Components/Services";
  function Home(){
 return (
     <>
@@ -14,7 +14,8 @@ return (
             <img src={deco1} />
           </div>
      <About />
-     <Promo />
+     {/* <Promo /> */}
+     <Services />
      <Footer />
     </>
 );
