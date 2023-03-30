@@ -16,7 +16,7 @@ export default function Services() {
     >
       <div className="flex flex-col items-center gap-y-4 md:gap-y-0">
         <p className="  text-center text-3xl md:text-4xl font-bold text-Poppins ">Nos Services</p>
-      <div className="  mb-[20px] w-[200px] md:w-[250px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div></div>
+      <div className="  mb-[20px] w-[200px] md:w-[230px] h-[20px] md:mt-[-15px]  bg-rawdayellow shadow-rawdayellow "></div></div>
       
       <p className="text-sm md:text-xl font-medium font-Poppins text-rawdapurple text-opacity-70  text-center md:mb-16">Rawda is the best search engine in the world</p>
       <div className="  flex flex-col items-center justify-evenly  h-full md:h-[500px]  md:flex md:flex-row md:justify-evenly">
