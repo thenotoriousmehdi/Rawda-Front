@@ -54,7 +54,7 @@ const Faq = () => {
     <>
       <div
         id="faq"
-        className="relative flex flex-col w-full h-screen justify-center items-center bg-Gray-800"
+        className="relative flex flex-col w-full h-screen justify-center items-center  mb-12"
       >
        
 
