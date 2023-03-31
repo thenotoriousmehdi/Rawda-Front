@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
-/* import Image from "next/image"; */
-/* import SectionTitle from "../shared/Title"; */
+
 import FaqCard from "./FaqCard";
 import arrow from "../../assets/arrowblack.svg";
 
