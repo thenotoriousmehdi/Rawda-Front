@@ -36,7 +36,7 @@ import deco2 from "../assets/deco2.svg";
       </div>
       </div>
       <div className="flex justify-end">
-<img className=" md:h-[30px] " src={deco2} alt="deco" />
+<img className=" h-[30px] " src={deco2} alt="deco" />
 </div>
 
       
