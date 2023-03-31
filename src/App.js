@@ -6,15 +6,16 @@ import CarteCreche from "./Components/CarteCreche";
  import Home from "./Pages/Home";
  import AddCreche from "./Pages/AddCreche";
  import Login from "./Pages/Login";
+ import Signup from "./Pages/Signup";
 
 function App() {
   return (
-   /*  <Login/> */
-   <AddCreche /> 
-    /* <div className="bg-rawdawhite">
+     /* <Login/>  */
+    /* <AddCreche />  */
+    <div className="bg-rawdawhite">
      <Home /> 
-    </div> */
-  );
+    </div> 
+  ); 
 }
 export default App;
 
