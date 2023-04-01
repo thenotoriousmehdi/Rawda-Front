@@ -6,6 +6,12 @@ import Promo from "../Components/Promo";
 import deco1 from "../assets/deco1.png";
 import Services from "../Components/service/Services.js";
 import Faq from "../Components/Faq/Faq.js";
+import deco3 from "../assets/deco3.svg";
+import Avis from "../Components/Aviss/Avis";
+import AvisCard from "../Components/Aviss/AvisCard";
+import FaqCard from "../Components/Faq/FaqCard";
+import CrecheCard from "../Components/CrechesMN/CrecheCard";
+import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
  function Home(){
 return (
     <>
@@ -16,9 +22,19 @@ return (
             <img src={deco1} />
           </div>
      <About />
+     <Crechesmieuxnotees/>
+    {/*  <CrecheCard/> */}
      {/* <Promo /> */}
      <Services />
+
+     {/* <div className="flex justify-end">
+<img className=" md:h-[300px] " src={deco3} alt="deco3" />
+</div> */}
+   {/*   <Avis />  */}
+  {/*   <AvisCard /> */}
      <Faq />
+     
+     
      <Footer />
     </>
 );
