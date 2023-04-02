@@ -1,24 +1,53 @@
 
 import mehdi from "../../assets/creche.jpg";
-export default function CrecheCard(){
+export default function CrecheCard({nom,adresse}){
 return(
 
+<div className="keen-slider__slide h-max md:w-[400px] bg-rawdapurple bg-opacity-5 flex flex-col justify-center items-center p-6 rounded-md">
 
-  <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow  m-12">
+
+  <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow m-6">
   <a href="#">
       <img className="rounded-t-lg" src={mehdi} alt="" />
   </a>
   <div className="p-5">
       <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Crèche berceau des anges</h5>
+          <h5 className="mb-2 text-xl font-Poppins font-semibold tracking-tight text-rawdablack ">{nom}</h5>
       </a>
-      <p className="mb-3 font-sans text-gray-700 dark:text-gray-400"> Birkhadem, Alger</p>
-      <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-rawdapurple rounded-lg hover:bg-rawdapurple hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+      <p className="mb-3 font-Poppinsregular  text-[#475467]"> {adresse} </p>
+      <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-rawdapurple rounded-lg hover:bg-rawdapurple hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300">
           Details
           <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
       </a>
   </div>
 </div>
+</div>
+
+
+/* <div className="keen-slider__slide h-max w-full bg-rawdapurple bg-opacity-30 flex flex-col justify-center items-center pt-6">
+
+<div className="flex flex-col items-center gap md:gap-y-0 ">
+        <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">  FAQ</p>
+      <div className="  mb-[0.5px] mt-[-15px] w-[70px] md:w-[70px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div></div>
+
+
+        <div className="bg-transparent h-full mt-5 z-20 relative flex flex-col justify-center items-center md:h-96 h-110 lg:w-2/3 md:w-4/5 sm:w-5/6 w-5/6 p-5 rounded">
+          <div className="text-center w-9/12 font-extrabold font-Poppins text-2xl md:text-3xl mb-4 text-rawdawhite">
+            {question}
+          </div>
+          <div className="h-0 w-9/12 border-t-2 border-white"></div>
+  
+          <p className="text-center font-sans text-rawdawhite w-9/12 md:w-8/12 lg:w-2/3 mt-5 text-lg">
+            {answer}
+          </p>
+        </div>
+      </div> */
+
+
+
+
+
+
 
 
 
@@ -37,51 +66,6 @@ return(
 
 
 
-
-
-
-
-
-/* import { CPlaceholder } from '@coreui/react'
-
-3import CPlaceholder from '@coreui/react/src/components/placeholder/CPlaceholder'
-export default function CarteCreche(){
-return (
-
-
-
-<CCard style={{ width: '18rem' }}>
-2  <CCardImage orientation="top" src={ReactImg} />
-3  <CCardBody>
-4    <CCardTitle>Card title</CCardTitle>
-5    <CCardText>
-6      Some quick example text to build on the card title and make up the bulk of the card's
-7      content.
-8    </CCardText>
-9    <CButton href="#">Go somewhere</CButton>
-10  </CCardBody>
-11</CCard>
-12<CCard style={{ width: '18rem' }}>
-13  <CCardImage component="svg" orientation="top" width="100%" height="162" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-14    <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect>
-15  </CCardImage>
-16  <CCardBody>
-17    <CPlaceholder component={CCardTitle} animation="glow" xs={7}>
-18      <CPlaceholder xs={6} />
-19    </CPlaceholder>
-20    <CPlaceholder component={CCardText} animation="glow">
-21      <CPlaceholder xs={7} />
-22      <CPlaceholder xs={4} />
-23      <CPlaceholder xs={4} />
-24      <CPlaceholder xs={6} />
-25      <CPlaceholder xs={8} />
-26    </CPlaceholder>
-27    <CPlaceholder component={CButton} disabled href="#" tabIndex={-1} xs={6}></CPlaceholder>
-28  </CCardBody>
-29</CCard>
-);
-}
- */
 
 
 
