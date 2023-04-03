@@ -65,8 +65,8 @@ const Avis = () => {
        <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
 
 
-<p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">   Ce que disent les parents sur nous  </p>
-      <div className="  mb-[0.5px] mt-[-15px] w-[70px] md:w-[580px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
+<p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10 ">   Ce que disent les parents sur nous  </p>
+      <div className="  mb-[0.5px] mt-[-15px] w-[120px] md:w-[580px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
 
 </div>
 
@@ -107,7 +107,7 @@ const Avis = () => {
           )}
         </div>
         {loaded && instanceRef.current && (
-          <div className="relative flex justify-center py-3 -mt-7 z-20">
+          <div className="relative flex justify-center py-2 -mt-7 z-20">
             {[
               ...Array(instanceRef.current.track.details.slides.length).keys(),
             ].map((idx) => {
@@ -118,7 +118,7 @@ const Avis = () => {
                     instanceRef.current?.moveToIdx(idx);
                   }}
                   className={
-                    "border-none w-2 h-2 rounded-full p-1 mx-1 cursor-pointer" +
+                    "border-none w-2 h-2  rounded-full p-1 mx-1 cursor-pointer" +
                     (currentSlide === idx ? " bg-rawdapurple " : " bg-rawdapurple bg-opacity-30")
                   }
                 ></button>
