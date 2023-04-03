@@ -56,7 +56,7 @@ const Crechesmieuxnotees = () => {
   
           {
             nom: "Crèche Chateau des anges",
-            adresse: `Belcourt, Alger
+            adresse: `, Alger
             `,
           },
 
@@ -66,7 +66,7 @@ return (
 <>
       <div
         id="Creche"
-        className=" relative flex flex-col w-full h-screen justify-center items-center  mb-12"
+        className=" relative flex flex-col w-full h-screen justify-center items-center   "
       >
        
        <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
