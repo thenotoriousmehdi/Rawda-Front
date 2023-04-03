@@ -2,7 +2,7 @@ import deco2 from "../assets/deco2.svg";
  
  const About = () => {
   return (
-    <div id="about" className="mx-8  bg-opacity-30 bg-rawdapurple  ">
+    <div id="about" className="mx-8  bg-opacity-30 bg-rawdapurple mb-16 rounded-xl ">
        <div className="mx-auto  sm:px-6 lg:px-10 ">
         <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
       <div className="container flex flex-wrap p-8  md:flex-row 
@@ -12,9 +12,7 @@ import deco2 from "../assets/deco2.svg";
 
           <div className="flex flex-col items-center gap md:gap-y-0 ">
         <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">  A propos de Rawda.</p>
-      <div className="  mb-[0.5px] w-[200px] md:w-[325px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div></div>
-
-
+      <div className="  mb-[0.5px] mt-[-15px] w-[100px] md:w-[325px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div></div>
 
           <div>
           <text className="text-rawdawhite mt-20 font-light md:text-xl text-xl leading-9 text-center justify-center mb-8">
@@ -31,12 +29,13 @@ import deco2 from "../assets/deco2.svg";
           </div>
           </div>
       
-
+        
         </div>
       </div>
+
       </div>
-      <div className="flex justify-end">
-<img className=" h-[30px] " src={deco2} alt="deco" />
+      <div className="flex justify-end ">
+<img className=" h-[30px] mb-[-15px] mr-[20px] z-10" src={deco2} alt="deco" />
 </div>
 
       
