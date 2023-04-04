@@ -4,9 +4,11 @@ import Footer from "../Components/Footer.js"
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
+  
   Bars3Icon,
   XMarkIcon,
   MagnifyingGlassIcon,
+  AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import rawda from "../assets/rawda.svg";
 
@@ -43,6 +45,12 @@ export default function Header() {
  
   return (
     <>
+
+
+
+
+
+    
       <Disclosure as="nav" className="bg-white border-b border-gray-300 ">
         {({ open }) => (
           <>
@@ -84,7 +92,7 @@ export default function Header() {
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
-                        <MagnifyingGlassIcon
+                        <AdjustmentsHorizontalIcon
                           className="hidden md:inline-flex h-10 rounded-full p-2 cursor-pointer mx-4 text-gray-500"
                           onClick={handleClick}
                         />
@@ -219,8 +227,8 @@ export default function Header() {
         >
           <>
             <div className="mx-auto  max-w-7xl px-2 sm:px-6 lg:px-8">
-              <div className="relative flex h-16 items-center justify-between">
-                <div className="flex flex-1  items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="relative flex h-16 items-center justify-center">
+                <div className="flex flex-1 flex-wrap  items-center justify-center sm:items-stretch sm:justify-center">
                   <div className=" sm:ml-6 sm:block">
                     <div className="flex-col space-x-4">
                 
@@ -230,7 +238,7 @@ export default function Header() {
                     <div className="flex space-x-4">
                       <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        className="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="categorie"
                       >
                         <option value="">Pedagogie</option>
@@ -242,11 +250,13 @@ export default function Header() {
                       </select>
                     </div>
                   </div>
+
+
                   <div className=" sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       <select
                         id="Type d’établissement"
-                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="categorie"
                       >
                         <option value="">Type d’établissement</option>
@@ -256,11 +266,13 @@ export default function Header() {
                       </select>
                     </div>
                   </div>
+
+
                   <div className=" sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       <select
                         id="ad-categorie"
-                        class="block px-3 py-2 text-gray-700 bg-white border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
+                        class="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
                         name="wilaya"
                       >
                         <option value="">Wilaya</option>
@@ -270,6 +282,9 @@ export default function Header() {
                       </select>
                     </div>
                   </div>
+
+
+
                 </div>
                 
               </div>
@@ -353,8 +368,6 @@ export default function Header() {
 
                       id="Jours d'accueil"
                       placeholder="Jours d'accueil"
-
-                
 
                       required
                       className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
