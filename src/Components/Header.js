@@ -1,4 +1,5 @@
-import * as React from "react";
+import Select from 'react-select'
+import React, { useState } from "react";
 import mehdi1 from "../assets/mehdi1.png"
 import Footer from "../Components/Footer.js"
 import { Fragment } from "react";
@@ -7,7 +8,6 @@ import {
   
   Bars3Icon,
   XMarkIcon,
-  MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import rawda from "../assets/rawda.svg";
@@ -42,7 +42,80 @@ export default function Header() {
     "Djanet",  "In Salah",  "In Guezzam",
     
   ];
- 
+  const Typeta = [
+    { value: "Prive", label: "Prive" },
+    { value: "Public", label: "Public" }
+  ]
+  
+  const Pedagogie=[
+   { value: "Montessori", label: "Montessori" },
+    { value: "Freinet", label: "Freinet" },
+    { value: "Steiner", label: "Steiner" },
+    { value: "Institutionnelle", label: "Institutionnelle" },
+    { value: "Pikler-Loczy", label: "Pikler-Loczy" }
+  ]
+  const Typeac = [
+    { value: "Regulier", label: "Regulier" },
+    { value: "Ocasionnel", label: "Ocasionnel" }
+  ]
+  
+  const langue =[
+    { value: "Arabe", label: "Arabe" },
+    { value: "Francais", label: "Francais" },
+    { value: "Anglais", label: "Anglais" }
+  ]
+  
+  
+  const jourac = [
+    { value: "Dimanche", label: "Dimanche" },
+    { value: "Lundi", label: "Lundi" },
+    { value: "Mardi", label: "Mardi" },
+    { value: "Mercredi", label: "Mercredi" },
+    { value: "Jeudi", label: "Jeudi" },
+    { value: "Vendredi", label: "Vendredi" },
+    { value: "Samedi", label: "Samedi" }
+  ];
+  
+  const ageac = [
+    { value: "0", label: "0" },
+    { value: "1", label: "1" },
+    { value: "2", label: "2" },
+    { value: "3", label: "3" },
+    { value: "4", label: "4" },
+    { value: "5", label: "5" },
+    { value: "6", label: "6" }
+  ];
+  
+  const Capacite = [
+    { value: "0-30", label: "0-30" },
+    { value: "30-60", label: "30-60"},
+    { value: "60-100", label: "60-100" },
+    { value: "100-200", label: "100-200" },
+    { value: "+200", label: "+200" }
+    
+  ];
+  
+  const verite=[
+    { value: "oui", label: "oui" },
+    { value: "non", label: "non"},
+
+  ]
+  
+  // React state to manage selected options pour les jours d'accueil
+  const [selectedOptions, setSelectedOptions] = useState();
+
+  // Function triggered on selection pour les jours d'accueuil
+  function handleSelect(data) {
+    setSelectedOptions(data);
+  }
+
+  // React state to manage selected options pour l'age d'accueil
+  const [selectedOptions1, setSelectedOptions1] = useState();
+
+  // Function triggered on selection pour l'age d'accueuil
+  function handleSelect(data) {
+    setSelectedOptions1(data);
+  }
   return (
     <>
 
@@ -119,71 +192,7 @@ export default function Header() {
                       S'inscrire
                     </button>
                   </a>
-                  {/* Profile dropdown */}
-                  {/* <Menu as="div" className="relative ml-3">
-                    <div>
-                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800">
-                        <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src={mehdi1}
-
-                          alt="user pic"
-                        />
-                      </Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="myprofile"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Profile
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/messages"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Messages
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/login"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Deconnecter
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu> */}
+                 
                 </div>
               </div>
             </div>
@@ -225,156 +234,290 @@ export default function Header() {
           id="main-menu-filter"
           className="bg-white border-b border-gray-300 p-5"
         >
-          <>
-            <div className="mx-auto  max-w-7xl px-2 sm:px-6 lg:px-8">
-              <div className="relative flex h-16 items-center justify-center">
-                <div className="flex flex-1 flex-wrap  items-center justify-center sm:items-stretch sm:justify-center">
+          
+
+
+          <div className="mx-8  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl "> {/* start */}
+    <div className="mx-auto  sm:px-6  ">
+      <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
+        <div className="container flex flex-wrap p-2  md:flex-row 
+                       items-center justify-between px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+          <div className="flex flex-col gap-8">
+
+
+          
+
+
+<div className="flex flex-wrap justify-center"> {/* first flex */}
+
+
+
+                           <div >
+                             <input
+                             type="text"
+                             id="Nom de l'etablissement"
+                              placeholder="Nom de l'etablissement"
+                            required
+                           className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                           />
+                           </div>
+
+
+
+                           <div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+
+    <div className="type">
+      <div className="dropdown-container w-[300px]">
+        <Select
+        name="Type d’etablissement"
+          options={Typeta}
+          placeholder="Type d'etablissement"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</div>
+
+
+
+<div className="flex flex-wrap justify-center"> {/* second flex */}
+
+
+<div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="age">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Type d’accueil"
+          options={Typeac}
+          placeholder="Type d'accueil"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
                   <div className=" sm:ml-6 sm:block">
-                    <div className="flex-col space-x-4">
-                
-                    </div>
-                  </div>
-                  <div className=" sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <select
-                        id="ad-categorie"
-                        className="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="categorie"
-                      >
-                        <option value="">Pedagogie</option>
-                        <option value="">Montessori</option>
-                        <option value="">Freinet</option>
-                        <option value="">Steiner</option>
-                        <option value="">Institutionnelle</option>
-                        <option value="">Pikler-Loczy</option>
-                      </select>
-                    </div>
-                  </div>
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="jours">
+      <div className="dropdown-container w-[210px]  ">
+        <Select
+        name="Jours d’accueil"
+
+          options={jourac}
+          placeholder="Jours d'accueil"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti
+        />
+      </div>
+    </div>
+    </div>
+    </div>
+  
 
 
-                  <div className=" sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <select
-                        id="Type d’établissement"
-                        class="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="categorie"
-                      >
-                        <option value="">Type d’établissement</option>
-                        <option value="">Prive</option>
-                        <option value="">Public</option>
-      
-                      </select>
-                    </div>
-                  </div>
-
-
-                  <div className=" sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <select
-                        id="ad-categorie"
-                        class="block px-3 py-4 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md h-8 w-[200px] focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="wilaya"
-                      >
-                        <option value="">Wilaya</option>
-                        {wilaya.map((items, key) => (
-                          <option value={items}>{items}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
+    <div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="age">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Age d'accueil"
+          options={ageac}
+          placeholder="Ages d'accueil"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
 
 
 
-                </div>
-                
-              </div>
-              <div className=" flex-col sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <select
-                        id="Type d'accueil"
-                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="categorie"
-                      >
-                        <option value="">Type d’accueil</option>
-                        <option value="">Regulier</option>
-                        <option value="">Ocasionnel</option>
-      
-                      </select>
-                    </div>
-                    <div className="flex space-x-4">
-                      <select
-                        id="Langue"
-                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="categorie"
-                      >
-                        <option value="">Langue</option>
-                        <option value="">Arabe</option>
-                        <option value="">Francais</option>
-                        <option value="">Anglais</option>
-      
-                      </select>
-                    </div>
-                  </div>
-                 {/*  <div className=" sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <select
-                        id="Langue"
-                        class="block px-3 py-2 text-gray-700 bg-rawdawhite border border-rawdapurple rounded-md shadow-sm w-72 focus:outline-violet-200 focus:ring-violet-500 focus:border-transparent focus:ring-1"
-                        name="categorie"
-                      >
-                        <option value="">Langue</option>
-                        <option value="">Arabe</option>
-                        <option value="">Francais</option>
-                        <option value="">Anglais</option>
-      
-                      </select>
-                    </div>
-                  </div> */}
-              <div className="flex flex-1  items-center justify-center sm:items-stretch sm:justify-start">
-                <div className=" sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    <input
-                      type="text"
-                      id="localisation-commune"
 
-                      placeholder="Commune"
+</div>
 
-                  
+<div className="flex flex-wrap justify-center"> {/* Third flex */}
 
-                      required
-                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                <div className=" sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    <input
-                      type="text"
 
-      
+<div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="Capacite">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Capacite"
+          options={Capacite}
+          placeholder="Capacite d'accueil"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
 
-                      id="Date-max"
-                      placeholder="mm/dd/yyyy"
+<div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="pedagogie">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Pedagogie"
+          options={Pedagogie}
+          placeholder="Pedagogie"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
 
-                      required
-                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                <div className=" sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    <input
-                      type="text"
 
-                      id="Jours d'accueil"
-                      placeholder="Jours d'accueil"
+    <div className=" sm:ml-6 sm:block ">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="Langue">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Langue"
+          options={langue}
+          placeholder="Langue"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
 
-                      required
-                      className=" rounded-lg border-rawdapurple flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-              </div> 
+
+
+</div>
+
+
+<div className="flex flex-wrap justify-center"> {/* Fourth flex */}
+
+
+<div className=" sm:ml-6 sm:block ">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="Transport">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Transport"
+          options={verite}
+          placeholder="Transport"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div className=" sm:ml-6 sm:block ">
+                          <div className="flex space-x-4 m-2 md:m-0">
+    <div className="Alimentation">
+      <div className="dropdown-container w-[210px]">
+        <Select
+        name="Alimentation"
+          options={verite}
+          placeholder="Alimentation"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti={false}
+        />
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+<div >
+                             <input
+                             type="int"
+                             id="Prix"
+                              placeholder="Prix/mois (DA)"
+                            required
+                           className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                           />
+                           </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div> {/* start */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
               
               <div className="p-5">
                 <a href="#Filter-search">
@@ -386,8 +529,8 @@ export default function Header() {
                   </button>
                 </a>
               </div>
-            </div>
-          </>
+           
+          
         </Disclosure>
       ) : null}
     </>
