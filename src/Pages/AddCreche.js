@@ -100,20 +100,97 @@ function AddCreche() {
     setSelectedOptions1(data);
   }
 
-  
-   /* const [nomEtab, setNomEtab] = useState('');
-  
-  const handleNomEtabChange = (event) => {
+  const [nom, setNom] = useState('');
+  const [typeta, setTypeta] = useState('');
+  const [typeac, setTypeac] = useState('');
+  const [jouracc, setJourac] = useState('');
+  const [ageacc, setAgeac] = useState('');
+  const [Capacitee, setCapacite] = useState('');
+  const [pedagogie, setPedagogie] = useState('');
+  const [languee, setLangue] = useState('');
+  const [alimentation, setAlimentation] = useState('');
+  const [transport, setTransport] = useState('');
+  const [prix, setPrix] = useState('');
+  const [wilayaa, setWilaya] = useState('');
+  const [nomc, setNomc] = useState('');
+  const [email, setEmail] = useState('');
+  const [num, setNum] = useState('');
+  const [adresse, setAdresse] = useState('');
+
+  const handlenomChange = (event) => {
     setNom(event.target.value);
   }
 
+  const handletypetaChange = (event) => {
+    setTypeta(event.target.value);
   }
+  const handlejouraccChange = (event) => {
+    setJourac(event.target.value);
+  }
+  const handletypeacChange = (event) => {
+    setTypeac(event.target.value);
+  }
+  const handleageacChange = (event) => {
+    setAgeac(event.target.value);
+  }
+  const handlecapaciteeChange = (event) => {
+    setCapacite(event.target.value);
+  }
+  const handlepedagogieChange = (event) => {
+    setPedagogie(event.target.value);
+  }
+  const handlelangueChange = (event) => {
+    setLangue(event.target.value);
+  }
+  const handlealimentationChange = (event) => {
+    setAlimentation(event.target.value);
+  }
+  const handletransportChange = (event) => {
+    setTransport(event.target.value);
+  }
+  const handleprixChange = (event) => {
+    setPrix(event.target.value);
+  }
+  const handlenomcChange = (event) => {
+    setNomc(event.target.value);
+  }
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+  const handlenumChange = (event) => {
+    setNum(event.target.value);
+  }
+  const handleadresseChange = (event) => {
+    setAdresse(event.target.value);
+  }
+
+
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nom de letablissement:', Nom);
+    console.log('Nom:', nom);
+    console.log('Type detablissement:', typeta);
+    console.log('type daccueil:', typeac);
+    console.log('jour daccueil:', jouracc);
+    console.log('age daccueil:', ageacc);
+    console.log('capacite:', Capacite);
+    console.log('Langue:', langue);
+    console.log('Pedagogie:', pedagogie);
+    console.log('Alimentation:', alimentation);
+    console.log('Transport:', transport);
+    console.log('Prix:', prix);
+    console.log('Nom complet:', nomc);
+    console.log('Email:', email);
+    console.log('Numero de †elephone:', num);
+    console.log('Adresse:', adresse);
+
     
-  }  */
+  }
+
+  
+   
   
   const [files, setfiles] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
@@ -159,7 +236,7 @@ function AddCreche() {
       <div className="  mb-[0.5px] mt-[-15px] w-[280px] md:w-[340px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div></div>
  
 
-
+      <form onSubmit={handleSubmit}>
 <div className="mx-8  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl "> {/* start */}
     <div className="mx-auto  sm:px-6  ">
       <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
@@ -187,6 +264,7 @@ function AddCreche() {
                              id="Nom de l'etablissement"
                               placeholder="Nom de l'etablissement"
                             required
+                            onChange={handlenomChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -206,6 +284,7 @@ function AddCreche() {
           onChange={handleSelect}
           isSearchable={true}
           isMulti={false}
+
         />
       </div>
     </div>
@@ -394,6 +473,7 @@ function AddCreche() {
                              id="Prix"
                               placeholder="Prix/mois (DA)"
                             required
+                            onChange={handleprixChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -481,6 +561,7 @@ function AddCreche() {
                              id="L’adresse complète de l’établissement"
                               placeholder="L’adresse complète de l’établissement"
                             required
+                            onChange={handleadresseChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[650px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -580,6 +661,7 @@ function AddCreche() {
                              id="nom"
                               placeholder="Nom complet"
                             required
+                            onChange={handlenomcChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -590,6 +672,7 @@ function AddCreche() {
                              id="mail"
                               placeholder="Adresse mail"
                             required
+                            onChange={handleEmailChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -610,6 +693,7 @@ function AddCreche() {
                              id="num"
                               placeholder="Numero de telephone"
                             required
+                            onChange={handlenumChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -620,6 +704,7 @@ function AddCreche() {
                              id="Adresse"
                               placeholder="Adresse"
                             required
+                            onChange={handleadresseChange}
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -686,63 +771,7 @@ function AddCreche() {
       </div>
     </div>
 </div> {/* start */}
-
-
-     {/*  <div className="mx-8 rounded-lg bg-rawdpurple bg-opacity-5 ">
-           <div className="mx-6 my-6 gap-4 sm:px-6 lg:px-10 ">
-               
-              <div className="container flex-row  w-full h-max justify-center items-center md:mb-10 mb-4">
-              
-              <div className="flex justify-start p-4">
-      <p
-          className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-4
-            md:text-xl ">
-          Les informations de ma creche
-        </p>
-        </div>
-
-        <div className="w-full h-fit flex flex-col items-center justify-center gap-y-[50px]">
-          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-y-[15px] md:gap-x-[20px]">
-
-
-                 
-                        
-                        
-                          <div >
-                             <input
-                             type="text"
-                             id="Nom de l'etablissement"
-                              placeholder="Nom de l'etablissement"
-                            required
-                           className="rounded-lg w-[250px] h-[50px] md:w-[400px] border-rawdapurple opacity-40 border py-2 px-4 mx-4 my-4 text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           />
-                           </div>
-
-                             <div className="flex space-x-4">
-                             <input
-                              type="text"
-                              id="Type de l'etablissement"
-                              placeholder="Type de l'etablissement"
-                              required
-                              className="rounded-lg w-[250px] h-[50px] md:w-[300px] border-rawdapurple opacity-40 border py-2 px-4 mx-4 my-4 text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-violet-200 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           />
-                           </div>
-
-                           
-
-                           </div>
-                           
-                           </div>
-                           </div>
-
-
-                      </div> 
-
-             
-
-
-         </div>
-        */}
+</form>
 
      
       <Footer />
