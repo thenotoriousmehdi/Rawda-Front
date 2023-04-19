@@ -1,16 +1,17 @@
 
-import { profilsdata } from "./profilsdata";
+import { profilsdata } from "../dataa/profilsdata";
 import { Swiper , SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import FormDialog from "./evaluationDialog";
 export default function Avis (){
   
 
 return(
 
-      <div className="mx-16  my-16 bg-mehdi p-5 font-sans  text-center rounded-md ">
+      <div className="mx-16  my-16 bg-rawdapurple bg-opacity-5 p-5 font-sans  text-center rounded-md ">
          
          <div className="flex flex-col  gap md:gap-y-0 mb-10 items-center">
           <h3  className=" font-body font-bold text-5xl leading-6  text-rawdapurple  mt-6 text-center commenth3 z-10"> Avis </h3>
@@ -41,9 +42,8 @@ return(
               </SwiperSlide>) )  }
            </Swiper> 
                                   
-
+           <FormDialog/>
            </div>
-       <button className="border  border-rawdapurple rounded-lg font-body w-40  h-14   mt-14 font-medium text-2xl text-black" >Evaluer</button>
       </div>
 )
 }
