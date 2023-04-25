@@ -27,3 +27,33 @@
         display: none;
     }
 }
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+
+input:invalid[focusedp="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focusedp="true"] ~ span{
+    display: block;
+}
+
+.swiper{
+    padding:40px !important ; 
+}
+.swiper-button-prev {
+    left: 0px !important;
+    color: #6938EF !important;
+}
+.swiper-button-next {
+    right: 0px !important;
+    color: #6938EF !important;
+}
+.swiper-pagination-bullet {
+    background: #6938EF !important;
+}
