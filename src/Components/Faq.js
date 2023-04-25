@@ -4,7 +4,7 @@ import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
 
 import FaqCard from "./FaqCard";
-import arrow from "../../assets/arrowblack.svg";
+import arrow from "../assets/arrowblack.svg";
 
 const Faq = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

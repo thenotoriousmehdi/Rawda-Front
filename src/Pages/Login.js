@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import image1 from './assets/image1.svg';
-import logo from './assets/logo.svg';
+import React, { useState } from "react";
+import image1 from "../assets/iluss2.png";
+import logo from "../assets/logo.svg";
 
 const Login = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -27,13 +27,22 @@ const Login = (props) => {
 
       <div className="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         <div className="ml-5">
-          <div><h1 className="text-4xl font-body font-bold mt-6 text-rawdapurple">Bienvenue dans notre</h1></div>
-          <div><h1 className="text-4xl font-body font-bold text-rawdapurple">communauté</h1></div>
-          <div className="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 gap-1">
-          <p className="text-lg font-body text-gray-500 mb-8">Une nouvelle façon de prendre soin de votre famille commence ici</p>
-          <img className="w-full sm:w-[250px]" src={image1} alt="Image 1" />
+          <div>
+            <h1 className="text-4xl font-body font-bold mt-6 text-rawdapurple">
+              Bienvenue dans notre
+            </h1>
           </div>
-
+          <div>
+            <h1 className="text-4xl font-body font-bold text-rawdapurple">
+              communauté
+            </h1>
+          </div>
+          <div className="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 gap-1">
+            <p className="text-lg font-body text-gray-500 mb-8">
+              Une nouvelle façon de prendre soin de votre famille commence ici
+            </p>
+            <img className="w-full sm:w-[250px]" src={image1} alt="Image 1" />
+          </div>
         </div>
 
         <div className="px-8">
@@ -43,7 +52,9 @@ const Login = (props) => {
             </button>
           </div>
 
-          <p className="text-center font-body mb-8">Ou inscrivez-vous avec votre email</p>
+          <p className="text-center font-body mb-8">
+            Ou inscrivez-vous avec votre email
+          </p>
 
           <form onSubmit={handleSubmit}>
             <label className="flex justify-center mb-4">
@@ -75,25 +86,25 @@ const Login = (props) => {
               </button>
             </div>
           </form>
-         
+
           <div class="flex justify-center">
-              <section class=" border-b border-gray-500 border-opacity-50 border-solid w-80"></section>
-            </div>
-         
+            <section class=" border-b border-gray-500 border-opacity-50 border-solid w-80"></section>
+          </div>
+
           <div className="flex justify-center items-center my-8">
-            <span className="text-gray-500 font-body text-sm mr-2">Vous n'avez pas de compte ?</span>
+            <span className="text-gray-500 font-body text-sm mr-2">
+              Vous n'avez pas de compte ?
+            </span>
             <button
               className="text-violet-700 font-body text-sm font-bold cursor-pointer"
-              onClick={() => props.onFormSwitch('Signup')}
+              onClick={() => props.onFormSwitch("Signup")}
             >
               S'inscrire
             </button>
           </div>
         </div>
-        </div>
-        </div>
-        
-    );
-    
-}
-      export default Login;
+      </div>
+    </div>
+  );
+};
+export default Login;
