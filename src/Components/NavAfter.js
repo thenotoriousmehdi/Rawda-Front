@@ -6,7 +6,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   XMarkIcon,
-  MagnifyingGlassIcon,
+  AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import rawda from "../assets/rawda.svg";
 
@@ -21,36 +21,31 @@ export default function NavAfter() {
 <Footer/>
     );
   }
-/* 
+
+
+
   const handleClick = () => {
     if (fopen === true) {
       setFOpen(false);
     } else setFOpen(true);
   };
-  */
+  
   return (
     <>
       <Disclosure as="nav" className="bg-white border-b border-gray-300 ">
         {({ open }) => (
           <>
+       
+
+      
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
-                {/* Mobile menu button*/}
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="sr-only">Open main menu</span>
-                    {open ? (
-                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                    ) : (
-                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                    )}
-                  </Disclosure.Button>
-                </div>
+               
                 {/* Mobile menu button */}
-                <div className="flex space-x-48 flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center">
+                <div className="flex space-x-48 flex-1 justify-between sm:items-stretch ">
+                  <div className="flex flex-shrink-0 items-center justify-between">
                     <a href="/">
-                      <img
+                    <img
                         className="block h-8 w-auto lg:hidden"
                         src={rawda}
                         alt="rawdalogo"
@@ -60,12 +55,33 @@ export default function NavAfter() {
                         src={rawda}
                         alt="rawdalogo"
                       />
+                    
                     </a>
                   </div>
                   
                 </div>
+
+
+                {/*  <div className="hidden sm:ml-6 sm:block">
+                    <div className="nav-search flex space-x-4 bg-white items-center border border-gray-300 rounded-xl ">
+                      <input
+                        id="desktop-search"
+                        type="text"
+                        placeholder="Rechercher..."
+                        className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
+                      />
+                      <a href="#search" onClick={handleClick}>
+                        <AdjustmentsHorizontalIcon
+                          className="hidden md:inline-flex h-10 rounded-full p-2 cursor-pointer mx-4 text-gray-500"
+                          onClick={handleClick}
+                        />
+                      </a>
+                    </div>
+                  </div> */} 
+
+
+
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                 
                  
                   {/* Profile dropdown */}
                    <Menu as="div" className="relative ml-3">
@@ -112,7 +128,7 @@ export default function NavAfter() {
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
-                              Messages
+                              Notifications
                             </a>
                           )}
                         </Menu.Item>
@@ -136,7 +152,7 @@ export default function NavAfter() {
               </div>
             </div>
 
-        
+         
           </>
         )}
       </Disclosure>

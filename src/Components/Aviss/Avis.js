@@ -3,7 +3,12 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
 import AvisCard from "./AvisCard";
-import arrow from "../../assets/arrowblack.svg";
+import arrow from "../../assets/arrow1.svg";
+import mehdi from "../../assets/mehdi1.png";
+import mouloud from "../../assets/mouloud.jpg"
+import ines from "../../assets/ines.jpeg"
+import kahina from "../../assets/kahina.jpg"
+import deco from "../../assets/deco3.svg";
 
 const Avis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,18 +25,21 @@ const Avis = () => {
   });
   const data = [
     {
+      photo: mehdi,
       nom: "Mehdi MAMOUNI",
       avis: `Je suis tellement reconnaissant d'avoir découvert Rawda ! Grâce à ce site web,
       j'ai pu trouver la crèche parfaite pour mon enfant.
        Je recommande vivement Rawda à tous les parents qui cherchent une crèche de qualité en Algérie.`,
     },
     {
+      photo: mouloud,
       nom: "Mouloud SERIR",
       avis: `Maman cherchait ya quelques temps une crèche pour mon frère qui travaille le samedi je lui ai proposé de me 
       laisser le faire à travers rawda et franchement je ne regrette pas, j’ai inscrit mon frère dans la crèche en moins
        de 10 minute le seul bemole était le temps d’attente pour recevoir une réponse de la part de la crèche `,
     },
     {
+      photo: kahina,
       nom:
         "Kahina SAADAOUI",
       avis: `Rawda est super ! J'ai pu trouver toutes les informations dont j'avais besoin sur les différentes 
@@ -39,6 +47,7 @@ const Avis = () => {
       `,
     },
     {
+      photo:ines ,
       nom: "Ines MEDERBEL",
       avis: "je suis impressionné par la qualité de service, j’ai cliqué sur le bouton a gauche de la barre de recherche et une multitude de critère sont affiche devant moi ca m’a pris 1 minute pour sélectionner les critère qui répondent à mes besoins et puis les crèches correspondant étaient affichées, j’ai pu trouver une crèche pour mon fils et même réserver une place ",
     },
@@ -53,9 +62,16 @@ const Avis = () => {
        
 
 
+       <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
 
-        
-       {/*  <SectionTitle title="FAQ" /> */}
+
+<p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10 ">   Ce que disent les parents sur nous  </p>
+      <div className="  mb-[0.5px] mt-[-15px] w-[120px] md:w-[580px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
+
+</div>
+
+
+       
 
 
 
@@ -64,7 +80,7 @@ const Avis = () => {
         <div ref={sliderRef} className="keen-slider">
           {data.map((e, idx) => {
             return (
-              <AvisCard key={idx} nom={e.nom} avis={e.avis} />
+              <AvisCard key={idx} photo={e.photo} nom={e.nom} avis={e.avis} />
             );
           })}
 
@@ -91,7 +107,7 @@ const Avis = () => {
           )}
         </div>
         {loaded && instanceRef.current && (
-          <div className="relative flex justify-center py-3 -mt-7 z-20">
+          <div className="relative flex justify-center py-2 -mt-7 z-20">
             {[
               ...Array(instanceRef.current.track.details.slides.length).keys(),
             ].map((idx) => {
@@ -102,7 +118,7 @@ const Avis = () => {
                     instanceRef.current?.moveToIdx(idx);
                   }}
                   className={
-                    "border-none w-2 h-2 rounded-full p-1 mx-1 cursor-pointer" +
+                    "border-none w-2 h-2  rounded-full p-1 mx-1 cursor-pointer" +
                     (currentSlide === idx ? " bg-rawdapurple " : " bg-rawdapurple bg-opacity-30")
                   }
                 ></button>

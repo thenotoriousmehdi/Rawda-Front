@@ -4,13 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
- body {
+ /* body {
     background-image: url('./assets/Ellipse.svg');
     background-repeat: no-repeat;
     background-size: 400px;
     background-position: 110% -90%;
-  } 
-  
+  }  */
+  .bg-internal-img {
+    background-image: url('./assets/bgprofile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @media (max-width: 640px) {
     
     #pub{

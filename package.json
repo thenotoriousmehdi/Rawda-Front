@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.8",
     "react-scripts": "^5.0.1",
+    "react-select": "^5.7.2",
     "reactstrap": "^9.1.6",
     "web-vitals": "^2.1.4"
   },
