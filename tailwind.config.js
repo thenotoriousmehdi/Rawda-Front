@@ -12,6 +12,10 @@ rawdawhite:   '#FAF9F9' ,
 rawdablack: '1E1E1E' ,
 mehdi: 'CEA9EC'
 
+},
+fontFamily: {
+body: ['Poppins']
+
 }
 
 
