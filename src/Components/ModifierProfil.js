@@ -3,7 +3,7 @@ import mehdi from "../assets/mehdi.jpeg";
 import line from "../assets/line.svg";
 import line2 from "../assets/line2.svg";
 import Footer from "../Components/Footer";
-import Profile from "./Profile";
+import Profile from "../Pages/Profile";
 function ModifierProfil({nomc,role,handleClick}){
 
 return(

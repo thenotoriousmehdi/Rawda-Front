@@ -1,5 +1,5 @@
 
-import mehdi from "../../assets/creche.jpg";
+import mehdi from "../assets/creche.jpg";
 export default function CrecheCard({nom,adresse}){
 return(
 

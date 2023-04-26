@@ -3,7 +3,7 @@ import Select from 'react-select'
 import Footer from "../Components/Footer";
 import NavAfter from "../Components/NavAfter";
 import React, { useState } from "react";
-import arrow from "../assets/arrow.png";
+
 import galery from "../assets/galery.svg";
 import exit from "../assets/exit1.svg";
 

@@ -1,5 +1,5 @@
-import profile1 from '../assets/profile1.png'
-import profile2 from '../assets/profile2.png'
+import profile1 from '../../assets/mehdi.jpeg'
+import profile2 from '../../assets/kahina.jpg'
 
 export const profilsdata = [
     {

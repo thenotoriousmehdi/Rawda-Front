@@ -1,6 +1,6 @@
 import React, { useState, Component } from 'react';
-import logo from './assets/logo.svg';
-import google from './assets/google.svg';
+import logo from "../assets/logo.svg";
+import google from "../assets/google.svg"
 //import logo from './logo.svg';
 
 const Signup =(props) => {

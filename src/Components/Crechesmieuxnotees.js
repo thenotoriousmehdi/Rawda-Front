@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
-import arrow from "../../assets/arrowblack.svg";
+import arrow from "../assets/arrowblack.svg";
 import CrecheCard from "./CrecheCard";
 
 const Crechesmieuxnotees = () => {

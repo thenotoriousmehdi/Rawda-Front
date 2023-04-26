@@ -11,10 +11,11 @@ import Profile from "./Pages/Profile";
 import Notification from "./Components/Notification";
 import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Components/ModifierProfil";
+import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
 function App() {
   return (
-
-      <Notifications/> 
+<CrechInfoCard/>
+     /*  <Notifications/>  */
   /*  <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    */
    
        
