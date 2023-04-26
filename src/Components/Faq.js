@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
-
 import FaqCard from "./FaqCard";
-import arrow from "../assets/arrowblack.svg";
+import arrow from "../../assets/arrowblack.svg";
 
 const Faq = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,30 +21,41 @@ const Faq = () => {
   const data = [
     {
       question: "Est ce que l’utilisation de votre site est gratuite?",
-      answer: `Lorem ipsum dolor sit amet. Qui ratione perferendis qui impedit similique est corporis repellat id harum aspernatur. Hic rerum nemo et quae natus aut rerum voluptas. Eos fuga quasi qui mollitia voluptatibus ut incidunt consectetur non dignissimos delectus.
-
+      answer: `Oui, l'utilisation de Rawda est totalement gratuite que ce soit pour les réguliers ou même si vous êtes un nouvel utilisateur.
+      Vous pouvez rechercher et consulter des informations sur les 
+      différentes crèches sans payer aucun frais.
       `,
     },
     {
-      question: "Comment puis-je trouver une crèche proche de chez moi ?",
-      answer: `Lorem ipsum dolor sit amet. Qui ratione perferendis qui impedit similique est corporis repellat id harum aspernatur. Hic rerum nemo et quae natus aut rerum voluptas. Eos fuga quasi qui mollitia voluptatibus ut incidunt consectetur non dignissimos delectus.
+      question:  "Quels sont les critères de recherche disponibles pour trouver une crèche ?",
+      answer: `Les critères de recherche disponibles pour trouver une crèche sur notre site comprennent la localisation, 
+      les heures d'ouverture, les tarifs, les services proposés, les âges des enfants acceptés et la capacité d'accueil. 
+      Vous pouvez également filtrer les résultats en fonction de vos besoins.
+      
 
       `,
     },
     {
       question:
-        "Comment fonctionne le moteur de recherche de votre site ?",
-      answer: `Lorem ipsum dolor sit amet. Qui ratione perferendis qui impedit similique est corporis repellat id harum aspernatur. Hic rerum nemo et quae natus aut rerum voluptas. Eos fuga quasi qui mollitia voluptatibus ut incidunt consectetur non dignissimos delectus.
+        "Comment puis-je trouver une crèche proche de chez moi ?",
+      answer: `vous pouvez utiliser notre moteur de recherche en entrant le nom de votre ville dans la barre de recherche.
+      Les résultats affichent les crèches les plus proches de chez vous, avec des informations sur leur emplacement, 
+      leurs horaires d'ouverture, leurs services, capacité d'accueil et leurs tarifs. 
 
       `,
     },
     {
-      question: "Quels sont les critères de recherche disponibles pour trouver une crèche ?",
-      answer: "Lorem ipsum dolor sit amet. Qui ratione perferendis qui impedit similique est corporis repellat id harum aspernatur. Hic rerum nemo et quae natus aut rerum voluptas. Eos fuga quasi qui mollitia voluptatibus ut incidunt consectetur non dignissimos delectus ",
+      question: "Comment puis-je inscrire mon enfant  ?",
+      answer: " Pour inscrire votre enfant dans une crèche après avoir trouvé celle qui répond à vos besoins en consultant ses informations sur notre site, nous vous invitons à consulter la carte de la crèche où vous trouverez beaucoup plus dinformations, telles que des photos, ainsi que deux boutons Prendre rendez-vous ou Inscrire mon enfant. Vous pouvez donc inscrire votre enfant directement sur le site via un formulaire, bien que nous vous conseillons de visiter la crèche ou de prendreun rendez-vous directement à travers Rawda."
     },
     {
-      question: "Comment puis-je réserver une place dans une crèche ?",
-      answer: `Lorem ipsum dolor sit amet. Qui ratione perferendis qui impedit similique est corporis repellat id harum aspernatur. Hic rerum nemo et quae natus aut rerum voluptas. Eos fuga quasi qui mollitia voluptatibus ut incidunt consectetur non dignissimos delectus.
+      question: "Comment puis-je laisser un commentaire ou un avis sur une crèche ?",
+      answer: `Vous pouvez laisser un commentaire ou un avis sur une crèche en accédant à la carte de la crèche et en cliquant sur le bouton 
+      évaluer en bas de page ou vous trouverez des avis d'autres utilisateurs sur la même crèche. Vous serez redirigé vers une page où vous pourrez laisser
+      votre avis sur la crèche. Nous vous encourageons à partager votre expérience avec d'autres 
+      parents pour les aider à trouver la meilleure crèche pour leurs enfants. Cependant, nous vous demandons de respecter les normes 
+      de respect dans vos commentaires et de ne pas utiliser de langage malpoli. 
+      
 
       `,
     },
@@ -82,7 +92,7 @@ const Faq = () => {
                   e.stopPropagation() || instanceRef.current?.prev()
                 }
                 disabled={currentSlide === 0}
-              /> */}
+              /> 
 
                <Arrow
                 onClick={(e) =>
