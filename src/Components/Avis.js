@@ -6,9 +6,9 @@ import AvisCard from "./AvisCard";
 import arrow from "../../assets/arrow1.svg";
 import mehdi from "../../assets/mehdi1.png";
 import mouloud from "../../assets/mouloud.jpg"
-import ines from "../../assets/ines.jpg"
+import ines from "../../assets/ines.jpeg"
 import kahina from "../../assets/kahina.jpg"
-
+import deco from "../../assets/deco3.svg";
 
 const Avis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

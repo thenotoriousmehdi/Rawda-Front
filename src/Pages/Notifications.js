@@ -7,13 +7,13 @@ function Notifications (){
     
    
 return (
-    <><NavAfter /><div className="bg-rawdawhite ">
+    <><NavAfter /><div className="bg-rawdawhite">
 
 
 
         <div className="flex flex-col items-center gap pt-8 md:gap-y-0 ">
             <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdapurple z-10">  Notifications</p>
-            <div className="  mb-[0.5px] mt-[-15px] w-[190px] md:w-[220px] h-[20px]  bg-rawdapurple bg-opacity-20 shadow-rawdayellow "></div></div>
+            <div className="  mb-[0.5px] mt-[-15px] w-[190px] md:w-[220px] h-[20px]  bg-rawdawhite shadow-rawdayellow "></div></div>
 
         <div className="flex flex-col gap-6 items-center mt-[30px] p-8">
 

@@ -9,7 +9,7 @@ return(
 /* <div className=" flex justify-center bg-rawdapurple opacity-5 aspect-auto w-[910px] h-[600px] p-6 rounded-md mx-6 my-6 ">
 </div>
  */
-<div id="Promo" className="mx-8 bg-opacity-5 bg-rawdapurple my-8 rounded-md">
+<div id="Promo" className="mx-8 bg-opacity-5 bg-rawdapurple my-8 ">
        <div className="mx-auto  sm:px-6 lg:px-10 ">
 
 
