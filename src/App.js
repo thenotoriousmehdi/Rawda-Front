@@ -11,12 +11,15 @@ import Profile from "./Pages/Profile";
 import Notification from "./Components/Notification";
 import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Components/ModifierProfil";
-
 function App() {
   return (
-    <div className="bg-rawdawhite">
-      <Login />
-    </div>
-  );
+
+      <Notifications/> 
+  /*  <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    */
+   
+       
+        
+  )
 }
 export default App;
+
