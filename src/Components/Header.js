@@ -124,7 +124,7 @@ export default function Header() {
 
 
     
-      <Disclosure as="nav" className="bg-white border-b border-gray-300 ">
+      <Disclosure as="nav" className=" sticky top-0 z-50 bg-white border-b border-gray-300 ">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

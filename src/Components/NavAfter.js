@@ -32,7 +32,7 @@ export default function NavAfter() {
   
   return (
     <>
-      <Disclosure as="nav" className="bg-white border-b border-gray-300 ">
+      <Disclosure as="nav" className="sticky top-0 z-50 bg-white border-b border-gray-300 ">
         {({ open }) => (
           <>
        
