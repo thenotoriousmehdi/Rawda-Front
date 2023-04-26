@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
-import arrow from "../assets/arrowblack.svg";
+import arrow from "../../assets/arrowblack.svg";
 import CrecheCard from "./CrecheCard";
 
 const Crechesmieuxnotees = () => {
@@ -174,35 +174,3 @@ function Arrow(props) {
 
 
 
-/* <div className="flex flex-col gap-2 p-6"> 
-
-<div className="flex flex-col items-center gap md:gap-y-0">
-        <p className="  text-center text-3xl md:text-4xl font-bold text-Poppins z-10 ">Les crèches les mieux notées</p>
-      <div className="  mb-[20px] mt-[-15px] w-[200px] md:w-[500px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div></div>
-
-<div className="flex flex-col items-center justify-evenly  h-full md:h-[500px]  md:flex md:flex-row md:justify-evenly ">
-<CrecheCard/>
-<CrecheCard/>
-<CrecheCard/>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-) ;
-
-} */
