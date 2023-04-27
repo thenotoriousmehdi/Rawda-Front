@@ -82,7 +82,15 @@ export default function NavAfter() {
 
 
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                 
+                <a href="/posturad">
+                    <button
+                      id="pub"
+                      type="button"
+                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                    >
+                      Aide
+                    </button>
+                  </a>
                   {/* Profile dropdown */}
                    <Menu as="div" className="relative ml-3">
                     <div>

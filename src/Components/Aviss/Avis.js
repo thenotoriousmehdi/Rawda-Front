@@ -85,7 +85,7 @@ const Avis = () => {
           })}
 
           {loaded && instanceRef.current && (
-            <div className="h-full lg:w-2/3 md:w-4/5 sm:w-5/6 w-5/6">
+            <div className="h-full  md:w-2/3 sm:w-5/6 w-5/6">
                <Arrow
                 left
                 onClick={(e) =>
