@@ -63,7 +63,7 @@ const Signup =(props) => {
 
     <div class="h-screen bg-rawdawhite">
 
-            <div className=" flex items-center justify-center h-12  bg-white">
+            <div className=" flex border-1 border-y-rawdablack items-center justify-center h-20 sticky top-0 z-50 border-b border-gray-300 bg-white mb-[70px]">
                  <img className="w-1/12 mb-4 mt-4 " src={logo} alt="logo" />
             </div>
 
@@ -115,7 +115,7 @@ const Signup =(props) => {
                              </div>
 
                               <div class="mx-auto my-auto md:w-6/12 ">
-                                      <button class="lg:mb-7 w-full h-12 mt-5 border-2 font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-2xl opacity-100 shadow-purple-600" type="submit" onClick={handleFormSubmit}> S'inscrire </button>
+                                      <button class="lg:mb-7 w-full h-12 mt-5 font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600" type="submit" onClick={handleFormSubmit}> S'inscrire </button>
 
 
                                       {showPopup && (
