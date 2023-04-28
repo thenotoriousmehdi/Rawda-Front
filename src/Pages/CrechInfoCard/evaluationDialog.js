@@ -1,15 +1,13 @@
 import * as React  from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { TextareaAutosize } from '@mui/material';
 import { useRef } from 'react'
 import Rating from '@mui/material/Rating';
-
+import { useState } from 'react';
 
 
 export default function FormDialog() {
@@ -18,19 +16,23 @@ export default function FormDialog() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
+ const [publie, setPublie] = useState(false);
   const handleClose = () => {
+    setPublie(false);  
     setOpen(false);
   };
    
 
   const textAreaRef = useRef(null);
 
+
   const handleLogValue = () => {
     console.log(textAreaRef.current.value);
     console.log(value) ; 
-  };
+    setPublie(true);  
+   };
 
+ 
 
 
 
@@ -74,12 +76,13 @@ export default function FormDialog() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{ color:'#6938EF' , mb:2,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button>
-          <Button onClick={handleClose}  onClick={handleLogValue} sx={{ color:'white', mr:2 , mb:2,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }}>Publier</Button>
+        
+        { !publie ?  <Button onClick={handleClose} sx={{ color:'#6938EF' , mb:2,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button>
+: null}
+         <Button  onClick={handleLogValue} sx={{ color:'white', mr:2 , mb:2,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }}> { !publie ?   'Publier' : 'Publié!'}</Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
- /*class="border border-rawdapurple  rounded-lg font-body w-40  h-14  mt-14    font-medium text-2xl text-black"* */
  
