@@ -10,10 +10,18 @@ const Signup =(props) => {
       const [prenom, setPrenom] = useState('');
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
-      const [typeUtilisateur, setTypeUtilisateur] = useState('');
+     // const [typeUtilisateur, setTypeUtilisateur] = useState('');
       const [userType, setUserType] = useState(null);
       const [showPopup, setShowPopup] = useState(false);
+      const [role, setRole] = useState('');
 
+      const handleParentClick = () => {
+        setRole('Parent');
+      }
+    
+      const handleProprioClick = () => {
+        setRole('Proprio');
+      }
 
 
       const handleNomChange = (event) => {
@@ -42,7 +50,8 @@ const Signup =(props) => {
         console.log('Password:', prenom);
         console.log('Email:', email);
         console.log('Password:', password);
-        console.log('Type de lutilisateur:', userType);
+        //console.log('Type de lutilisateur:', userType);
+        console.log('Role:',role )
       }
       const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -91,11 +100,15 @@ const Signup =(props) => {
                              <div class="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-1 " >
                                
 
-                                    <button className={` font-body  py-3 mr-5 font-bold font-poppins text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none ${ userType === 'parent' ? ' underline' : '' }`} onClick={() => handleUserTypeChange('parent')}>
+                                    <button 
+                                    onClick={handleParentClick}
+                                    className=" font-body  py-3 mr-5 font-bold font-poppins text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none ">
                                      Un parent  
                                     </button>
 
-                                     <button className ={` py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none ${ userType === 'creche' ? ' underline' : '' }`} onClick={() => handleUserTypeChange('creche')}>
+                                     <button 
+                                     onClick={handleProprioClick}
+                                     className =" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none">
                                       Respo de crèche
                                      </button> 
                               
