@@ -10,7 +10,7 @@ const Signup =(props) => {
       const [prenom, setPrenom] = useState('');
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
-     // const [typeUtilisateur, setTypeUtilisateur] = useState('');
+   
       const [userType, setUserType] = useState(null);
       const [showPopup, setShowPopup] = useState(false);
       const [role, setRole] = useState('');
@@ -50,7 +50,6 @@ const Signup =(props) => {
         console.log('Password:', prenom);
         console.log('Email:', email);
         console.log('Password:', password);
-        //console.log('Type de lutilisateur:', userType);
         console.log('Role:',role )
       }
       const handleFormSubmit = (event) => {
