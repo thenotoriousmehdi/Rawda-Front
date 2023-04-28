@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import axios from 'axios';
+import axios from 'axios'; /* on rajouté had l'impport */
 import { useNavigate , Link } from 'react-router-dom';
 import image1 from '../assets/image1.svg';
 import image2 from '../assets/image2.svg';
