@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from "../assets/logo.svg";
 import google from "../assets/google.svg";
-import axios from 'axios';
+import axios from 'axios'; /* on a ajouté had l'import */
 
 const Signup =(props) => {
 
