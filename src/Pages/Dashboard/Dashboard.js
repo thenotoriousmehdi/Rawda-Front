@@ -23,7 +23,6 @@ const data = {
         backgroundColor: [
             '#ACAA56',
             '#6938EF',
-            
             '1E1E1E'],
             hoverOffset: 4,
         
@@ -40,6 +39,7 @@ return(
     <NavAfter  />
     
     
+<div className="flex items-center">
 
 <div className="flex justify-center flex-col gap-2 mb-10">
 
@@ -71,7 +71,7 @@ return(
 
 </div>
 
-
+</div>
 
 
 
