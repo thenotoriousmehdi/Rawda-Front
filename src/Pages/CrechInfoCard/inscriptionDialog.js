@@ -4,13 +4,13 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
+
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
+
 import { useState } from 'react';
-import { Form } from 'react-router-dom';
-import  "../../index.css"
+
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -67,9 +67,10 @@ export default function CustomizedDialogs() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const [buttonText, setButtonText] = useState('Inscrire mon enfant');
   const handleClose = () => {
     setOpen(false);
-    
+    setButtonText('Inscrire mon enfant') ; 
     setFocused(false);
     setFocusedp(false);
   };
@@ -102,6 +103,7 @@ export default function CustomizedDialogs() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setButtonText('Enfant inscris!') ; 
     console.log('Nom :', nomc);
     console.log('Prenom:', prenom);
     console.log('date de naissance :', datenaiss);
@@ -112,8 +114,9 @@ export default function CustomizedDialogs() {
   }
 
 
-  
-
+  const today = new Date();
+  today.setDate(today.getDate() + 2);
+  const minDate = today.toISOString().substr(0, 10);
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen} 
@@ -211,6 +214,7 @@ export default function CustomizedDialogs() {
                              id="datEnt"    
                              value={dateEnt} onChange={handleDatentChange}
                             required
+                           min={minDate} 
                            className="rounded-md  h-[38px]  md:w-[310px] my-4 bg-white  mt-1 border-purple-400  border py-2 px-2 m-2 text-gray-700 placeholder-gray-400 shadow-sm  text-sm sm:text-base  focus:outline-violet-400 focus:ring-2 focus:border-violet-400   "
                            /> 
                     </div>
@@ -221,7 +225,7 @@ export default function CustomizedDialogs() {
               <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button> 
        
                <Button autoFocus  type='submit' sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
-              Inscrire mon enfant
+             {buttonText}
           </Button>
 
              </div>
@@ -234,4 +238,3 @@ export default function CustomizedDialogs() {
     </div>
   );
 }
-/**  */

@@ -54,24 +54,24 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
 export default function CustomizedDialogsRdv() {
   const [open, setOpen] = React.useState(false);
+  
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const [buttonTextform, setbuttonTextform] = useState('Envoyer');
+  const [Rdvclosed, setRdvclosed] = useState(false);
 
-    setFocused(false);
-    setFocusedp(false);
+ 
+   
+ 
 
-  };
-
-
+  
   const [nomc, setNomc] = useState('');
  
   const [num, setNum] = useState('');
 
-  const [value, setValue] = useState(new Date());
+  const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
   
   const [selectedOption, setSelectedOption] = useState('10:00');
 
@@ -106,27 +106,42 @@ export default function CustomizedDialogsRdv() {
   const handleSubmit = (event) => {
    
     event.preventDefault();
+    setbuttonTextform('Envoyé!');
+    setRdvclosed(false)  ; 
     console.log('Nom complet:', nomc);
   
     console.log('Numero de †elephone:', num);
     
-    console.log('date', value);
+    console.log('date', datetoken);
 
     console.log('time', selectedOption);
     
   }
   
- 
-  
+  const [Textconfirmation, setTextconfirmation] = useState(false) ; 
+  const handleconfirmation = (e) =>{
+    setTextconfirmation(true) ; 
+    console.log('rdv annulé ', Textconfirmation) ; 
+     setbuttonTextform('Envoyer'); 
+     setRdvclosed(false)  ; 
+    } ; 
 
- 
+    const handleClose = () => {
+      setOpen(false);
+      setFocused(false);
+      setFocusedp(false); 
+      setRdvclosed(true)  ;
+      if( Textconfirmation ) {
+        setTextconfirmation(false) ; 
+      }
+    };
 
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}
       sx={{color:'black' ,fontWeight: 600 ,m:4 ,mx:0 ,  mt:0 , fontSize:{xs:12, sm:20} , padding:1.7 ,fontFamily:'Poppins' ,border:'#6938EF solid 2px' ,  '&:hover': {border:'#6643b5 solid 1px'} }}>
-       Prendre un rendez-vous
-      </Button>
+         {(buttonTextform ==='Envoyé!')  ? 'Annuler le rendez-vous': 'Prendre un rendez-vous'}
+           </Button>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
@@ -140,26 +155,44 @@ export default function CustomizedDialogsRdv() {
         backgroundSize: { xs: '32% .4em'    , md:'36% .5em'},
         backgroundPosition: {xs:'8% 64%',md:'6% 64%'}}}
         >
-          Prise de rendez-vous 
+      Prise de rendez-vous 
         </BootstrapDialogTitle>
         <DialogContent dividers>
-         <Typography gutterBottom sx={{ fontSize:13}} >
-            Pour avoir plus d'informations sur la créche et pour completer les procedures  
-            d'inscription de votre enfant ,veuillez prendre un rendez-vous dés maintenant ! 
-  </Typography>
+         
+  {( Rdvclosed && buttonTextform==='Envoyé!'  )  ?  
 
-          <form onSubmit={handleSubmit} >
-       
+        <div className='p-2 text-base font-body leading-7'> 
+            <p > Vous avez pris un rendez-vous pour visiter la crèche le  <strong>{datetoken.getDate() } / {datetoken.getMonth() + 1} / {datetoken.getFullYear() }  </strong> à <strong>{selectedOption}</strong>  au nom de <strong>{nomc}</strong>. Veuillez consulter votre boîte  email pour la réponse de la crèche dans le délai de 2 jours. <br /> </p>        
+     
+     <p className='p-3'>  <br />    Êtes-vous sûr de vouloir annuler le rendez-vous ? </p>
+
+      <div className="flex  flex-wrap-reverse justify-end   mt-4 " >
+        <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Non</Button> 
+        <Button autoFocus  onClick={handleconfirmation}   sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
+         Oui 
+        </Button>
+      </div>  </div>  
+
+    :
+<>
+{ Textconfirmation ? 
+    <p className='p-4 py-8 text-base font-body leading-7' > Votre rendez-vous a était annulé avec succès!</p> :
+  <form onSubmit={handleSubmit} >
+       <Typography gutterBottom sx={{ fontSize:13}} >
+            Pour avoir plus d'informations sur la crèche et pour compléter les procédures  
+            d'inscription de votre enfant, veuillez prendre un rendez-vous dès maintenant !
+  </Typography>
 
          <div   className='   rounded-lg  text-center bg-rawdapurple bg-opacity-5'>
          
 
           <div className='flex  items-center flex-col'> 
+        
           <label for="datepi "  className='  text-left w-4/5   sm:w-2/3 font-body  text-xs sm:text-sm mt-2 sm:ml-3 '>Date du rendez-vous:</label>
     
-          <DatePicker  id="datepi" className='   justify-center'  required selected={value} onChange={(date) => { setValue(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
+          <DatePicker  id="datepi"  required selected={datetoken} onChange={(date) => { setDatetoken(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
            filterDate={ date => date.getDay() !== 5 && date.getDay() !== 6  }  dateFormat='dd/MM/yyyy'
-         className="rounded-md h-[38px] m-3 mt-1 w-4/5   sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2  text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
+         className="rounded-md h-[38px] m-3 mt-1 w-4/5  justify-center  sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2  text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
                                             /> 
             </div>  
 
@@ -218,9 +251,13 @@ export default function CustomizedDialogsRdv() {
 
          
          <div className="flex  flex-wrap-reverse justify-end   mt-4 " >
-               <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button> 
-               <Button autoFocus  type='submit' sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
-               Envoyer
+  
+  
+  { buttonTextform==='Envoyer' ? 
+   <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button> 
+   : null }         
+             <Button autoFocus  type='submit' sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
+               {buttonTextform}
                </Button>
 
          </div>
@@ -228,8 +265,7 @@ export default function CustomizedDialogsRdv() {
   
             
           
-       </form>
-
+       </form> } </>}
         </DialogContent>
         
       </BootstrapDialog>
