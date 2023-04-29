@@ -2,7 +2,7 @@
 import arrow from "../../assets/arroww.svg";
 export const Stat = ({ line, titre, number, pourcentage }) => {
   return (
-    <div className="bg-rawdawhite ml-[100px] mt-[30px] h-[150px] w-[360px]  rounded-xl">
+    <div className="bg-rawdawhite items center md:ml-[100px] mt-[30px] h-[150px] w-[360px]  rounded-xl">
       <div className="flex flex-col gap-4">
         <div className="flex ml-8 mt-6 gap-8">
           <img src={line} />

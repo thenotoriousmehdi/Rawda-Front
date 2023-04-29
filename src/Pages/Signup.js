@@ -1,15 +1,13 @@
-\import React, { useState, Component } from "react";
+import React, { useState, Component } from "react";
 import logo from "../assets/logo.svg";
 import google from "../assets/google.svg";
-//import logo from './logo.svg';
+
 
 const Signup = (props) => {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [userType, setUserType] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [role, setRole] = useState("");
 
@@ -37,9 +35,7 @@ const Signup = (props) => {
     setPassword(event.target.value);
   };
 
-  const handleUserTypeChange = (type) => {
-    setUserType(type);
-  };
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,7 +43,6 @@ const Signup = (props) => {
     console.log("Password:", prenom);
     console.log("Email:", email);
     console.log("Password:", password);
-
     console.log("Role:", role);
   };
   const handleFormSubmit = (event) => {
