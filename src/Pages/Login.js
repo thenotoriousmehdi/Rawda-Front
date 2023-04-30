@@ -12,7 +12,7 @@ const Login =(Props) => {
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
 
-      const history=useNavigate();
+     
      
       const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -30,8 +30,8 @@ const Login =(Props) => {
                         email,password
                 })
                 .then( res=>{
-                        if (res.data= "User Existed")
-                        { history("/", {state:{id:email}})}
+                        if (res.data= "User Existed") res.status(200);
+                          
                 })
         
 
