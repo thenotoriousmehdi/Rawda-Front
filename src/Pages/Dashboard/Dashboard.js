@@ -10,7 +10,6 @@ import { Doughnut } from 'react-chartjs-2';
 import {Chart, ArcElement} from 'chart.js'
 Chart.register(ArcElement);
 
-
 const data = {
     labels: [
         "Respos",
@@ -39,7 +38,7 @@ return(
     <NavAfter  />
     
     
-<div className="flex items-center">
+
 
 <div className="flex justify-center flex-col gap-2 mb-10">
 
@@ -56,13 +55,25 @@ return(
 <Stat line={lineyellow} titre="Enfants inscris" number="6000" pourcentage="8"/>
 </div>
 
+
+<div className="flex flex-col justify-center items-center gap-0">
+
 <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[360px] mt-[30px] rounded-xl ">
 <div className="justify-center h-[300px] w-[300px]">
 <Doughnut data={data}/>
 </div>
+</div>
+<div className="flex justify-start items-center">
+<Stat line={linepurple} titre="Revenus" number="200000da" pourcentage="9.5"/>
+</div>
+
+
+
+
 
 
 </div>
+
 {/* <Notif type="Demande de rendez-vous" photo={mehdi} nomc="Mehdi MAMOUNI" heuree="2" heure="16:30" date="27/05/2023" num="0560000000" email="km_mamouni@esi.dz"/> */}
 
 
@@ -77,7 +88,7 @@ return(
 
 
 
-</div>
+
 
 
 
