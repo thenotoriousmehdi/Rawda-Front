@@ -17,11 +17,11 @@ function App() {
   return (
    /*  <Signup/> */
 /* <CrechInfoCard/> */
- /* <Dashboard nom="Mehdi"/>  */
+  <Dashboard nom="Mehdi"/> 
        /* <Notifications/>    */
   /*  <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    */
    
-       <Home/> 
+        /* <Home/>   */
         
   )
 }
