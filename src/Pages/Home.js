@@ -10,13 +10,14 @@ import Avis from "../Components/Aviss/Avis";
 import AvisCard from "../Components/Aviss/AvisCard";
 import FaqCard from "../Components/Faq/FaqCard";
 import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
+
 function Home() {
   return (
     <>
       <Header />
       <Hero />
       <div>
-        <img src={deco1} />
+      <img src={deco1} />
       </div>
       <About />
       <Crechesmieuxnotees />

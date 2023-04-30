@@ -13,15 +13,41 @@ import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Components/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
 function App() {
+
   return (
-   /*  <Signup/> */
-/* <CrechInfoCard/> */
-  <Dashboard nom="Mehdi"/> 
-       /* <Notifications/>    */
-  /*  <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    */
+
+
+/* <BrowserRouter>
+<Routes>
+<Route path='/' element={<Home/>} />
+<Route path='/Signup' element={<Signup/>} />
+<Route path='/Signup' element={<Login/>} />
+<Route path='/Signup' element={<Profile/>} />
+<Route path='/Signup' element={<Notifications/>} />
+<Route path='/Signup' element={<Dashboard/>} />
+<Route path='/Signup' element={<CrechInfoCard/>} />
+<Route path='/Signup' element={<AddCreche/>} />
+</Routes>
+</BrowserRouter> 
+
+
+
+
+    <Signup/> 
+ <CrechInfoCard/> 
+   <Dashboard nom="Mehdi"/>  
+       <Notifications/>   
+    <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    
    
-        /* <Home/>   */
+        
+    
+        <CrechInfoCard/> */
+    
+        <Home/>  
+
+   
         
   )
 }

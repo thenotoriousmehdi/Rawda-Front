@@ -4,6 +4,9 @@ import mehdi1 from "../assets/mehdi1.png"
 import Footer from "../Components/Footer.js"
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
+import Signup from '../Pages/Signup';
+import Login from '../Pages/Login';
+import { Link } from "react-router-dom";
 import {
   
   Bars3Icon,
@@ -17,6 +20,10 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+  const navigation =[
+    {name: "Se Connecter", href:"../Pages/Login", current:true},
+    {name: "S'inscrire", href:"../Pages/Signup", current:true},
+  ];
   const [fopen, setFOpen] = React.useState(false);
   const mehdi = () => {
     return (
@@ -59,7 +66,7 @@ export default function Header() {
     { value: "Ocasionnel", label: "Ocasionnel" }
   ]
   
-  const langue =[
+  const Langue =[
     { value: "Arabe", label: "Arabe" },
     { value: "Francais", label: "Francais" },
     { value: "Anglais", label: "Anglais" }
@@ -101,21 +108,101 @@ export default function Header() {
 
   ]
   
-  // React state to manage selected options pour les jours d'accueil
-  const [selectedOptions, setSelectedOptions] = useState();
+  
 
-  // Function triggered on selection pour les jours d'accueuil
-  function handleSelect(data) {
-    setSelectedOptions(data);
+
+  const [nomdetablissement, setNomdetablissement] = useState('');
+  const handlenomChange = (event) => {
+    setNomdetablissement(event.target.value);
   }
 
-  // React state to manage selected options pour l'age d'accueil
-  const [selectedOptions1, setSelectedOptions1] = useState();
 
-  // Function triggered on selection pour l'age d'accueuil
-  function handleSelect(data) {
-    setSelectedOptions1(data);
+  const [typEtab, setTypEtab] = useState();
+  const typedetablissement = typEtab ? typEtab.value : '';
+  const handletypEtabChange = (typEtab) => {
+    setTypEtab(typEtab);
+  };
+  
+
+
+   const [jourAc, setJourAc] = useState();
+  const jourdaccueil= jourAc ? jourAc.value : '';
+  const handlejouracChange = (jourAc) => {
+    setJourAc(jourAc);
   }
+ 
+  const [typeAc, setTypeAc] = useState();
+  const typedaccueil = typeAc ? typeAc.value : '';
+  const handletypeAcChange = (typeAc) => {
+    setTypeAc(typeAc);
+  };
+
+
+
+  const [capac, setCapac] = useState();
+  const capacite = capac ? capac.value : '';
+  const handlecapacChange= (capac) => {
+    setCapac(capac);
+  };
+
+
+  const [ageAc, setAgeAc] = useState();
+  const agedaccueil = ageAc ? ageAc.value : '';
+  const handleageAcChange = (ageAc) => {
+    setAgeAc(ageAc);
+  };
+  
+
+  const [pedag, setPedag] = useState();
+  const pedagogie = pedag ? pedag.value : '';
+  const handlepedagChange = (pedag) => {
+    setPedag(pedag);
+  };
+  
+  const [lang, setLang] = useState();
+  const langue= lang ? lang.value : '';
+  const handlelangChange = (lang) => {
+    setLang(lang);
+  };
+  
+  const [alim, setAlim] = useState();
+  const alimentation= alim ? alim.value : '';
+  const handlealimChange = (alim) => {
+    setAlim(alim);
+  };
+  
+  const [trans, setTrans] = useState();
+  const transport= trans ? trans.value : '';
+  const handletransChange = (trans) => {
+    setTrans(trans);
+  };
+  
+  const [prix, setPrix] = useState();
+  const handleprixChange = (event) => {
+    setPrix(event.target.value);
+  };
+
+ 
+  
+  
+
+  
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Nom detablissement:', nomdetablissement);
+    console.log('Type detablissement:', typedetablissement);
+      console.log('type daccueil:', typedaccueil);  
+     console.log('jour daccueil:', jourdaccueil); 
+    console.log('age daccueil:', agedaccueil); 
+    console.log('capacite:', capacite);
+    console.log('Langue:', langue);
+    console.log('Pedagogie:', pedagogie);
+    console.log('Alimentation:', alimentation);
+    console.log('Transport:', transport);
+    console.log('Prix:', prix); 
+  }
+
   return (
     <>
 
@@ -174,25 +261,27 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <a href="/posturad">
+       
+
+                
                     <button
                       id="pub"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      Se Connecter
+                      <a href='/Login'>Se connecter</a>
                     </button>
-                  </a>
-                  <a href="/posturad">
+                
+                 
                     <button
                       id="pub"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      S'inscrire
+                      <a href='/Login'>S'inscrire</a>
+                  
                     </button>
-                  </a>
-                 
+                    
                 </div>
               </div>
             </div>
@@ -200,27 +289,27 @@ export default function Header() {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
               
-                <a href="/posturad">
+             
                   <button
                     fullWidth
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
                   >
-                    Se Connecter
+                    <a href='/Login'>Se connecter</a>
                   </button>
-                </a>
+               
               </div>
               <div className="space-y-1 px-2 pt-2 pb-3">
               
-                <a href="/posturad">
+           
                   <button
                     fullWidth
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
                   >
-                    S'inscrire
+                    <a href='/Login'>S'inscrire</a>
                   </button>
-                </a>
+            
               </div>
             </Disclosure.Panel>
           </>
@@ -259,6 +348,7 @@ export default function Header() {
                               placeholder="Nom de l'etablissement"
                             required
                            className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                           onChange={handlenomChange}
                            />
                            </div>
 
@@ -273,8 +363,8 @@ export default function Header() {
         name="Type d’etablissement"
           options={Typeta}
           placeholder="Type d'etablissement"
-          value={selectedOptions}
-          onChange={handleSelect}
+          value={typEtab}
+          onChange={handletypEtabChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -300,8 +390,8 @@ export default function Header() {
         name="Type d’accueil"
           options={Typeac}
           placeholder="Type d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
+          value={typeAc}
+          onChange={handletypeAcChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -321,10 +411,10 @@ export default function Header() {
 
           options={jourac}
           placeholder="Jours d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
+         value={jourAc}
+         onChange={handlejouracChange}
           isSearchable={true}
-          isMulti
+          isMulti={false}
         />
       </div>
     </div>
@@ -341,8 +431,8 @@ export default function Header() {
         name="Age d'accueil"
           options={ageac}
           placeholder="Ages d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
+        value={ageAc}
+        onChange={handleageAcChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -367,8 +457,8 @@ export default function Header() {
         name="Capacite"
           options={Capacite}
           placeholder="Capacite d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
+          value={capac}
+          onChange={handlecapacChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -385,8 +475,8 @@ export default function Header() {
         name="Pedagogie"
           options={Pedagogie}
           placeholder="Pedagogie"
-          value={selectedOptions}
-          onChange={handleSelect}
+         value={pedag}
+         onChange={handlepedagChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -402,10 +492,10 @@ export default function Header() {
       <div className="dropdown-container w-[210px]">
         <Select
         name="Langue"
-          options={langue}
+          options={Langue}
           placeholder="Langue"
-          value={selectedOptions}
-          onChange={handleSelect}
+         value={lang}
+         onChange={handlelangChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -430,8 +520,8 @@ export default function Header() {
         name="Transport"
           options={verite}
           placeholder="Transport"
-          value={selectedOptions}
-          onChange={handleSelect}
+         value={trans}
+         onChange={handletransChange}
           isSearchable={true}
           isMulti={false}
         />
@@ -448,9 +538,8 @@ export default function Header() {
         name="Alimentation"
           options={verite}
           placeholder="Alimentation"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
+   value={alim}
+   onChange={handlealimChange}
           isMulti={false}
         />
       </div>
@@ -466,6 +555,7 @@ export default function Header() {
                               placeholder="Prix/mois (DA)"
                             required
                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                           onChange={handleprixChange}
                            />
                            </div>
 
@@ -516,6 +606,7 @@ export default function Header() {
                   <button
                     type="submit"
                     class="py-2 px-4  bg-violet-700 hover:bg-violet-900 focus:ring-violet-700 focus:ring-offset-violet-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                    onClick={handleSubmit}
                   >
                   Rechercher
                   </button>
