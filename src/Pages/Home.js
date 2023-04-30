@@ -9,7 +9,7 @@ import Faq from "../Components/Faq/Faq.js";
 import Avis from "../Components/Aviss/Avis";
 import AvisCard from "../Components/Aviss/AvisCard";
 import FaqCard from "../Components/Faq/FaqCard";
-import Crechesmieuxnotees from "../Components/Crechesmieuxnotees";
+import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 function Home() {
   return (
     <>
