@@ -26,6 +26,12 @@ function Home() {
       <Services />
       <Avis />
       <Faq />
+      <a href="/VoirProfil"> Profil </a>
+      <a href="/Notifications">Notifications </a>
+      <a href="/AddCreche">Add Creche </a>
+      <a href="/Dashboard">Dashboard </a>
+      <a href="/CrecheInfoCard">infos creche </a>
+
       <Footer />
       </div>
     </>
