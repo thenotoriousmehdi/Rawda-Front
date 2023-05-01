@@ -22,7 +22,7 @@ const data = {
     },
   ],
 };
-export const Dashboard = ({ nom }) => {
+function Dashboard ({ nom }) {
   return (
     <>
       <div className="h-full bg-rawdapurple bg-opacity-10 ">
@@ -85,3 +85,4 @@ export const Dashboard = ({ nom }) => {
     </>
   );
 };
+export default Dashboard;
