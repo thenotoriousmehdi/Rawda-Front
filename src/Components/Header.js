@@ -7,6 +7,8 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Signup from '../Pages/Signup';
 import Login from '../Pages/Login';
 import { Link } from "react-router-dom";
+import Wilayas from "../data/wilayas.json";
+
 import {
   
   Bars3Icon,
@@ -20,10 +22,26 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const navigation =[
-    {name: "Se Connecter", href:"../Pages/Login", current:true},
-    {name: "S'inscrire", href:"../Pages/Signup", current:true},
-  ];
+  const [Wilaya, setWilaya] = useState("");
+  const [WilayaId, setWilayaId] = useState(0);
+const [commune, setCommune]=useState();
+const handlecommune =(Selectedcommune)=>{
+setCommune(Selectedcommune);
+
+
+}
+
+
+
+  const handleWilaya = (SelectedWilaya) => {
+    setWilaya(SelectedWilaya);
+    const wilayaObject = Wilayas.find(
+      (wilaya) => wilaya.name === SelectedWilaya
+    );
+    setWilayaId(wilayaObject.id);
+  };
+
+ 
   const [fopen, setFOpen] = React.useState(false);
   const mehdi = () => {
     return (
@@ -36,7 +54,7 @@ export default function Header() {
       setFOpen(false);
     } else setFOpen(true);
   };
-  const wilaya = [
+ /*  const wilaya = [
 
     "Adrar", "Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
     "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
@@ -48,7 +66,7 @@ export default function Header() {
     "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès",  "Timimoun", "Touggourt",
     "Djanet",  "In Salah",  "In Guezzam",
     
-  ];
+  ]; */
   const Typeta = [
     { value: "Prive", label: "Prive" },
     { value: "Public", label: "Public" }
@@ -190,7 +208,9 @@ export default function Header() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nom detablissement:', nomdetablissement);
+    console.log('wilaya:', Wilaya);
+    console.log("commune: ", commune)
+   /*  console.log('Nom detablissement:', nomdetablissement); */
     console.log('Type detablissement:', typedetablissement);
       console.log('type daccueil:', typedaccueil);  
      console.log('jour daccueil:', jourdaccueil); 
@@ -202,6 +222,7 @@ export default function Header() {
     console.log('Transport:', transport);
     console.log('Prix:', prix); 
   }
+  
 
   return (
     <>
@@ -265,6 +286,7 @@ export default function Header() {
 
                 
                     <button
+                 
                       id="pub"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
@@ -341,7 +363,7 @@ export default function Header() {
 
 
 
-                           <div >
+                         {/*   <div >
                              <input
                              type="text"
                              id="Nom de l'etablissement"
@@ -350,19 +372,73 @@ export default function Header() {
                            className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            onChange={handlenomChange}
                            />
-                           </div>
+                           </div> */}
+                           <div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
 
+                          
+                            <select
+                
+                name="wilaya"
+                className="w-[210px] h-[38px] rounded-2 p-2 border-2 border-rawdapurple outline-none"
+                onChange={(wilaya) => handleWilaya(wilaya.target.value)}
+              >
+                <option value="">Wilaya</option>
+                {Wilayas.map((wilaya,i) => {
+                  return (
+                    <option
+                    key={i}
+                      className="hover:bg-rawdapurple"
+                      value={wilaya.name}
+                      
+                    >
+                      {wilaya.code}-{wilaya.name}
+                    </option>
+                  );
+                })}
+              </select>
+</div>
+</div>
 
+<div className=" sm:ml-6 sm:block">
+                          <div className="flex space-x-4 m-2 md:m-0">
+              <select
+                
+                name="commune"
+                className="w-[210px] h-[38px] rounded-2 p-2 border-2 border-rawdapurple outline-none"
+                onChange={(commune) => handlecommune(commune.target.value)}
+              >
+                <option value="">Commune</option>
+                {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
+                  return (
+                    <>
+                      {daira.communes?.map((commune,i) => {
+                        return (
+                          <option
+                          key={i}
+                            className="hover:rawdapurple"
+                            value={commune.name}
+                          >
+                            {commune.name}
+                          </option>
+                        );
+                      })}
+                    </>
+                  );
+                })}
+              </select>
+              </div>
+</div>
 
                            <div className=" sm:ml-6 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
 
     <div className="type">
-      <div className="dropdown-container w-[300px]">
+      <div className="dropdown-container w-[210px]">
         <Select
-        name="Type d’etablissement"
+          name="Type d’etablissement"
           options={Typeta}
-          placeholder="Type d'etablissement"
+          placeholder="Type d'etabliss"
           value={typEtab}
           onChange={handletypEtabChange}
           isSearchable={true}
