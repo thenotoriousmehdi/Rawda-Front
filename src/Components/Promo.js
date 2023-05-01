@@ -6,9 +6,7 @@ import enfants from "../assets/maison.svg";
 
 function Promo (){
 return(
-/* <div className=" flex justify-center bg-rawdapurple opacity-5 aspect-auto w-[910px] h-[600px] p-6 rounded-md mx-6 my-6 ">
-</div>
- */
+
 <div id="Promo" className="mx-8 bg-opacity-5 bg-rawdapurple my-8 ">
        <div className="mx-auto  sm:px-6 lg:px-10 ">
 
@@ -42,35 +40,13 @@ Dans les
 
 </div>
 
-{/* <div className="flex flex-col justify-start gap-6">
-
-<div>
-<h2 className=" text-sm font-Poppins font-bold text-rawdapurple mt-4
-            md:text-xl"> Plus de 
-2000 Crèches
-Dans les 
-58 wilayas</h2>
-</div>
-
-<button
-                      id="ajoutercreche"
-                      type="button"
-                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
-                    >
-                  Ajouter ma creche
-                    </button>
-
-</div>
- */}
 
 
 
-<div className="p-4 m-4relative w-24 h-24 md:w-64 md:h-64 bg-rawdayellow bg-opacity-60 rounded-full flex justify-center items-center text-center p-5 shadow-xl">
+
+<div className="p-4 m-4relative w-24 h-24 md:w-64 md:h-64 bg-rawdayellow bg-opacity-60 rounded-full flex justify-center items-center text-center  shadow-xl">
 <img className=" md:h-[300px] " src={maison} alt="illusEcole" />
 </div>
-{/* <div className=" md:w-[220px] bg-rawdayellow rounded-full ">
-          <img className=" md:h-[300px] " src={maison} alt="illusEcole" />
-        </div> */}
 
 
 
