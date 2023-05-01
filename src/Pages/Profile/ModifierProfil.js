@@ -1,18 +1,19 @@
-import NavAfter from "../Components/NavAfter";
-import mehdi from "../assets/mehdi.jpeg";
-import line from "../assets/line.svg";
-import line2 from "../assets/line2.svg";
-import Footer from "../Components/Footer";
-import Profile from "../Pages/Profile";
+import NavAfter from "../../Components/NavAfter";
+import mehdi from "../../assets/mehdi.jpeg";
+import line from "../../assets/line.svg";
+import line2 from "../../assets/line2.svg";
+import Footer from "../../Components/Footer";
+
+import iconm from "../../assets/iconmodphoto.svg";
 function ModifierProfil({nomc,role,handleClick}){
 
 return(
 
     <>
 
-    <div className="bg-rawdawhite"> 
+    
    
-    <div id="profile" className="flex justify-items-center md:ml-[180px] md:mx-12 mx-6 mt-20 bg-opacity-10 bg-rawdapurple w-[333px]  md:w-[600px] h-full mb-6 rounded-xl ">
+    <div id="Modifierprofile" className="flex justify-items-center md:mx-12 mx-6 mt-36 bg-opacity-10 bg-rawdapurple w-[333px]  md:w-[500px] h-full mb-6 rounded-xl ">
         <div className="mx-auto  ">
             <div className="relative flex-col mx-2 my-2  justify-center items-center md:mb-10 mb-4">
 
@@ -59,16 +60,6 @@ return(
 </h4>
 </div>
 <div className=" flex justify-start text-[#475467]  font-light">
-
-<div >
-                             <input
-                             type="text"
-                             id="Email"
-                              placeholder="Email"
-                            required
-                           className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           />
-                           </div>
 
 </div>
 </div>
@@ -159,48 +150,36 @@ Adresse
 
 
 
-<div className="flex ml-8 md:ml-0 justify-items-stretch gap-4">
-<img    src={line2}/>
-<div className="mt-1 mx-2 flex flex-col gap-1">
-
-<div className=" flex justify-start text-[#475467] text-opacity-70 font-light">
-<h4>
-Enfants inscris
-</h4>
-</div>
-<div className=" flex justify-start text-[#475467]  font-light">
-<div >
-                             <input
-                             type="text"
-                             id="Enfant inscris"
-                              placeholder="Enfants inscris"
-                            required
-                           className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           />
-                           </div>
-</div>
-
-</div>
-</div>
 
 
 
 
 
-<div className="mt-6 flex flex-wrap justify-center"> 
 
-<div className="flex justify-center md:justify-center">
-<a href="/posturad">
+
+<div className="mt-6 flex flex-wrap justify-center gap-4"> 
+
+<a >
                     <button
-                    onClick={handleClick}
-                      id="profile"
+                      id="Annuler la  modifictaion"
                       type="button"
-                      className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-white   focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 "
+                      className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  "
                     >
-                     Confirmer
+                    Annuler
                     </button>
                   </a>
-  </div>
+
+                  <a >
+                    <button
+                      id="Confirmer la modification"
+                      type="button"
+                      className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  "
+                    >
+                    Confirmer
+                    </button>
+                  </a>
+
+
 
 </div>
 
@@ -209,8 +188,8 @@ Enfants inscris
             </div>
         </div>
     </div>
-    <Footer/>
-    </div>
+   
+   
    
     </>
 
