@@ -14,12 +14,13 @@ import ModifierProfil from "./Components/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import VoirProfil from "./Components/VoirProfil";
 function App() {
 
   return (
 
 
- <BrowserRouter>
+ /*<BrowserRouter>
 <Routes>
 <Route path='/' element={<Home/>} />
 <Route path='/Signup' element={<Signup/>} />
@@ -33,20 +34,20 @@ function App() {
 </BrowserRouter> 
 
 
-/*
+
 
     <Signup/> 
  <CrechInfoCard/> 
    <Dashboard nom="Mehdi"/>  
        
-    <Profile photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    
+   
    
         
-       <Home/> 
+       
          <CrechInfoCard/> 
     
          <Home/>   */
-
+         <VoirProfil photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix" EI="Jhon Doe" />    
    
         
   )
