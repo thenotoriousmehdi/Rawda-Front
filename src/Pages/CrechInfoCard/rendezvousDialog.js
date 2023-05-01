@@ -69,6 +69,8 @@ export default function CustomizedDialogsRdv() {
   
   const [nomc, setNomc] = useState('');
  
+  const [pnom, setPnom] = useState('');
+
   const [num, setNum] = useState('');
 
   const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
@@ -80,6 +82,9 @@ export default function CustomizedDialogsRdv() {
     setNomc(event.target.value);
   }
 
+  const handlepnomcChange = (event) => {
+    setPnom(event.target.value);
+  }
 
 
   const handlenumChange = (event) => {
@@ -108,8 +113,10 @@ export default function CustomizedDialogsRdv() {
     event.preventDefault();
     setbuttonTextform('Envoyé!');
     setRdvclosed(false)  ; 
-    console.log('Nom complet:', nomc);
+    console.log('Nom :', nomc);
   
+    console.log('prenom :', pnom);
+
     console.log('Numero de †elephone:', num);
     
     console.log('date', datetoken);
@@ -121,7 +128,7 @@ export default function CustomizedDialogsRdv() {
   const [Textconfirmation, setTextconfirmation] = useState(false) ; 
   const handleconfirmation = (e) =>{
     setTextconfirmation(true) ; 
-    console.log('rdv annulé ', Textconfirmation) ; 
+    console.log('rdv annulé ', !Textconfirmation) ; 
      setbuttonTextform('Envoyer'); 
      setRdvclosed(false)  ; 
     } ; 
@@ -162,7 +169,7 @@ export default function CustomizedDialogsRdv() {
   {( Rdvclosed && buttonTextform==='Envoyé!'  )  ?  
 
         <div className='p-2 text-base font-body leading-7'> 
-            <p > Vous avez pris un rendez-vous pour visiter la crèche le  <strong>{datetoken.getDate() } / {datetoken.getMonth() + 1} / {datetoken.getFullYear() }  </strong> à <strong>{selectedOption}</strong>  au nom de <strong>{nomc}</strong>. Veuillez consulter votre boîte  email pour la réponse de la crèche dans le délai de 2 jours. <br /> </p>        
+            <p > Vous avez pris un rendez-vous pour visiter la crèche le  <strong>{datetoken.getDate() } / {datetoken.getMonth() + 1} / {datetoken.getFullYear() }  </strong> à <strong>{selectedOption}</strong>  au nom de <strong>{nomc} {pnom}</strong>. Veuillez consulter votre boîte  email pour la réponse de la crèche dans le délai de 2 jours. <br /> </p>        
      
      <p className='p-3'>  <br />    Êtes-vous sûr de vouloir annuler le rendez-vous ? </p>
 
@@ -216,13 +223,13 @@ export default function CustomizedDialogsRdv() {
 
 
 <div className='flex items-center  flex-col'> 
-            <label for="nomk "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Nom complet:</label>
+            <label for="nomk "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Nom:</label>
               
 
-              <input  type="text"  id="nomk"  placeholder="Nom complet"  required onChange={handlenomcChange}
+              <input  type="text"  id="nomk"  placeholder="Nom "  required onChange={handlenomcChange}
                onBlur={handleFocus}                         
                focused={focused.toString()} 
-               pattern='^[a-zA-Z0-9\s]{3,30}$'
+               pattern='^[a-zA-Z0-9\s]{3,16}$'
                
                 className="rounded-md h-[38px] m-3 mt-1  w-4/5   sm:w-2/3   text-sm md:text-base bg-white border-purple-400  border py-2 px-2 
                 text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400  
@@ -231,6 +238,26 @@ export default function CustomizedDialogsRdv() {
 
 <span className=' text-xs text-red-500 hidden px-2 group-focus:block group-invalid:block  '> Nombre de caracteres entre 3-30 et pas de caracteres spéciaux</span>    
             </div>   
+
+
+            <div className='flex items-center  flex-col'> 
+            <label for="pnom "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Prenom:</label>
+              
+
+              <input  type="text"  id="pnom"  placeholder="Prenom"  required onChange={handlepnomcChange}
+               onBlur={handleFocus}                         
+               focused={focused.toString()} 
+               pattern='^[a-zA-Z0-9\s]{3,16}$'
+               
+                className="rounded-md h-[38px] m-3 mt-1  w-4/5   sm:w-2/3   text-sm md:text-base bg-white border-purple-400  border py-2 px-2 
+                text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400  
+                 "
+              /> 
+
+                 <span className=' text-xs text-red-500 hidden px-2 group-focus:block group-invalid:block  '> Nombre de caracteres entre 3-30 et pas de caracteres spéciaux</span>    
+            </div>   
+
+
 
       <div className='flex  items-center flex-col'> 
           <label for="numtel "  className='  text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Numero de telephone:</label>
