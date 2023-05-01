@@ -6,12 +6,12 @@ import line from "../assets/line.svg";
 import line2 from "../assets/line2.svg";
 import Footer from "./Footer";
 
-export default function VoirProfil({ photo, nomc, role, email, num, daten, adresse, EI, handleClick}){
+export default function VoirProfil({ photo, nomc, role, email, num, daten, adresse, EI}){
     
     return (
         
           <div className="bg-rawdawhite">
-        
+        <NavAfter/>
             <div
               id="profile"
               className="flex justify-items-center md:ml-[180px] md:mx-12 mx-6 mt-20 bg-opacity-10 bg-rawdapurple w-[333px]  md:w-[600px] h-full mb-6 rounded-xl "
@@ -90,23 +90,13 @@ export default function VoirProfil({ photo, nomc, role, email, num, daten, adres
                       </div>
                     </div>
     
-                    <div className="flex ml-8 md:ml-0 justify-items-stretch gap-4">
-                      <img src={line2} />
-                      <div className="mt-1 mx-2 flex flex-col gap-1">
-                        <div className=" flex justify-start text-[#475467] text-opacity-70 font-light">
-                          <h4>Enfants inscris</h4>
-                        </div>
-                        <div className=" flex justify-start text-[#475467]  font-light">
-                          <h4>{EI}</h4>
-                        </div>
-                      </div>
-                    </div>
+                    
     
                     <div className="mt-6 flex flex-wrap justify-center">
                       <div className="flex justify-center md:justify-center">
-                        <a href="/posturad">
+                        <a href="">
                           <button
-                        onClick={handleClick}
+                      
                             id="profile"
                             type="button"
                             className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-white   focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 "
@@ -121,7 +111,7 @@ export default function VoirProfil({ photo, nomc, role, email, num, daten, adres
                 </div>
               </div>
             </div> 
-            
+            <Footer/>
           </div>
         
       );
