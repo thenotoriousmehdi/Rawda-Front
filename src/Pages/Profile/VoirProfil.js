@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import NavAfter from "../../Components/NavAfter";
 import mehdi from "../../assets/mehdi.jpeg";
@@ -25,23 +24,6 @@ export default function VoirProfil(){
     fetchData();
   }, []);
 
-  /*const [data, setData] = useState([]);
-
-   useEffect(() => {
-    const uri = "mongodb+srv://<photo>:<nomc>@<role>/<email>?retryWrites=true&w=majority";
-    const client = new MongoClient(uri);
-  
-    client.connect((err) => {
-      const collection = client.db("mydb").collection("mycollection");
-  
-      collection.find({}).toArray((err, result) => {
-        setData(result);
-      });
-  
-      client.close();
-    });
-  }, []); */
-    
     return (
         
           <div className="bg-rawdawhite">
