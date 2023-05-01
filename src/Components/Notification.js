@@ -5,7 +5,6 @@ import CustomizedDialogs from "./refusDialog.js";
 function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
-
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
         {" "}
         {/* flex top */}
@@ -13,11 +12,7 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
         <img className="h-[15px]" src={croix} />
       </div>
 
-
       <div className="flex flex-wrap md:gap-[140px]">
-
-
-
         <div className="container  w-[300px] md:w-[420px] h-[60px] ">
           {" "}
           {/* flex nom prenom et line */}
@@ -75,18 +70,10 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
               </button>
             </a>
           </div>
-          <div  >
-            
-         
-         < CustomizedDialogs/>
-
-         
-           
+          <div>
+            <CustomizedDialogs />
           </div>
         </div>
-
-
-
       </div>
     </div>
   );

@@ -14,25 +14,25 @@ import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 function Home() {
   return (
     <>
-    <div className="bg-rawdawhite"> 
-
-      <Header />
-      <Hero />
-      <div>
-      <img src={deco1} />
-      </div>
-      <About />
-      <Crechesmieuxnotees />
-      <Services />
-      <Avis />
-      <Faq />
-      <a href="/VoirProfil"> Profil </a>
-      <a href="/Notifications">Notifications </a>
-      <a href="/AddCreche">Add Creche </a>
-      <a href="/Dashboard">Dashboard </a>
-      <a href="/CrecheInfoCard">infos creche </a>
-
-      <Footer />
+      <div className="bg-rawdawhite">
+        <Header />
+        <Hero />
+        <div>
+          <img src={deco1} />
+        </div>
+        <About />
+        <Crechesmieuxnotees />
+        <Services />
+        <Avis />
+        <Faq />
+        <div className="flex justify-center items-center gap-6 m-4">
+          <a href="/VoirProfil"> Profil </a>
+          <a href="/Notifications">Notifications </a>
+          <a href="/AddCreche">Add Creche </a>
+          <a href="/Dashboard">Dashboard </a>
+          <a href="/CrecheInfoCard">infos creche </a>
+        </div>
+        <Footer />
       </div>
     </>
   );

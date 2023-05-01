@@ -1,6 +1,6 @@
 import * as React from "react";
-import mehdi1 from "../assets/mehdi1.png"
-import Footer from "../Components/Footer.js"
+import mehdi1 from "../assets/mehdi1.png";
+import Footer from "../Components/Footer.js";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -17,35 +17,30 @@ function classNames(...classes) {
 export default function NavAfter() {
   const [fopen, setFOpen] = React.useState(false);
   const mehdi = () => {
-    return (
-<Footer/>
-    );
-  }
-
-
+    return <Footer />;
+  };
 
   const handleClick = () => {
     if (fopen === true) {
       setFOpen(false);
     } else setFOpen(true);
   };
-  
+
   return (
     <>
-      <Disclosure as="nav" className="sticky top-0 z-50 bg-white border-b border-gray-300 ">
+      <Disclosure
+        as="nav"
+        className="sticky top-0 z-50 bg-white border-b border-gray-300 "
+      >
         {({ open }) => (
           <>
-       
-
-      
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
-               
                 {/* Mobile menu button */}
                 <div className="flex space-x-48 flex-1 justify-between sm:items-stretch ">
                   <div className="flex flex-shrink-0 items-center justify-between">
                     <a href="/">
-                    <img
+                      <img
                         className="block h-8 w-auto lg:hidden"
                         src={rawda}
                         alt="rawdalogo"
@@ -55,12 +50,9 @@ export default function NavAfter() {
                         src={rawda}
                         alt="rawdalogo"
                       />
-                    
                     </a>
                   </div>
-                  
                 </div>
-
 
                 {/*  <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-4 bg-white items-center border border-gray-300 rounded-xl ">
@@ -77,12 +69,10 @@ export default function NavAfter() {
                         />
                       </a>
                     </div>
-                  </div> */} 
-
-
+                  </div> */}
 
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a href="/posturad">
+                  <a href="/posturad">
                     <button
                       id="pub"
                       type="button"
@@ -92,14 +82,13 @@ export default function NavAfter() {
                     </button>
                   </a>
                   {/* Profile dropdown */}
-                   <Menu as="div" className="relative ml-3">
+                  <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800">
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-8 w-8 rounded-full"
                           src={mehdi1}
-
                           alt="user pic"
                         />
                       </Menu.Button>
@@ -155,22 +144,13 @@ export default function NavAfter() {
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu> 
+                  </Menu>
                 </div>
               </div>
             </div>
-
-         
           </>
         )}
       </Disclosure>
-
-      
-      
-               
-              
-      
     </>
-    
   );
 }
