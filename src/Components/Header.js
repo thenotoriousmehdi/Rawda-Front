@@ -5,7 +5,7 @@ import Footer from "../Components/Footer.js"
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Signup from '../Pages/Signup';
-import Login from '../Pages/Login';
+import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
 
@@ -30,6 +30,7 @@ setCommune(Selectedcommune);
 
 
 }
+
 
 
 
@@ -286,12 +287,12 @@ setCommune(Selectedcommune);
 
                 
                     <button
-                 
+                
                       id="pub"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      <a href='/Login'>Se connecter</a>
+                      <a href="/Login">Se connecter</a>
                     </button>
                 
                  
@@ -300,7 +301,7 @@ setCommune(Selectedcommune);
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
-                      <a href='/Login'>S'inscrire</a>
+                      <a href='/Signup'>S'inscrire</a>
                   
                     </button>
                     
@@ -313,6 +314,7 @@ setCommune(Selectedcommune);
               
              
                   <button
+                    
                     fullWidth
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
@@ -329,7 +331,7 @@ setCommune(Selectedcommune);
                     type="button"
                     className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
                   >
-                    <a href='/Login'>S'inscrire</a>
+                    <a href='/Signup'>S'inscrire</a>
                   </button>
             
               </div>
@@ -380,7 +382,7 @@ setCommune(Selectedcommune);
                             <select
                 
                 name="wilaya"
-                className="w-[210px] h-[38px] rounded-2 p-2 border-2 border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
                 onChange={(wilaya) => handleWilaya(wilaya.target.value)}
               >
                 <option value="">Wilaya</option>
@@ -405,7 +407,7 @@ setCommune(Selectedcommune);
               <select
                 
                 name="commune"
-                className="w-[210px] h-[38px] rounded-2 p-2 border-2 border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
                 onChange={(commune) => handlecommune(commune.target.value)}
               >
                 <option value="">Commune</option>

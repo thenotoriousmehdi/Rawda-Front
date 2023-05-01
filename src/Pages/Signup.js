@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import logo from "../assets/logo.svg";
-import google from "../assets/google.svg";
+import google from "../assets/google1.svg";
 import axios from 'axios'; /* on a ajouté had l'import */
+import decosu from "../assets/decosu.svg"
+import decosu1 from "../assets/decosu1.svg";
 
 const Signup =(props) => {
 
@@ -70,11 +72,12 @@ const Signup =(props) => {
 
     <div class="h-screen bg-rawdawhite">
 
-            <div className=" flex items-center justify-center h-12  bg-white">
+
+            <div className=" flex items-center justify-center h-12  bg-white  sticky top-0 z-50   border-b border-gray-300">
                  <img className="w-1/12 mb-4 mt-4 " src={logo} alt="logo" />
             </div>
 
-            <section class="flex justify-center mt-2 ">
+            <section class="flex justify-center mt-4 ">
                    <img class="w-8" src={google} alt="google" />
             </section>
             <p class="mt-2 mb-2 font-body text-center">Ou inscrivez-vous avec votre email</p>
@@ -87,19 +90,19 @@ const Signup =(props) => {
                        <div class="flex flex-wrap justify-between mx-auto ">
                             <div className="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 ">
                             <label class="" >
-                                 <input class="w-full p-3 font-body mb-4 rounded-md bg-neutral-200 border-neutral-200 focus:outline-none" type="text" name="Nom" placeholder="Nom de famille" value={nom} onChange={handleNomChange} />
+                                 <input class="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="text" name="Nom" placeholder="Nom de famille" value={nom} onChange={handleNomChange} />
                              </label>
 
                              <label class="" >
-                                 <input class="w-full p-3 font-body mb-4 rounded-md bg-neutral-200 border-neutral-200 focus:outline-none" type="text" placeholder="Prenom" value={prenom} onChange={handlePrenomChange} />
+                                 <input class="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="text" placeholder="Prenom" value={prenom} onChange={handlePrenomChange} />
                              </label>
                              </div>
                              <label class="w-full">
-                                 <input class="w-full p-3 mb-4 font-body rounded-md bg-neutral-200 border-neutral-200 focus:outline-none" type="email" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
+                                 <input class="w-full p-3 mb-4 font-body rounded-md  bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="email" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
                              </label>
 
                              <label class="w-full">
-                                 <input class="w-full p-3 font-body rounded-md bg-neutral-200 border-neutral-200 focus:outline-none" type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
+                                 <input class="w-full p-3 font-body rounded-md  bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
                              </label>
 
                              <p class="mt-2 font-body mb-2">Vous êtes ?</p>
@@ -122,7 +125,7 @@ const Signup =(props) => {
                              </div>
 
                               <div class="mx-auto my-auto md:w-6/12 ">
-                                      <button class="lg:mb-7 w-full h-12 mt-5 border-2 font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-2xl opacity-100 shadow-purple-600" type="submit" onClick={handleFormSubmit}> S'inscrire </button>
+                                      <button class="lg:mb-7 w-full h-12 mt-5  font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600" type="submit" onClick={handleFormSubmit}> S'inscrire </button>
 
 
                                       {showPopup && (

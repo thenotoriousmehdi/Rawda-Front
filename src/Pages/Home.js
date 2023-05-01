@@ -14,6 +14,8 @@ import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 function Home() {
   return (
     <>
+    <div className="bg-rawdawhite"> 
+
       <Header />
       <Hero />
       <div>
@@ -25,6 +27,7 @@ function Home() {
       <Avis />
       <Faq />
       <Footer />
+      </div>
     </>
   );
 }
