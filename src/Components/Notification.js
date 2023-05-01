@@ -1,6 +1,7 @@
 import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
+import CustomizedDialogs from "./refusDialog.js";
 function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
@@ -74,16 +75,13 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
               </button>
             </a>
           </div>
-          <div>
-            <a href="/posturad">
-              <button
-                id="refuser"
-                type="button"
-                className="rounded-full font-medium text-sm bg-[#EE4C4C] bg-opacity-60 px-[21px] py-2 text-white hover:bg-[#EE4C4C]  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 "
-              >
-                Refuser
-              </button>
-            </a>
+          <div  >
+            
+         
+         < CustomizedDialogs/>
+
+         
+           
           </div>
         </div>
 
