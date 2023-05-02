@@ -13,14 +13,11 @@ function classNames(...classes) {
 function AddCreche() {
 
  
-  
     const [Wilaya, setWilaya] = useState("");
     const [WilayaId, setWilayaId] = useState(0);
   const [commune, setCommune]=useState();
   const handlecommune =(Selectedcommune)=>{
   setCommune(Selectedcommune);
-  
-  
   }
   
   
@@ -65,6 +62,7 @@ function AddCreche() {
       { value: "Regulier", label: "Regulier" },
       { value: "Ocasionnel", label: "Ocasionnel" }
     ]
+  
     
     const Langue =[
       { value: "Arabe", label: "Arabe" },
@@ -131,6 +129,7 @@ function AddCreche() {
       setJourAc(jourAc);
     }
    
+
     const [typeAc, setTypeAc] = useState();
     const typedaccueil = typeAc ? typeAc.value : '';
     const handletypeAcChange = (typeAc) => {
@@ -139,11 +138,11 @@ function AddCreche() {
   
   
   
-    const [capac, setCapac] = useState();
+   /*  const [capac, setCapac] = useState();
     const capacite = capac ? capac.value : '';
     const handlecapacChange= (capac) => {
       setCapac(capac);
-    };
+    }; */
   
   
     const [ageAc, setAgeAc] = useState();
@@ -201,7 +200,19 @@ function AddCreche() {
       setAdresse(event.target.value);
     }
     
+    const [value, setValue] = useState('');
+
+    function handlecapChange(event) {
+      const inputValue = event.target.value;
+      const numericValue = parseInt(inputValue, 10);
   
+      if (isNaN(numericValue)) {
+        setValue('');
+      } else {
+        setValue(numericValue);
+      }
+    }
+
     
   
     const handleSubmit = (event) => {
@@ -213,7 +224,7 @@ function AddCreche() {
         console.log('type daccueil:', typedaccueil);  
        console.log('jour daccueil:', jourdaccueil); 
       console.log('age daccueil:', agedaccueil); 
-      console.log('capacite:', capacite);
+      console.log('capacite:', value);
       console.log('Langue:', langue);
       console.log('Pedagogie:', pedagogie);
       console.log('Alimentation:', alimentation);
@@ -496,7 +507,6 @@ function AddCreche() {
        onChange={handletypEtabChange}
        isSearchable={true}
        isMulti={false}
-
         />
       </div>
     </div>
@@ -576,12 +586,13 @@ function AddCreche() {
 
 </div>
 
-<div className="flex flex-wrap justify-center"> {/* Third flex */}
+<div className="flex flex-wrap justify-center gap-4"> {/* Third flex */}
 
 
-<div className=" sm:ml-6 sm:block">
+<div className="  sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
-    <div className="Capacite">
+
+   {/*  <div className="Capacite">
       <div className="dropdown-container w-[210px]">
         <Select
         name="Capacite"
@@ -594,10 +605,33 @@ function AddCreche() {
         />
       </div>
     </div>
+ */}
+ <div >
+                             <input
+                          type="number"
+                          id="capacite"
+                           placeholder="Capacite"
+                           min="0"
+                           max="100"
+                           step="1"
+                           value={value}
+                           onChange={handlecapChange}
+                         required
+                        className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                  
+                           />
+                           </div>
+
+
+
     </div>
     </div>
 
-<div className=" sm:ml-6 sm:block">
+
+
+
+
+<div className="  sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
     <div className="pedagogie">
       <div className="dropdown-container w-[210px]">
@@ -616,7 +650,7 @@ function AddCreche() {
     </div>
 
 
-    <div className=" sm:ml-6 sm:block ">
+    <div className=" sm:block ">
                           <div className="flex space-x-4 m-2 md:m-0">
     <div className="Langue">
       <div className="dropdown-container w-[210px]">

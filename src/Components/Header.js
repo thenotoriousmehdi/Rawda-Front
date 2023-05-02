@@ -8,8 +8,6 @@ import Signup from '../Pages/Signup';
 import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
-import axios from axios;
-
 import {
   
   Bars3Icon,
@@ -56,19 +54,8 @@ setCommune(Selectedcommune);
       setFOpen(false);
     } else setFOpen(true);
   };
- /*  const wilaya = [
 
-    "Adrar", "Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
-    "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
-    "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Setif",  "Saeda", "Skikda",  "Sidi Bel Abbes",
-    "Annaba", "Guelma",  "Constantine", "Medea", "Mostaganem",  "M'Sila", "Mascara",
-    "Ouargla",  "Oran", "El Bayadh", "Illizi", "Bordj Bou Arreridj",  "Boumerdes",
-    "El Tarf", "Tindouf", "Tissemsilt", "El Oued", "Khenchela", "Souk Ahras", "Tipaza", "Mila",
-    "Ain Defla", "Naama",  "Ain Temouchent",  "Ghardaefa", "Relizane", "El M'ghair",  "El Menia",
-    "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès",  "Timimoun", "Touggourt",
-    "Djanet",  "In Salah",  "In Guezzam",
-    
-  ]; */
+  
   const Typeta = [
     { value: "Prive", label: "Prive" },
     { value: "Public", label: "Public" }
@@ -138,7 +125,7 @@ setCommune(Selectedcommune);
 
 
   const [typEtab, setTypEtab] = useState();
-  const typeEtab = typEtab ? typEtab.value : '';
+  const typedetablissement = typEtab ? typEtab.value : '';
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
@@ -146,13 +133,13 @@ setCommune(Selectedcommune);
 
 
    const [jourAc, setJourAc] = useState();
-  const joursAccueil= jourAc ? jourAc.value : '';
+  const jourdaccueil= jourAc ? jourAc.value : '';
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
   }
  
   const [typeAc, setTypeAc] = useState();
-  const typeAccueil = typeAc ? typeAc.value : '';
+  const typedaccueil = typeAc ? typeAc.value : '';
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
@@ -167,7 +154,7 @@ setCommune(Selectedcommune);
 
 
   const [ageAc, setAgeAc] = useState();
-  const ageAccueil = ageAc ? ageAc.value : '';
+  const agedaccueil = ageAc ? ageAc.value : '';
   const handleageAcChange = (ageAc) => {
     setAgeAc(ageAc);
   };
@@ -203,31 +190,27 @@ setCommune(Selectedcommune);
   };
 
  
+  
+  
 
-  const handleSubmit = async (event) => {
+  
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      await axios.post("http://localhost:8000/documents", {
-       Wilaya,commune,typeEtab,ageAccueil,typeAccueil,langue,pedagogie,alimentation,transport,prix
-      });
-    } catch (e) {
-      console.log(" USER NOT SIGNED ");
-      console.log('wilaya:', Wilaya);
-      console.log("commune: ", commune)
-     /*  console.log('Nom detablissement:', nomdetablissement); */
-      console.log('Type detablissement:', typeEtab);
-      console.log('type daccueil:', typeAccueil);  
-      console.log('jour daccueil:', joursAccueil); 
-      console.log('age daccueil:', ageAccueil); 
-      console.log('capacite:', capacite);
-      console.log('Langue:', langue);
-      console.log('Pedagogie:', pedagogie);
-      console.log('Alimentation:', alimentation);
-      console.log('Transport:', transport);
-      console.log('Prix:', prix); 
-    }
-    }
-
+    console.log('wilaya:', Wilaya);
+    console.log("commune: ", commune)
+   /*  console.log('Nom detablissement:', nomdetablissement); */
+    console.log('Type detablissement:', typedetablissement);
+      console.log('type daccueil:', typedaccueil);  
+     console.log('jour daccueil:', jourdaccueil); 
+    console.log('age daccueil:', agedaccueil); 
+    console.log('capacite:', capacite);
+    console.log('Langue:', langue);
+    console.log('Pedagogie:', pedagogie);
+    console.log('Alimentation:', alimentation);
+    console.log('Transport:', transport);
+    console.log('Prix:', prix); 
+  }
   
 
   return (
@@ -658,28 +641,6 @@ setCommune(Selectedcommune);
       </div>
     </div>
 </div> {/* start */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             
