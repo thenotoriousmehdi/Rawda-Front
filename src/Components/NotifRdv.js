@@ -2,13 +2,13 @@ import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
 import CustomizedDialogs from "./refusDialog.js";
-function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
+function Notification({photo, nomc, heuree, heure, date, num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
         {" "}
         {/* flex top */}
-        <h1 className="text-white font-bold">{type}</h1>
+        <h1 className="text-white font-bold">Demande de rendez-vous</h1>
         <img className="h-[15px]" src={croix} />
       </div>
 

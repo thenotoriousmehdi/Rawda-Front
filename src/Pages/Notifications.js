@@ -1,8 +1,11 @@
-import Notification from "../Components/Notification";
+import Notification from "../Components/NotifRdv";
 import NavAfter from "../Components/NavAfter";
 import mehdi from "../assets/mehdi.jpeg";
 import kahina from "../assets/kahina.jpg";
 import mouloud from "../assets/mouloud.jpg";
+import NotifRdv from "../Components/NotifRdv";
+import NotifRsv from "../Components/NotifRsv";
+import Footer from "../Components/Footer";
 function Notifications() {
   return (
     <>
@@ -17,8 +20,7 @@ function Notifications() {
         </div>
 
         <div className="flex flex-col gap-6 items-center mt-[30px] p-8">
-          <Notification
-            type="Demande de rendez-vous"
+          <NotifRdv
             photo={mehdi}
             nomc="Mehdi MAMOUNI"
             heuree="2"
@@ -27,17 +29,19 @@ function Notifications() {
             num="0560000000"
             email="km_mamouni@esi.dz"
           />
-          <Notification
-            type="Reservation"
+          <NotifRsv
             photo={kahina}
             nomc="Kahina SAADAOUI"
+            nomen="Mehdi MAMOUNI"
+            daten="23/07/2020"
+            dateden="04/05/2023"
             heuree="4"
             heure="17:40"
             date="28/05/2023"
             num="0560000001"
             email="kk_saadaoui@esi.dz"
           />
-          <Notification
+         {/*  <Notification
             type="Demande de rendez-vous"
             photo={mouloud}
             nomc="Mouloud SERIR"
@@ -46,8 +50,9 @@ function Notifications() {
             date="26/05/2023"
             num="0560000002"
             email="km_serir@esi.dz"
-          />
+          />  */}
         </div>
+        <Footer/>
       </div>
     </>
   );

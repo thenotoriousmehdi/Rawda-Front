@@ -7,7 +7,7 @@ import Footer from "./Components/Footer";
  import Login from "./Pages/Login";
  import Signup from "./Pages/Signup";
  import mehdi from "./assets/mehdi.jpeg";
-import Notification from "./Components/Notification";
+import Notification from "./Components/NotifRdv";
 import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Pages/Profile/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
