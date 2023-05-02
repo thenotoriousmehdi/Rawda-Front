@@ -2,7 +2,7 @@ import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
 import CustomizedDialogs from "./refusDialog.js";
-function Notification({photo, nomc,nomen, heuree, heure, daten, dateden, num, email }) {
+function NotifRsv({photo, nomc,nomen, heuree, heure, daten, dateden, num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
@@ -80,4 +80,4 @@ function Notification({photo, nomc,nomen, heuree, heure, daten, dateden, num, em
     </div>
   );
 }
-export default Notification;
+export default NotifRsv;

@@ -6,6 +6,7 @@ import mouloud from "../assets/mouloud.jpg";
 import NotifRdv from "../Components/NotifRdv";
 import NotifRsv from "../Components/NotifRsv";
 import Footer from "../Components/Footer";
+import NotifCreche from "../Components/NotifCreche";
 function Notifications() {
   return (
     <>
@@ -41,16 +42,15 @@ function Notifications() {
             num="0560000001"
             email="kk_saadaoui@esi.dz"
           />
-         {/*  <Notification
-            type="Demande de rendez-vous"
+         <NotifCreche
             photo={mouloud}
             nomc="Mouloud SERIR"
+            nomcreche="Le berceau des anges"
             heuree="5"
             heure="13:20"
-            date="26/05/2023"
             num="0560000002"
             email="km_serir@esi.dz"
-          />  */}
+          />  
         </div>
         <Footer/>
       </div>
