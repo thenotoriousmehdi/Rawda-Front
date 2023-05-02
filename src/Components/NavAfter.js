@@ -3,6 +3,8 @@ import mehdi1 from "../assets/mehdi1.png";
 import Footer from "../Components/Footer.js";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
+import iconotif from "../assets/iconotif.svg";
+import helpicon from "../assets/helpicon.svg";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -71,8 +73,13 @@ export default function NavAfter() {
                     </div>
                   </div> */}
 
-                <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <a href="/posturad">
+
+<div className="flex gap-2">
+
+
+
+<div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  <a href="/">
                     <button
                       id="pub"
                       type="button"
@@ -81,6 +88,19 @@ export default function NavAfter() {
                       Aide
                     </button>
                   </a>
+
+                  </div>
+
+
+<div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
+
+<a href="/Notifications">
+  <img src={iconotif} />
+    </a>
+
+</div>
+
+
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>
@@ -116,7 +136,7 @@ export default function NavAfter() {
                             </a>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
+                        {/* <Menu.Item>
                           {({ active }) => (
                             <a
                               href="/messages"
@@ -128,7 +148,7 @@ export default function NavAfter() {
                               Notifications
                             </a>
                           )}
-                        </Menu.Item>
+                        </Menu.Item> */}
                         <Menu.Item>
                           {({ active }) => (
                             <a
