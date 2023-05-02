@@ -150,11 +150,10 @@ const Signup = (props) => {
                 type="submit"
                 onClick={handleFormSubmit}
               >
-                {" "}
-                S'inscrire{" "}
+              <a href="/"> S'inscrire </a>  
               </button>
 
-              {showPopup && (
+              {/* {showPopup && (
                 <div className="bg-white p-4 shadow-md rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <p className="font-bold font-body mb-2">
                     Votre inscription a été faite avec succès !{" "}
@@ -166,7 +165,7 @@ const Signup = (props) => {
                     Vous voulez voir votre profil
                   </button>
                 </div>
-              )}
+              )} */}
             </div>
 
             <div class="flex justify-center justify-content">

@@ -3,15 +3,230 @@ import Select from 'react-select'
 import Footer from "../Components/Footer";
 import NavAfter from "../Components/NavAfter";
 import React, { useState } from "react";
-
+import Wilayas from "../data/wilayas.json";
 import galery from "../assets/galery.svg";
 import exit from "../assets/exit1.svg";
-
-
-                    
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function AddCreche() {
-  const wilaya = [
+
+ 
+  
+    const [Wilaya, setWilaya] = useState("");
+    const [WilayaId, setWilayaId] = useState(0);
+  const [commune, setCommune]=useState();
+  const handlecommune =(Selectedcommune)=>{
+  setCommune(Selectedcommune);
+  
+  
+  }
+  
+  
+  
+  
+    const handleWilaya = (SelectedWilaya) => {
+      setWilaya(SelectedWilaya);
+      const wilayaObject = Wilayas.find(
+        (wilaya) => wilaya.name === SelectedWilaya
+      );
+      setWilayaId(wilayaObject.id);
+    };
+  
+   
+    const [fopen, setFOpen] = React.useState(false);
+    const mehdi = () => {
+      return (
+  <Footer/>
+      );
+    }
+  
+    const handleClick = () => {
+      if (fopen === true) {
+        setFOpen(false);
+      } else setFOpen(true);
+    };
+  
+    
+    const Typeta = [
+      { value: "Prive", label: "Prive" },
+      { value: "Public", label: "Public" }
+    ]
+    
+    const Pedagogie=[
+     { value: "Montessori", label: "Montessori" },
+      { value: "Freinet", label: "Freinet" },
+      { value: "Steiner", label: "Steiner" },
+      { value: "Institutionnelle", label: "Institutionnelle" },
+      { value: "Pikler-Loczy", label: "Pikler-Loczy" }
+    ]
+    const Typeac = [
+      { value: "Regulier", label: "Regulier" },
+      { value: "Ocasionnel", label: "Ocasionnel" }
+    ]
+    
+    const Langue =[
+      { value: "Arabe", label: "Arabe" },
+      { value: "Francais", label: "Francais" },
+      { value: "Anglais", label: "Anglais" }
+    ]
+    
+    
+    const jourac = [
+      { value: "Dimanche", label: "Dimanche" },
+      { value: "Lundi", label: "Lundi" },
+      { value: "Mardi", label: "Mardi" },
+      { value: "Mercredi", label: "Mercredi" },
+      { value: "Jeudi", label: "Jeudi" },
+      { value: "Vendredi", label: "Vendredi" },
+      { value: "Samedi", label: "Samedi" }
+    ];
+    
+    const ageac = [
+      { value: "0", label: "0" },
+      { value: "1", label: "1" },
+      { value: "2", label: "2" },
+      { value: "3", label: "3" },
+      { value: "4", label: "4" },
+      { value: "5", label: "5" },
+      { value: "6", label: "6" }
+    ];
+    
+    const Capacite = [
+      { value: "0-30", label: "0-30" },
+      { value: "30-60", label: "30-60"},
+      { value: "60-100", label: "60-100" },
+      { value: "100-200", label: "100-200" },
+      { value: "+200", label: "+200" }
+      
+    ];
+    
+    const verite=[
+      { value: "oui", label: "oui" },
+      { value: "non", label: "non"},
+  
+    ]
+    
+    
+  
+  
+    const [nomdetablissement, setNomdetablissement] = useState('');
+    const handlenomChange = (event) => {
+      setNomdetablissement(event.target.value);
+    }
+  
+  
+    const [typEtab, setTypEtab] = useState();
+    const typedetablissement = typEtab ? typEtab.value : '';
+    const handletypEtabChange = (typEtab) => {
+      setTypEtab(typEtab);
+    };
+    
+  
+  
+     const [jourAc, setJourAc] = useState();
+    const jourdaccueil= jourAc ? jourAc.value : '';
+    const handlejouracChange = (jourAc) => {
+      setJourAc(jourAc);
+    }
+   
+    const [typeAc, setTypeAc] = useState();
+    const typedaccueil = typeAc ? typeAc.value : '';
+    const handletypeAcChange = (typeAc) => {
+      setTypeAc(typeAc);
+    };
+  
+  
+  
+    const [capac, setCapac] = useState();
+    const capacite = capac ? capac.value : '';
+    const handlecapacChange= (capac) => {
+      setCapac(capac);
+    };
+  
+  
+    const [ageAc, setAgeAc] = useState();
+    const agedaccueil = ageAc ? ageAc.value : '';
+    const handleageAcChange = (ageAc) => {
+      setAgeAc(ageAc);
+    };
+    
+  
+    const [pedag, setPedag] = useState();
+    const pedagogie = pedag ? pedag.value : '';
+    const handlepedagChange = (pedag) => {
+      setPedag(pedag);
+    };
+    
+    const [lang, setLang] = useState();
+    const langue= lang ? lang.value : '';
+    const handlelangChange = (lang) => {
+      setLang(lang);
+    };
+    
+    const [alim, setAlim] = useState();
+    const alimentation= alim ? alim.value : '';
+    const handlealimChange = (alim) => {
+      setAlim(alim);
+    };
+    
+    const [trans, setTrans] = useState();
+    const transport= trans ? trans.value : '';
+    const handletransChange = (trans) => {
+      setTrans(trans);
+    };
+    
+    const [prix, setPrix] = useState();
+    const handleprixChange = (event) => {
+      setPrix(event.target.value);
+    };
+  
+    const [nomc, setNomc] = useState('');
+    const [email, setEmail] = useState('');
+    const [num, setNum] = useState('');
+    const [adresse, setAdresse] = useState('');
+
+    const handlenomcChange = (event) => {
+      setNomc(event.target.value);
+    }
+  
+    const handleEmailChange = (event) => {
+      setEmail(event.target.value);
+    }
+    const handlenumChange = (event) => {
+      setNum(event.target.value);
+    }
+    const handleadresseChange = (event) => {
+      setAdresse(event.target.value);
+    }
+    
+  
+    
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log('wilaya:', Wilaya);
+      console.log("commune: ", commune)
+     /*  console.log('Nom detablissement:', nomdetablissement); */
+      console.log('Type detablissement:', typedetablissement);
+        console.log('type daccueil:', typedaccueil);  
+       console.log('jour daccueil:', jourdaccueil); 
+      console.log('age daccueil:', agedaccueil); 
+      console.log('capacite:', capacite);
+      console.log('Langue:', langue);
+      console.log('Pedagogie:', pedagogie);
+      console.log('Alimentation:', alimentation);
+      console.log('Transport:', transport);
+      console.log('Prix:', prix); 
+      console.log('Nom complet:', nomc);
+    console.log('Email:', email);
+    console.log('Numero de †elephone:', num);
+    console.log('Adresse:', adresse);
+    }
+    
+
+  /* const wilaya = [
    {value :"adrar", label:"Adrar"},"Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
     "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
     "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Setif",  "Saeda", "Skikda",  "Sidi Bel Abbes",
@@ -81,7 +296,6 @@ function AddCreche() {
     { value: "non", label: "non"},
 
   ]
-  
   
 
   // React state to manage selected options pour les jours d'accueil
@@ -165,9 +379,6 @@ function AddCreche() {
     setAdresse(event.target.value);
   }
 
-
-  
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Nom:', nom);
@@ -188,10 +399,16 @@ function AddCreche() {
 
     
   }
+ */
+ 
+    const [file, setFile] = useState(null);
+  
+    function handleFileUpload(event) {
+      setFile(event.target.files[0]);
+    }
+  
+    
 
-  
-   
-  
   const [files, setfiles] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   const selectImage = (e) => {
@@ -220,11 +437,6 @@ function AddCreche() {
 
     }
   };
-
-
-
-
-
 
   return(
     <>
@@ -277,13 +489,13 @@ function AddCreche() {
     <div className="type">
       <div className="dropdown-container w-[300px]">
         <Select
-        name="Type d’etablissement"
-          options={Typeta}
-          placeholder="Type d'etablissement"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+       name="Type d’etablissement"
+       options={Typeta}
+       placeholder="Type d'etabliss"
+       value={typEtab}
+       onChange={handletypEtabChange}
+       isSearchable={true}
+       isMulti={false}
 
         />
       </div>
@@ -306,12 +518,12 @@ function AddCreche() {
       <div className="dropdown-container w-[210px]">
         <Select
         name="Type d’accueil"
-          options={Typeac}
-          placeholder="Type d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+        options={Typeac}
+        placeholder="Type d'accueil"
+        value={typeAc}
+        onChange={handletypeAcChange}
+        isSearchable={true}
+        isMulti={false}
         />
       </div>
     </div>
@@ -325,14 +537,14 @@ function AddCreche() {
     <div className="jours">
       <div className="dropdown-container w-[210px]  ">
         <Select
-        name="Jours d’accueil"
+       name="Jours d’accueil"
 
-          options={jourac}
-          placeholder="Jours d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti
+       options={jourac}
+       placeholder="Jours d'accueil"
+      value={jourAc}
+      onChange={handlejouracChange}
+       isSearchable={true}
+       isMulti={false}
         />
       </div>
     </div>
@@ -347,12 +559,12 @@ function AddCreche() {
       <div className="dropdown-container w-[210px]">
         <Select
         name="Age d'accueil"
-          options={ageac}
-          placeholder="Ages d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+        options={ageac}
+        placeholder="Ages d'accueil"
+      value={ageAc}
+      onChange={handleageAcChange}
+        isSearchable={true}
+        isMulti={false}
         />
       </div>
     </div>
@@ -373,12 +585,12 @@ function AddCreche() {
       <div className="dropdown-container w-[210px]">
         <Select
         name="Capacite"
-          options={Capacite}
-          placeholder="Capacite d'accueil"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+        options={Capacite}
+        placeholder="Capacite d'accueil"
+        value={capac}
+        onChange={handlecapacChange}
+        isSearchable={true}
+        isMulti={false}
         />
       </div>
     </div>
@@ -390,13 +602,13 @@ function AddCreche() {
     <div className="pedagogie">
       <div className="dropdown-container w-[210px]">
         <Select
-        name="Pedagogie"
-          options={Pedagogie}
-          placeholder="Pedagogie"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+         name="Pedagogie"
+         options={Pedagogie}
+         placeholder="Pedagogie"
+        value={pedag}
+        onChange={handlepedagChange}
+         isSearchable={true}
+         isMulti={false}
         />
       </div>
     </div>
@@ -409,13 +621,13 @@ function AddCreche() {
     <div className="Langue">
       <div className="dropdown-container w-[210px]">
         <Select
-        name="Langue"
-          options={langue}
-          placeholder="Langue"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+      name="Langue"
+      options={Langue}
+      placeholder="Langue"
+     value={lang}
+     onChange={handlelangChange}
+      isSearchable={true}
+      isMulti={false}
         />
       </div>
     </div>
@@ -435,13 +647,13 @@ function AddCreche() {
     <div className="Transport">
       <div className="dropdown-container w-[210px]">
         <Select
-        name="Transport"
-          options={verite}
-          placeholder="Transport"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+       name="Transport"
+       options={verite}
+       placeholder="Transport"
+      value={trans}
+      onChange={handletransChange}
+       isSearchable={true}
+       isMulti={false}
         />
       </div>
     </div>
@@ -453,13 +665,12 @@ function AddCreche() {
     <div className="Alimentation">
       <div className="dropdown-container w-[210px]">
         <Select
-        name="Alimentation"
-          options={verite}
-          placeholder="Alimentation"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
+       name="Alimentation"
+       options={verite}
+       placeholder="Alimentation"
+value={alim}
+onChange={handlealimChange}
+       isMulti={false}
         />
       </div>
     </div>
@@ -469,12 +680,12 @@ function AddCreche() {
 
 <div >
                              <input
-                             type="int"
-                             id="Prix"
-                              placeholder="Prix/mois (DA)"
-                            required
-                            onChange={handleprixChange}
-                           className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                          type="int"
+                          id="Prix"
+                           placeholder="Prix/mois (DA)"
+                         required
+                        className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                        onChange={handleprixChange}
                            />
                            </div>
 
@@ -508,44 +719,61 @@ function AddCreche() {
         </div>
 
 
-        <div className="flex flex-wrap justify-center"> {/* Sixth flex */}
+        <div className="flex flex-wrap justify-center items-center"> {/* Sixth flex */}
 
-        <div className=" sm:ml-6 sm:block ">
+        <div className="  sm:block ">
                           <div className="flex space-x-4 m-2 md:m-0">
-    <div className="Wilaya">
-      <div className="dropdown-container w-[310px]">
-        <Select
-        options={wilaya}
-        name="Wilaya"
-          placeholder="Wilaya"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
-        />
-        
-      </div>
-    </div>
+                          <select
+                
+                name="wilaya"
+                className="w-[310px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                onChange={(wilaya) => handleWilaya(wilaya.target.value)}
+              >
+                <option value="">Wilaya</option>
+                {Wilayas.map((wilaya,i) => {
+                  return (
+                    <option
+                    key={i}
+                      className="hover:bg-rawdapurple"
+                      value={wilaya.name}
+                      
+                    >
+                      {wilaya.code}-{wilaya.name}
+                    </option>
+                  );
+                })}
+              </select>
     </div>
     </div>
 
 
     <div className=" sm:ml-6 sm:block ">
                           <div className="flex space-x-4 m-2 md:m-0">
-    <div className="Commune">
-      <div className="dropdown-container w-[310px]">
-        <Select
-        options={wilaya}
-        name="Commune"
-          placeholder="Commune"
-          value={selectedOptions}
-          onChange={handleSelect}
-          isSearchable={true}
-          isMulti={false}
-        />
-        
-      </div>
-    </div>
+                          <select
+                
+                name="commune"
+                className="w-[310px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                onChange={(commune) => handlecommune(commune.target.value)}
+              >
+                <option value="">Commune</option>
+                {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
+                  return (
+                    <>
+                      {daira.communes?.map((commune,i) => {
+                        return (
+                          <option
+                          key={i}
+                            className="hover:rawdapurple"
+                            value={commune.name}
+                          >
+                            {commune.name}
+                          </option>
+                        );
+                      })}
+                    </>
+                  );
+                })}
+              </select>
     </div>
     </div>
 
@@ -562,7 +790,7 @@ function AddCreche() {
                               placeholder="L’adresse complète de l’établissement"
                             required
                             onChange={handleadresseChange}
-                           className="rounded-md w-[250px] h-[38px] md:w-[650px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                           className="rounded-md w-[250px] h-[38px] md:w-[650px]  bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
 
@@ -722,10 +950,9 @@ function AddCreche() {
         <div className="flex flex-wrap justify-center"> {/* eleventh flex */}
         <div >
                              <input
-                             type="text"
-                             id="Adresse"
-                              placeholder="Agrement"
-                            required
+                             type="file"
+                             id="file-upload"
+                             onChange={handleFileUpload}
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
                            </div>
@@ -733,9 +960,9 @@ function AddCreche() {
 
                            <div >
                              <input
-                             type="text"
-                             id="Adresse"
-                              placeholder="Carte Nationale"
+                              type="file"
+                              id="file-upload"
+                              onChange={handleFileUpload}
                             required
                            className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            />
