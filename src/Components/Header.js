@@ -190,6 +190,18 @@ setCommune(Selectedcommune);
     setPrix(event.target.value);
   };
 
+
+  const [value, setValue] = useState("");
+  function handlecapChange(event) {
+    const inputValue = event.target.value;
+    const numericValue = parseInt(inputValue, 10);
+
+    if (isNaN(numericValue)) {
+      setValue("");
+    } else {
+      setValue(numericValue);
+    }
+  }
  
 const handlenomclick =(event) =>{
 event.preventDefault();
@@ -208,7 +220,7 @@ console.log("nom d'etablissement", nomdetablissement)
       console.log('type daccueil:', typedaccueil);  
      console.log('jour daccueil:', jourdaccueil); 
     console.log('age daccueil:', agedaccueil); 
-    console.log('capacite:', capacite);
+    console.log('capacite:', value);
     console.log('Langue:', langue);
     console.log('Pedagogie:', pedagogie);
     console.log('Alimentation:', alimentation);
@@ -273,7 +285,7 @@ console.log("nom d'etablissement", nomdetablissement)
                       <input
                         id="desktop-search"
                         type="text"
-                        placeholder="Rechercher..."
+                        placeholder="Rechercher par nom..."
                         required
                         onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
@@ -534,19 +546,20 @@ console.log("nom d'etablissement", nomdetablissement)
 
 <div className=" sm:ml-6 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
-    <div className="Capacite">
-      <div className="dropdown-container w-[210px]">
-        <Select
-        name="Capacite"
-          options={Capacite}
-          placeholder="Capacite d'accueil"
-          value={capac}
-          onChange={handlecapacChange}
-          isSearchable={true}
-          isMulti={false}
-        />
-      </div>
-    </div>
+                          <div>
+                          <input
+                            type="number"
+                            id="capacite"
+                            placeholder="Capacite"
+                            min="0"
+                            max="100"
+                            step="1"
+                            value={value}
+                            onChange={handlecapChange}
+                            required
+                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                          />
+                        </div>
     </div>
     </div>
 
@@ -635,7 +648,7 @@ console.log("nom d'etablissement", nomdetablissement)
                              <input
                              type="int"
                              id="Prix"
-                              placeholder="Prix/mois (DA)"
+                              placeholder="Prix max/mois (DA)"
                             required
                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            onChange={handleprixChange}
