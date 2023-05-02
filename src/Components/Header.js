@@ -8,6 +8,7 @@ import Signup from '../Pages/Signup';
 import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
+import axios from axios;
 
 import {
   
@@ -137,7 +138,7 @@ setCommune(Selectedcommune);
 
 
   const [typEtab, setTypEtab] = useState();
-  const typedetablissement = typEtab ? typEtab.value : '';
+  const typeEtab = typEtab ? typEtab.value : '';
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
@@ -145,13 +146,13 @@ setCommune(Selectedcommune);
 
 
    const [jourAc, setJourAc] = useState();
-  const jourdaccueil= jourAc ? jourAc.value : '';
+  const joursAccueil= jourAc ? jourAc.value : '';
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
   }
  
   const [typeAc, setTypeAc] = useState();
-  const typedaccueil = typeAc ? typeAc.value : '';
+  const typeAccueil = typeAc ? typeAc.value : '';
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
@@ -166,7 +167,7 @@ setCommune(Selectedcommune);
 
 
   const [ageAc, setAgeAc] = useState();
-  const agedaccueil = ageAc ? ageAc.value : '';
+  const ageAccueil = ageAc ? ageAc.value : '';
   const handleageAcChange = (ageAc) => {
     setAgeAc(ageAc);
   };
@@ -202,27 +203,31 @@ setCommune(Selectedcommune);
   };
 
  
-  
-  
 
-  
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('wilaya:', Wilaya);
-    console.log("commune: ", commune)
-   /*  console.log('Nom detablissement:', nomdetablissement); */
-    console.log('Type detablissement:', typedetablissement);
-      console.log('type daccueil:', typedaccueil);  
-     console.log('jour daccueil:', jourdaccueil); 
-    console.log('age daccueil:', agedaccueil); 
-    console.log('capacite:', capacite);
-    console.log('Langue:', langue);
-    console.log('Pedagogie:', pedagogie);
-    console.log('Alimentation:', alimentation);
-    console.log('Transport:', transport);
-    console.log('Prix:', prix); 
-  }
+    try {
+      await axios.post("http://localhost:8000/documents", {
+       Wilaya,commune,typeEtab,ageAccueil,typeAccueil,langue,pedagogie,alimentation,transport,prix
+      });
+    } catch (e) {
+      console.log(" USER NOT SIGNED ");
+      console.log('wilaya:', Wilaya);
+      console.log("commune: ", commune)
+     /*  console.log('Nom detablissement:', nomdetablissement); */
+      console.log('Type detablissement:', typeEtab);
+      console.log('type daccueil:', typeAccueil);  
+      console.log('jour daccueil:', joursAccueil); 
+      console.log('age daccueil:', ageAccueil); 
+      console.log('capacite:', capacite);
+      console.log('Langue:', langue);
+      console.log('Pedagogie:', pedagogie);
+      console.log('Alimentation:', alimentation);
+      console.log('Transport:', transport);
+      console.log('Prix:', prix); 
+    }
+    }
+
   
 
   return (
