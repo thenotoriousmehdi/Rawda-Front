@@ -7,7 +7,7 @@ import Header from '../../Components/Header'
 import useFetch from "./useFetch"
 export default function CrechInfoCard (){
      
-     const { data: creche, error, isPending } = useFetch('http://localhost:8000/creches/' + 1); 
+     const { data: creche, error, isPending } = useFetch('http://localhost:8002/creches/' + 1); 
     
     return(
 
