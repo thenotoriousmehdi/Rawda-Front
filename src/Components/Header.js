@@ -8,6 +8,7 @@ import Signup from '../Pages/Signup';
 import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
+import loupe from "../assets/loupe.svg";
 import {
   
   Bars3Icon,
@@ -190,7 +191,11 @@ setCommune(Selectedcommune);
   };
 
  
-  
+const handlenomclick =(event) =>{
+event.preventDefault();
+console.log("nom d'etablissement", nomdetablissement)
+
+}
   
 
   
@@ -199,7 +204,6 @@ setCommune(Selectedcommune);
     event.preventDefault();
     console.log('wilaya:', Wilaya);
     console.log("commune: ", commune)
-   /*  console.log('Nom detablissement:', nomdetablissement); */
     console.log('Type detablissement:', typedetablissement);
       console.log('type daccueil:', typedaccueil);  
      console.log('jour daccueil:', jourdaccueil); 
@@ -255,10 +259,23 @@ setCommune(Selectedcommune);
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-4 bg-white items-center border border-gray-300 rounded-xl ">
+
+
+                    <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
+                    onClick={handlenomclick}>
+
+
+  <img src={loupe} />
+
+
+</div>
+
                       <input
                         id="desktop-search"
                         type="text"
                         placeholder="Rechercher..."
+                        required
+                        onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
