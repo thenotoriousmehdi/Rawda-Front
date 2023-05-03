@@ -119,10 +119,7 @@ setCommune(Selectedcommune);
   
 
 
-  const [nomdetablissement, setNomdetablissement] = useState('');
-  const handlenomChange = (event) => {
-    setNomdetablissement(event.target.value);
-  }
+  
 
 
   const [typEtab, setTypEtab] = useState();
@@ -202,12 +199,18 @@ setCommune(Selectedcommune);
       setValue(numericValue);
     }
   }
- 
-const handlenomclick =(event) =>{
+  const [nomdetablissement, setNomdetablissement] = useState('');
+  const handlenomChange = (event) => {
+    setNomdetablissement(event.target.value);
+    console.log("nom d'etablissement", nomdetablissement)
+  }
+
+
+/* const handlenomclick =(event) =>{
 event.preventDefault();
 console.log("nom d'etablissement", nomdetablissement)
 
-}
+} */
   
 
   
@@ -254,7 +257,7 @@ console.log("nom d'etablissement", nomdetablissement)
                   </Disclosure.Button>
                 </div>
                 {/* Mobile menu button */}
-                <div className="flex space-x-48 flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex space-x-32 flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <a href="/">
                       <img
@@ -270,11 +273,9 @@ console.log("nom d'etablissement", nomdetablissement)
                     </a>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="nav-search flex space-x-4 bg-white items-center border border-gray-300 rounded-xl ">
-
-
+                    <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                     <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
-                    onClick={handlenomclick}>
+                    onClick={handlenomChange}>
 
 
   <img src={loupe} />
@@ -287,7 +288,7 @@ console.log("nom d'etablissement", nomdetablissement)
                         type="text"
                         placeholder="Rechercher par nom..."
                         required
-                        onChange={handlenomChange}
+                        //onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
