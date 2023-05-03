@@ -1,4 +1,4 @@
-function Footer(){
+function Footer (){
 
     return (
     
@@ -8,11 +8,6 @@ function Footer(){
         <div className="relative flex flex-row h-2 items-center justify-between">
             
         </div>
-function Footer() {
-  return (
-    <footer className="bg-rawdapurple">
-      <div className="mx-auto  px-2 sm:px-6 lg:px-10 ">
-        <div className="relative flex flex-row h-2 items-center justify-between"></div>
         <div className="px-20 py-6 bg-rawdapurple  md:flex md:items-center md:justify-between">
           <span className="text-sm text-rawdawhite sm:text-center">
             © 2023 <a href="https://rawda.com/">Rawda™</a>. Touts les droits sont réserver.
