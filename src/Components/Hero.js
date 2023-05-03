@@ -1,6 +1,5 @@
 import illus11 from "../assets/illus11.svg";
 
-
 export default function Hero() {
   return (
     <section id="hero">
@@ -9,12 +8,18 @@ export default function Hero() {
         items-center justify-between px-6 mx-auto mt-10 space-y-0 md:space-y-0"
       >
         <div className="flex flex-col mb-32 gap-4 md:w-1/2">
-        <div className="flex flex-col items-end md:items-start gap md:gap-y-0 ">
-        <p className="  max-w-md text-4xl font-bold text-left text-rawdapurple
-            md:text-4xl md:textleft z-10">  Le 1er moteur de recherche de crèches en Algérie.</p>
-      <div className="  mb-[0.5px] w-[200px] mt-[-15px] md:w-[180px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div></div>
+          <div className="flex flex-col items-end md:items-start gap md:gap-y-0 ">
+            <p
+              className="  max-w-md text-4xl font-bold text-left text-rawdapurple
+            md:text-4xl md:textleft z-10"
+            >
+              {" "}
+              Le 1er moteur de recherche de crèches en Algérie.
+            </p>
+            <div className="  mb-[0.5px] w-[200px] mt-[-15px] md:w-[180px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div>
+          </div>
 
-         {/*  <h1
+          {/*  <h1
             className="max-w-md text-4xl font-bold text-left text-rawdapurple
             md:text-4xl md:textleft"
           >
@@ -33,18 +38,10 @@ export default function Hero() {
               Commencer{" "}
             </button>
           </div>
-
-          
         </div>
         <div className=" md:w-[220 px] my-6 py-6 ">
           <img className=" md:h-[300px] " src={illus11} alt="logorawda" />
         </div>
-
-
-
-
-
-
       </div>
     </section>
   );

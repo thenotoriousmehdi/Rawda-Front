@@ -5,10 +5,9 @@ import KeenSlider from "keen-slider";
 import AvisCard from "./AvisCard";
 import arrow from "../../assets/arrow1.svg";
 import mehdi from "../../assets/mehdi1.png";
-import mouloud from "../../assets/mouloud.jpg"
-import ines from "../../assets/ines.jpg"
-import kahina from "../../assets/kahina.jpg"
-
+import mouloud from "../../assets/mouloud.jpg";
+import ines from "../../assets/ines.jpg";
+import kahina from "../../assets/kahina.jpg";
 
 const Avis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,18 +39,16 @@ const Avis = () => {
     },
     {
       photo: kahina,
-      nom:
-        "Kahina SAADAOUI",
+      nom: "Kahina SAADAOUI",
       avis: `Rawda est super ! J'ai pu trouver toutes les informations dont j'avais besoin sur les différentes 
       crèches disponibles en Algérie, et j'ai même pu lire les avis d'autres parents pour me faire une idée plus précise
       `,
     },
     {
-      photo:ines ,
+      photo: ines,
       nom: "Ines MEDERBEL",
       avis: "je suis impressionné par la qualité de service, j’ai cliqué sur le bouton a gauche de la barre de recherche et une multitude de critère sont affiche devant moi ca m’a pris 1 minute pour sélectionner les critère qui répondent à mes besoins et puis les crèches correspondant étaient affichées, j’ai pu trouver une crèche pour mon fils et même réserver une place ",
     },
-    
   ];
   return (
     <>
@@ -59,23 +56,13 @@ const Avis = () => {
         id="Avis"
         className="relative flex flex-col w-full h-screen justify-center items-center bg-Gray-800"
       >
-       
-
-
-       <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
-
-
-<p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10 ">   Ce que disent les parents sur nous  </p>
-      <div className="  mb-[0.5px] mt-[-15px] w-[120px] md:w-[580px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
-
-</div>
-
-
-       
-
-
-
-
+        <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
+          <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10 ">
+            {" "}
+            Ce que disent les parents sur nous{" "}
+          </p>
+          <div className="  mb-[0.5px] mt-[-15px] w-[120px] md:w-[580px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
+        </div>
 
         <div ref={sliderRef} className="keen-slider">
           {data.map((e, idx) => {
@@ -86,15 +73,15 @@ const Avis = () => {
 
           {loaded && instanceRef.current && (
             <div className="h-full  md:w-2/3 sm:w-5/6 w-5/6">
-               <Arrow
+              <Arrow
                 left
                 onClick={(e) =>
                   e.stopPropagation() || instanceRef.current?.prev()
                 }
                 disabled={currentSlide === 0}
-              /> 
+              />
 
-               <Arrow
+              <Arrow
                 onClick={(e) =>
                   e.stopPropagation() || instanceRef.current?.next()
                 }
@@ -102,7 +89,7 @@ const Avis = () => {
                   currentSlide ===
                   instanceRef.current.track.details.slides.length - 1
                 }
-              /> 
+              />
             </div>
           )}
         </div>
@@ -119,7 +106,9 @@ const Avis = () => {
                   }}
                   className={
                     "border-none w-2 h-2  rounded-full p-1 mx-1 cursor-pointer" +
-                    (currentSlide === idx ? " bg-rawdapurple " : " bg-rawdapurple bg-opacity-30")
+                    (currentSlide === idx
+                      ? " bg-rawdapurple "
+                      : " bg-rawdapurple bg-opacity-30")
                   }
                 ></button>
               );
@@ -133,7 +122,7 @@ const Avis = () => {
 
 export default Avis;
 
- function Arrow(props) {
+function Arrow(props) {
   const disabeld = props.disabled ? " text-rawdapurple" : "text-rawdapurple";
   return (
     <div
@@ -147,13 +136,8 @@ export default Avis;
           props.left ? "-mr-2" : "rotate-180 -ml-2"
         }`}
       >
-        <img
-          src={arrow}
-          height={120}
-          width={120}
-          alt="arrow"
-        ></img>
+        <img src={arrow} height={120} width={120} alt="arrow"></img>
       </div>
     </div>
   );
-} 
+}

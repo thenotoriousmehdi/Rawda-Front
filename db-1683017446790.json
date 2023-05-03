@@ -1,0 +1,22 @@
+{
+  "creches": [
+    {
+      "title": "Crèche berceau des anges",
+      "locasitiontitle": "Birkhadem, Alger",
+      "Type_accueil": "Régulier",
+      "Jours_accueil": "Du dimanche au mardi",
+      "Type_etablissement": "Etatique",
+      "Ages_accueil": "2-5 ans",
+      "Pedagogie": "Montessori",
+      "Langue": "Francais",
+      "Capacite_accueil": "2000 enfants",
+      "Places_disponibles": "20 places",
+      "Transport": "Oui",
+      "Alimentation": "Non",
+      "num": "0663212232",
+      "mail": "kk-saadaoui@esi.dz",
+      "respo": "aya mohamed",
+      "id": 1
+    }
+  ]
+}

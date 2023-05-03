@@ -8,7 +8,8 @@ import Signup from '../Pages/Signup';
 import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
-
+import loupe from "../assets/loupe.svg";
+import axios from 'axios';
 import {
   
   Bars3Icon,
@@ -55,19 +56,8 @@ setCommune(Selectedcommune);
       setFOpen(false);
     } else setFOpen(true);
   };
- /*  const wilaya = [
 
-    "Adrar", "Chlef", "Laghouat",  "Oum El Bouaghi", "Batna", "Béjaïa",  "Biskra",
-    "Bechar", "Blida", "Bouira",  "Tamanrasset",   "Tbessa",  "Tlemcen", "Tiaret",
-    "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Setif",  "Saeda", "Skikda",  "Sidi Bel Abbes",
-    "Annaba", "Guelma",  "Constantine", "Medea", "Mostaganem",  "M'Sila", "Mascara",
-    "Ouargla",  "Oran", "El Bayadh", "Illizi", "Bordj Bou Arreridj",  "Boumerdes",
-    "El Tarf", "Tindouf", "Tissemsilt", "El Oued", "Khenchela", "Souk Ahras", "Tipaza", "Mila",
-    "Ain Defla", "Naama",  "Ain Temouchent",  "Ghardaefa", "Relizane", "El M'ghair",  "El Menia",
-    "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès",  "Timimoun", "Touggourt",
-    "Djanet",  "In Salah",  "In Guezzam",
-    
-  ]; */
+  
   const Typeta = [
     { value: "Prive", label: "Prive" },
     { value: "Public", label: "Public" }
@@ -112,14 +102,6 @@ setCommune(Selectedcommune);
     { value: "6", label: "6" }
   ];
   
-  const Capacite = [
-    { value: "0-30", label: "0-30" },
-    { value: "30-60", label: "30-60"},
-    { value: "60-100", label: "60-100" },
-    { value: "100-200", label: "100-200" },
-    { value: "+200", label: "+200" }
-    
-  ];
   
   const verite=[
     { value: "oui", label: "oui" },
@@ -130,14 +112,11 @@ setCommune(Selectedcommune);
   
 
 
-  const [nomdetablissement, setNomdetablissement] = useState('');
-  const handlenomChange = (event) => {
-    setNomdetablissement(event.target.value);
-  }
+  
 
 
   const [typEtab, setTypEtab] = useState();
-  const typedetablissement = typEtab ? typEtab.value : '';
+  const typeEtab = typEtab ? typEtab.value : '';
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
@@ -145,28 +124,24 @@ setCommune(Selectedcommune);
 
 
    const [jourAc, setJourAc] = useState();
-  const jourdaccueil= jourAc ? jourAc.value : '';
+  const joursAccueil= jourAc ? jourAc.value : '';
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
   }
  
   const [typeAc, setTypeAc] = useState();
-  const typedaccueil = typeAc ? typeAc.value : '';
+  const typeAccueil = typeAc ? typeAc.value : '';
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
 
 
 
-  const [capac, setCapac] = useState();
-  const capacite = capac ? capac.value : '';
-  const handlecapacChange= (capac) => {
-    setCapac(capac);
-  };
+ 
 
 
   const [ageAc, setAgeAc] = useState();
-  const agedaccueil = ageAc ? ageAc.value : '';
+  const ageAccueil = ageAc ? ageAc.value : '';
   const handleageAcChange = (ageAc) => {
     setAgeAc(ageAc);
   };
@@ -201,21 +176,64 @@ setCommune(Selectedcommune);
     setPrix(event.target.value);
   };
 
- 
-  
+
+  const [capacite, setValue] = useState("");
+  function handlecapChange(event) {
+    const inputValue = event.target.value;
+    const numericValue = parseInt(inputValue, 10);
+
+    if (isNaN(numericValue)) {
+      setValue("");
+    } else {
+      setValue(numericValue);
+    }
+  }
+  const [nom, setNom] = useState('');
+  const handlenomClick = (event) => {
+    setNom(event.target.value);
+    console.log("nom d'etablissement", nom)
+  }
+const handlenomChange = (event) => {
+  setNom(event.target.value);
+}
+
+/* const handlenomclick =(event) =>{
+event.preventDefault();
+console.log("nom d'etablissement", nomdetablissement)
+
+} */
   
 
   
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+     
+      await axios.post("http://localhost:8000/documents", {
+        nom,
+        Wilaya,
+        commune,
+        typeEtab,
+        typeAccueil,
+        joursAccueil,
+        ageAccueil,
+        capacite,
+        langue,
+        pedagogie,
+        alimentation,
+        transport,
+        prix
+      });
+    } catch (e) {
+      console.log(" DATE NOT SENT  ");
+    }
     console.log('wilaya:', Wilaya);
     console.log("commune: ", commune)
-   /*  console.log('Nom detablissement:', nomdetablissement); */
-    console.log('Type detablissement:', typedetablissement);
-      console.log('type daccueil:', typedaccueil);  
-     console.log('jour daccueil:', jourdaccueil); 
-    console.log('age daccueil:', agedaccueil); 
+    console.log('Type detablissement:', typeEtab);
+      console.log('type daccueil:', typeAccueil);  
+     console.log('jour daccueil:', joursAccueil); 
+    console.log('age daccueil:', ageAccueil); 
     console.log('capacite:', capacite);
     console.log('Langue:', langue);
     console.log('Pedagogie:', pedagogie);
@@ -250,7 +268,7 @@ setCommune(Selectedcommune);
                   </Disclosure.Button>
                 </div>
                 {/* Mobile menu button */}
-                <div className="flex space-x-48 flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex space-x-32 flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <a href="/">
                       <img
@@ -266,11 +284,22 @@ setCommune(Selectedcommune);
                     </a>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="nav-search flex space-x-4 bg-white items-center border border-gray-300 rounded-xl ">
+                    <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
+                    <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
+                    onClick={handlenomClick}>
+
+
+  <img src={loupe} />
+
+
+</div>
+
                       <input
                         id="desktop-search"
                         type="text"
-                        placeholder="Rechercher..."
+                        placeholder="Rechercher par nom..."
+                        required
+                        onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -529,19 +558,20 @@ setCommune(Selectedcommune);
 
 <div className=" sm:ml-6 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
-    <div className="Capacite">
-      <div className="dropdown-container w-[210px]">
-        <Select
-        name="Capacite"
-          options={Capacite}
-          placeholder="Capacite d'accueil"
-          value={capac}
-          onChange={handlecapacChange}
-          isSearchable={true}
-          isMulti={false}
-        />
-      </div>
-    </div>
+                          <div>
+                          <input
+                            type="number"
+                            id="capacite"
+                            placeholder="Capacite"
+                            min="0"
+                            max="100"
+                            step="1"
+                            value={capacite}
+                            onChange={handlecapChange}
+                            required
+                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                          />
+                        </div>
     </div>
     </div>
 
@@ -630,7 +660,7 @@ setCommune(Selectedcommune);
                              <input
                              type="int"
                              id="Prix"
-                              placeholder="Prix/mois (DA)"
+                              placeholder="Prix max/mois (DA)"
                             required
                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            onChange={handleprixChange}
@@ -653,28 +683,6 @@ setCommune(Selectedcommune);
       </div>
     </div>
 </div> {/* start */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             

@@ -1,5 +1,5 @@
 import NavAfter from "../../Components/NavAfter";
-import Notification from "../../Components/Notification";
+import Notification from "../../Components/NotifRdv";
 import { Stat } from "./Stat";
 import Notif from "./Notif";
 import Footer from "../../Components/Footer";

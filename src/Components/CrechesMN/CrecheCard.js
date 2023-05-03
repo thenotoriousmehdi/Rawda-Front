@@ -1,4 +1,3 @@
-
 import mehdi from "../../assets/creche.jpg";
 export default function CrecheCard({creche}){
 return(
@@ -37,19 +36,3 @@ return(
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

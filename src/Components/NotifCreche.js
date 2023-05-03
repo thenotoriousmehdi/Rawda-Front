@@ -2,31 +2,29 @@ import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
 import CustomizedDialogs from "./refusDialog.js";
-function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
+import eye from "../assets/eye.svg";
+function NotifCreche({photo, nomc,nomcreche, heuree,num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
-
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
         {" "}
         {/* flex top */}
-        <h1 className="text-white font-bold">{type}</h1>
+        <h1 className="text-white font-bold">Demande d’ajout d’une Crèche </h1>
         <img className="h-[15px]" src={croix} />
       </div>
 
-
       <div className="flex flex-wrap md:gap-[140px]">
-
-
-
         <div className="container  w-[300px] md:w-[420px] h-[60px] ">
           {" "}
           {/* flex nom prenom et line */}
           <div className="flex ml-8 md:ml-0 justify-items-stretch gap-6">
+
             <div className="ml-1 md:ml-6 mt-[4px]">
-              <img className=" h-[180px] w-[6px]" src={linenotif} />
+              <img className=" h-[160px] w-[6px]" src={linenotif} />
             </div>
 
             <div className="mt-[30px] flex flex-col gap-4">
+
               {" "}
               {/*  flex cote droit du line*/}
               <div className="flex justify-items-stretch gap-4">
@@ -42,11 +40,33 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
                 {" "}
                 {/* text */}
                 <p className="font-light text-xs ">
-                  Je suis {nomc}, je veux prendre un rendez vous pour une
-                  consultation le {date}, a {heure} pour visiter vos
-                  installations et discuter des options de garde disponibles.
+                Bonjour, je suis {nomc} et je souhaite ajouter ma crèche ({nomcreche}) dans votre site.  
                 </p>
               </div>
+
+<div className="flex justify-between bg-rawdapurple  bg-opacity-50 p-1 w-[210px]" >
+
+<div>
+    <h4 className="text-rawdawhite text-xs">
+    Voir les details de la crèche
+    </h4>
+</div>
+
+<div>
+    <a href="">
+    <img  
+src={eye}
+/> 
+    </a>
+
+
+</div>
+
+
+
+</div>
+
+
               <div className="flex gap-4">
                 {" "}
                 {/* flex num et email */}
@@ -65,7 +85,7 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
           {" "}
           {/* flex buttons */}
           <div>
-            <a href="/posturad">
+            <a href="">
               <button
                 id="accept"
                 type="button"
@@ -75,20 +95,12 @@ function Notification({ type, photo, nomc, heuree, heure, date, num, email }) {
               </button>
             </a>
           </div>
-          <div  >
-            
-         
-         < CustomizedDialogs/>
-
-         
-           
+          <div>
+            <CustomizedDialogs />
           </div>
         </div>
-
-
-
       </div>
     </div>
   );
 }
-export default Notification;
+export default NotifCreche;
