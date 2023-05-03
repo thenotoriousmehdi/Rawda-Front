@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Wilayas from "../data/wilayas.json";
 import galery from "../assets/galery.svg";
 import exit from "../assets/exit1.svg";
+import axios from 'axios';
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -92,25 +93,36 @@ function AddCreche() {
     { value: "non", label: "non" },
   ];
 
-  const [nomdetablissement, setNomdetablissement] = useState("");
+  const [nom, setNomdetablissement] = useState("");
   const handlenomChange = (event) => {
     setNomdetablissement(event.target.value);
   };
 
+  
+  const [adresse, setadresse] = useState("");
+  const handleadresseChange = (event) => {
+    setadresse(event.target.value);
+  };
+
+  const [nomc, setnomc] = useState("");
+  const handlenomcChange = (event) => {
+    setnomc(event.target.value);
+  };
+
   const [typEtab, setTypEtab] = useState();
-  const typedetablissement = typEtab ? typEtab.value : "";
+  const typeEtab = typEtab ? typEtab.value : "";
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
 
   const [jourAc, setJourAc] = useState();
-  const jourdaccueil = jourAc ? jourAc.value : "";
+  const joursAccueil = jourAc ? jourAc.value : "";
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
   };
 
   const [typeAc, setTypeAc] = useState();
-  const typedaccueil = typeAc ? typeAc.value : "";
+  const typeAccueil = typeAc ? typeAc.value : "";
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
@@ -122,7 +134,7 @@ function AddCreche() {
     }; */
 
   const [ageAc, setAgeAc] = useState();
-  const agedaccueil = ageAc ? ageAc.value : "";
+  const ageAccueil = ageAc ? ageAc.value : "";
   const handleageAcChange = (ageAc) => {
     setAgeAc(ageAc);
   };
@@ -132,6 +144,7 @@ function AddCreche() {
   const handlepedagChange = (pedag) => {
     setPedag(pedag);
   };
+  
 
   const [lang, setLang] = useState();
   const langue = lang ? lang.value : "";
@@ -156,13 +169,12 @@ function AddCreche() {
     setPrix(event.target.value);
   };
 
-  const [nomc, setNomc] = useState("");
-  const [email, setEmail] = useState("");
+  const [mail, setEmail] = useState("");
   const [num, setNum] = useState("");
-  const [adresse, setAdresse] = useState("");
+  const [description, setdescription]=useState("");
 
-  const handlenomcChange = (event) => {
-    setNomc(event.target.value);
+  const handledescirptionChange = (event) => {
+    setdescription(event.target.value);
   };
 
   const handleEmailChange = (event) => {
@@ -171,9 +183,7 @@ function AddCreche() {
   const handlenumChange = (event) => {
     setNum(event.target.value);
   };
-  const handleadresseChange = (event) => {
-    setAdresse(event.target.value);
-  };
+  
 
   const [value, setValue] = useState("");
 
@@ -187,26 +197,56 @@ function AddCreche() {
       setValue(numericValue);
     }
   }
-
-  const handleSubmit = (event) => {
+  const token = localStorage.getItem('token');
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+  const delim=',';
+  const localisation=commune+delim+Wilaya;
+  const capacite=value;
+  const prop='644ea5b3823aad9199a86470';
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+     await axios.post("http://localhost:8000/Creche", {
+        nom,
+        localisation,
+        typeAccueil,
+        joursAccueil,
+        typeEtab,
+        ageAccueil,
+        pedagogie,
+        langue,
+        capacite,
+        transport,
+        alimentation,
+        num,
+        mail,
+        description,
+        prop
+      });
+      
+    } catch (e) {
+      console.log(" PROBLEM ");
+    }
+    
     console.log("wilaya:", Wilaya);
     console.log("commune: ", commune);
-    /*  console.log('Nom detablissement:', nomdetablissement); */
-    console.log("Type detablissement:", typedetablissement);
-    console.log("type daccueil:", typedaccueil);
-    console.log("jour daccueil:", jourdaccueil);
-    console.log("age daccueil:", agedaccueil);
+   console.log('Nom detablissement:', nom);
+    console.log("Type detablissement:", typeEtab);
+    console.log("type daccueil:", typeAccueil);
+    console.log("jour daccueil:", joursAccueil);
+    console.log("age daccueil:", ageAccueil);
     console.log("capacite:", value);
     console.log("Langue:", langue);
     console.log("Pedagogie:", pedagogie);
     console.log("Alimentation:", alimentation);
     console.log("Transport:", transport);
     console.log("Prix:", prix);
-    console.log("Nom complet:", nomc);
-    console.log("Email:", email);
+    console.log("Email:", mail);
     console.log("Numero de †elephone:", num);
-    console.log("Adresse:", adresse);
   };
 
   const [file, setFile] = useState(null);
@@ -490,6 +530,7 @@ function AddCreche() {
                         id="Description"
                         placeholder="Description (150 mots max)"
                         required
+                        onChange={handledescirptionChange}
                         className="rounded-md w-[250px] h-[38px] md:w-[670px] md:h-[200px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                       />
                     </div>
