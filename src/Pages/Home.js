@@ -30,7 +30,7 @@ function Home() {
       <a href="/Notifications">Notifications </a>
       <a href="/AddCreche">Add Creche </a>
       <a href="/Dashboard">Dashboard </a>
-      <a href="/CrecheInfoCard">infos creche </a>
+      <a href="/creches">infos creche </a>
 
       <Footer />
       </div>

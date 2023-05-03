@@ -29,6 +29,7 @@ export default function Slider() {
     const moveDot = index => {
         setSlideIndex(index)
     }
+    let leng= 0 ; 
 
     return (
         <div className="container-slider">
@@ -41,6 +42,7 @@ export default function Slider() {
                         <img 
                         src={process.env.PUBLIC_URL + `/image1/img${index + 1}.jpg`} 
                         />
+                       { leng ++ }
                     </div>
                 )
             })}
@@ -48,7 +50,7 @@ export default function Slider() {
             <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
 
             <div className="container-dots">
-                {Array.from({length: 4}).map((item, index) => (
+                {Array.from({length: dataSlider.length}).map((item, index) => (
                     <div 
                     onClick={() => moveDot(index + 1)}
                     className={slideIndex === index + 1 ? "dot active" : "dot"}

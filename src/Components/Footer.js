@@ -3,7 +3,7 @@ function Footer (){
     return (
     
     
-    <footer className="bg-rawdapurple">
+    <footer className="bg-rawdapurple mt-5">
         <div className="mx-auto  px-2 sm:px-6 lg:px-10 ">
         <div className="relative flex flex-row h-2 items-center justify-between">
             

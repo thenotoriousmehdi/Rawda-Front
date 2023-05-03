@@ -32,7 +32,7 @@ return(
              profilsdata.map(( profilcomment  ) =>(
               <SwiperSlide   >
                  <div className=" border  border-rawdapurple flex relative flex-col  h-4/6 rounded-lg items-center justify-center p-7 gap-4   " >
-                   <img src={profilcomment.img }  className=" absolute  w-12  -top-6  left-2/4   z-10" />
+                   <img src={profilcomment.image }  className="   w-12 top-0      h-12 " />
                    <span className=" font-body font-semibold text-lg lg:text-xl leading-7 lg:leading-9   "
                    
                      >{profilcomment.name} </span>

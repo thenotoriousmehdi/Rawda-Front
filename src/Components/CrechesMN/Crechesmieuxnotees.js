@@ -4,7 +4,7 @@ import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
 import arrow from "../../assets/arrowblack.svg";
 import CrecheCard from "./CrecheCard";
-
+import { Link } from 'react-router-dom';
 const Crechesmieuxnotees = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -21,42 +21,44 @@ const Crechesmieuxnotees = () => {
 
     const data = [
         {
-          nom: "Crèche berceau des anges",
-          adresse: `Birkhadem, Alger
+          
+
+        title: "Crèche berceau des anges",
+        locasitiontitle: `Birkhadem, Alger
           `,
         },
         {
-            nom: "Crèche le bebe roi",
-            adresse: `Kouba, Alger
+          title: "Crèche le bebe roi",
+          locasitiontitle: `Kouba, Alger
             `,
           },
 
           {
-            nom: "Crèche l'Aarche de Noah",
-            adresse: `Hydra, Alger
+            title: "Crèche l'Aarche de Noah",
+            locasitiontitle: `Hydra, Alger
             `,
           },
           {
-            nom: "Crèche du genie",
-            adresse: `Alger centre, Alger
-            `,
-          },
-  
-          {
-            nom: "Crèche kidzy club",
-            adresse: `Ain Naadja, Alger
+            title: "Crèche du genie",
+            locasitiontitle: `Alger centre, Alger
             `,
           },
   
           {
-            nom: "Crèche Genius land",
-            adresse: `Elbiar, Alger
+            title: "Crèche kidzy club",
+            locasitiontitle: `Ain Naadja, Alger
             `,
           },
   
           {
-            nom: "Crèche Chateau des anges",
-            adresse: `, Alger
+            title: "Crèche Genius land",
+            locasitiontitle: `Elbiar, Alger
+            `,
+          },
+  
+          {
+            title: "Crèche Chateau des anges",
+            locasitiontitle: ` Alger
             `,
           },
 
@@ -78,11 +80,16 @@ return (
 </div>
 
 
-         <div ref={sliderRef} className="keen-slider">
+         <div ref={sliderRef} className="keen-slider  mb-6">
             
           {data.map((e, idx) => {
             return (
-              <CrecheCard key={idx} nom={e.nom} adresse={e.adresse} />
+              <>
+             
+              <CrecheCard key={idx} creche={e} />
+            
+              
+              </>
             );
           })}
 
@@ -158,7 +165,7 @@ function Arrow(props) {
           ></img>
         </div>
       </div>
-    );
+    );              
   } 
 
 
