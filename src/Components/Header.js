@@ -9,6 +9,7 @@ import {Login} from '../Pages/Login';
 import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
+import axios from 'axios';
 import {
   
   Bars3Icon,
@@ -101,14 +102,6 @@ setCommune(Selectedcommune);
     { value: "6", label: "6" }
   ];
   
-  const Capacite = [
-    { value: "0-30", label: "0-30" },
-    { value: "30-60", label: "30-60"},
-    { value: "60-100", label: "60-100" },
-    { value: "100-200", label: "100-200" },
-    { value: "+200", label: "+200" }
-    
-  ];
   
   const verite=[
     { value: "oui", label: "oui" },
@@ -123,7 +116,7 @@ setCommune(Selectedcommune);
 
 
   const [typEtab, setTypEtab] = useState();
-  const typedetablissement = typEtab ? typEtab.value : '';
+  const typeEtab = typEtab ? typEtab.value : '';
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
@@ -131,28 +124,24 @@ setCommune(Selectedcommune);
 
 
    const [jourAc, setJourAc] = useState();
-  const jourdaccueil= jourAc ? jourAc.value : '';
+  const joursAccueil= jourAc ? jourAc.value : '';
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
   }
  
   const [typeAc, setTypeAc] = useState();
-  const typedaccueil = typeAc ? typeAc.value : '';
+  const typeAccueil = typeAc ? typeAc.value : '';
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
 
 
 
-  const [capac, setCapac] = useState();
-  const capacite = capac ? capac.value : '';
-  const handlecapacChange= (capac) => {
-    setCapac(capac);
-  };
+ 
 
 
   const [ageAc, setAgeAc] = useState();
-  const agedaccueil = ageAc ? ageAc.value : '';
+  const ageAccueil = ageAc ? ageAc.value : '';
   const handleageAcChange = (ageAc) => {
     setAgeAc(ageAc);
   };
@@ -188,7 +177,7 @@ setCommune(Selectedcommune);
   };
 
 
-  const [value, setValue] = useState("");
+  const [capacite, setValue] = useState("");
   function handlecapChange(event) {
     const inputValue = event.target.value;
     const numericValue = parseInt(inputValue, 10);
@@ -199,12 +188,14 @@ setCommune(Selectedcommune);
       setValue(numericValue);
     }
   }
-  const [nomdetablissement, setNomdetablissement] = useState('');
-  const handlenomChange = (event) => {
-    setNomdetablissement(event.target.value);
-    console.log("nom d'etablissement", nomdetablissement)
+  const [nom, setNom] = useState('');
+  const handlenomClick = (event) => {
+    setNom(event.target.value);
+    console.log("nom d'etablissement", nom)
   }
-
+const handlenomChange = (event) => {
+  setNom(event.target.value);
+}
 
 /* const handlenomclick =(event) =>{
 event.preventDefault();
@@ -215,15 +206,35 @@ console.log("nom d'etablissement", nomdetablissement)
 
   
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+     
+      await axios.post("http://localhost:8000/documents", {
+        nom,
+        Wilaya,
+        commune,
+        typeEtab,
+        typeAccueil,
+        joursAccueil,
+        ageAccueil,
+        capacite,
+        langue,
+        pedagogie,
+        alimentation,
+        transport,
+        prix
+      });
+    } catch (e) {
+      console.log(" DATE NOT SENT  ");
+    }
     console.log('wilaya:', Wilaya);
     console.log("commune: ", commune)
-    console.log('Type detablissement:', typedetablissement);
-      console.log('type daccueil:', typedaccueil);  
-     console.log('jour daccueil:', jourdaccueil); 
-    console.log('age daccueil:', agedaccueil); 
-    console.log('capacite:', value);
+    console.log('Type detablissement:', typeEtab);
+      console.log('type daccueil:', typeAccueil);  
+     console.log('jour daccueil:', joursAccueil); 
+    console.log('age daccueil:', ageAccueil); 
+    console.log('capacite:', capacite);
     console.log('Langue:', langue);
     console.log('Pedagogie:', pedagogie);
     console.log('Alimentation:', alimentation);
@@ -275,7 +286,7 @@ console.log("nom d'etablissement", nomdetablissement)
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                     <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
-                    onClick={handlenomChange}>
+                    onClick={handlenomClick}>
 
 
   <img src={loupe} />
@@ -288,7 +299,7 @@ console.log("nom d'etablissement", nomdetablissement)
                         type="text"
                         placeholder="Rechercher par nom..."
                         required
-                        //onChange={handlenomChange}
+                        onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -555,7 +566,7 @@ console.log("nom d'etablissement", nomdetablissement)
                             min="0"
                             max="100"
                             step="1"
-                            value={value}
+                            value={capacite}
                             onChange={handlecapChange}
                             required
                             className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
