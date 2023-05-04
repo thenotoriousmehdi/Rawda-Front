@@ -317,7 +317,7 @@ console.log("nom d'etablissement", nomdetablissement)
                 
                     <button
                 
-                      id="pub"
+                      id="se connecter"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
@@ -326,7 +326,7 @@ console.log("nom d'etablissement", nomdetablissement)
                 
                  
                     <button
-                      id="pub"
+                      id="s'inscrire"
                       type="button"
                       className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
                     >
@@ -411,7 +411,7 @@ console.log("nom d'etablissement", nomdetablissement)
                             <select
                 
                 name="wilaya"
-                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 text-gray-600 bg-white outline-none"
                 onChange={(wilaya) => handleWilaya(wilaya.target.value)}
               >
                 <option value="">Wilaya</option>
@@ -436,7 +436,7 @@ console.log("nom d'etablissement", nomdetablissement)
               <select
                 
                 name="commune"
-                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded p-2 border border-gray-700 text-gray-600 border-opacity-30 bg-white outline-none"
                 onChange={(commune) => handlecommune(commune.target.value)}
               >
                 <option value="">Commune</option>
@@ -556,7 +556,7 @@ console.log("nom d'etablissement", nomdetablissement)
 <div className="flex flex-wrap justify-center"> {/* Third flex */}
 
 
-<div className=" sm:ml-6 sm:block">
+<div className=" sm:ml-2 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
                           <div>
                           <input
@@ -569,13 +569,13 @@ console.log("nom d'etablissement", nomdetablissement)
                             value={capacite}
                             onChange={handlecapChange}
                             required
-                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                            className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                           />
                         </div>
     </div>
     </div>
 
-<div className=" sm:ml-6 sm:block">
+<div className=" sm:ml-2 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
     <div className="pedagogie">
       <div className="dropdown-container w-[210px]">
@@ -657,14 +657,18 @@ console.log("nom d'etablissement", nomdetablissement)
 
 
 <div >
-                             <input
-                             type="int"
-                             id="Prix"
-                              placeholder="Prix max/mois (DA)"
-                            required
-                           className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           onChange={handleprixChange}
-                           />
+<input
+                        type="number"
+                        id="Prix"
+                        placeholder="Prix max /mois (DA)"
+                        step="1"
+                         min="0" 
+                         max="100000"
+                        required
+                        className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4 placeholder-gray-600 shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                        onChange={handleprixChange}
+
+                      />
                            </div>
 
 

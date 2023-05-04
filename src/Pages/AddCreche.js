@@ -336,6 +336,7 @@ function AddCreche() {
                               name="Type d’etablissement"
                               options={Typeta}
                               placeholder="Type d'etablissement"
+                              maxlength="255"
                               value={typEtab}
                               onChange={handletypEtabChange}
                               isSearchable={true}
@@ -520,9 +521,12 @@ function AddCreche() {
                     </div>
                     <div>
                       <input
-                        type="int"
+                        type="number"
                         id="Prix"
                         placeholder="Prix max /mois (DA)"
+                        step="1"
+                         min="0" 
+                         max="100000"
                         required
                         className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4 placeholder-gray-600 shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                         onChange={handleprixChange}
@@ -624,6 +628,7 @@ function AddCreche() {
                         type="text"
                         id="L’adresse complète de l’établissement"
                         placeholder="L’adresse complète de l’établissement"
+                        maxlength="255"
                         required
                         onChange={handleadresseChange}
                         className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
@@ -748,9 +753,11 @@ function AddCreche() {
                     {/* Tenth flex */}
                     <div>
                       <input
-                        type="text"
+                        type="tel"
                         id="num"
                         placeholder="Numero de telephone"
+                        pattern="[0-9]{10}"
+                         maxlength="10"
                         required
                         onChange={handlenumChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
@@ -762,6 +769,7 @@ function AddCreche() {
                         id="Adresse"
                         placeholder="Adresse"
                         required
+                        maxlength="255"
                         onChange={handleadresseChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
@@ -806,15 +814,31 @@ function AddCreche() {
                   <div className="flex flex-wrap justify-center">
                     {" "}
                     {/* twelve flex */}
+
+                  
                     <div className="flex justify-center md:justify-start">
-                      <button
+                      {/* <button
                         href="#"
                         className="p-6 px-[100px] text-lg  text-rawdawhite bg-rawdapurple rounded-full baseline shadow-md"
                       >
                         {" "}
                         Ajouter ma creche{" "}
-                      </button>
+                      </button> */}
+
+
+<button
+                      id="s'inscrire"
+                      type="button"
+                      className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
+                    >
+                      <a href=''>Ajouter ma creche</a>
+                  
+                    </button>
                     </div>
+
+
+
+
                   </div>
                 </div>
               </div>

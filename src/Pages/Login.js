@@ -72,11 +72,11 @@ const Login =(Props) => {
                                     <form onSubmit={handleSubmit} >
                             
                                         <label>
-                                                <input class=" p-3 w-full mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="email" placeholder="Entrez votre adresse mail" value={email} onChange={handleEmailChange} />
+                                                <input class=" p-3 w-full mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="email" placeholder="Entrez votre adresse mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="255" value={email} onChange={handleEmailChange} />
                                         </label>
 
                                         <label>
-                                            <input class=" p-3 w-full rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
+                                            <input class=" p-3 w-full rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none" type="password" placeholder="Mot de passe" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" minlength="8" maxlength="20" value={password} onChange={handlePasswordChange} />
                                         </label>
 
                                         <div class="flex justify-center items-center my-auto mx-auto">

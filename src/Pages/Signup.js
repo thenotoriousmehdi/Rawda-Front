@@ -90,7 +90,7 @@ const Signup = (props) => {
                   class="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                   type="text"
                   name="Nom"
-                  placeholder="Nom de famille"
+                  placeholder="Nom "
                   value={nom}
                   onChange={handleNomChange}
                 />
@@ -111,6 +111,8 @@ const Signup = (props) => {
                 class="w-full p-3 mb-4 font-body rounded-md  bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                 type="email"
                 placeholder="Adresse mail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                maxlength="255"
                 value={email}
                 onChange={handleEmailChange}
               />
@@ -121,6 +123,9 @@ const Signup = (props) => {
                 class="w-full p-3 font-body rounded-md  bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                 type="password"
                 placeholder="Mot de passe"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                 minlength="8" 
+                 maxlength="20"
                 value={password}
                 onChange={handlePasswordChange}
               />
