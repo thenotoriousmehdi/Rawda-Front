@@ -32,7 +32,7 @@ export default function Hero() {
           <div className="flex justify-center md:justify-start">
             <button
               href="#"
-              className="p-3 px-6 pt-2 text-rawdawhite bg-rawdapurple rounded-full baseline shadow-md shadow-rawdapurple"
+              className="p-3 px-6  text-rawdawhite bg-rawdapurple rounded-full baseline  hover:bg-rawdapurple hover:bg-opacity-80 shadow-sm shadow-rawdapurple"
             >
               {" "}
               Commencer{" "}
