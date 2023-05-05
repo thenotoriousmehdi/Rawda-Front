@@ -15,6 +15,7 @@ import Dashboard  from "./Pages/dashboard/Dashboard";
 import {Routes, Route} from 'react-router-dom';
 import VoirProfil from "./Pages/Profile/VoirProfil";
 import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
+import Search from "./Components/Search";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
 <Route path='/AddCreche' element={<AddCreche/>} />
 <Route path='/creches' element={ <RsltRechercheCreches/>}  /> 
 <Route path='/creches/:id' element={ <CrechInfoCard/>}  /> 
+<Route path='/Search' element={ <Search/>}  /> 
 </Routes>
 
 

@@ -193,11 +193,14 @@ Modifier le Mot de passe
 <h4>
 <div >
                              <input
-                             type="password"
-                             id="old password"
-                              placeholder="Mot de passe actuel"
+                            type="password"
+                            id="old password"
+                            placeholder="Mot de passe actuel"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                            minlength="8"
+                            maxlength="20"
                             required
-                           className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
+                            className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
                            />
                            </div>
 </h4>
@@ -209,9 +212,12 @@ Modifier le Mot de passe
                              <input
                              type="password"
                              id="new password"
-                              placeholder="Nouveau Mot de passe"
-                            required
-                           className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
+                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                             minlength="8"
+                             maxlength="20"
+                             placeholder="Nouveau Mot de passe"
+                             required
+                             className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
                            />
                            </div>
 </h4>
@@ -223,9 +229,12 @@ Modifier le Mot de passe
                              <input
                              type="password"
                              id="confirm new password"
-                              placeholder="Confirmer le nouveau Mot de passe"
-                            required
-                           className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
+                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                             minlength="8"
+                             maxlength="20"
+                             placeholder="Confirmer le nouveau Mot de passe"
+                             required
+                             className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
                            />
                            </div>
 </h4>
