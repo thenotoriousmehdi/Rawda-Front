@@ -191,11 +191,11 @@ setCommune(Selectedcommune);
   const [nom, setNom] = useState('');
   const handlenomClick = (event) => {
     setNom(event.target.value);
-    console.log("nom d'etablissement", nom)
+    console.log("nom d'etablissement: ", nom)
   }
 const handlenomChange = (event) => {
   setNom(event.target.value);
-}
+} 
 
 /* const handlenomclick =(event) =>{
 event.preventDefault();
@@ -287,19 +287,15 @@ console.log("nom d'etablissement", nomdetablissement)
                     <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                     <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
                     onClick={handlenomClick}>
-
-
-  <img src={loupe} />
-
-
-</div>
+              <img src={loupe} />
+            </div>
 
                       <input
                         id="desktop-search"
                         type="text"
                         placeholder="Rechercher par nom..."
                         required
-                        onChange={handlenomChange}
+                       onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -592,7 +588,6 @@ console.log("nom d'etablissement", nomdetablissement)
     </div>
     </div>
     </div>
-
 
     <div className=" sm:ml-6 sm:block ">
                           <div className="flex space-x-4 m-2 md:m-0">
