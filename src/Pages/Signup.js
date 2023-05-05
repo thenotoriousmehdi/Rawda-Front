@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import google from "../assets/google1.svg";
-import axios from "axios"; /* on a ajouté had l'import */
+import axios from "axios"; 
 import decosu from "../assets/decosu.svg";
 import decosu1 from "../assets/decosu1.svg";
 
@@ -11,8 +11,10 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
   const [role, setRole] = useState("");
+
+
+  
 
   const handleParentClick = () => {
     setRole("parent");
@@ -65,7 +67,7 @@ const Signup = (props) => {
   }; /* fin de l'envoie */
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setShowPopup(true);
+
   };
 
   return (

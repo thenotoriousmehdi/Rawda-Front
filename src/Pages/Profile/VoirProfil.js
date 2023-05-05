@@ -39,7 +39,7 @@ export default function VoirProfil(){
 
             <div
               id="profile"
-              className="flex justify-items-center md:ml-[180px] md:mx-12 mx-6 mt-20 bg-opacity-10 bg-rawdapurple w-[333px]  md:w-[600px] h-full mb-6 rounded-xl "
+              className="flex items-center justify-center md:ml-[180px] md:mx-12 mx-6 mt-20 bg-opacity-10 bg-rawdapurple w-[333px]  md:w-[600px] h-full mb-6 rounded-xl "
             >
           
         <div key={data._id}> 
@@ -48,7 +48,7 @@ export default function VoirProfil(){
                   <div className="flex flex-col items-center justify-center gap-4">
 
                     
-                    <div className="flex justify-center gap">
+                    <div className="flex justify-center items-center gap">
                       <img
                         className="mt-[-40px] md:mt-[-70px] ml-[50px] mr-[50px] h-[70px] w-[70px] md:h-[130px] md:w-[130px] rounded-full z-30 border-2 border-rawdapurple border-opacity-100 "
                         src={data.photo}
