@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
 import axios from 'axios';
+import Search from "./Search";
 import {
   
   Bars3Icon,
@@ -42,15 +43,15 @@ setCommune(Selectedcommune);
     );
     setWilayaId(wilayaObject.id);
   };
-
- 
-  const [fopen, setFOpen] = React.useState(false);
   const mehdi = () => {
     return (
 <Footer/>
     );
   }
+ 
 
+
+  const [fopen, setFOpen] = React.useState(false);
   const handleClick = () => {
     if (fopen === true) {
       setFOpen(false);
@@ -283,12 +284,12 @@ console.log("nom d'etablissement", nomdetablissement)
                       />
                     </a>
                   </div>
-                  <div className="hidden sm:ml-6 sm:block">
+                   <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                     <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
                     onClick={handlenomClick}>
-              <img src={loupe} />
-            </div>
+                     <img src={loupe} />
+                     </div>
 
                       <input
                         id="desktop-search"
@@ -305,12 +306,14 @@ console.log("nom d'etablissement", nomdetablissement)
                         />
                       </a>
                     </div>
-                  </div>
+                  </div> 
+
+
+                  
                 </div>
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
        
 
-                
                     <button
                 
                       id="se connecter"
@@ -333,6 +336,7 @@ console.log("nom d'etablissement", nomdetablissement)
                 </div>
               </div>
             </div>
+
 
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
@@ -370,14 +374,14 @@ console.log("nom d'etablissement", nomdetablissement)
         <Disclosure
           as="nav"
           id="main-menu-filter"
-          className="bg-white border-b border-gray-300 p-5"
+          className="bg-white sticky top-10 z-40 border-b border-gray-300 p-5"
         >
           
 
 
-          <div className="mx-8  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl "> {/* start */}
+          <div className="mx-8 flex items-center justify-center  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl mt-6 "> {/* start */}
     <div className="mx-auto  sm:px-6  ">
-      <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
+      <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4 "> 
         <div className="container flex flex-wrap p-2  md:flex-row 
                        items-center justify-between px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <div className="flex flex-col gap-8">
@@ -399,6 +403,7 @@ console.log("nom d'etablissement", nomdetablissement)
                            className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            onChange={handlenomChange}
                            />
+                        
                            </div> */}
                            <div className=" sm:ml-6 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
@@ -678,7 +683,7 @@ console.log("nom d'etablissement", nomdetablissement)
                 <a href="#Filter-search">
                   <button
                     type="submit"
-                    className="p-3 px-10 pt-3 mt-[-40px] text-rawdawhite text-xl bg-rawdapurple rounded-full baseline shadow-sm shadow-rawdapurple"
+                    className="p-3 px-10 pt-3 mt-[-50px] text-rawdawhite text-xl bg-rawdapurple hover:bg-rawdapurple hover:bg-opacity-70 rounded-full baseline shadow-sm shadow-rawdapurple"
                     onClick={handleSubmit}
                   >
                   Rechercher
@@ -689,6 +694,8 @@ console.log("nom d'etablissement", nomdetablissement)
           
         </Disclosure>
       ) : null}
+
+      
     </>
     
   );
