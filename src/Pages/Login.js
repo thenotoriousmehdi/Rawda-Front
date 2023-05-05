@@ -51,15 +51,16 @@ const Login = (Props) => {
   };
 
   return (
-    <div class="min-h-screen bg-rawdawhite">
-      <div class=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
-    
-        <img class="w-1/12 m-4 " 
+    <div className="min-h-screen bg-rawdawhite">
+      <div className=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
+    <a href="/"> 
+        <img className="w-1/2 ml-10 m-3 " 
         
         src={logo} alt="logo"
         
         />
         
+        </a>
       </div>
 
       <div className="flex flex-wrap mt-8 sm:gap-24 justify-center ">

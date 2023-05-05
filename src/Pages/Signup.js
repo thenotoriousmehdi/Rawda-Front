@@ -70,8 +70,15 @@ const Signup = (props) => {
 
   return (
     <div class="h-screen bg-rawdawhite">
-      <div className=" flex items-center justify-center h-12  bg-white  sticky top-0 z-50   border-b border-gray-300">
-        <img className="w-1/12 mb-4 mt-4 " src={logo} alt="logo" />
+     <div className=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
+    <a href="/"> 
+        <img className="w-1/2 ml-12 m-3 " 
+        
+        src={logo} alt="logo"
+        
+        />
+        
+        </a>
       </div>
 
       <section class="flex justify-center mt-4 ">
