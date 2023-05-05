@@ -32,20 +32,20 @@ return(
         <Menu.Item>
           {({ active }) => (
             <a
-              href="myprofile"
+              href="/VoirProfil"
               className={classNames(
                 active ? "bg-gray-100" : "",
                 "block px-4 py-2 text-sm text-gray-700"
               )}
             >
-              Profile
+              Profil
             </a>
           )}
         </Menu.Item>
          <Menu.Item>
           {({ active }) => (
             <a
-              href="/messages"
+              href="/CrecheInfoCard"
               className={classNames(
                 active ? "bg-gray-100" : "",
                 "block px-4 py-2 text-sm text-gray-700"
@@ -60,7 +60,7 @@ return(
         <Menu.Item>
           {({ active }) => (
             <a
-              href="/messages"
+              href="/Addcreche"
               className={classNames(
                 active ? "bg-gray-100" : "",
                 "block px-4 py-2 text-sm text-gray-700"
@@ -74,7 +74,7 @@ return(
         <Menu.Item>
           {({ active }) => (
             <a
-              href="/messages"
+              href=""
               className={classNames(
                 active ? "bg-gray-100" : "",
                 "block px-4 py-2 text-sm text-gray-700"
@@ -87,7 +87,7 @@ return(
         <Menu.Item>
           {({ active }) => (
             <a
-              href="/login"
+              href="/Login"
               className={classNames(
                 active ? "bg-gray-100" : "",
                 "block px-4 py-2 text-sm text-gray-700"
