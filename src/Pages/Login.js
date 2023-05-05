@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import image1 from "../assets/iluss2.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import google from "../assets/google1.svg"
 
 import logo from "../assets/logo.svg";
 
@@ -112,16 +113,20 @@ const Login = (Props) => {
         </div>
         
         <div className="relative ml  w-3/12">
-          <div className=" flex justify-center items-center my-auto mx-auto ">
+
+        {/*   <div className=" flex justify-center items-center my-auto mx-auto ">
             <button className="mb-4 p mt-5 w-8/12 h-8 text-xs focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl opacity-100 shadow-purple-600">
               {" "}
               Se connecter avec google{" "}
             </button>
 
-
-
-            
           </div>
+ */}
+
+<section class="flex justify-center mt-3 mb-4 ">
+        <img class="w-8" src={google} alt="google" />
+      </section>
+
 
           <div className="mx-auto my-auto">
               <section className=" border-b mb-2  border-gray-500 border-opacity-50 border-solid w-[245px]"></section>
