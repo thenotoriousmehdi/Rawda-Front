@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import google from "../assets/google1.svg";
-import axios from "axios"; /* on a ajouté had l'import */
+import axios from "axios"; 
 import decosu from "../assets/decosu.svg";
 import decosu1 from "../assets/decosu1.svg";
 
@@ -11,8 +11,10 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
   const [role, setRole] = useState("");
+
+
+  
 
   const handleParentClick = () => {
     setRole("parent");
@@ -65,13 +67,15 @@ const Signup = (props) => {
   }; /* fin de l'envoie */
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setShowPopup(true);
+
   };
 
   return (
     <div class="h-screen bg-rawdawhite">
-      <div className=" flex items-center justify-center h-12  bg-white  sticky top-0 z-50   border-b border-gray-300">
-        <img className="w-1/12 mb-4 mt-4 " src={logo} alt="logo" />
+      <div className=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
+        <a href="/">
+          <img className="w-1/2 ml-12 m-3 " src={logo} alt="logo" />
+        </a>
       </div>
 
       <section class="flex justify-center mt-4 ">
@@ -83,6 +87,7 @@ const Signup = (props) => {
 
       <div class="flex flex-col items-center justify-center ">
         <form onSubmit={handleSubmit} class="w-1/3">
+          
           <div class="flex flex-wrap justify-between mx-auto ">
             <div className="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 ">
               <label class="">
@@ -111,7 +116,7 @@ const Signup = (props) => {
                 class="w-full p-3 mb-4 font-body rounded-md  bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                 type="email"
                 placeholder="Adresse mail"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 maxlength="255"
                 value={email}
                 onChange={handleEmailChange}
@@ -124,8 +129,8 @@ const Signup = (props) => {
                 type="password"
                 placeholder="Mot de passe"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-                 minlength="8" 
-                 maxlength="20"
+                minlength="8"
+                maxlength="20"
                 value={password}
                 onChange={handlePasswordChange}
               />
@@ -136,16 +141,16 @@ const Signup = (props) => {
             <div class="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-1 ">
               <button
                 onClick={handleParentClick}
-                className=" font-body  py-3 mr-5 font-bold font-poppins text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none "
+                className=" font-body  py-3 mr-5 font-bold font-poppins text-center text-lg rounded-lg hover:text-rawdawhite hover:bg-rawdapurple bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none "
               >
                 Un parent
               </button>
 
               <button
                 onClick={handleProprioClick}
-                className=" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none"
+                className=" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 hover:text-rawdawhite hover:bg-rawdapurple border-rawdapurple focus:outline-none"
               >
-                Respo de crèche
+                Un Proprio
               </button>
             </div>
 
@@ -155,7 +160,7 @@ const Signup = (props) => {
                 type="submit"
                 onClick={handleFormSubmit}
               >
-              <a href="/"> S'inscrire </a>  
+                <a href="/"> S'inscrire </a>
               </button>
 
               {/* {showPopup && (
@@ -173,18 +178,18 @@ const Signup = (props) => {
               )} */}
             </div>
 
-            <div class="flex justify-center justify-content">
-              <section class=" border-b lg:ml-16 border-gray-500 border-opacity-50 border-solid lg:w-80"></section>
+            <div className="mx-auto my-auto">
+              <section className=" border-b border-gray-500 border-opacity-50 mt-4 mb border-solid w-[250px]"></section>
             </div>
 
-            <div class="mx-auto my-auto mt-3">
-              <span className="mr-4 text-xs font-body text-gray-500 ">
+            <div class="mx-auto my-auto ">
+              <span className="mr-4 text-xs  text-gray-500 ">
                 {" "}
                 Vous avez deja un compte ?
               </span>{" "}
               <buttom
                 onClick={() => props.onFormSwitch("Login")}
-                className="text-rawdapurple text-xs font-bold cursor-pointer sm:mb-5 font-body"
+                className="text-rawdapurple text-xs font-semibold cursor-pointer sm:mb-5 font-body"
               >
                 Se connecter
               </buttom>

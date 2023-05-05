@@ -315,7 +315,7 @@ console.log("nom d'etablissement", nomdetablissement)
                 
                       id="se connecter"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite "
                     >
                       <a href="/Login">Se connecter</a>
                     </button>
@@ -324,7 +324,7 @@ console.log("nom d'etablissement", nomdetablissement)
                     <button
                       id="s'inscrire"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
                     >
                       <a href='/Signup'>S'inscrire</a>
                   
@@ -342,7 +342,7 @@ console.log("nom d'etablissement", nomdetablissement)
                     
                     fullWidth
                     type="button"
-                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
+                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white "
                   >
                     <a href='/Login'>Se connecter</a>
                   </button>
@@ -666,16 +666,7 @@ console.log("nom d'etablissement", nomdetablissement)
                       />
                            </div>
 
-
-
-
 </div>
-
-
-
-
-
-
 
           </div>
         </div>
@@ -683,14 +674,11 @@ console.log("nom d'etablissement", nomdetablissement)
     </div>
 </div> {/* start */}
 
-
-            
-              
-              <div className="p-5">
+              <div className=" flex items-center justify-center">
                 <a href="#Filter-search">
                   <button
                     type="submit"
-                    class="py-2 px-4  bg-violet-700 hover:bg-violet-900 focus:ring-violet-700 focus:ring-offset-violet-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                    className="p-3 px-10 pt-3 mt-[-40px] text-rawdawhite text-xl bg-rawdapurple rounded-full baseline shadow-sm shadow-rawdapurple"
                     onClick={handleSubmit}
                   >
                   Rechercher
