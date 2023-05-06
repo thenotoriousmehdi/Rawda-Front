@@ -64,7 +64,7 @@ const Login = (Props) => {
         </a>
       </div>
 
-      <div className="flex flex-wrap mt-8 sm:gap-24 justify-center ">
+      <div className="flex flex-wrap mt-3 sm:gap-24 justify-center ">
         {" "}
         {/* big flex */}
 
