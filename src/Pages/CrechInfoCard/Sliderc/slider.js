@@ -4,15 +4,15 @@ import './slider.css'
 import BtnSlider from './BtnSlider'
 import dataSlider from './dataslider'
 
-export default function Slider() {
+export default function Slider({creche}) {
 
     const [slideIndex, setSlideIndex] = useState(1)
 
     const nextSlide = () => {
-        if(slideIndex !== dataSlider.length){
+        if(slideIndex !== creche.images.length){
             setSlideIndex(slideIndex + 1)
         } 
-        else if (slideIndex === dataSlider.length){
+        else if (slideIndex === creche.images.length){
             setSlideIndex(1)
         }
     }
@@ -22,7 +22,7 @@ export default function Slider() {
             setSlideIndex(slideIndex - 1)
         }
         else if (slideIndex === 1){
-            setSlideIndex(dataSlider.length)
+            setSlideIndex(creche.images.length)
         }
     }
 
@@ -30,19 +30,22 @@ export default function Slider() {
         setSlideIndex(index)
     }
     let leng= 0 ; 
-
+    let indexid = (creche.numid)-1 ; 
+    
     return (
         <div className="container-slider">
-            {dataSlider.map((obj, index) => {
+            {(creche.images).map((obj, index) => {
                 return (
                     <div
+                   
                     key={obj.id}
                     className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
                     >
+                       
                         <img 
-                        src={process.env.PUBLIC_URL + `/image1/img${index + 1}.jpg`} 
+                        src={process.env.PUBLIC_URL + `/image1/img${(index + 1)+ (indexid) *4}.jpg`}
                         />
-                       { leng ++ }
+                      
                     </div>
                 )
             })}
@@ -50,7 +53,7 @@ export default function Slider() {
             <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
 
             <div className="container-dots">
-                {Array.from({length: dataSlider.length}).map((item, index) => (
+                {Array.from({length: creche.images.length}).map((item, index) => (
                     <div 
                     onClick={() => moveDot(index + 1)}
                     className={slideIndex === index + 1 ? "dot active" : "dot"}

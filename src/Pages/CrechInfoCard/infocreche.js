@@ -7,7 +7,7 @@ export default function Infocreche ({creche} ){
     return( 
      <div className="mx-4 my-7 sm:mx-16 sm:mb-16  bg-rawdapurple bg-opacity-5  px-3  sm:px-10 md:px-24 py-3  pb-8 sm:py-6 block text-left rounded-md">
        
-              <Slide_imgs />  
+              <Slide_imgs creche={creche}/>  
                 <h2 className="font-body    text-lg sm:text-3xl  leading-10 text-gray-800 "> <strong>{creche.title} </strong> </h2>
               <div className='flex ' > 
                 <svg  className='sm:w-7 sm:h-8 h-6  py-1  ' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -28,6 +28,8 @@ export default function Infocreche ({creche} ){
                 <li><strong>Places disponibles:</strong> {creche.Places_disponibles}</li>
                 <li><strong>Transport:</strong> {creche.Transport} </li>
                 <li><strong>Alimentation:</strong> {creche.Alimentation} </li>
+                <li><strong>Description:</strong> {creche.Description} </li>
+
               </ul>        
 
 </div>

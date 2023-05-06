@@ -15,28 +15,33 @@ import Dashboard  from "./Pages/Dashboard/Dashboard";
 import {Routes, Route} from 'react-router-dom';
 import VoirProfil from "./Pages/Profile/VoirProfil";
 import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
+import useFetch from "./Pages/CrechInfoCard/useFetch";
 
 function App() {
-                     
+  const { data: creches , error, isPending } = useFetch('http://localhost:8002/creches' ); 
+                    
   return (
 
+   <>
+    { error && <div>{ error }</div> }
+    { isPending && <div>Loading...</div> }
+    { creches && 
    
-
-
-  
 <Routes>
-<Route path='/' element={<Home/>} />
+<Route path='/' element={<Home creches={creches}/>} />
 <Route path='/Signup' element={<Signup/>} />
 <Route path='/Login' element={<Login/>} />
 <Route path='/VoirProfil/' element={<VoirProfil photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix"  />} />
 <Route path='/Notifications' element={<Notifications/>} />
 <Route path='/Dashboard' element={<Dashboard/>} />
 <Route path='/AddCreche' element={<AddCreche/>} />
-<Route path='/creches' element={ <RsltRechercheCreches/>}  /> 
+<Route path='/creches/:id/AddCreche' element={<AddCreche/>} />
+<Route path='/creches' element={ <RsltRechercheCreches creches={creches}/>}  /> 
 <Route path='/CrechInfoCard' element={ <CrechInfoCard/>}  /> 
 <Route path='/creches/:id' element={ <CrechInfoCard/>}  /> 
 </Routes>
-
+}
+ </>
 
   
 

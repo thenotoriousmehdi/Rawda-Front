@@ -5,7 +5,7 @@ import KeenSlider from "keen-slider";
 import arrow from "../../assets/arrowblack.svg";
 import CrecheCard from "./CrecheCard";
 import { Link } from 'react-router-dom';
-const Crechesmieuxnotees = () => {
+const Crechesmieuxnotees = ({creches}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -19,49 +19,7 @@ const Crechesmieuxnotees = () => {
     },
   });
 
-    const data = [
-        {
-          
-
-        title: "Crèche berceau des anges",
-        locasitiontitle: `Birkhadem, Alger
-          `,
-        },
-        {
-          title: "Crèche le bebe roi",
-          locasitiontitle: `Kouba, Alger
-            `,
-    },
-
-          {
-            title: "Crèche l'Aarche de Noah",
-            locasitiontitle: `Hydra, Alger
-            `,
-          },
-          {
-            title: "Crèche du genie",
-            locasitiontitle: `Alger centre, Alger
-            `,
-          },
-  
-          {
-            title: "Crèche kidzy club",
-            locasitiontitle: `Ain Naadja, Alger
-            `,
-          },
-  
-          {
-            title: "Crèche Genius land",
-            locasitiontitle: `Elbiar, Alger
-            `,
-          },
-  
-          {
-            title: "Crèche Chateau des anges",
-            locasitiontitle: ` Alger
-            `,
-    },
-  ];
+    const data = creches.slice(1,7) ;
   return (
     <>
       <div

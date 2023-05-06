@@ -21,9 +21,9 @@ export default function CrechInfoCard (){
         (  
         <div className="App">
       
-          <Infocreche creche={creche} />
+          <Infocreche creche={creche}  />
           <Localisation /> 
-          <Avis />
+          <Avis creche={creche}/>
           <ContactSection creche={creche}/>
           <Footer /> 
        </div>

@@ -92,9 +92,7 @@ export default function CustomizedDialogsRdv() {
   }
  
 
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+ 
   const [focused, setFocused] = useState(false);
  
   const handleFocus = (e) => {
@@ -102,7 +100,10 @@ export default function CustomizedDialogsRdv() {
   };
 
   const [focusedp, setFocusedp] = useState(false);
- 
+  
+
+  const [availableTimes, setAvailableTimes] = useState([ '10:00', '10:40', '11:20', '12:00', '13:20', '14:00', '14:40', '15:20'
+]);
   const handleFocusp = (e) => {
     setFocusedp(true);
   };
@@ -128,9 +129,10 @@ export default function CustomizedDialogsRdv() {
   const [Textconfirmation, setTextconfirmation] = useState(false) ; 
   const handleconfirmation = (e) =>{
     setTextconfirmation(true) ; 
-    console.log('rdv annulé ', !Textconfirmation) ; 
+   
      setbuttonTextform('Envoyer'); 
-     setRdvclosed(false)  ; 
+     setRdvclosed(false); 
+      console.log('rdv annulé ', !Textconfirmation) ; 
     } ; 
 
     const handleClose = () => {
@@ -141,7 +143,43 @@ export default function CustomizedDialogsRdv() {
       if( Textconfirmation ) {
         setTextconfirmation(false) ; 
       }
+      if( buttonTextform==="Envoyé!"){
+          // Remove the selected time from the available times array
+      
+      const updatedAvailableTimes = availableTimes.filter(
+        (time) => time !== selectedOption
+      );
+      setAvailableTimes(updatedAvailableTimes);
+        setSelectedOption(availableTimes[0])  ;
+      }
     };
+    const handleDateChange = async (date) => {
+      setDatetoken(date);
+      const availableTimes = await getAvailableTimes(date);
+      setAvailableTimes(availableTimes);
+    };
+    const getAvailableTimes = async (date) => {
+      // Call API to get available times for the selected date
+      return  availableTimes; 
+    };
+    const handleChange = (event) => {
+      setSelectedOption(event.target.value);
+     
+    };
+    
+   /* const getAvailableTimeSlots = (date) => {
+      // Here you can fetch the already booked time slots for the selected date from your backend and remove them from the list of available time slots
+      // For the sake of simplicity, we'll just remove '11:20' and '14:40' for May 10th
+      const bookedTimeSlots = ['11:20', '14:40'];
+      if (
+        date &&
+        date instanceof Date &&
+        !isNaN(date.getTime()) // Check if it's a valid date
+      ) {
+        return availableTimeSlots.filter((availableTimeSlot) => !bookedTimeSlots.includes(availableTimeSlot));
+      }
+      return availableTimeSlots;
+    };*/
 
   return (
     <div>
@@ -173,7 +211,7 @@ export default function CustomizedDialogsRdv() {
      
      <p className='p-3'>  <br />    Êtes-vous sûr de vouloir annuler le rendez-vous ? </p>
 
-      <div className="flex  flex-wrap-reverse justify-end   mt-4 " >
+      <div className="flex flex-wrap-reverse justify-end   mt-4 " >
         <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Non</Button> 
         <Button autoFocus  onClick={handleconfirmation}   sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
          Oui 
@@ -188,7 +226,7 @@ export default function CustomizedDialogsRdv() {
        <Typography gutterBottom sx={{ fontSize:13}} >
             Pour avoir plus d'informations sur la crèche et pour compléter les procédures  
             d'inscription de votre enfant, veuillez prendre un rendez-vous dès maintenant !
-  </Typography>
+       </Typography>
 
          <div   className='   rounded-lg  text-center bg-rawdapurple bg-opacity-5'>
          
@@ -197,27 +235,28 @@ export default function CustomizedDialogsRdv() {
         
           <label for="datepi "  className='  text-left w-4/5   sm:w-2/3 font-body  text-xs sm:text-sm mt-2 sm:ml-3 '>Date du rendez-vous:</label>
     
-          <DatePicker  id="datepi"  required selected={datetoken} onChange={(date) => { setDatetoken(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
+          <DatePicker  id="datepi"  required selected={datetoken} onChange={handleDateChange}  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
            filterDate={ date => date.getDay() !== 5 && date.getDay() !== 6  }  dateFormat='dd/MM/yyyy'
-         className="rounded-md h-[38px] m-3 mt-1 w-4/5  justify-center  sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2  text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
+           className="rounded-md h-[38px] m-3 mt-1 w-4/5  justify-center  sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2  text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
                                             /> 
             </div>  
 
         <div className='flex  items-center  flex-col'> 
           <label for="timeAptmnt "  className=' text-left  w-4/5  sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Heure du rendez-vous:</label>
       
-          <select id="timeAptmnt" value={selectedOption} onChange={handleChange} required
-            className="rounded-md h-[38px] m-3  w-4/5  mt-1  sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2   text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
-            >
-            <option value="10:00"  >10:00</option>
-            <option value="10:40">10:40</option>
-            <option value="11:20">11:20</option>
-            <option value="12:00">10:40</option>
-            <option value="13:20">13:20</option>
-            <option value="14:00">14:00</option>
-            <option value="14:40">14:40</option>
-            <option value="15:20">15:20</option>
-           </select>
+          { availableTimes.length > 0 ? (
+  <select id="timeAptmnt" value={selectedOption} onChange={handleChange} required
+    className="rounded-md h-[38px] m-3  w-4/5  mt-1  sm:w-2/3  text-sm md:text-base bg-white border-purple-400 border py-2 px-2   text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400   "
+  >
+    { availableTimes.map((time) => (
+      <option key={time} value={time}>
+        {time}
+      </option>
+    ))}
+  </select>
+) : (
+  <p className='font-body p-3  text-sm border  border-purple-400 rounded-md'> Pas de rendez-vous disponibles pour cette date </p>
+)}
            
 </div>
 
@@ -226,7 +265,7 @@ export default function CustomizedDialogsRdv() {
             <label for="nomk "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Nom:</label>
               
 
-              <input  type="text"  id="nomk"  placeholder="Nom "  required onChange={handlenomcChange}
+              <input  type="text"  id="nomk" disabled={availableTimes.length === 0}  placeholder="Nom "  required onChange={handlenomcChange}
                onBlur={handleFocus}                         
                focused={focused.toString()} 
                pattern='^[a-zA-Z0-9\s]{3,16}$'
@@ -244,7 +283,7 @@ export default function CustomizedDialogsRdv() {
             <label for="pnom "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Prenom:</label>
               
 
-              <input  type="text"  id="pnom"  placeholder="Prenom"  required onChange={handlepnomcChange}
+              <input  type="text"  id="pnom"  placeholder="Prenom" disabled={availableTimes.length === 0} required onChange={handlepnomcChange}
                onBlur={handleFocus}                         
                focused={focused.toString()} 
                pattern='^[a-zA-Z0-9\s]{3,16}$'
@@ -262,7 +301,7 @@ export default function CustomizedDialogsRdv() {
       <div className='flex  items-center flex-col'> 
           <label for="numtel "  className='  text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Numero de telephone:</label>
                  
-              <input type="text" id="numtel" placeholder="Numero de telephone" required onChange={handlenumChange}
+              <input type="text" id="numtel" placeholder="Numero de telephone" disabled={availableTimes.length === 0} required onChange={handlenumChange}
                  onBlur={handleFocusp}  
                  pattern='^(\+213|00213|0)(5|6|7)[0-9]{8}$'                      
                  focusedp={focusedp.toString()} 
@@ -283,7 +322,7 @@ export default function CustomizedDialogsRdv() {
   { buttonTextform==='Envoyer' ? 
    <Button onClick={handleClose} autoFocus   sx={{ m:1,  background:'rgba(105, 56, 239, 0.05)' , backgroundOpacity:0.5  ,  color:'#6938EF' ,fontFamily:'Poppins' , '&:hover': {border:'#6643b5 solid 1px'} }}>Annuler</Button> 
    : null }         
-             <Button autoFocus  type='submit' sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
+             <Button autoFocus  type='submit' disabled={availableTimes.length === 0} sx={{   color:'white', m:1,fontFamily:'Poppins'  ,'&:hover': {color:'#6938EF' , border:'#6643b5 solid 1px'} ,  background:'#6938EF' }} >
                {buttonTextform}
                </Button>
 
@@ -299,3 +338,12 @@ export default function CustomizedDialogsRdv() {
     </div>
   );
 }
+/* <option value="10:00"  >10:00</option>
+            <option value="10:40">10:40</option>
+            <option value="11:20">11:20</option>
+            <option value="12:00">10:40</option>
+            <option value="13:20">13:20</option>
+            <option value="14:00">14:00</option>
+            <option value="14:40">14:40</option>
+            <option value="15:20">15:20</option>*/
+            

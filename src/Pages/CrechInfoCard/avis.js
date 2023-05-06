@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import FormDialog from "./evaluationDialog";
-export default function Avis (){
+export default function Avis ({creche}){
   
 
 return(
@@ -29,7 +29,7 @@ return(
                     modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 className=" p-8 "  >
              { 
-             profilsdata.map(( profilcomment  ) =>(
+             creche.profilsCommentsdata.map(( profilcomment  ) =>(
               <SwiperSlide   >
                  <div className=" border  border-rawdapurple flex relative flex-col  h-4/6 rounded-lg items-center justify-center p-7 gap-4   " >
                    <img src={profilcomment.image }  className="   w-12 top-0      h-12 " />
