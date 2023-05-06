@@ -1,13 +1,17 @@
 import mehdi from "../../assets/creche.jpg";
 export default function CrecheCard({creche}){
+    let indexid = (creche.numid)-1 ; 
 return(
 
 <div className="keen-slider__slide   h-max w-[200px]  flex flex-col justify-center items-center  rounded-xl ">
 
 
   <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow m-6">
-  
-      <img className="rounded-t-lg" src={mehdi} alt="" />
+  <img 
+  className="rounded-t-lg   h-48 object-cover w-full"
+    src={process.env.PUBLIC_URL + `/image1/img${1+ (indexid) *4}.jpg`}
+      alt=""                  />
+      
   
   <div className="p-5">
           <h5 className="mb-2 text-xl font-Poppins font-semibold tracking-tight text-rawdablack ">{creche.title}</h5>

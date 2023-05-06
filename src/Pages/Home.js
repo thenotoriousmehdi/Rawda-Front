@@ -12,7 +12,7 @@ import FaqCard from "../Components/Faq/FaqCard";
 import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 
 
-function Home() {
+function Home({creches}) {
   return (
     <>
       <div className="bg-rawdawhite">
@@ -22,7 +22,7 @@ function Home() {
           <img src={deco1} />
         </div>
         <About />
-        <Crechesmieuxnotees />
+        <Crechesmieuxnotees  creches={creches} />
         <Services />
         <Avis />
         <Faq />
