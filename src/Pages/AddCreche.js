@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import Wilayas from "../data/wilayas.json";
 import galery from "../assets/galery.svg";
 import exit from "../assets/exit1.svg";
-import axios from 'axios';
-import "../../src/index.css"
+import axios from "axios";
+import "../../src/index.css";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -99,7 +99,6 @@ function AddCreche() {
     setNomdetablissement(event.target.value);
   };
 
-  
   const [adresse, setadresse] = useState("");
   const handleadresseChange = (event) => {
     setadresse(event.target.value);
@@ -146,13 +145,11 @@ function AddCreche() {
     setAgemaxAc(agemaxAc);
   };
 
-
   const [pedag, setPedag] = useState();
   const pedagogie = pedag ? pedag.value : "";
   const handlepedagChange = (pedag) => {
     setPedag(pedag);
   };
-  
 
   const [lang, setLang] = useState();
   const langue = lang ? lang.value : "";
@@ -179,7 +176,7 @@ function AddCreche() {
 
   const [mail, setEmail] = useState("");
   const [num, setNum] = useState("");
-  const [description, setdescription]=useState("");
+  const [description, setdescription] = useState("");
 
   const handledescirptionChange = (event) => {
     setdescription(event.target.value);
@@ -191,7 +188,6 @@ function AddCreche() {
   const handlenumChange = (event) => {
     setNum(event.target.value);
   };
-  
 
   const [value, setValue] = useState("");
 
@@ -205,20 +201,20 @@ function AddCreche() {
       setValue(numericValue);
     }
   }
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   };
-  const delim=',';
-  const localisation=commune+delim+Wilaya;
-  const capacite=value;
-  const prop='644ea5b3823aad9199a86470';
+  const delim = ",";
+  const localisation = commune + delim + Wilaya;
+  const capacite = value;
+  const prop = "644ea5b3823aad9199a86470";
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-     await axios.post("http://localhost:8000/Creche", {
+      await axios.post("http://localhost:8000/Creche", {
         nom,
         localisation,
         typeAccueil,
@@ -234,16 +230,15 @@ function AddCreche() {
         num,
         mail,
         description,
-        prop
+        prop,
       });
-      
     } catch (e) {
       console.log(" ERREUR ");
     }
-    
+
     console.log("wilaya:", Wilaya);
     console.log("commune: ", commune);
-    console.log('Nom detablissement:', nom);
+    console.log("Nom detablissement:", nom);
     console.log("Type detablissement:", typeEtab);
     console.log("type daccueil:", typeAccueil);
     console.log("jour daccueil:", joursAccueil);
@@ -324,7 +319,6 @@ function AddCreche() {
                     </p>
                   </div>
 
-
                   <div className="flex flex-wrap justify-center gap-4">
                     {" "}
                     {/* first flex */}
@@ -338,7 +332,6 @@ function AddCreche() {
                         className="rounded w-[250px] h-[38px] md:w-[210px] bg-white border-gray-700 border-opacity-30 border py-2 px-2   text-gray-700 placeholder-gray-600  shadow-sm text-base "
                       />
                     </div>
-
                     <div className="  sm:block">
                       <div className="flex space-x-4 m-2 md:m-0">
                         <div className="type">
@@ -358,7 +351,6 @@ function AddCreche() {
                         </div>
                       </div>
                     </div>
-
                     <div className=" sm:block">
                       <div className="flex space-x-4 m-2 md:m-0">
                         <div className="age">
@@ -377,17 +369,11 @@ function AddCreche() {
                         </div>
                       </div>
                     </div>
-
-
-
-
-
                   </div>
 
                   <div className="flex flex-wrap justify-center gap-4">
                     {" "}
                     {/* second flex */}
-                    
                     <div className=" sm:block">
                       <div className="flex space-x-4 m-2 md:m-0">
                         <div className="jours">
@@ -424,7 +410,6 @@ function AddCreche() {
                         </div>
                       </div>
                     </div>
-
                     <div className="  sm:block">
                       <div className="flex space-x-4 m-2 md:m-0">
                         <div className="age max">
@@ -443,9 +428,6 @@ function AddCreche() {
                         </div>
                       </div>
                     </div>
-
-
-
                   </div>
 
                   <div className="flex flex-wrap justify-center  gap-4">
@@ -507,7 +489,7 @@ function AddCreche() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap justify-center gap-4" >
+                  <div className="flex flex-wrap justify-center gap-4">
                     {" "}
                     {/* Fourth flex */}
                     <div className="  sm:block ">
@@ -551,12 +533,11 @@ function AddCreche() {
                         id="Prix"
                         placeholder="Prix max /mois (DA)"
                         step="1"
-                         min="0" 
-                         max="100000"
+                        min="0"
+                        max="100000"
                         required
                         className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  placeholder-gray-600 shadow-sm text-base "
                         onChange={handleprixChange}
-
                       />
                     </div>
                   </div>
@@ -748,32 +729,6 @@ function AddCreche() {
                       Contact
                     </p>
                   </div>
-
-                 {/*  <div className="flex flex-wrap justify-center">
-                    {" "}
-                  
-                    <div>
-                      <input
-                        type="text"
-                        id="nom"
-                        placeholder="Nom complet"
-                        required
-                        onChange={handlenomcChange}
-                        className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        id="mail"
-                        placeholder="Adresse mail"
-                        required
-                        onChange={handleEmailChange}
-                        className="rounded-md w-[250px] h-[38px] md:w-[310px] bg-white border-rawdapurple opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div> */}
-
                   <div className="flex flex-wrap justify-center">
                     {" "}
                     {/* Tenth flex */}
@@ -783,7 +738,7 @@ function AddCreche() {
                         id="num"
                         placeholder="Numero de telephone"
                         pattern="[0-9]{10}"
-                         maxlength="10"
+                        maxlength="10"
                         required
                         onChange={handlenumChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
@@ -791,7 +746,6 @@ function AddCreche() {
                     </div>
                     <div>
                       <input
-                     
                         id="Email"
                         type="email"
                         placeholder="Adresse mail"
@@ -823,7 +777,7 @@ function AddCreche() {
                         id="file-upload"
                         onChange={handleFileUpload}
                         className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
-                        />
+                      />
                     </div>
                     <div>
                       <input
@@ -835,15 +789,12 @@ function AddCreche() {
                         required
                         className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
-                         
                     </div>
                   </div>
 
                   <div className="flex flex-wrap justify-center">
                     {" "}
                     {/* twelve flex */}
-
-                  
                     <div className="flex justify-center md:justify-start">
                       {/* <button
                         href="#"
@@ -853,21 +804,15 @@ function AddCreche() {
                         Ajouter ma creche{" "}
                       </button> */}
 
-
-<button
-onClick={handleSubmit}
-                      id="s'inscrire"
-                      type="button"
-                      className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
-                    >
-                      <a href=''>Ajouter ma creche</a>
-                  
-                    </button>
+                      <button
+                        onClick={handleSubmit}
+                        id="s'inscrire"
+                        type="button"
+                        className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
+                      >
+                        <a href="">Ajouter ma creche</a>
+                      </button>
                     </div>
-
-
-
-
                   </div>
                 </div>
               </div>
