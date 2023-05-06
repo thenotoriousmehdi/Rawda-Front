@@ -22,9 +22,9 @@ function ModifierProfil({nomc,role}){
   };
  */
 
-  const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
+  const [dateNaissance, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
   const [showPopup, setShowPopup] = useState(false);
-  const [adresse, setadresse] = useState("");
+  const [adress, setadresse] = useState("");
   const handleadresseChange = (event) => {
     setadresse(event.target.value);
   };
@@ -36,16 +36,25 @@ function ModifierProfil({nomc,role}){
   const handleClosePopup = () => {
     setShowPopup(false);
   };
-  const [num, setNum] = useState("");
+  const [phone, setNum] = useState("");
   const handlenumChange = (event) => {
     setNum(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Numero de †elephone:", num);
-console.log("date de naissance:",datetoken )
-console.log("Adresse:", adresse)
+    try {
+      await axios.patch("http://localhost:8000/modifierProfile", {
+        phone:phone,
+        adress:adress,
+        dateNaissance:dateNaissance,
+      });
+    } catch (e) {
+      console.log(" USER NOT MODIFIED ");
+    }
+    console.log("Numero de †elephone:", phone);
+console.log("date de naissance:",dateNaissance )
+console.log("Adresse:", adress)
 
   };
 
@@ -72,9 +81,8 @@ const handlemdpsSubmit = async (event) =>{
   console.log("Nouveau Mot de Passe:",mdpsnew);
 } */
 
-const handlePasswordSubmit = (e) => {
+const handlePasswordSubmit = async (e) => {
   e.preventDefault();
-
   if (newPassword === confirmNewPassword) {
     console.log("Current password:", oldPassword);
     console.log("New password:", newPassword);
@@ -82,7 +90,16 @@ const handlePasswordSubmit = (e) => {
   } else {
     console.log("New passwords do not match");
     setCanSubmit(false);
-  }
+  };
+    try {
+      await axios.patch("http://localhost:8000/modifierPassword", {
+        oldPassword:oldPassword,
+        newPassword:newPassword
+      });
+    } catch (e) {
+      console.log(" PASSWORD NOT MODIFIED ");
+    }
+  
 };
 return(
 
@@ -194,7 +211,7 @@ Date de naissance
         
      
   
-        <DatePicker  id="datepi"  required selected={datetoken} onChange={(date) => { setDatetoken(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
+        <DatePicker  id="datepi"  required selected={dateNaissance} onChange={(date) => { setDatetoken(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
          filterDate={ date => date.getDay() !== 5 && date.getDay() !== 6  }  dateFormat='dd/MM/yyyy'
        className="rounded w-[250px]  h-[38px] md:w-[330px] z-40  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base   "
                                           /> 
@@ -341,7 +358,7 @@ Modifier le Mot de passe
                       id="Confirmer la modification"
                       type="button"
                       className="rounded font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
-                      disabled={!canSubmit}
+                     // disabled={!canSubmit}
                     >
                     Confirmer
                     </button>
