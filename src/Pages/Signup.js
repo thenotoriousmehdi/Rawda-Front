@@ -191,7 +191,7 @@ const Signup = (props) => {
                 onClick={() => props.onFormSwitch("Login")}
                 className="text-rawdapurple text-xs font-semibold cursor-pointer sm:mb-5 font-body"
               >
-                Se connecter
+             <a href="/Login">Se connecter </a>  
               </buttom>
             </div>
           </div>

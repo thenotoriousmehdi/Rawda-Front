@@ -11,6 +11,7 @@ import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
 import axios from 'axios';
 import Search from "./Search";
+import RsltRechercheCreches from '../Pages/RsltRechercheCreches';
 import {
   
   Bars3Icon,
@@ -686,7 +687,7 @@ console.log("nom d'etablissement", nomdetablissement)
                     className="p-3 px-10 pt-3 mt-[-50px] text-rawdawhite text-xl bg-rawdapurple hover:bg-rawdapurple hover:bg-opacity-70 rounded-full baseline shadow-sm shadow-rawdapurple"
                     onClick={handleSubmit}
                   >
-                  Rechercher
+                <a href='/RsltRechercheCreches'> Rechercher  </a>  
                   </button>
                 </a>
               </div>

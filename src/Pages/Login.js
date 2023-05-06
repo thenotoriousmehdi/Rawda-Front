@@ -212,7 +212,7 @@ const Login = (Props) => {
                 onClick={() => Props.onFormSwitch("/Singup")}
                 className="text-violet-700 text-xs font-bold cursor-pointer"
               >
-                S'inscrire
+             <a href="/Signup"> S'inscrire  </a>   
               </buttom>
             </div>
           </form>

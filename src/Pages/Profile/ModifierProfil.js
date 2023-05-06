@@ -6,6 +6,8 @@ import Footer from "../../Components/Footer";
 import axios from "axios";
 import iconm from "../../assets/iconmodphoto.svg";
 import React, {useState} from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 function ModifierProfil({nomc,role}){
   const handlePatchClick = () => {
     const requestBody = {   };
@@ -19,6 +21,8 @@ function ModifierProfil({nomc,role}){
       });
   };
 
+
+  const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
   const [showPopup, setShowPopup] = useState(false);
 
   const handleButtonClick = () => {
@@ -125,7 +129,7 @@ Date de naissance
 </div>
 <div className=" flex justify-start text-[#475467]  font-light">
 
-<div >
+{/* <div >
                              <input
                              type="text"
                              id="Date de naissance"
@@ -133,7 +137,20 @@ Date de naissance
                             required
                            className="rounded w-[250px]  h-[38px] md:w-[330px]  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base "
                            />
-                           </div>
+                           </div> */}
+
+                           
+        
+     
+  
+        <DatePicker  id="datepi"  required selected={datetoken} onChange={(date) => { setDatetoken(date)  } }  minDate={new Date((new Date()).getTime() + 24 * 60 * 60 * 1000) }
+         filterDate={ date => date.getDay() !== 5 && date.getDay() !== 6  }  dateFormat='dd/MM/yyyy'
+       className="rounded w-[250px]  h-[38px] md:w-[330px] z-40  bg-white border-rawdapurple border-opacity-80 border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600  shadow-sm text-base   "
+                                          /> 
+    
+
+
+
 
 </div>
 
@@ -175,7 +192,7 @@ Adresse
 <img    src={line2}/>
 <div className="mt-1 mx-2 flex flex-col gap-1">
 
-<div className=" rounded-xl w-[250px]  h-[38px] md:w-[330px]  bg-rawdapurple bg-opacity-50 hover:bg-rawdapurple border-rawdapurple border-opacity-80 border py-1 px-2 mx-4  text-rawdawhite   shadow-sm text-base ">
+<div className=" rounded w-[250px]  h-[38px] md:w-[330px]  bg-rawdapurple bg-opacity-50 hover:bg-rawdapurple border-rawdapurple border-opacity-80 border pl-16 pt-1 mx-4  text-rawdawhite text-lg  shadow-sm text-base ">
 <button 
 onClick={handleButtonClick}
 >
@@ -251,7 +268,7 @@ Modifier le Mot de passe
                     onClick={handleClosePopup}
                       id="Annuler la  modifictaion"
                       type="button"
-                      className="rounded-full font-medium text-lg bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  "
+                      className="rounded font-medium text-lg bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  "
                     >
                     Annuler
                     </button>
@@ -262,7 +279,7 @@ Modifier le Mot de passe
                     onClick={handlePatchClick}
                       id="Confirmer la modification"
                       type="button"
-                      className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
+                      className="rounded font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
                     >
                     Confirmer
                     </button>

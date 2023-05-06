@@ -35,6 +35,7 @@ function App() {
 <Route path='/creches' element={ <RsltRechercheCreches/>}  /> 
 <Route path='/creches/:id' element={ <CrechInfoCard/>}  /> 
 <Route path='/Search' element={ <Search/>}  /> 
+<Route path='/RsltRechercheCreches' element={ <RsltRechercheCreches/>}  /> 
 </Routes>
 
 
