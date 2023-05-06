@@ -559,7 +559,7 @@ function AddCreche() {
                         placeholder="Description (150 mots max)"
                         required
                         onChange={handledescirptionChange}
-                        className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[250px] h-[38px] md:w-[670px] md:h-[200px]   opacity border py-2 px-6 mx-4  text-gray-700 placeholder-gray600 shadow-sm text-base "
+                        className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[250px] h-[38px] md:w-[670px] md:h-[200px]   opacity border py-2 px-6   text-gray-700 placeholder-gray600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -645,7 +645,7 @@ function AddCreche() {
                         maxlength="255"
                         required
                         onChange={handleadresseChange}
-                        className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
