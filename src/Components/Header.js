@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
 import axios from 'axios';
+import Search from "./Search";
+import RsltRechercheCreches from '../Pages/RsltRechercheCreches';
 import {
   
   Bars3Icon,
@@ -42,15 +44,15 @@ setCommune(Selectedcommune);
     );
     setWilayaId(wilayaObject.id);
   };
-
- 
-  const [fopen, setFOpen] = React.useState(false);
   const mehdi = () => {
     return (
 <Footer/>
     );
   }
+ 
 
+
+  const [fopen, setFOpen] = React.useState(false);
   const handleClick = () => {
     if (fopen === true) {
       setFOpen(false);
@@ -191,11 +193,11 @@ setCommune(Selectedcommune);
   const [nom, setNom] = useState('');
   const handlenomClick = (event) => {
     setNom(event.target.value);
-    console.log("nom d'etablissement", nom)
+    console.log("nom d'etablissement: ", nom)
   }
 const handlenomChange = (event) => {
   setNom(event.target.value);
-}
+} 
 
 /* const handlenomclick =(event) =>{
 event.preventDefault();
@@ -283,23 +285,19 @@ console.log("nom d'etablissement", nomdetablissement)
                       />
                     </a>
                   </div>
-                  <div className="hidden sm:ml-6 sm:block">
+                   <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                     <div className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
                     onClick={handlenomClick}>
-
-
-  <img src={loupe} />
-
-
-</div>
+                     <img src={loupe} />
+                     </div>
 
                       <input
                         id="desktop-search"
                         type="text"
                         placeholder="Rechercher par nom..."
                         required
-                        onChange={handlenomChange}
+                       onChange={handlenomChange}
                         className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
                       />
                       <a href="#search" onClick={handleClick}>
@@ -309,26 +307,28 @@ console.log("nom d'etablissement", nomdetablissement)
                         />
                       </a>
                     </div>
-                  </div>
+                  </div> 
+
+
+                  
                 </div>
                 <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
        
 
-                
                     <button
                 
-                      id="pub"
+                      id="se connecter"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-violet-700 hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite "
                     >
                       <a href="/Login">Se connecter</a>
                     </button>
                 
                  
                     <button
-                      id="pub"
+                      id="s'inscrire"
                       type="button"
-                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800"
+                      className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
                     >
                       <a href='/Signup'>S'inscrire</a>
                   
@@ -338,6 +338,7 @@ console.log("nom d'etablissement", nomdetablissement)
               </div>
             </div>
 
+
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
               
@@ -346,7 +347,7 @@ console.log("nom d'etablissement", nomdetablissement)
                     
                     fullWidth
                     type="button"
-                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white hover:text-violet-700 hover:bg-violet-50"
+                    className=" block px-3 py-2 rounded-full text-base font-medium bg-violet-700 text-white "
                   >
                     <a href='/Login'>Se connecter</a>
                   </button>
@@ -374,14 +375,14 @@ console.log("nom d'etablissement", nomdetablissement)
         <Disclosure
           as="nav"
           id="main-menu-filter"
-          className="bg-white border-b border-gray-300 p-5"
+          className="bg-white sticky top-10 z-40 border-b border-gray-300 p-5"
         >
           
 
 
-          <div className="mx-8  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl "> {/* start */}
+          <div className="mx-8 flex items-center justify-center  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl mt-6 "> {/* start */}
     <div className="mx-auto  sm:px-6  ">
-      <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4"> 
+      <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4 "> 
         <div className="container flex flex-wrap p-2  md:flex-row 
                        items-center justify-between px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <div className="flex flex-col gap-8">
@@ -403,6 +404,7 @@ console.log("nom d'etablissement", nomdetablissement)
                            className="rounded-md w-[250px] h-[38px] md:w-[330px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                            onChange={handlenomChange}
                            />
+                        
                            </div> */}
                            <div className=" sm:ml-6 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
@@ -411,7 +413,7 @@ console.log("nom d'etablissement", nomdetablissement)
                             <select
                 
                 name="wilaya"
-                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 text-gray-600 bg-white outline-none"
                 onChange={(wilaya) => handleWilaya(wilaya.target.value)}
               >
                 <option value="">Wilaya</option>
@@ -436,7 +438,7 @@ console.log("nom d'etablissement", nomdetablissement)
               <select
                 
                 name="commune"
-                className="w-[210px] h-[38px] rounded-2 p-2 border border-rawdapurple outline-none"
+                className="w-[210px] h-[38px] rounded p-2 border border-gray-700 text-gray-600 border-opacity-30 bg-white outline-none"
                 onChange={(commune) => handlecommune(commune.target.value)}
               >
                 <option value="">Commune</option>
@@ -556,7 +558,7 @@ console.log("nom d'etablissement", nomdetablissement)
 <div className="flex flex-wrap justify-center"> {/* Third flex */}
 
 
-<div className=" sm:ml-6 sm:block">
+<div className=" sm:ml-2 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
                           <div>
                           <input
@@ -569,13 +571,13 @@ console.log("nom d'etablissement", nomdetablissement)
                             value={capacite}
                             onChange={handlecapChange}
                             required
-                            className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                            className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                           />
                         </div>
     </div>
     </div>
 
-<div className=" sm:ml-6 sm:block">
+<div className=" sm:ml-2 sm:block">
                           <div className="flex space-x-4 m-2 md:m-0">
     <div className="pedagogie">
       <div className="dropdown-container w-[210px]">
@@ -592,7 +594,6 @@ console.log("nom d'etablissement", nomdetablissement)
     </div>
     </div>
     </div>
-
 
     <div className=" sm:ml-6 sm:block ">
                           <div className="flex space-x-4 m-2 md:m-0">
@@ -657,26 +658,21 @@ console.log("nom d'etablissement", nomdetablissement)
 
 
 <div >
-                             <input
-                             type="int"
-                             id="Prix"
-                              placeholder="Prix max/mois (DA)"
-                            required
-                           className="rounded-md w-[250px] h-[38px] md:w-[210px] bg-white border-gray-500 opacity-40 border py-2 px-2 mx-4  text-gray-700 placeholder-rawdablack shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                           onChange={handleprixChange}
-                           />
+<input
+                        type="number"
+                        id="Prix"
+                        placeholder="Prix max /mois (DA)"
+                        step="1"
+                         min="0" 
+                         max="100000"
+                        required
+                        className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4 placeholder-gray-600 shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                        onChange={handleprixChange}
+
+                      />
                            </div>
 
-
-
-
 </div>
-
-
-
-
-
-
 
           </div>
         </div>
@@ -684,17 +680,14 @@ console.log("nom d'etablissement", nomdetablissement)
     </div>
 </div> {/* start */}
 
-
-            
-              
-              <div className="p-5">
+              <div className=" flex items-center justify-center">
                 <a href="#Filter-search">
                   <button
                     type="submit"
-                    class="py-2 px-4  bg-violet-700 hover:bg-violet-900 focus:ring-violet-700 focus:ring-offset-violet-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                    className="p-3 px-10 pt-3 mt-[-50px] text-rawdawhite text-xl bg-rawdapurple hover:bg-rawdapurple hover:bg-opacity-70 rounded-full baseline shadow-sm shadow-rawdapurple"
                     onClick={handleSubmit}
                   >
-                  Rechercher
+                <a href='/RsltRechercheCreches'> Rechercher  </a>  
                   </button>
                 </a>
               </div>
@@ -702,6 +695,8 @@ console.log("nom d'etablissement", nomdetablissement)
           
         </Disclosure>
       ) : null}
+
+      
     </>
     
   );
