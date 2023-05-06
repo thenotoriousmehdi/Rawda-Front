@@ -17,17 +17,39 @@ import VoirProfil from "./Pages/Profile/VoirProfil";
 import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
 import Search from "./Components/Search";
 import useFetch from "./Pages/CrechInfoCard/useFetch";
-
+import data from './data/db.json';
 function App() {
-  const { data: creches , error, isPending } = useFetch('http://localhost:8002/creches' ); 
+  const creches = data ;
+
+  /* const creches=[ {
+    "title"  : "creche mes belles journées",
+    "locasitiontitle" : "résidence la plaine, Bejaïa",
+    "Type_accueil" : "regulier",
+    "Jours_accueil" : "tous les jours", 
+    "Pedagogie" : "Montessori",
+    "Type_etablissement": "privé",
+    "Langue" :  "francais",
+    "Ages_accueil" : "3 mois à 5ans",
+    "Capacite_accueil" :"200",
+    "Places_disponibles" :"50",
+    "Alimentation" : "oui",
+    "Transport" : "non",
+    "num" : "0561958361",
+    "mail" : "crechemesbellesjournees@hotmail.com",
+    "Description" : "crecche mes belles journées est un établissement d’accueil d’enfants âgés de 3 mois à 5 ans où le respect, l’autonomie et la sécurité sont des références privilégiés et qui prend en compte le rythme de chaque enfant.",
+    "respo" :"aya mohamed" ,
+    "id":8 , 
+    "numid": 8 
+  }
+    ] */
+   //const { data: creches , error, isPending } = useFetch('http://localhost:8002/creches' ) ;  
                     
   return (
-
-   <>
-     { error && <div>{ error }</div> }
+/* <>
+      { error && <div>{ error }</div> }
     { isPending && <div>Loading...</div> }
-    { creches &&  
-   
+    { creches && 
+     */
 <Routes>
 <Route path='/' element={<Home/>} />
 <Route path='/Login' element={<Login/>} />
@@ -44,9 +66,10 @@ function App() {
 <Route path='/Search' element={ <Search/>}  /> 
 <Route path='/RsltRechercheCreches' element={ <RsltRechercheCreches/>}  /> 
     </Routes>
-}
- </>
 
+//} 
+
+//</>
   
 
 /*

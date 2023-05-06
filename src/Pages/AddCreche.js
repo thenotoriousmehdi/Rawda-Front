@@ -115,11 +115,11 @@ function AddCreche() {
     setTypEtab(typEtab);
   };
 
-  const [jourAc, setJourAc] = useState();
+ /*  const [jourAc, setJourAc] = useState();
   const joursAccueil = jourAc ? jourAc.value : "";
   const handlejouracChange = (jourAc) => {
     setJourAc(jourAc);
-  };
+  }; */
 
   const [typeAc, setTypeAc] = useState();
   const typeAccueil = typeAc ? typeAc.value : "";
@@ -201,6 +201,11 @@ function AddCreche() {
       setValue(numericValue);
     }
   }
+
+  const [jourAc, setJourAc] = useState([]);
+
+
+
   const token = localStorage.getItem("token");
   const config = {
     headers: {
@@ -218,7 +223,7 @@ function AddCreche() {
         nom,
         localisation,
         typeAccueil,
-        joursAccueil,
+        jourAc,
         typeEtab,
         ageminAccueil,
         agemaxAccueil,
@@ -240,8 +245,9 @@ function AddCreche() {
     console.log("commune: ", commune);
     console.log("Nom detablissement:", nom);
     console.log("Type detablissement:", typeEtab);
+    console.table("Jours daccueil:", jourAc.map(option => option.value));
     console.log("type daccueil:", typeAccueil);
-    console.log("jour daccueil:", joursAccueil);
+   // console.log("jour daccueil:", joursAccueil);
     console.log("age min daccueil:", ageminAccueil);
     console.log("age max daccueil:", agemaxAccueil);
     console.log("capacite:", value);
@@ -383,9 +389,10 @@ function AddCreche() {
                               options={jourac}
                               placeholder="Jours d'accueil"
                               value={jourAc}
-                              onChange={handlejouracChange}
+                            //  onChange={handlejouracChange}
                               isSearchable={true}
-                              isMulti={false}
+                              isMulti={true}
+                              onChange={(jourAc) => setJourAc(jourAc)}
                               required
                             />
                           </div>
