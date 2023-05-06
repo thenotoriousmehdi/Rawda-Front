@@ -729,7 +729,7 @@ function AddCreche() {
                       Contact
                     </p>
                   </div>
-                  <div className="flex flex-wrap justify-center">
+                  <div className="flex flex-wrap justify-center gap-10">
                     {" "}
                     {/* Tenth flex */}
                     <div>
@@ -741,7 +741,7 @@ function AddCreche() {
                         maxlength="10"
                         required
                         onChange={handlenumChange}
-                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                     <div>
@@ -753,7 +753,7 @@ function AddCreche() {
                         required
                         maxlength="255"
                         onChange={handleEmailChange}
-                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -766,20 +766,49 @@ function AddCreche() {
                       Verification
                     </p>
                   </div>
-                  <div className="flex flex-wrap justify-center">
+                  <div className="flex flex-wrap justify-center gap-10">
                     {" "}
                     {/* eleventh flex */}
-                    <div>
+
+
+<div className="flex flex-col gap-2">
+
+<h4 className="text-rawdablack font-semibold">
+Agrement
+
+</h4>
+
+
+
+<div>
                       <input
                         type="file"
                         placeholder="Agrement "
                         accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
                         id="file-upload"
                         onChange={handleFileUpload}
-                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
-                    <div>
+
+</div>
+                   
+
+
+
+
+
+<div className="flex flex-col gap-2">
+
+
+
+<h4 className="text-rawdablack font-semibold" >
+Piece d'identite
+
+</h4>
+
+
+<div>
                       <input
                         type="file"
                         placeholder="Piece d'identite"
@@ -787,10 +816,21 @@ function AddCreche() {
                         id="file-upload"
                         onChange={handleFileUpload}
                         required
-                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 mx-4  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
+
+
+</div>
+
+                    
+
+
+
+
+
+
 
                   <div className="flex flex-wrap justify-center">
                     {" "}
