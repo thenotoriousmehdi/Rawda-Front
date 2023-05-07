@@ -1,14 +1,12 @@
 import mehdi from "../../assets/creche.jpg";
 export default function CrecheCard({ creche }) {
   let indexid = creche.numid - 1;
-  const photos = creche.photos;
-  const premierePhoto=photos[0];
   return (
     <div className="keen-slider__slide   h-max w-[200px]  flex flex-col justify-center items-center  rounded-xl ">
       <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow m-6">
         <img
           className="rounded-t-lg   h-48 object-cover w-full"
-          src={premierePhoto}
+          src={creche.photos ? creche.photos[0] : null}
           alt=""
         />
 
@@ -18,7 +16,7 @@ export default function CrecheCard({ creche }) {
           </h5>
           <p className="mb-3 font-Poppinsregular  text-[#475467]">
             {" "}
-            {creche.loca}{" "}
+            {creche.localisation}{" "}
           </p>
 
           <a
