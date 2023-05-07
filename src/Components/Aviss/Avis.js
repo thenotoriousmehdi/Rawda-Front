@@ -8,6 +8,7 @@ import mehdi from "../../assets/mehdi1.png";
 import mouloud from "../../assets/mouloud.jpg";
 import ines from "../../assets/ines.jpg";
 import kahina from "../../assets/kahina.jpg";
+import wassim from "../../assets/wassim.PNG";
 
 const Avis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -48,6 +49,11 @@ const Avis = () => {
       photo: ines,
       nom: "Ines MEDERBEL",
       avis: "je suis impressionné par la qualité de service, j’ai cliqué sur le bouton a gauche de la barre de recherche et une multitude de critère sont affiche devant moi ca m’a pris 1 minute pour sélectionner les critère qui répondent à mes besoins et puis les crèches correspondant étaient affichées, j’ai pu trouver une crèche pour mon fils et même réserver une place ",
+    },
+    {
+      photo: wassim,
+      nom: "Wassim BELDJOUDI",
+      avis: "Je suis vraiment satisfait de Rawda ! Grâce à cette plateforme, j'ai trouvé une crèche de grande qualité pour mon frère. Les informations étaient claires et précises, ce qui m'a facilité la recherche. De plus, j'ai pu lire les avis d'autres parents qui m'ont aidé à faire mon choix en toute confiance. Je recommande vivement Rawda à tous les parents en Algérie !",
     },
   ];
   return (
