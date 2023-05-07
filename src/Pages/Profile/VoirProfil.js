@@ -21,11 +21,12 @@ export default function VoirProfil(){
   useEffect(() => {
     async function fetchData() {
       try {
+      
         const response = await axios.get('http://localhost:8000/profile',config);
         setData(response.data);  
            
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
   
@@ -92,7 +93,7 @@ export default function VoirProfil(){
                           <h4>Numéro de téléphone</h4>
                         </div>
                         <div className=" flex justify-start text-[#475467]  font-light">
-                          <h4>{data.num}</h4>
+                          <h4>{data.phone}</h4>
                         </div>
                       </div>
                     </div>
@@ -118,7 +119,7 @@ export default function VoirProfil(){
                           <h4>Adresse</h4>
                         </div>
                         <div className=" flex justify-start text-[#475467]  font-light">
-                          <h4>{data.adresse}</h4>
+                          <h4>{data.adress}</h4>
                         </div>
                       </div>
                     </div>

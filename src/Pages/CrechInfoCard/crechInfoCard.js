@@ -12,7 +12,7 @@ import axios from "axios";
 export default function CrechInfoCard() {
   const [creche, setCreche] = useState(null);
   const { id } = useParams();
-
+//const creche = creches[id-1];
   const fetchCreche = async () => {
     try {
       const response = await axios(`http://localhost:8000/Creche/${id}`);
