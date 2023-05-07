@@ -95,7 +95,7 @@ export default function NavAfter() {
 
                   <div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
 
-<a href="/">
+<a href="/Help">
   <img src={helpicon} />
     </a>
 

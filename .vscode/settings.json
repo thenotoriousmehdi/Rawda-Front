@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/378f79da-9079-49d1-ad4e-b0316862fda8/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Rawda",
+    "appService.deploySubpath": "."
+}

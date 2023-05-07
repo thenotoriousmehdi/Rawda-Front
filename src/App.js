@@ -18,7 +18,7 @@ import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
 import Search from "./Components/Search";
 import useFetch from "./Pages/CrechInfoCard/useFetch";
 import data from './data/db.json';
-
+import Help from "./Pages/Help";
 
 function App() {
 
@@ -38,6 +38,7 @@ function App() {
 <Route path='/creches/:id' element={ <CrechInfoCard creches={creches}/>}  /> 
 <Route path='/Search' element={ <Search/>}  /> 
 <Route path='/RsltRechercheCreches' element={ <RsltRechercheCreches creches={creches}/>}  /> 
+<Route path='/Help' element={ <Help/>}  /> 
 </Routes>
 
 
