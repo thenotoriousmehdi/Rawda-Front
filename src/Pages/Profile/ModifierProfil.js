@@ -50,7 +50,7 @@ function ModifierProfil({nomc,role}){
 
    };
 
-  const [oldPassword, setOldPassword] = useState("");
+const [oldPassword, setOldPassword] = useState("");
 const [newPassword, setNewPassword] = useState("");
 const [confirmNewPassword, setConfirmNewPassword] = useState("");
 const [canSubmit, setCanSubmit] = useState(false);
@@ -89,6 +89,11 @@ const [canSubmit, setCanSubmit] = useState(false);
             <div className="relative flex-col mx-2 my-2  justify-center items-center md:mb-10 mb-4">
                 <div className="flex flex-col gap-4">
                     <div className="flex justify-center gap">
+
+          {/*  <img className="h-[20px] w-[20px] z-40" src={iconm}    />  */}
+
+
+
                         <img
                             className="mt-[-40px] md:mt-[-70px] ml-[50px] mr-[50px] h-[70px] w-[70px] md:h-[130px] md:w-[130px] rounded-full z-30 border-2 border-rawdapurple border-opacity-100 "
                             src={mehdi}
