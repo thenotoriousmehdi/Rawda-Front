@@ -32,12 +32,6 @@ function AddCreche() {
     return <Footer />;
   };
 
-  const handleClick = () => {
-    if (fopen === true) {
-      setFOpen(false);
-    } else setFOpen(true);
-  };
-
   const Typeta = [
     { value: "Prive", label: "Prive" },
     { value: "Public", label: "Public" },
@@ -81,14 +75,6 @@ function AddCreche() {
     { value: "6", label: "6" },
   ];
 
-  const Capacite = [
-    { value: "0-30", label: "0-30" },
-    { value: "30-60", label: "30-60" },
-    { value: "60-100", label: "60-100" },
-    { value: "100-200", label: "100-200" },
-    { value: "+200", label: "+200" },
-  ];
-
   const verite = [
     { value: "oui", label: "oui" },
     { value: "non", label: "non" },
@@ -104,34 +90,18 @@ function AddCreche() {
     setadresse(event.target.value);
   };
 
-  const [nomc, setnomc] = useState("");
-  const handlenomcChange = (event) => {
-    setnomc(event.target.value);
-  };
-
   const [typEtab, setTypEtab] = useState();
   const typeEtab = typEtab ? typEtab.value : "";
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
 
-  /*  const [jourAc, setJourAc] = useState();
-  const joursAccueil = jourAc ? jourAc.value : "";
-  const handlejouracChange = (jourAc) => {
-    setJourAc(jourAc);
-  }; */
-
   const [typeAc, setTypeAc] = useState();
   const typeAccueil = typeAc ? typeAc.value : "";
+
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
-
-  /*  const [capac, setCapac] = useState();
-    const capacite = capac ? capac.value : '';
-    const handlecapacChange= (capac) => {
-      setCapac(capac);
-    }; */
 
   const [ageminAc, setAgeminAc] = useState();
   const ageminAccueil = ageminAc ? ageminAc.value : "";
@@ -211,7 +181,6 @@ function AddCreche() {
     },
   };
   const delim = ",";
-  const localisation = commune + delim + Wilaya;
   const capacite = value;
 
   const [carteNationaleFile, setCarteNationaleFile] = useState(null);
@@ -223,39 +192,6 @@ function AddCreche() {
 
   const handleAgrementChange = (event) => {
     setAgrementFile(event.target.files[0]);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append("nom", nom);
-    formData.append("localisation", localisation);
-    formData.append("typeAccueil", typeAccueil);
-    formData.append("joursAccueil", jourAc);
-    formData.append("typeEtab", typeEtab);
-    formData.append("ageMin", ageminAccueil);
-    formData.append("ageMax", agemaxAccueil);
-    formData.append("pedagogie", pedagogie);
-    formData.append("langue", langue);
-    formData.append("capacite", capacite);
-    formData.append("transport", transport);
-    formData.append("alimentation", alimentation);
-    formData.append("num", num);
-    formData.append("mail", mail);
-    formData.append("description", description);
-    formData.append("carteNationale", carteNationaleFile);
-    formData.append("agrement", agrementFile);
-
-    try {
-      await axios.post("http://localhost:8000/Creche", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log("Requête envoyée avec succès !");
-    } catch (error) {
-      console.error("Erreur lors de l'envoi de la requête :", error);
-    }
   };
 
   const [files, setfiles] = useState([]);
@@ -282,6 +218,48 @@ function AddCreche() {
     }
     if (files.length + currentFiles.length <= 10) {
       setfiles(files.concat(currentFiles));
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    const localisation = commune + delim + Wilaya + delim + adresse;
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("nom", nom);
+    formData.append("localisation", localisation);
+    formData.append("typeAccueil", typeAccueil);
+    const joursAccueilArray = jourAc.map((jour) => jour.value);
+    formData.append("joursAccueil", JSON.stringify(joursAccueilArray));
+    formData.append("typeEtab", typeEtab);
+    formData.append("ageMin", ageminAccueil);
+    formData.append("ageMax", agemaxAccueil);
+    formData.append("pedagogie", pedagogie);
+    formData.append("langue", langue);
+    formData.append("capacite", capacite);
+    formData.append("transport", transport);
+    formData.append("alimentation", alimentation);
+    formData.append("num", num);
+    formData.append("mail", mail);
+    formData.append("description", description);
+    formData.append("prix", prix);
+    formData.append("carteNationale", carteNationaleFile);
+    formData.append("agrement", agrementFile);
+    selectedImages.forEach((image) => {
+      formData.append("photos", image.fl);
+    });
+
+    try {
+      await axios.post("http://localhost:8000/Creche", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("Requête envoyée avec succès !");
+      console.log(selectedImages);
+      console.log(agrementFile);
+      console.log(carteNationaleFile);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de la requête :", error);
     }
   };
 
