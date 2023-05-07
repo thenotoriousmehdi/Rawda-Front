@@ -33,13 +33,13 @@ function ModifierProfil({nomc,role}){
    const handleSubmit = async (event) => {
      event.preventDefault();
      console.log("Numero de †elephone:", phone);
- console.log("date de naissance:",dateNaissance )
+ console.log("date de naissance:",dateNaissance.toLocaleDateString()  )
  console.log("Adresse:", adress)
      try {
        await axios.patch("http://localhost:8000/modifierProfile", {
          phone:phone,
          adress:adress,
-         dateNaissance:dateNaissance,
+         dateNaissance:dateNaissance.toLocaleDateString() ,
        });
      } catch (e) {
        console.log(" USER NOT MODIFIED ");
