@@ -108,18 +108,38 @@ export default function ContactSection({ creche }) {
         </div>
       </div>
 
+ <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
+         { switch (user.role) {
+    case "admin":
+     <>
+     <button className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " onClick={() => { fileDownload( '/image1/testt.pdf' , 'test-download.pdf')
+}}>Telecharger l'agreement </button>
 
-           <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
-            {/*
-           <CustomizedDialogs/>
-           <CustomizedDialogsRdv/>
-           */ }
-      <a href={`/creches/:id/AddCreche`} className="buttonStyle bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " >
-  Modifier ma créche 
- </a>
-          
+<button className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " onClick={() => { fileDownload( '/image1/testt.pdf' , 'test-download.pdf')
+}}>Telecharger la carte d'identite  </button>
+
+     </>
+    case "parent":
+      <>
+       <CustomizedDialogs/>
+           <CustomizedDialogsRdv/> 
+      </>
+      return <UserComponent />;
+    case "proprio":
+      <a href={`/ModifierCreche`} className="buttonStyle bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " >
+      Modifier ma créche 
+     </a>
+{ /* <Router>
+       <Route path="/ModifierCreche" render={() => <ModifierCreche data={creche} />} />
+     </Router>*/}
+  }
+        
+      }
+
+
+
+          </div>  
          
-           </div>
   </div>  
 )
   
