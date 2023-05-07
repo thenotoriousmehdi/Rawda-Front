@@ -282,7 +282,7 @@ console.log("nom d'etablissement", nomdetablissement)
                     </div>
                   </div>
                 </div>
-                <div className="absolute space-x-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="hidden absolute sm:space-x-4 sm:inset-y-0 sm:right-0 sm:flex sm:items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <button
                     id="se connecter"
                     type="button"

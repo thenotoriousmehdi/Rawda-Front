@@ -44,7 +44,7 @@ function ModifierProfil({nomc,role}){
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Numero de †elephone:", num);
-console.log("date de naissance:",datetoken )
+console.log("date de naissance:",datetoken.toLocaleDateString() )
 console.log("Adresse:", adresse)
 
   };

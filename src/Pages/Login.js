@@ -195,7 +195,9 @@ const Login = (Props) => {
                 type="submit"
               >
                 {" "}
-                Se connecter{" "}
+             <a href="/"> 
+                  Se connecter{" "}
+                  </a>
               </button>
             </div>
 
