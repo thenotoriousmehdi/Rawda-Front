@@ -2,9 +2,9 @@ import React, { useState, Component } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import image1 from "../assets/iluss2.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import google from "../assets/google1.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import google from "../assets/google1.svg";
 
 import logo from "../assets/logo.svg";
 
@@ -21,7 +21,7 @@ const Login = (Props) => {
   };
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -54,34 +54,24 @@ const Login = (Props) => {
   return (
     <div className="min-h-screen bg-rawdawhite">
       <div className=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
-    <a href="/"> 
-        <img className="w-1/2 ml-10 m-3 " 
-        
-        src={logo} alt="logo"
-        
-        />
-        
+        <a href="/">
+          <img className="w-1/2 ml-10 m-3 " src={logo} alt="logo" />
         </a>
       </div>
 
       <div className="flex flex-wrap mt-3 sm:gap-24 justify-center ">
         {" "}
         {/* big flex */}
-
-
         <div className="flex mt-10 gap-x-0">
-
-
-
-          <div className="flex flex-col gap-y-6 ">
+          <div className="ml-6 sm:ml-none flex flex-col gap-y-6 ">
             <div className="flex flex-col ">
               <div>
-                <h1 className="text-4xl font-body font-bold mt-6 text-rawdapurple">
+                <h1 className="sm:text-4xl text-3xl font-body font-bold mt-6 text-rawdapurple">
                   Bienvenue dans notre
                 </h1>
               </div>
               <div>
-                <h1 className="text-4xl font-body font-bold text-rawdapurple">
+                <h1 className="sm:text-4xl text-2xl font-body font-bold text-rawdapurple">
                   communauté
                 </h1>
               </div>
@@ -89,52 +79,39 @@ const Login = (Props) => {
 
             <div className="flex flex-col gap-1">
               <div>
-                <p className="text-xl font-body text-gray-500 ">
+                <p className="sm:text-xl text-md font-body text-gray-500 ">
                   Une nouvelle façon de
                 </p>
               </div>
               <div>
-                <p className="text-xl font-body text-gray-500 ">
+                <p className="sm:text-xl text-md font-body text-gray-500 ">
                   prendre soin de votre
                 </p>
               </div>
               <div>
-                <p className="text-xl font-body text-gray-500 ">
+                <p className="sm:text-xl text-md font-body text-gray-500 ">
                   famille commence ici
                 </p>
               </div>
             </div>
           </div>
 
-
-          <img className="w-full sm:w-[300px] sm:h-[300px] ml-[-235px] mt-[25px]" src={image1} alt="Image 1" />
-
-
+          <img
+            className=" sm:w-[300px] sm:h-[300px] ml-[-220px] mt-[35px] w-[250px] h-[250px]"
+            src={image1}
+            alt="Image 1"
+          />
         </div>
-        
-        <div className="relative ml  w-3/12">
-
-        {/*   <div className=" flex justify-center items-center my-auto mx-auto ">
-            <button className="mb-4 p mt-5 w-8/12 h-8 text-xs focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl opacity-100 shadow-purple-600">
-              {" "}
-              Se connecter avec google{" "}
-            </button>
-
-          </div>
- */}
-
-<section class="flex justify-center mt-3 mb-4 ">
-        <img class="w-8" src={google} alt="google" />
-      </section>
-
+        <div className="flex flex-col">
+          <section class="flex justify-center mt-3 mb-4 ">
+            <img class="w-8" src={google} alt="google" />
+          </section>
 
           <div className="mx-auto my-auto">
-              <section className=" border-b mb-2  border-gray-500 border-opacity-50 border-solid w-[245px]"></section>
-            </div>
+            <section className=" border-b mb-2  border-gray-500 border-opacity-50 border-solid w-[200px] sm:w-[245px]"></section>
+          </div>
 
-
-
-          <p className=" mb-4 text-sm text-rawdablack text-center">
+          <p className=" mb-4 text-xs sm:text-sm text-rawdablack text-center">
             Ou inscrivez-vous avec votre email
           </p>
           <form onSubmit={handleSubmit}>
@@ -150,44 +127,31 @@ const Login = (Props) => {
               />
             </label>
 
-           {/*  <label>
+            <div className="flex p-3 w-full rounded-md justify-between bg-rawdapurple  bg-opacity-[15%] border-neutral-200  ">
               <input
-                className=" p-3 w-full rounded-md font-light bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
-                type="password"
-                placeholder="Mot de passe"
+                className="bg-transparent border-transparent"
+                type={passwordVisible ? "text" : "password"}
+                id="password"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                name="password"
+                value={password}
                 minlength="8"
                 maxlength="20"
-                value={password}
                 onChange={handlePasswordChange}
+                placeholder="Mot de passe"
               />
-            </label> */}
 
-
-
-      <div className="flex p-3 w-full rounded-md justify-between bg-rawdapurple  bg-opacity-[15%] border-neutral-200  ">
-
-        <input
-       className="bg-transparent border-transparent"
-          type={passwordVisible ? 'text' : 'password'}
-          id="password"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-          name="password"
-          value={password}
-          minlength="8"
-          maxlength="20"
-          onChange={handlePasswordChange}
-          placeholder="Mot de passe"
-        />
-
-      <div className="ml-[-25px] z-10"> 
-        <span className="password-toggle-icon " onClick={togglePasswordVisibility}>
-          <FontAwesomeIcon icon={passwordVisible ? faEyeSlash : faEye} />
-        </span>
-        </div>
-
-      </div>
-
+              <div className="ml-[-25px] z-10">
+                <span
+                  className="password-toggle-icon "
+                  onClick={togglePasswordVisibility}
+                >
+                  <FontAwesomeIcon
+                    icon={passwordVisible ? faEyeSlash : faEye}
+                  />
+                </span>
+              </div>
+            </div>
 
             <div className="flex justify-center items-center my-auto mx-auto">
               <button
@@ -195,9 +159,7 @@ const Login = (Props) => {
                 type="submit"
               >
                 {" "}
-             <a href="/"> 
-                  Se connecter{" "}
-                  </a>
+                <a href="/">Se connecter </a>
               </button>
             </div>
 
@@ -214,20 +176,19 @@ const Login = (Props) => {
                 onClick={() => Props.onFormSwitch("/Singup")}
                 className="text-violet-700 text-xs font-bold cursor-pointer"
               >
-             <a href="/Signup"> S'inscrire  </a>   
+                <a href="/Signup"> S'inscrire </a>
               </buttom>
             </div>
           </form>
         </div>
       </div>
 
-      <footer className="fixed bottom-0 w-full text-center">
+      {/* <footer className="fixed bottom-0 w-full text-center">
         <p className="mb-4 text-xs text-rawdapurple">
           Copyright © 2023 Rawda.com.Tous droits réservés
         </p>
-      </footer>
+      </footer> */}
     </div>
   );
 };
 export default Login;
-

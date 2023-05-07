@@ -77,22 +77,22 @@ const Signup = (props) => {
           <img className="w-1/2 ml-12 m-3 " src={logo} alt="logo" />
         </a>
       </div>
-
-      <section class="flex justify-center mt-4 ">
+<div className="flex flex-col">
+      <section class="flex justify-center items-center mt-4 ">
         <img class="w-8" src={google} alt="google" />
       </section>
-      <p class="mt-2 mb-2 font-body text-center">
+      <p class="mt-2 mb-2 sm:text-md text-xs font-body text-center">
         Ou inscrivez-vous avec votre email
       </p>
 
       <div class="flex flex-col items-center justify-center ">
         <form onSubmit={handleSubmit} class="w-1/3">
           
-          <div class="flex flex-wrap justify-between mx-auto ">
+          <div className="flex flex-wrap justify-between mx-auto ">
             <div className="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 ">
               <label class="">
                 <input
-                  class="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
+                  className="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                   type="text"
                   name="Nom"
                   placeholder="Nom "
@@ -103,7 +103,7 @@ const Signup = (props) => {
 
               <label class="">
                 <input
-                  class="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
+                  className="w-full p-3 font-body mb-4 rounded-md bg-rawdapurple bg-opacity-[15%] border-neutral-200 focus:outline-none"
                   type="text"
                   placeholder="Prenom"
                   value={prenom}
@@ -141,7 +141,7 @@ const Signup = (props) => {
             <div class="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-1 ">
               <button
                 onClick={handleParentClick}
-                className=" font-body  py-3 mr-5 font-bold font-poppins text-center text-lg rounded-lg hover:text-rawdawhite hover:bg-rawdapurple bg-white text-rawdablack border-2 border-rawdapurple focus:outline-none "
+                className=" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 hover:text-rawdawhite hover:bg-rawdapurple border-rawdapurple focus:outline-none "
               >
                 Un parent
               </button>
@@ -163,19 +163,6 @@ const Signup = (props) => {
                 <a href="/"> S'inscrire </a>
               </button>
 
-              {/* {showPopup && (
-                <div className="bg-white p-4 shadow-md rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <p className="font-bold font-body mb-2">
-                    Votre inscription a été faite avec succès !{" "}
-                  </p>
-                  <button
-                    className="bg-rawdapurple font-body text-white font-bold py-2 px-4 rounded"
-                    onClick={() => props.onFormSwitch("Profil")}
-                  >
-                    Vous voulez voir votre profil
-                  </button>
-                </div>
-              )} */}
             </div>
 
             <div className="mx-auto my-auto">
@@ -196,6 +183,7 @@ const Signup = (props) => {
             </div>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );

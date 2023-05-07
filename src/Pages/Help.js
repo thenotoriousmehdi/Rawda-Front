@@ -1,5 +1,4 @@
 import logo from '../assets/logo.svg';
-
 import {react,useState} from 'react';
 import ines from '../assets/ines.png';
 import { FaUser, FaHome, FaTimes} from 'react-icons/fa';
@@ -196,7 +195,9 @@ return (
 <div className="min-h-screen bg-rawdawhite">
 
   <div className='bg-white h-14 flex justify-center'>
+<a href='/'>
     <img className="ml-12 mt-4 w-28" src={logo} alt="logo" />
+</a>
   </div>
 
   <div className="flex ml-12 justify-items-center just">
