@@ -1,9 +1,9 @@
-import Slide_imgs from "./Sliderc/slider";
+import Slider from "./Sliderc/slider";
 
 export default function Infocreche({ creche }) {
   return (
     <div className="mx-4 my-7 sm:mx-16 sm:mb-16  bg-rawdapurple bg-opacity-5  px-3  sm:px-10 md:px-24 py-3  pb-8 sm:py-6 block text-left rounded-md">
-      <Slide_imgs />
+      < Slider creche={creche}/>
       <h2 className="font-body    text-lg sm:text-3xl  leading-10 text-gray-800 ">
         {" "}
         <strong>{creche.nom} </strong>{" "}

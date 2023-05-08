@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Signup from "../Pages/Signup";
 import { Login } from "../Pages/Login";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
 import axios from "axios";
@@ -184,7 +184,7 @@ console.log("nom d'etablissement", nomdetablissement)
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:8000/documents", {
+      const res = await axios.post("http://localhost:8000/documents", {
         nom,
         Wilaya,
         commune,
@@ -198,7 +198,9 @@ console.log("nom d'etablissement", nomdetablissement)
         alimentation,
         transport,
         prix,
-      });
+      }) .then ((res) =>{
+                navigate("/RsltRechercheCreches" ,{state : {  data :res.data  }});})
+          .catch((error)=>{ console.log(error)});
     } catch (e) {
       console.log(" DATE NOT SENT  ");
     }
