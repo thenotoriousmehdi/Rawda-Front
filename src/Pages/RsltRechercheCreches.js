@@ -18,9 +18,9 @@ function RsltRechercheCreches({creches}) {
   return (
 <div> 
    <Header />
-   <div className="flex flex-col  gap  m-10    w-full bg-white mt-0  pt-3  fixed z-30  ">
+   <div className="flex flex-col  gap  m-10 justify-center items-center   w-full bg-white mt-0  pt-3  fixed z-30  ">
      <h3 className="font-body  font-bold sm:text-4xl  text-2xl  text-rawdapurple  z-10 ">Résultats de recherche</h3>
-     <div className="  mb-3  -mt-4  w-[280px]  sm:w-[410px]  h-4 bg-yellow-300 shadow-yellow-300 "></div>
+     <div className="mb-3  -mt-4  w-[280px]  sm:w-[410px]  h-4 bg-yellow-300 shadow-yellow-300 "></div>
 </div>
      <CrechesCardS creches={ creches.slice(firstPostIndex, lastPostIndex)} />
      <Pagination

@@ -167,7 +167,7 @@ const Login = (Props) => {
               <section className=" border-b border-gray-500 border-opacity-50 border-solid w-[245px]"></section>
             </div>
 
-            <div className="flex justify-center items-center my-auto mx-auto mt-3">
+            <div className="flex justify-center items-center my-auto mx-auto mt-3 mb-4 sm:mb-none ">
               <span className="mr-4 text-xs text-gray-500 ">
                 {" "}
                 Vous n'avez pas de compte ?
