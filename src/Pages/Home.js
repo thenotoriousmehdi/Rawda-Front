@@ -10,7 +10,7 @@ import Avis from "../Components/Aviss/Avis";
 import AvisCard from "../Components/Aviss/AvisCard";
 import FaqCard from "../Components/Faq/FaqCard";
 import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
-
+import AddAdmin from "./AddAdmin";
 
 function Home({creches}) {
   return (
@@ -32,6 +32,7 @@ function Home({creches}) {
           <a href="/AddCreche">Add Creche </a>
           <a href="/Dashboard">Dashboard </a>
           <a href="/creches">infos creche </a>
+          <a href="AddAdmin"> Add Admin</a>
         </div>
         <Footer />
       </div>
