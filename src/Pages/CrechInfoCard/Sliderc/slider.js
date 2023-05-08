@@ -43,7 +43,7 @@ export default function Slider({creche}) {
                     >
                    
                         <img 
-                        src={creche.photos[index]}
+                        src={`http://localhost:8000/${creche.photos[index]}`}
                         />
                       
                     </div>
