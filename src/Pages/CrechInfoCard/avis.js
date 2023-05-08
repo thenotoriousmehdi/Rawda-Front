@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import FormDialog from "./evaluationDialog";
-
+import Rating from "@mui/material/Rating";
 import mehdi1 from "../../assets/wassim.PNG";
 
 export default function Avis({ creche }) {
@@ -38,6 +38,7 @@ export default function Avis({ creche }) {
                 <span className=" font-body font-semibold text-lg lg:text-xl leading-7 lg:leading-9   ">
                   {profilcomment.nom}{" "}
                 </span>
+                <Rating name="read-only" value={profilcomment.noteIndiv} readOnly />
                 <p className="font-body font-medium text-base lg:text-lg text-black leading-7  text-left pl-3 ">
                   {profilcomment.commentaires}
                 </p>
