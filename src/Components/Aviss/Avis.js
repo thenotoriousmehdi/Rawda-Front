@@ -60,7 +60,7 @@ const Avis = () => {
     <>
       <div
         id="Avis"
-        className="relative flex flex-col w-full h-screen justify-center items-center bg-Gray-800"
+        className="relative flex flex-col w-full h-screen justify-center items-center bg-Gray-800 sm:mt-[-150px] "
       >
         <div className="flex flex-col items-center gap md:gap-y-0 mb-8 ">
           <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10 ">

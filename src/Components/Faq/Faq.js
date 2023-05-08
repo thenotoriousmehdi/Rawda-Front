@@ -66,11 +66,11 @@ const Faq = () => {
     <>
       <div
         id="faq"
-        className="relative flex flex-col w-full h-screen justify-center items-center  mb-12"
+        className="relative flex flex-col w-full h-screen justify-center items-center mb-12 mt-24 "
       >
         {/*  <SectionTitle title="FAQ" /> */}
 
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider ">
           {data.map((e, idx) => {
             return (
               <FaqCard key={idx} question={e.question} answer={e.answer} />
@@ -100,7 +100,7 @@ const Faq = () => {
           )}
         </div>
         {loaded && instanceRef.current && (
-          <div className="relative flex justify-center py-3 -mt-7 z-20">
+          <div className="relative flex justify-center py-3 -mt-7 z-20 p-4">
             {[
               ...Array(instanceRef.current.track.details.slides.length).keys(),
             ].map((idx) => {
