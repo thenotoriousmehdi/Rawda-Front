@@ -102,7 +102,7 @@ const role ="user" ;
             />
           </svg>
           <span className=" font-sans font-light text-lg sm:text-xl leading-7 pl-3">
-            {creche.respo}
+            {creche.prop}
           </span>
         </div>
         <div className="inline-flex items-center  w-64 sm:ml-10 m-1 sm:m-6 mt-9 ">
