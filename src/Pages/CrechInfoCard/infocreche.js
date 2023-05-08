@@ -1,5 +1,5 @@
 import Slider from "./Sliderc/slider";
-
+import Rating from "@mui/material/Rating"
 export default function Infocreche({ creche }) {
   return (
     <div className="mx-4 my-7 sm:mx-16 sm:mb-16  bg-rawdapurple bg-opacity-5  px-3  sm:px-10 md:px-24 py-3  pb-8 sm:py-6 block text-left rounded-md">
