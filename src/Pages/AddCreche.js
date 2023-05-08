@@ -289,7 +289,7 @@ function AddCreche() {
                   <div className="flex justify-start ">
                     <p
                       className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
+            md:text-xl ml-4 sm:ml-none "
                     >
                       Les informations de ma creche
                     </p>
@@ -305,7 +305,7 @@ function AddCreche() {
                         placeholder="Nom de l'etablissement"
                         required
                         onChange={handlenomChange}
-                        className="rounded w-[250px] h-[38px] md:w-[210px] bg-white border-gray-700 border-opacity-30 border py-2 px-2   text-gray-700 placeholder-gray-600  shadow-sm text-base "
+                        className="rounded h-[38px] w-[210px] bg-white border-gray-700 border-opacity-30 border py-2 px-2   text-gray-700 placeholder-gray-600  shadow-sm text-base "
                       />
                     </div>
                     <div className="  sm:block">
@@ -411,7 +411,7 @@ function AddCreche() {
                     {" "}
                     {/* Third flex */}
                     <div className=" sm:block">
-                      <div className="flex space-x-4 m-2 md:m-0">
+                      <div className="flex space-x-4 m-2 md:m-0 ">
                         <div>
                           <input
                             type="number"
@@ -423,7 +423,7 @@ function AddCreche() {
                             value={value}
                             onChange={handlecapChange}
                             required
-                            className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                            className="rounded  h-[38px] w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
                           />
                         </div>
                       </div>
@@ -513,7 +513,7 @@ function AddCreche() {
                         min="0"
                         max="100000"
                         required
-                        className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  placeholder-gray-600 shadow-sm text-base "
+                        className="rounded  h-[38px] w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  placeholder-gray-600 shadow-sm text-base "
                         onChange={handleprixChange}
                       />
                     </div>
@@ -529,7 +529,7 @@ function AddCreche() {
                         placeholder="Description (150 mots max)"
                         required
                         onChange={handledescirptionChange}
-                        className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[250px] h-[38px] md:w-[670px] md:h-[200px]   opacity border py-2 px-6   text-gray-700 placeholder-gray600 shadow-sm text-base "
+                        className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[210px]  md:w-[670px] h-[200px]   opacity border py-2 px-6   text-gray-700 placeholder-gray600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -537,7 +537,7 @@ function AddCreche() {
                   <div className="flex justify-start ">
                     <p
                       className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
+            md:text-xl ml-4 sm:ml-none"
                     >
                       La localisation de mon établissement
                     </p>
@@ -550,7 +550,7 @@ function AddCreche() {
                       <div className="flex space-x-4 m-2 md:m-0">
                         <select
                           name="wilaya"
-                          className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
+                          className="md:w-[310px] w-[210px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
                           onChange={(wilaya) =>
                             handleWilaya(wilaya.target.value)
                           }
@@ -575,7 +575,7 @@ function AddCreche() {
                       <div className="flex space-x-4 m-2 md:m-0">
                         <select
                           name="commune"
-                          className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
+                          className="md:w-[310px] w-[210px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
                           onChange={(commune) =>
                             handlecommune(commune.target.value)
                           }
@@ -615,7 +615,7 @@ function AddCreche() {
                         maxlength="255"
                         required
                         onChange={handleadresseChange}
-                        className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[210px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -623,7 +623,7 @@ function AddCreche() {
                   <div className="flex justify-start ">
                     <p
                       className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
+            md:text-xl ml-4 sm:ml-none"
                     >
                       Photos
                     </p>
@@ -701,7 +701,7 @@ function AddCreche() {
                   <div className="flex justify-start ">
                     <p
                       className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
+            md:text-xl ml-4 sm:ml-none"
                     >
                       Contact
                     </p>
@@ -718,7 +718,7 @@ function AddCreche() {
                         maxlength="10"
                         required
                         onChange={handlenumChange}
-                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[210px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                     <div>
@@ -730,7 +730,7 @@ function AddCreche() {
                         required
                         maxlength="255"
                         onChange={handleEmailChange}
-                        className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded w-[210px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -738,7 +738,7 @@ function AddCreche() {
                   <div className="flex justify-start ">
                     <p
                       className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
+            md:text-xl ml-4 sm:ml-none "
                     >
                       Verification
                     </p>

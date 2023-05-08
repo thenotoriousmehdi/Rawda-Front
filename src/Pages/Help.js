@@ -214,11 +214,11 @@ return (
 
       <div className=" justify-center items-center flex gap-10">
         <button onClick={openParentModal} className="flex w-4/12 h-20  font-body font-semibold items-center bg-purple-100  hover:bg-rawdapurple focus:outline-none text-rawdablack rounded-xl ">
-          <FaUser className="mr-2 ml-20" />
+          <FaUser className="mr-2 ml-2" />
           Parent
         </button>
         <button onClick={openProprioModal} className="flex w-4/12 h-20 font-semibold font-body items-center bg-purple-100 hover:bg-rawdapurple focus:outline-none text-rawdablack rounded-xl">
-          <FaHome className="mr-2 ml-16" />
+          <FaHome className="mr-2 ml-2" />
           Propriétaire
         </button>
 
