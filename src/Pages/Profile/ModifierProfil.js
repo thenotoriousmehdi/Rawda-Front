@@ -89,16 +89,15 @@ const [canSubmit, setCanSubmit] = useState(false);
             <div className="relative flex-col mx-2 my-2  justify-center items-center md:mb-10 mb-4">
                 <div className="flex flex-col gap-4">
                     <div className="flex justify-center gap">
-
-          {/*  <img className="h-[20px] w-[20px] z-40" src={iconm}    />  */}
-
-
-
                         <img
                             className="mt-[-40px] md:mt-[-70px] ml-[50px] mr-[50px] h-[70px] w-[70px] md:h-[130px] md:w-[130px] rounded-full z-30 border-2 border-rawdapurple border-opacity-100 "
                             src={mehdi}
                             alt="" />
                     </div>
+                    <div className="flex ">  
+                       <img className="h-[20px] w-[20px] z-50 mt-[-50px] ml-[235px]" src={iconm}    />  
+                     </div>
+                  
 <div className="flex flex-col gap-2">
 <div className="flex justify-center text-rawdablack text-xl font-medium font-Poppins ">
 <h1>
@@ -199,7 +198,7 @@ Adresse
 <div className="flex ml-8 md:ml-0 justify-items-stretch gap-4 mt-5">
 <img    src={line2}/>
 <div className="mt-1 mx-2 flex flex-col gap-1 ">
-<div className=" rounded w-[250px]  h-[38px] md:w-[330px]  bg-rawdapurple bg-opacity-50 hover:bg-rawdapurple border-rawdapurple border-opacity-80 border pl-16 pt-1 mx-4  text-rawdawhite text-lg  shadow-sm text-base ">
+<div className=" rounded w-[250px]  h-[38px] md:w-[330px]  bg-rawdapurple bg-opacity-50 hover:bg-rawdapurple border-rawdapurple border-opacity-80 border md:pl-16 pl-6 pt-1 mx-4  text-rawdawhite text-lg  shadow-sm  ">
 <button 
 onClick={handleButtonClick}
 >
