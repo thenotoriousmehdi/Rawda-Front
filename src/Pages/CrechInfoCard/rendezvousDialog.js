@@ -8,10 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -22,13 +23,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export interface DialogTitleProps {
-  id: string;
-  children?: React.ReactNode;
-  onClose: () => void;
-}
-
-function BootstrapDialogTitle(props: DialogTitleProps) {
+function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
@@ -51,6 +46,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
     </DialogTitle>
   );
 }
+
+BootstrapDialogTitle.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+};
+
 
 export default function CustomizedDialogsRdv() {
   const [open, setOpen] = React.useState(false);

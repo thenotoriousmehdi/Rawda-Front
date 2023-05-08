@@ -32,12 +32,6 @@ function AddCreche() {
     return <Footer />;
   };
 
-  const handleClick = () => {
-    if (fopen === true) {
-      setFOpen(false);
-    } else setFOpen(true);
-  };
-
   const Typeta = [
     { value: "Prive", label: "Prive" },
     { value: "Public", label: "Public" },
@@ -81,14 +75,6 @@ function AddCreche() {
     { value: "6", label: "6" },
   ];
 
-  const Capacite = [
-    { value: "0-30", label: "0-30" },
-    { value: "30-60", label: "30-60" },
-    { value: "60-100", label: "60-100" },
-    { value: "100-200", label: "100-200" },
-    { value: "+200", label: "+200" },
-  ];
-
   const verite = [
     { value: "oui", label: "oui" },
     { value: "non", label: "non" },
@@ -104,34 +90,18 @@ function AddCreche() {
     setadresse(event.target.value);
   };
 
-  const [nomc, setnomc] = useState("");
-  const handlenomcChange = (event) => {
-    setnomc(event.target.value);
-  };
-
   const [typEtab, setTypEtab] = useState();
   const typeEtab = typEtab ? typEtab.value : "";
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
 
- /*  const [jourAc, setJourAc] = useState();
-  const joursAccueil = jourAc ? jourAc.value : "";
-  const handlejouracChange = (jourAc) => {
-    setJourAc(jourAc);
-  }; */
-
   const [typeAc, setTypeAc] = useState();
   const typeAccueil = typeAc ? typeAc.value : "";
+
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
-
-  /*  const [capac, setCapac] = useState();
-    const capacite = capac ? capac.value : '';
-    const handlecapacChange= (capac) => {
-      setCapac(capac);
-    }; */
 
   const [ageminAc, setAgeminAc] = useState();
   const ageminAccueil = ageminAc ? ageminAc.value : "";
@@ -204,8 +174,6 @@ function AddCreche() {
 
   const [jourAc, setJourAc] = useState([]);
 
-
-
   const token = localStorage.getItem("token");
   const config = {
     headers: {
@@ -213,58 +181,18 @@ function AddCreche() {
     },
   };
   const delim = ",";
-  const localisation = commune + delim + Wilaya;
   const capacite = value;
-  const prop = "644ea5b3823aad9199a86470";
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await axios.post("http://localhost:8000/Creche", {
-        nom,
-        localisation,
-        typeAccueil,
-        jourAc,
-        typeEtab,
-        ageminAccueil,
-        agemaxAccueil,
-        pedagogie,
-        langue,
-        capacite,
-        transport,
-        alimentation,
-        num,
-        mail,
-        description,
-        prop,
-      });
-    } catch (e) {
-      console.log(" ERREUR ");
-    }
 
-    console.log("wilaya:", Wilaya);
-    console.log("commune: ", commune);
-    console.log("Nom detablissement:", nom);
-    console.log("Type detablissement:", typeEtab);
-    console.table("Jours daccueil:", jourAc.map(option => option.value));
-    console.log("type daccueil:", typeAccueil);
-   // console.log("jour daccueil:", joursAccueil);
-    console.log("age min daccueil:", ageminAccueil);
-    console.log("age max daccueil:", agemaxAccueil);
-    console.log("capacite:", value);
-    console.log("Langue:", langue);
-    console.log("Pedagogie:", pedagogie);
-    console.log("Alimentation:", alimentation);
-    console.log("Transport:", transport);
-    console.log("Prix:", prix);
-    console.log("Email:", mail);
-    console.log("Numero de †elephone:", num);
+  const [carteNationaleFile, setCarteNationaleFile] = useState(null);
+  const [agrementFile, setAgrementFile] = useState(null);
+
+  const handleCarteNationaleChange = (event) => {
+    setCarteNationaleFile(event.target.files[0]);
   };
 
-  const [file, setFile] = useState(null);
-
-  function handleFileUpload(event) {
-    setFile(event.target.files[0]);
-  }
+  const handleAgrementChange = (event) => {
+    setAgrementFile(event.target.files[0]);
+  };
 
   const [files, setfiles] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
@@ -290,6 +218,48 @@ function AddCreche() {
     }
     if (files.length + currentFiles.length <= 10) {
       setfiles(files.concat(currentFiles));
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    const localisation = commune + delim + Wilaya + delim + adresse;
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("nom", nom);
+    formData.append("localisation", localisation);
+    formData.append("typeAccueil", typeAccueil);
+    const joursAccueilArray = jourAc.map((jour) => jour.value);
+    formData.append("joursAccueil", JSON.stringify(joursAccueilArray));
+    formData.append("typeEtab", typeEtab);
+    formData.append("ageMin", ageminAccueil);
+    formData.append("ageMax", agemaxAccueil);
+    formData.append("pedagogie", pedagogie);
+    formData.append("langue", langue);
+    formData.append("capacite", capacite);
+    formData.append("transport", transport);
+    formData.append("alimentation", alimentation);
+    formData.append("num", num);
+    formData.append("mail", mail);
+    formData.append("description", description);
+    formData.append("prix", prix);
+    formData.append("carteNationale", carteNationaleFile);
+    formData.append("agrement", agrementFile);
+    selectedImages.forEach((image) => {
+      formData.append("photos", image.fl);
+    });
+
+    try {
+      await axios.post("http://localhost:8000/Creche", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("Requête envoyée avec succès !");
+      console.log(selectedImages);
+      console.log(agrementFile);
+      console.log(carteNationaleFile);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de la requête :", error);
     }
   };
 
@@ -389,7 +359,7 @@ function AddCreche() {
                               options={jourac}
                               placeholder="Jours d'accueil"
                               value={jourAc}
-                            //  onChange={handlejouracChange}
+                              //  onChange={handlejouracChange}
                               isSearchable={true}
                               isMulti={true}
                               onChange={(jourAc) => setJourAc(jourAc)}
@@ -776,68 +746,40 @@ function AddCreche() {
                   <div className="flex flex-wrap justify-center gap-10">
                     {" "}
                     {/* eleventh flex */}
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-rawdablack font-semibold">
+                        Agrement
+                      </h4>
 
-
-<div className="flex flex-col gap-2">
-
-<h4 className="text-rawdablack font-semibold">
-Agrement
-
-</h4>
-
-
-
-<div>
-                      <input
-                        type="file"
-                        placeholder="Agrement "
-                        accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
-                        id="file-upload"
-                        onChange={handleFileUpload}
-                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
-                      />
+                      <div>
+                        <input
+                          type="file"
+                          placeholder="Agrement "
+                          accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
+                          id="file-upload"
+                          onChange={handleAgrementChange}
+                          className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        />
+                      </div>
                     </div>
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-rawdablack font-semibold">
+                        Piece d'identite
+                      </h4>
 
-</div>
-                   
-
-
-
-
-
-<div className="flex flex-col gap-2">
-
-
-
-<h4 className="text-rawdablack font-semibold" >
-Piece d'identite
-
-</h4>
-
-
-<div>
-                      <input
-                        type="file"
-                        placeholder="Piece d'identite"
-                        accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
-                        id="file-upload"
-                        onChange={handleFileUpload}
-                        required
-                        className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
-                      />
+                      <div>
+                        <input
+                          type="file"
+                          placeholder="Piece d'identite"
+                          accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
+                          id="file-upload"
+                          onChange={handleCarteNationaleChange}
+                          required
+                          className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        />
+                      </div>
                     </div>
                   </div>
-
-
-</div>
-
-                    
-
-
-
-
-
-
 
                   <div className="flex flex-wrap justify-center">
                     {" "}

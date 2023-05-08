@@ -9,10 +9,10 @@ export default function Slider({creche}) {
     const [slideIndex, setSlideIndex] = useState(1)
 
     const nextSlide = () => {
-        if(slideIndex !== creche.images.length){
+        if(slideIndex !== creche.photos.length){
             setSlideIndex(slideIndex + 1)
         } 
-        else if (slideIndex === creche.images.length){
+        else if (slideIndex === creche.photos.length){
             setSlideIndex(1)
         }
     }
@@ -22,7 +22,7 @@ export default function Slider({creche}) {
             setSlideIndex(slideIndex - 1)
         }
         else if (slideIndex === 1){
-            setSlideIndex(creche.images.length)
+            setSlideIndex(creche.photos.length)
         }
     }
 
@@ -34,16 +34,16 @@ export default function Slider({creche}) {
     
     return (
         <div className="container-slider">
-            {(creche.images).map((obj, index) => {
+            {(creche.photos).map((obj, index) => {
                 return (
                     <div
                    
                     key={obj.id}
                     className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
                     >
-                       
+                   
                         <img 
-                        src={process.env.PUBLIC_URL + `/image1/img${(index + 1)+ (indexid) *4}.jpg`}
+                        src={creche.photos[index]}
                         />
                       
                     </div>
@@ -53,7 +53,7 @@ export default function Slider({creche}) {
             <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
 
             <div className="container-dots">
-                {Array.from({length: creche.images.length}).map((item, index) => (
+                {Array.from({length: creche.photos.length}).map((item, index) => (
                     <div 
                     onClick={() => moveDot(index + 1)}
                     className={slideIndex === index + 1 ? "dot active" : "dot"}

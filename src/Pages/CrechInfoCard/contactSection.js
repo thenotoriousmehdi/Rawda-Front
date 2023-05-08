@@ -1,10 +1,30 @@
 import CustomizedDialogs from "./inscriptionDialog";
 import CustomizedDialogsRdv from "./rendezvousDialog";
 
+//import fileDownload from 'js-file-download'
+ 
+
+
+/*import axios from 'axios'
+import fileDownload from 'js-file-download'
+ .
+
+handleDownload = (url, filename) => {
+  axios.get(url, {
+    responseType: 'blob',
+  })
+  .then((res) => {
+    fileDownload(res.data, filename)
+  })
+}
+
+<button onClick={() => {this.handleDownload('https://your-website.com/your-image.jpg', 'test-download.jpg')
+}}>Download Image</button>
+}*/
 
 export default function ContactSection({ creche }) {
 
-
+const role ="user" ; 
  
   return (
     <div className="mx-4 my-8 sm:mx-16 sm:my-16 p-5  rounded-md  bg-rawdapurple  bg-opacity-5">
@@ -108,18 +128,17 @@ export default function ContactSection({ creche }) {
         </div>
       </div>
 
+ <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
+      
+       <CustomizedDialogs/>
+           <CustomizedDialogsRdv/> 
+    
+  
 
-           <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
-            {/*
-           <CustomizedDialogs/>
-           <CustomizedDialogsRdv/>
-           */ }
-      <a href={`/creches/:id/AddCreche`} className="buttonStyle bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " >
-  Modifier ma créche 
- </a>
-          
+
+
+          </div>  
          
-           </div>
   </div>  
 )
   
