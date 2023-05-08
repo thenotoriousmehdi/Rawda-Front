@@ -4,10 +4,13 @@ export default function Infocreche({ creche }) {
   return (
     <div className="mx-4 my-7 sm:mx-16 sm:mb-16  bg-rawdapurple bg-opacity-5  px-3  sm:px-10 md:px-24 py-3  pb-8 sm:py-6 block text-left rounded-md">
       < Slider creche={creche}/>
+   <div className='flex flex-wrap items-center '>
       <h2 className="font-body    text-lg sm:text-3xl  leading-10 text-gray-800 ">
         {" "}
         <strong>{creche.nom} </strong>{" "}
       </h2>
+     <Rating name="read-only" value={creche.avis.note} readOnly precision={0.5} sx={{padding:2}}/>
+</div>
       <div className="flex ">
         <svg
           className="sm:w-7 sm:h-8 h-6  py-1  "
@@ -58,13 +61,13 @@ export default function Infocreche({ creche }) {
           <strong>Capacité d'accueil:</strong> {creche.capacite}
         </li>
         <li>
-          <strong>Places disponibles:</strong> {creche.placesDispo}
-        </li>
-        <li>
           <strong>Transport:</strong> {creche.transport}{" "}
         </li>
         <li>
           <strong>Alimentation:</strong> {creche.alimentation}{" "}
+        </li>
+         <li>
+          <strong>Description:</strong> {creche.description}
         </li>
       </ul>
     </div>
