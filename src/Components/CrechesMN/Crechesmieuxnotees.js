@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -6,8 +6,31 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import CrecheCard from "./CrecheCard";
 import { Link } from 'react-router-dom';
+import axios from "axios";
+
 const Crechesmieuxnotees = ({creches}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const token = localStorage.getItem('token');
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+      
+        const response = await axios.get('http://localhost:8000/Home',config);
+        setData(response.data);  
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  
+    fetchData();
+  }, []);
   
   return (
     <>
@@ -34,9 +57,9 @@ const Crechesmieuxnotees = ({creches}) => {
     modules={[Navigation, Pagination, Mousewheel, Keyboard]}
     
   >
-    {creches.map((e) => {
+    {data.map((e) => {
       return (
-        <SwiperSlide key={e.id}>
+        <SwiperSlide key={e._id}>
           <div className=" flex relative flex-col h-4/6 rounded-lg items-center justify-center p-7 gap-4">
             <CrecheCard creche={e} />
           </div>
@@ -57,4 +80,3 @@ const Crechesmieuxnotees = ({creches}) => {
   );
 };
 export default Crechesmieuxnotees;
-
