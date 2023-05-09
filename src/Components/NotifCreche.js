@@ -1,7 +1,7 @@
 import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
-import CustomizedDialogs from "./refusDialog.js";
+import CustomizedDialogs from "./refusDialogAjout";
 import eye from "../assets/eye.svg";
 function NotifCreche({photo, nomc,nomcreche, heuree,num, email }) {
   return (

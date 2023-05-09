@@ -229,7 +229,7 @@ export default function CustomizedDialogsRdv() {
             d'inscription de votre enfant, veuillez prendre un rendez-vous dès maintenant !
        </Typography>
 
-         <div   className='   rounded-lg  text-center bg-rawdapurple bg-opacity-5'>
+         <div   className='  pb-10  mb rounded-lg  text-center bg-rawdapurple bg-opacity-5'>
          
 
           <div className='flex  items-center flex-col'> 
@@ -261,59 +261,7 @@ export default function CustomizedDialogsRdv() {
            
 </div>
 
-
-<div className='flex items-center  flex-col'> 
-            <label for="nomk "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Nom:</label>
-              
-
-              <input  type="text"  id="nomk" disabled={availableTimes.length === 0}  placeholder="Nom "  required onChange={handlenomcChange}
-               onBlur={handleFocus}                         
-               focused={focused.toString()} 
-               pattern='^[a-zA-Z0-9\s]{3,16}$'
-               
-                className="rounded-md h-[38px] m-3 mt-1  w-4/5   sm:w-2/3   text-sm md:text-base bg-white border-purple-400  border py-2 px-2 
-                text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400  
-                 "
-              /> 
-
-<span className=' text-xs text-red-500 hidden px-2 group-focus:block group-invalid:block  '> Nombre de caracteres entre 3-30 et pas de caracteres spéciaux</span>    
-            </div>   
-
-
-            <div className='flex items-center  flex-col'> 
-            <label for="pnom "  className=' text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Prenom:</label>
-              
-
-              <input  type="text"  id="pnom"  placeholder="Prenom" disabled={availableTimes.length === 0} required onChange={handlepnomcChange}
-               onBlur={handleFocus}                         
-               focused={focused.toString()} 
-               pattern='^[a-zA-Z0-9\s]{3,16}$'
-               
-                className="rounded-md h-[38px] m-3 mt-1  w-4/5   sm:w-2/3   text-sm md:text-base bg-white border-purple-400  border py-2 px-2 
-                text-gray-700 placeholder-gray-400  focus:outline-violet-400 focus:ring-1 focus:border-violet-400  
-                 "
-              /> 
-
-                 <span className=' text-xs text-red-500 hidden px-2 group-focus:block group-invalid:block  '> Nombre de caracteres entre 3-30 et pas de caracteres spéciaux</span>    
-            </div>   
-
-
-
-      <div className='flex  items-center flex-col'> 
-          <label for="numtel "  className='  text-left w-4/5   sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Numero de telephone:</label>
-                 
-              <input type="text" id="numtel" placeholder="Numero de telephone" disabled={availableTimes.length === 0} required onChange={handlenumChange}
-                 onBlur={handleFocusp}  
-                 pattern='^(\+213|00213|0)(5|6|7)[0-9]{8}$'                      
-                 focusedp={focusedp.toString()} 
-               className="rounded-md h-[38px] m-3 mb-2 mt-1 w-4/5   sm:w-2/3  text-sm md:text-base  bg-white
-                border-purple-400 border py-2 px-2   text-gray-700 placeholder-gray-400 
-                 focus:outline-violet-400 focus:ring-1 focus:border-violet-400  
-                  "
-               />
-         <span className=' text-xs text-red-500 mb-2 hidden px-2 group-focus:block group-invalid:block'> le numero doit contenir 10 numeros seulement et respecter le format</span>    
-          
-      </div>
+   
 </div>   
 
          

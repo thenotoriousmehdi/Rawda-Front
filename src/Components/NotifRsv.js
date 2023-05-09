@@ -1,7 +1,7 @@
 import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
-import CustomizedDialogs from "./refusDialog.js";
+import CustomizedDialogs from  "./refusDialogInscription";
 function NotifRsv({photo, nomc,nomen, heuree, heure, daten, dateden, num, email }) {
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">

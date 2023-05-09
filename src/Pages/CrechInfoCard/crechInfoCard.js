@@ -26,6 +26,7 @@ export default function CrechInfoCard() {
     fetchCreche();
   }, [id]);
 
+
   return (
     <div>
       {creche && (

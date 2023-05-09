@@ -5,9 +5,12 @@ import KeenSlider from "keen-slider";
 import arrow from "../../assets/arrowblack.svg";
 import CrecheCard from "./CrecheCard";
 import { Link } from 'react-router-dom';
+import data from '../../data/db.json';
 const Crechesmieuxnotees = ({creches}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const data1 = data['creches'];       
+
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     loop: true,
@@ -18,80 +21,7 @@ const Crechesmieuxnotees = ({creches}) => {
       setLoaded(true);
     },
   });
-   const data1  = [
-    {
-      images: [
-        {
-          image: '/image1/img1.jpg',
-          id: '1'
-        },
-        {
-          image: '/image1/img2.jpg',
-          id: '2'
-        },
-        {
-          image: '/image1/img3.jpg',
-          id: '3'
-        }
-      ],
-      profilsCommentsdata: [
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'John Alendon',
-          id: '1'
-        },
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'Natasha',
-          id: '2'
-        },
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'Alex Hormonzi',
-          id: '3'
-        },
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'John Alendon',
-          id: '4'
-        },
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'Natasha',
-          id: '5'
-        },
-        {
-          image: '/image1/mehdi1.png',
-          comment: ' Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          name: 'Alex Hormonzi',
-          id: '6'
-        }
-      ],
-      title: 'Crèche berceau des anges',
-      locasitiontitle: 'Birkhadem, Alger',
-      Type_accueil: 'Régulier',
-      Jours_accueil: 'Du dimanche au mardi',
-      Type_etablissement: 'Etatique',
-      Ages_accueil: '2-5 ans',
-      Pedagogie: 'Montessori',
-      Langue: 'Francais',
-      Capacite_accueil: '2000 enfants',
-      Places_disponibles: '20 places',
-      Transport: 'Oui',
-      Alimentation: 'Non',
-      num: '0663212232',
-      mail: 'km_mamouni@esi.dz',
-      respo: 'Mehdi Ali',
-      numid: 1,
-      id: 1
-    }
-      ] ;
-   
+ 
    
   return (
     <>
