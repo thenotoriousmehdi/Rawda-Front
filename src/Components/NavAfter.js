@@ -111,7 +111,7 @@ export default function NavAfter() {
 
 
                   {/* Profile dropdown */}
-                 <Menuu userType="parent"/>
+                 <Menuu userType="proprio"/>
 
                 </div>
               </div>
