@@ -1,7 +1,7 @@
 import CustomizedDialogs from "./inscriptionDialog";
 import CustomizedDialogsRdv from "./rendezvousDialog";
 
-//import fileDownload from 'js-file-download'
+import fileDownload from 'js-file-download'
  
 
 
@@ -133,7 +133,19 @@ const role ="user" ;
        <CustomizedDialogs/>
            <CustomizedDialogsRdv/> 
     
-  
+      
+   { /* <button className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " onClick={() => { fileDownload( '/image1/testt.pdf' , 'test-download.pdf')
+}}>Telecharger l'agreement </button>
+
+<button className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " onClick={() => { fileDownload( '/image1/testt.pdf' , 'test-download.pdf')
+}}>Telecharger la carte d'identite  </button>  </>
+    case "parent":
+      <>
+
+      <a href={`/ModifierCreche`} className="buttonStyle bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " >
+      Modifier ma créche 
+     </a>  </>*/
+}
 
 
 
