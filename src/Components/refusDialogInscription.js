@@ -7,7 +7,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from "react";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -53,22 +54,35 @@ export default function CustomizedDialogs() {
   const [textinputnotHidden, settextinputnotHidden] = useState(false);
   const [motifRefus, setmotifRefus] = useState("");
 
+
+  const [availableTimes, setAvailableTimes] = useState([ '10:00', '10:40', '11:20', '12:00', '13:20', '14:00', '14:40', '15:20'
+]);
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const [selectedValue, setSelectedValue] = useState(null);
-
+  const [showForm, setShowForm] = useState(false);
+  const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
+  const handleDateChange = async (date) => {
+    setDatetoken(date);
+  };
   const handleInputChange = (event) => {
     setSelectedValue(event.target.value);
+    setShowForm(event.target.value ===  "la date d'entrée en crèche ne correspond pas à la crèche");
   };
-
+  const [selectedOption, setSelectedOption] = useState('10:00');
   const handleClose = () => {
     setOpen(false);
     setbuttonTextform("Envoyer");
     settextinputnotHidden(false);
-  };
 
+  };
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+   
+  };
+  
   const handleRadioClick = (event) => {
     setSelectedValue(event.target.value);
     settextinputnotHidden(true);
@@ -82,6 +96,12 @@ export default function CustomizedDialogs() {
     event.preventDefault();
     setbuttonTextform("Envoyé!");
     console.log(selectedValue, motifRefus);
+    if(selectedValue==="la date d'entrée en crèche ne correspond pas à la crèche"){
+    console.log(selectedOption , datetoken);}
+  };
+
+  const handleRadioClickinput = () => {
+    setShowForm(true);
   };
 
   return (
@@ -129,14 +149,14 @@ export default function CustomizedDialogs() {
               border: { xs: "yellow solid", sm: "none" },
             }}
           >
-            Refus de l'inscription d'un enfant 
+            Refus de l'inscription de l'enfant
           </BootstrapDialogTitle>
           <div className="  -mt-8 h-3  ml-6  w-0 sm:w-[343px] bg-yellow-200  shadow-yellow-300 "></div>
         </div>
 
         <DialogContent>
           <p className="font-body leading-8 p-3 text-sm sm:text-base bg-rawdapurple bg-opacity-5 rounded-md mb-3  mx-1 sm:mx-3  ">
-            Veuillez justifier la raison du refus de l'inscription de l'enfant :{" "}
+            Veuillez justifier la raison du refus de l'inscription de l'enfant:{" "}
           </p>
           <form onSubmit={handleSubmit}>
             <div className="font-body leading-8 p-4 bg-rawdapurple bg-opacity-5 rounded-md my-3 mx-1 sm:mx-3 text-sm sm:text-base">
@@ -144,16 +164,43 @@ export default function CustomizedDialogs() {
                 type="radio"
                 id="Choice1"
                 name="contact"
-                value="le chreno du rendez-vous choisi est déjà pris"
+                value="la date d'entrée en crèche ne correspond pas à la crèche"
                 checked={
                   selectedValue ===
-                  "le chreno du rendez-vous choisi est déjà pris"
+                  "la date d'entrée en crèche ne correspond pas à la crèche"
                 }
+                onClick={handleRadioClickinput}
                 onChange={handleInputChange}
               />
               <label for="Choice1" className="px-2">
-                le chreno du rendez-vous choisi est déjà pris <br />{" "}
+                la date d'entrée en crèche ne correspond pas à la crèche <br />{" "}
               </label>
+
+              {showForm && (
+        <div className="flex-col justify-center items-center text-center  bg-white ">
+          <h2 className=" mt-2 font-body text-rawdapurple font-bold ">-Donnez la date d'entrée de l'enfant à la crèche-</h2>
+          <div className='flex mt-2 items-center  flex-col  ' >
+          <label
+            for="datepi"
+            className="text-left w-4/5 sm:w-2/3 font-body text-xs sm:text-sm mt-2 sm:ml-3"
+          >
+            Date du rendez-vous:
+          </label>
+
+          <DatePicker
+            id="datepi"
+            required
+            selected={datetoken}
+            onChange={handleDateChange}
+            minDate={new Date(new Date().getTime() + 24 * 60 * 60 * 1000)}
+            filterDate={(date) => date.getDay() !== 5 && date.getDay() !== 6}
+            dateFormat="dd/MM/yyyy"
+            className="rounded-md  z-20 h-[38px] m-3 mt-1 w-4/5 justify-center sm:w-2/3 text-sm md:text-base bg-white border-purple-400 border py-2 px-2 text-gray-700 placeholder-gray-400 focus:outline-violet-400 focus:ring-1 focus:border-violet-400"
+          /></div>
+ 
+      </div>
+      )}
+
 
               <input
                 type="radio"
@@ -172,16 +219,17 @@ export default function CustomizedDialogs() {
               <input
                 type="radio"
                 id="Choice3"
-                value="Le responsable de la crèche n'est pas disponible"
+                value="l'age de votre enfant ne vérifie pas l'intervalle d'age d'inscription accépté"
                 checked={
                   selectedValue ===
-                  "Le responsable de la crèche n'est pas disponible"
+                  "l'age de votre enfant ne vérifie pas l'intervalle d'age d'inscription accépté"
                 }
-                onChange={handleInputChange}
+                onChange={(event) => { setSelectedValue(event.target.value)}}
               />
               <label for="Choice3" className="px-2 ">
-                Le responsable de la crèche n'est pas disponible <br />
+              l'age de votre enfant ne vérifie pas l'intervalle d'age d'inscription accépté <br />
               </label>
+
 
               <input
                 type="radio"

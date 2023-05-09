@@ -1,5 +1,4 @@
-
-import Rating from "@mui/material/Rating" ; 
+import Rating from "@mui/material/Rating";
 export default function CrecheCard({ creche }) {
   let indexid = creche.numid - 1;
   return (
@@ -7,10 +6,18 @@ export default function CrecheCard({ creche }) {
       <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow m-6">
         <img
           className="rounded-t-lg   h-48 object-cover w-full"
-          src={creche.photos ? creche.photos[0] : null}
+          src={
+            creche.photos ? `http://localhost:8000/${creche.photos[0]}` : null
+          }
           alt=""
         />
-       <Rating name="read-only" value={creche.avis ? creche.avis.note : null } readOnly   precision={0.5}  sx={{margin:2}} /> 
+        <Rating
+          name="read-only"
+          value={creche.avis ? creche.avis.note : null}
+          readOnly
+          precision={0.5}
+          sx={{ margin: 2 }}
+        />
         <div className="p-5 pt-0">
           <h5 className="mb-2 text-xl font-Poppins font-semibold tracking-tight text-rawdablack ">
             {creche.nom}

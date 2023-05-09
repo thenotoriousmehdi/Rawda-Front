@@ -1,9 +1,7 @@
 import CustomizedDialogs from "./inscriptionDialog";
 import CustomizedDialogsRdv from "./rendezvousDialog";
 
-//import fileDownload from 'js-file-download'
- 
-
+import fileDownload from "js-file-download";
 
 /*import axios from 'axios'
 import fileDownload from 'js-file-download'
@@ -23,9 +21,8 @@ handleDownload = (url, filename) => {
 }*/
 
 export default function ContactSection({ creche }) {
+  const role = "user";
 
-const role ="user" ; 
- 
   return (
     <div className="mx-4 my-8 sm:mx-16 sm:my-16 p-5  rounded-md  bg-rawdapurple  bg-opacity-5">
       <div className="flex flex-col mb-10  items-center justify-center">
@@ -35,7 +32,6 @@ const role ="user" ;
         </h3>
         <div className="  mb-1  -mt-4  w-36  sm:w-40 h-4 bg-yellow-300  shadow-yellow-300 "></div>
       </div>
-
 
       <div className=" flex flex-wrap      justify-center    ">
         <div className="inline-flex items-center  w-64 sm:mx-20 m-1 sm:m-6 mb-9 sm:border-r-2 ">
@@ -58,7 +54,6 @@ const role ="user" ;
             {creche.num}{" "}
           </span>
         </div>
-
 
         <div className="inline-flex items-center  w-64 sm:ml-10 m-1 sm:m-6  sm:mb-9  mb-3   ">
           <svg
@@ -83,7 +78,6 @@ const role ="user" ;
         </div>
       </div>
 
-
       <div className=" flex flex-wrap   justify-center    ">
         <div className="inline-flex items-center w-64 sm:border-r-2 sm:mx-20 m-1 sm:m-6 mt-9">
           <svg
@@ -102,7 +96,7 @@ const role ="user" ;
             />
           </svg>
           <span className=" font-sans font-light text-lg sm:text-xl leading-7 pl-3">
-            {creche.respo}
+            {creche.prop}
           </span>
         </div>
         <div className="inline-flex items-center  w-64 sm:ml-10 m-1 sm:m-6 mt-9 ">
@@ -128,21 +122,35 @@ const role ="user" ;
         </div>
       </div>
 
- <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
-      
-       <CustomizedDialogs/>
-           <CustomizedDialogsRdv/> 
-    
-  
+      <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
+        <CustomizedDialogs />
+        <CustomizedDialogsRdv />
 
+        {/*
+        <button
+          className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  "
+          onClick={() => {
+            fileDownload(
+              `http://localhost:8000/${creche.agrement}`,
+              "test-download.PNG"
+            );
+          }}
+        >
+          Telecharger l'agreement{" "}
+        </button>
 
-
-          </div>  
-         
-  </div>  
-)
-  
+        <button
+          className=" bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  "
+          onClick={() => {
+            fileDownload(
+              `http://localhost:8000/${creche.photos[0]}`,
+              "test-download.jpg"
+            );
+          }}
+        >
+          Telecharger la carte d'identite{" "}
+        </button>*/}
+      </div>
+    </div>
+  );
 }
-
-
-

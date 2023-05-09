@@ -19,6 +19,9 @@ import Search from "./Components/Search";
 import useFetch from "./Pages/CrechInfoCard/useFetch";
 import data from './data/db.json';
 import Help from "./Pages/Help";
+import AddAdmin from "./Pages/AddAdmin";
+import NavAfter from "./Components/NavAfter";
+import HomeAfter from "./Pages/HomeAfter";
 
 function App() {
 
@@ -26,6 +29,9 @@ function App() {
   return (
 
 <Routes>
+ 
+  <Route path='/Signedproprio' element ={<HomeAfter creches={creches}/>} />
+  <Route path='/Signedparent' element ={<HomeAfter creches={creches}/>} />
 <Route path='/' element={<Home creches={creches}/>} />
 <Route path='/Login' element={<Login/>} />
 <Route path='/Signup' element={<Signup/>} />
@@ -40,6 +46,7 @@ function App() {
 <Route path='/Search' element={ <Search/>}  /> 
 <Route path='/RsltRechercheCreches' element={ <RsltRechercheCreches creches={creches}/>}  /> 
 <Route path='/Help' element={ <Help/>}  /> 
+<Route path='/AddAdmin' element={ <AddAdmin/>}  /> 
 </Routes>
 
 
