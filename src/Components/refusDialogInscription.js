@@ -224,7 +224,7 @@ export default function CustomizedDialogs() {
                   selectedValue ===
                   "l'age de votre enfant ne vérifie pas l'intervalle d'age d'inscription accépté"
                 }
-                onChange={(event) => { setSelectedValue(event.target.value)}}
+                onChange={handleInputChange}
               />
               <label for="Choice3" className="px-2 ">
               l'age de votre enfant ne vérifie pas l'intervalle d'age d'inscription accépté <br />
