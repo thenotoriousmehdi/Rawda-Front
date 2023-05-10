@@ -51,7 +51,7 @@ export default function Infocreche({ creche }) {
           <strong>Jours d'accueil:</strong> {creche.joursAccueil.join(", ")}
         </li>
         <li>
-          <strong>Type d'établissement:</strong> {creche.typeAccueil}
+          <strong>Type d'établissement:</strong> {creche.typeEtab}
         </li>
         <li>
           <strong>Ages d'accueil:</strong>{" "}

@@ -1,12 +1,12 @@
 import Select from "react-select";
-import Footer from "../Components/Footer";
-import NavAfter from "../Components/NavAfter";
+import Footer from "../../Components/Footer";
+import NavAfter from "../../Components/NavAfter";
 import React, { useState } from "react";
-import Wilayas from "../data/wilayas.json";
-import galery from "../assets/galery.svg";
-import exit from "../assets/exit1.svg";
+import Wilayas from "../../data/wilayas.json";
+import galery from "../../assets/galery.svg";
+import exit from "../../assets/exit1.svg";
 import axios from "axios";
-import "../../src/index.css";
+import "../../../src/index.css";
 import { useEffect} from "react";
 import { useLocation } from "react-router-dom";
 function classNames(...classes) {
@@ -17,7 +17,7 @@ function ModifierCreche() {
   const location = useLocation();
   const [Wilaya, setWilaya] = useState("");
   const [WilayaId, setWilayaId] = useState(0);
-  const [commune, setCommune] = useState();
+  const [commune, setCommune] = useState("");
   const handlecommune = (Selectedcommune) => {
     setCommune(Selectedcommune);
   };
@@ -92,29 +92,33 @@ function ModifierCreche() {
   console.log(crechesSearch);
   const [nom, setNomdetablissement] = useState("");
   let Nom =crechesSearch.nom ;
+  const [inptnomchanged , setInptnomchanged] = useState(false) ; 
   const handlenomChange = (event) => {
+   setInptnomchanged(true) ; 
     setNomdetablissement(event.target.value);
   };
 
   const [adresse, setadresse] = useState("");
+  const [inptadschanged , setInptadschanged] = useState(false) ; 
   const handleadresseChange = (event) => {
+    setInptadschanged(true) ; 
     setadresse(event.target.value);
   };
 
-  const [typEtab, setTypEtab] = useState(crechesSearch.typEtab);
+  const [typEtab, setTypEtab] = useState("");
   const typeEtab = typEtab ? typEtab.value : "";
   const handletypEtabChange = (typEtab) => {
     setTypEtab(typEtab);
   };
 
-  const [typeAc, setTypeAc] = useState(crechesSearch.typeAccueil);
+  const [typeAc, setTypeAc] = useState("");
   const typeAccueil = typeAc ? typeAc.value : "";
 
   const handletypeAcChange = (typeAc) => {
     setTypeAc(typeAc);
   };
 
-  const [ageminAc, setAgeminAc] = useState(crechesSearch.ageminAccueil);
+  const [ageminAc, setAgeminAc] = useState("");
   const ageminAccueil = ageminAc ? ageminAc.value : "";
   const handleageminAcChange = (ageminAc) => {
     setAgeminAc(ageminAc);
@@ -126,54 +130,63 @@ function ModifierCreche() {
     setAgemaxAc(agemaxAc);
   };
 
-  const [pedag, setPedag] = useState(crechesSearch.pedagogie);
+  const [pedag, setPedag] = useState("");
   const pedagogie = pedag ? pedag.value : "";
   const handlepedagChange = (pedag) => {
     setPedag(pedag);
   };
 
-  const [lang, setLang] = useState(crechesSearch.langue);
+  const [lang, setLang] = useState("");
 
   const langue = lang ? lang.value : "";
   const handlelangChange = (lang) => {
     setLang(lang);
   };
 
-  const [alim, setAlim] = useState(crechesSearch.alimentation);
+  const [alim, setAlim] = useState("");
   const alimentation = alim ? alim.value : "";
   const handlealimChange = (alim) => {
     setAlim(alim);
   };
 
-  const [trans, setTrans] = useState(crechesSearch.transport);
+  const [trans, setTrans] = useState("");
   const transport = trans ? trans.value : "";
   const handletransChange = (trans) => {
     setTrans(trans);
   };
 
-  const [prix, setPrix] = useState(crechesSearch.prix);
+  const [prix, setPrix] = useState("");
+const [inptprixchanged , setinptprixchanged]= useState(false) ; 
   const handleprixChange = (event) => {
+setinptprixchanged(true) ; 
     setPrix(event.target.value);
   };
 
-  const [mail, setEmail] = useState(crechesSearch.mail);
+  const [mail, setEmail] = useState("");
   const [num, setNum] = useState("");
-  const [description, setdescription] = useState(crechesSearch.description);
-
+  const [description, setdescription] = useState("");
+  const [inptdeschanged , setinptdeschanged]= useState(false) ; 
   const handledescirptionChange = (event) => {
+    setinptdeschanged(true) ;
     setdescription(event.target.value);
   };
-
+  const [inptmailchanged , setinptmailchanged]= useState(false) ; 
   const handleEmailChange = (event) => {
+    setinptmailchanged(true) ;
     setEmail(event.target.value);
   };
+  const [inptnumchanged , setinptnumchanged]= useState(false) ; 
+  
   const handlenumChange = (event) => {
+      setinptnumchanged(true) ;
     setNum(event.target.value);
   };
 
   const [value, setValue] = useState("");
-
+  const [inptkapchanged , setInptkapchanged] = useState(false) ; 
+  
   function handlecapChange(event) {
+      setInptadschanged(true) ; 
     const inputValue = event.target.value;
     const numericValue = parseInt(inputValue, 10);
 
@@ -184,7 +197,7 @@ function ModifierCreche() {
     }
   }
 
-  const [jourAc, setJourAc] = useState(crechesSearch.joursAccueil);
+  const [jourAc, setJourAc] = useState("");
 
   const token = localStorage.getItem("token");
   const config = {
@@ -195,19 +208,11 @@ function ModifierCreche() {
   const delim = ",";
   const capacite = value;
 
-  const [carteNationaleFile, setCarteNationaleFile] = useState(crechesSearch.carteNationale);
-  const [agrementFile, setAgrementFile] = useState(crechesSearch.agrement);
+  
 
-  const handleCarteNationaleChange = (event) => {
-    setCarteNationaleFile(event.target.files[0]);
-  };
-
-  const handleAgrementChange = (event) => {
-    setAgrementFile(event.target.files[0]);
-  };
-
-  const [files, setfiles] = useState(crechesSearch.photos);
+  const [files, setfiles] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
+ 
   const selectImage = (e) => {
     const f = e.target.files;
     const filesArray = Array.from(f);
@@ -240,7 +245,7 @@ function ModifierCreche() {
     formData.append("nom", nom);
     formData.append("localisation", localisation);
     formData.append("typeAccueil", typeAccueil);
-    const joursAccueilArray = jourAc.map((jour) => jour.value);
+    const joursAccueilArray = Object.values(jourAc).map((jour) => jour.value);
     formData.append("joursAccueil", JSON.stringify(joursAccueilArray));
     formData.append("typeEtab", typeEtab);
     formData.append("ageMin", ageminAccueil);
@@ -254,8 +259,7 @@ function ModifierCreche() {
     formData.append("mail", mail);
     formData.append("description", description);
     formData.append("prix", prix);
-    formData.append("carteNationale", carteNationaleFile);
-    formData.append("agrement", agrementFile);
+    
     selectedImages.forEach((image) => {
       formData.append("photos", image.fl);
     });
@@ -268,8 +272,7 @@ function ModifierCreche() {
       });
       console.log("Requête envoyée avec succès !");
       console.log(selectedImages);
-      console.log(agrementFile);
-      console.log(carteNationaleFile);
+     
     } catch (error) {
       console.error("Erreur lors de l'envoi de la requête :", error);
     }
@@ -316,6 +319,8 @@ function ModifierCreche() {
                         id="Nom de l'etablissement"
                         placeholder="Nom de l'etablissement"
                         required
+                      
+                        value={(nom=="" && !inptnomchanged) ? crechesSearch.nom : nom}
                         onChange={handlenomChange}
                         className="rounded w-[250px] h-[38px] md:w-[210px] bg-white border-gray-700 border-opacity-30 border py-2 px-2   text-gray-700 placeholder-gray-600  shadow-sm text-base "
                       />
@@ -327,10 +332,11 @@ function ModifierCreche() {
                             <Select
                               name="Type d’etablissement"
                               options={Typeta}
-
+                               
                               placeholder="Type de creche "
                               maxlength="255"
-                              value={typEtab}
+
+                              value={Typeta.find(option => option.value === ( typEtab==""?  crechesSearch.typeEtab : typEtab ))}
                               onChange={handletypEtabChange}
                               isSearchable={true}
                               isMulti={false}
@@ -346,9 +352,9 @@ function ModifierCreche() {
                           <div className="dropdown-container w-[210px]">
                             <Select
                               name="Type d’accueil"
-                              options={Typeac}
+                              options={Typeac  }
                               placeholder="Type d'accueil"
-                              value={typeAc}
+                              value={Typeac.find(option => option.value === ( typeAc==""?  crechesSearch.typeAccueil : typeAc ))}
                               onChange={handletypeAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -371,8 +377,8 @@ function ModifierCreche() {
                               name="Jours d’accueil"
                               options={jourac}
                               placeholder="Jours d'accueil"
-                              value={jourAc}
-                              //  onChange={handlejouracChange}
+                              value={jourAc }
+                              
                               isSearchable={true}
                               isMulti={true}
                               onChange={(jourAc) => setJourAc(jourAc)}
@@ -390,7 +396,7 @@ function ModifierCreche() {
                               name="Age min d'accueil"
                               options={ageac}
                               placeholder="Age min d'accueil"
-                              value={ageminAc}
+                              value={ ageac.find(option => option.value === ( ageminAc==""?  crechesSearch.ageminAccueil : ageminAc ))}
                               onChange={handleageminAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -408,7 +414,7 @@ function ModifierCreche() {
                               name="Age max d'accueil"
                               options={ageac}
                               placeholder="Age max d'accueil"
-                              value={agemaxAc}
+                              value={ ageac.find(option => option.value === ( agemaxAc==""?  crechesSearch.agemaxAccueil : agemaxAc ))}
                               onChange={handleagemaxAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -433,7 +439,8 @@ function ModifierCreche() {
                             min="0"
                             max="100"
                             step="1"
-                            value={value}
+                           
+                            value={(value=="" && !inptkapchanged) ? crechesSearch.capacite : value}
                             onChange={handlecapChange}
                             required
                             className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
@@ -449,7 +456,7 @@ function ModifierCreche() {
                               name="Pedagogie"
                               options={Pedagogie}
                               placeholder="Pedagogie"
-                              value={pedag}
+                              value={  Pedagogie.find(option => option.value === ( pedag==""?  crechesSearch.pedagogie : pedag ))}
                               onChange={handlepedagChange}
                               isSearchable={true}
                               isMulti={false}
@@ -467,7 +474,7 @@ function ModifierCreche() {
                               name="Langue"
                               options={Langue}
                               placeholder="Langue"
-                              value={lang}
+                              value={ Langue.find(option => option.value === ( lang==""?  crechesSearch.langue : lang ))}
                               onChange={handlelangChange}
                               isSearchable={true}
                               isMulti={false}
@@ -490,7 +497,7 @@ function ModifierCreche() {
                               name="Transport"
                               options={verite}
                               placeholder="Transport"
-                              value={trans}
+                              value={ verite.find(option => option.value === ( trans==""?  crechesSearch.transport : trans ))}
                               onChange={handletransChange}
                               isSearchable={true}
                               isMulti={false}
@@ -508,7 +515,7 @@ function ModifierCreche() {
                               name="Alimentation"
                               options={verite}
                               placeholder="Alimentation"
-                              value={alim}
+                              value={ verite.find(option => option.value === ( alim==""?  crechesSearch.alimentation : alim ))}
                               onChange={handlealimChange}
                               isMulti={false}
                               required
@@ -520,6 +527,7 @@ function ModifierCreche() {
                     <div>
                       <input
                         type="number"
+                        value={ (prix=="" && !inptprixchanged) ? crechesSearch.prix : prix}
                         id="Prix"
                         placeholder="Prix max /mois (DA)"
                         step="1"
@@ -541,6 +549,7 @@ function ModifierCreche() {
                         id="Description"
                         placeholder="Description (150 mots max)"
                         required
+                        value={ (description=="" && !inptdeschanged) ? crechesSearch.description : description}
                         onChange={handledescirptionChange}
                         className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[250px] h-[38px] md:w-[670px] md:h-[200px]   opacity border py-2 px-6   text-gray-700 placeholder-gray600 shadow-sm text-base "
                       />
@@ -563,13 +572,14 @@ function ModifierCreche() {
                       <div className="flex space-x-4 m-2 md:m-0">
                         <select
                           name="wilaya"
-                          className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
+                           className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
                           onChange={(wilaya) =>
                             handleWilaya(wilaya.target.value)
                           }
+                          placeholder=""
                           required
                         >
-                          <option value="">Wilaya</option>
+                          <option value="">{crechesSearch? crechesSearch.localisation.split(",")[1] : ""}</option>
                           {Wilayas.map((wilaya, i) => {
                             return (
                               <option
@@ -589,12 +599,13 @@ function ModifierCreche() {
                         <select
                           name="commune"
                           className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
+                          
                           onChange={(commune) =>
                             handlecommune(commune.target.value)
                           }
                           required
                         >
-                          <option value="">Commune</option>
+                          <option value="">{crechesSearch? crechesSearch.localisation.split(",")[0] : "" }</option>
                           {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
                             return (
                               <>
@@ -627,6 +638,7 @@ function ModifierCreche() {
                         placeholder="L’adresse complète de l’établissement"
                         maxlength="255"
                         required
+                        value={(adresse=="" && !inptadschanged ) ? crechesSearch.localisation : adresse}
                         onChange={handleadresseChange}
                         className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
@@ -674,7 +686,7 @@ function ModifierCreche() {
                         ></input>
                       </div>
 
-                      {selectedImages.length <= 10 &&
+                      {  selectedImages.length <= 10 &&
                         selectedImages &&
                         selectedImages.map((image, i) => {
                           return (
@@ -730,6 +742,7 @@ function ModifierCreche() {
                         pattern="[0-9]{10}"
                         maxlength="10"
                         required
+                        value={(num=="" && !inptnumchanged) ? crechesSearch.num : num}
                         onChange={handlenumChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
@@ -742,57 +755,15 @@ function ModifierCreche() {
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         required
                         maxlength="255"
+                        value={(mail=="" && !inptmailchanged) ? crechesSearch.mail : mail}
                         onChange={handleEmailChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
 
-                  <div className="flex justify-start ">
-                    <p
-                      className=" text-left text-sm font-Poppins font-bold text-rawdapurple mt-2
-            md:text-xl "
-                    >
-                      Verification
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-10">
-                    {" "}
-                    {/* eleventh flex */}
-                    <div className="flex flex-col gap-2">
-                      <h4 className="text-rawdablack font-semibold">
-                        Agrement
-                      </h4>
-
-                      <div>
-                        <input
-                          type="file"
-                          placeholder="Agrement "
-                          accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
-                          id="file-upload"
-                          onChange={handleAgrementChange}
-                          className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <h4 className="text-rawdablack font-semibold">
-                        Piece d'identite
-                      </h4>
-
-                      <div>
-                        <input
-                          type="file"
-                          placeholder="Piece d'identite"
-                          accept="image/png, image/jpg, image/gif, image/jpeg, image/pdf"
-                          id="file-upload"
-                          onChange={handleCarteNationaleChange}
-                          required
-                          className="rounded w-[250px] h-[38px] md:w-[310px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
-                        />
-                      </div>
-                    </div>
-                  </div>
+                
+                  
 
                   <div className="flex flex-wrap justify-center">
                     {" "}
@@ -805,15 +776,15 @@ function ModifierCreche() {
                         {" "}
                         Ajouter ma creche{" "}
                       </button> */}
-
+              <a href={`/../creches/${crechesSearch._id}`}>
                       <button
                         onClick={handleSubmit}
                         id="s'inscrire"
                         type="button"
                         className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
                       >
-                        <a href="">Ajouter ma creche</a>
-                      </button>
+                       Enregistrer les modifications
+                      </button></a>
                     </div>
                   </div>
                 </div>
