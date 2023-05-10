@@ -10,6 +10,30 @@ import React, {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 function ModifierProfil({nomc,role}){
+  const [profilePicture, setProfilePicture] = useState("url_of_current_profile_picture");
+  const handleIconClick = () => {
+    // Create an input element of type "file"
+    const input = document.createElement("input");
+    input.type = "file";
+  
+    // Add an "onchange" event listener to the input element
+    input.onchange = (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = (event) => {
+        const newProfilePicture = event.target.result;
+        setProfilePicture(newProfilePicture);
+      };
+  
+      // Read the contents of the selected file
+      reader.readAsDataURL(file);
+    };
+  
+    // Click the input element to open the file picker dialog
+    input.click();
+  }
+
 
    const [dateNaissance, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
    const [showPopup, setShowPopup] = useState(false);
@@ -91,11 +115,13 @@ const [canSubmit, setCanSubmit] = useState(false);
                     <div className="flex justify-center gap">
                         <img
                             className="mt-[-40px] md:mt-[-70px] ml-[50px] mr-[50px] h-[70px] w-[70px] md:h-[130px] md:w-[130px] rounded-full z-30 border-2 border-rawdapurple border-opacity-100 "
-                            src={mehdi}
-                            alt="" />
+                            src={profilePicture} alt=""
+                             />
                     </div>
                     <div className="flex ">  
-                       <img className="h-[20px] w-[20px] z-50 mt-[-50px] ml-[235px]" src={iconm}    />  
+                       <img 
+                        onClick={handleIconClick}
+                       className="h-[20px] w-[20px] z-50 ml-[195px] mt-[-50px] sm:ml-[235px] hover:bg-rawdablack hover:rounded-full hover:h-[25px] hover:w-[25px]" src={iconm}    />  
                      </div>
                   
 <div className="flex flex-col gap-2">
@@ -109,7 +135,7 @@ const [canSubmit, setCanSubmit] = useState(false);
    {role}
 </h4>
 </div>
-<div className="w-[350px]">
+<div className=" ml-12 sm:ml-6 sm:w-[350px] w-[250px]">
     <img src={line}/>
 </div>
 </div>

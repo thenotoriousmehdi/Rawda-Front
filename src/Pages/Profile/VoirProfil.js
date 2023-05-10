@@ -62,9 +62,9 @@ export default function VoirProfil() {
                     <h4>{data.role}</h4>
                   </div>
 
-                  <div className="w-[350px]">
-                    <img src={line} />
-                  </div>
+                  <div className=" ml-12 sm:ml-6 sm:w-[350px] w-[250px]">
+    <img src={line}/>
+</div>
                 </div>
 
                 <div className="flex flex-col gap-6">
