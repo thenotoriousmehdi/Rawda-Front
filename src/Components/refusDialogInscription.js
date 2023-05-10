@@ -95,9 +95,15 @@ export default function CustomizedDialogs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setbuttonTextform("Envoyé!");
-    console.log(selectedValue, motifRefus);
+  
     if(selectedValue==="la date d'entrée en crèche ne correspond pas à la crèche"){
-    console.log(selectedOption , datetoken);}
+    console.log(selectedOption , datetoken);}else {
+      if (selectedValue==="Autre"){
+        console.log(motifRefus);
+        } else {
+          console.log(selectedValue ); 
+        }
+    }
   };
 
   const handleRadioClickinput = () => {

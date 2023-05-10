@@ -95,8 +95,16 @@ export default function CustomizedDialogs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setbuttonTextform("Envoyé!");
-    console.log(selectedValue, motifRefus);
-    console.log(selectedOption , datetoken);
+    if(selectedValue==="le rendez-vous pris ne correspond pas la crèche"){
+      console.log(selectedOption , datetoken);}else {
+        if (selectedValue==="Autre"){
+          console.log(motifRefus);
+          } else {
+            console.log(selectedValue ); 
+          }
+      }
+  
+   
   };
 
   const handleRadioClickinput = () => {

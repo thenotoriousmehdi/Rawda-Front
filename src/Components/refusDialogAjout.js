@@ -62,14 +62,11 @@ export default function CustomizedDialogs() {
   };
 
   const [selectedValue, setSelectedValue] = useState(null);
-  const [showForm, setShowForm] = useState(false);
-  const [datetoken, setDatetoken] = useState(new Date((new Date()).getTime() + 24 * 60 * 60 * 1000));
-  const handleDateChange = async (date) => {
-    setDatetoken(date);
-  };
+  
+ 
   const handleInputChange = (event) => {
     setSelectedValue(event.target.value);
-    setShowForm(event.target.value ===  "le rendez-vous pris ne correspond pas la crèche");
+    
   };
   const [selectedOption, setSelectedOption] = useState('10:00');
   const handleClose = () => {
@@ -95,13 +92,15 @@ export default function CustomizedDialogs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setbuttonTextform("Envoyé!");
-    console.log(selectedValue, motifRefus);
-    console.log(selectedOption , datetoken);
+    if (selectedValue==="Autre"){
+    console.log(motifRefus);
+    } else {
+      console.log(selectedValue ); 
+    }
+
   };
 
-  const handleRadioClickinput = () => {
-    setShowForm(true);
-  };
+  
 
   return (
     <div>
@@ -148,14 +147,14 @@ export default function CustomizedDialogs() {
               border: { xs: "yellow solid", sm: "none" },
             }}
           >
-            Refus du rendez-vous d'un parent
+            Refus de l'ajout d'une crèche
           </BootstrapDialogTitle>
           <div className="  -mt-8 h-3  ml-6  w-0 sm:w-[343px] bg-yellow-200  shadow-yellow-300 "></div>
         </div>
 
         <DialogContent>
           <p className="font-body leading-8 p-3 text-sm sm:text-base bg-rawdapurple bg-opacity-5 rounded-md mb-3  mx-1 sm:mx-3  ">
-            Veuillez justifier la raison du refus du rendez-vous:{" "}
+            Veuillez justifier la raison du refus de l'ajout d'une crèche:{" "}
           </p>
           <form onSubmit={handleSubmit}>
             <div className="font-body leading-8 p-4 bg-rawdapurple bg-opacity-5 rounded-md my-3 mx-1 sm:mx-3 text-sm sm:text-base">
@@ -163,84 +162,70 @@ export default function CustomizedDialogs() {
                 type="radio"
                 id="Choice1"
                 name="contact"
-                value="le rendez-vous pris ne correspond pas la crèche"
+                value="La crèche ne respecte pas les normes de sécurité"
                 checked={
                   selectedValue ===
-                  "le rendez-vous pris ne correspond pas la crèche"
+                  "La crèche ne respecte pas les normes de sécurité"
                 }
-                onClick={handleRadioClickinput}
+                
                 onChange={handleInputChange}
               />
               <label for="Choice1" className="px-2">
-                le rendez-vous pris ne correspond pas la crèche <br />{" "}
+              La crèche ne respecte pas les normes de sécurité <br />{" "}
               </label>
 
-              {showForm && (
-        <div className="flex-col justify-center items-center text-center  bg-white ">
-          <h2 className=" mt-2 font-body text-rawdapurple font-bold ">-Proposition d'un nouveau rendez-vous au parent-</h2>
-          <div className='flex mt-2 items-center  flex-col  ' >
-          <label
-            for="datepi"
-            className="text-left w-4/5 sm:w-2/3 font-body text-xs sm:text-sm mt-2 sm:ml-3"
-          >
-            Date du rendez-vous:
-          </label>
-
-          <DatePicker
-            id="datepi"
-            required
-            selected={datetoken}
-            onChange={handleDateChange}
-            minDate={new Date(new Date().getTime() + 24 * 60 * 60 * 1000)}
-            filterDate={(date) => date.getDay() !== 5 && date.getDay() !== 6}
-            dateFormat="dd/MM/yyyy"
-            className="rounded-md h-[38px] m-3 mt-1 w-4/5 justify-center sm:w-2/3 text-sm md:text-base bg-white border-purple-400 border py-2 px-2 text-gray-700 placeholder-gray-400 focus:outline-violet-400 focus:ring-1 focus:border-violet-400"
-          /></div>
-  <div className='flex  items-center  flex-col '> 
-          <label for="timeAptmnt "  className=' text-left  w-4/5  sm:w-2/3  font-body  text-xs sm:text-sm mt-2 sm:ml-2 '>Heure du rendez-vous:</label>
-      
-          <select
-            id="timeAptmnt"
-            value={selectedOption}
-            onChange={handleChange}
-            required
-            className="rounded-md h-[38px]  mb-3 m-3 w-4/5 mt-1 sm:w-2/3 text-sm md:text-base bg-white border-purple-400 border py-2 px-2 text-gray-700 placeholder-gray-400 focus:outline-violet-400 focus:ring-1 focus:border-violet-400"
-          >
-            {availableTimes.map((time) => (
-              <option key={time} value={time}>
-                {time}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      )}
+     
 
 
               <input
                 type="radio"
                 id="Choice2"
-                value="le nombre d'enfants inscrits a atteint la limite acceptée"
+                value=" les piéces jointes ne sont pas valides"
                 checked={
                   selectedValue ===
-                  "le nombre d'enfants inscrits a atteint la limite acceptée"
+                  " les piéces jointes ne sont pas valides"
                 }
                 onChange={handleInputChange}
               />
               <label for="Choice2" className="px-2 ">
-                le nombre d'enfants inscrits a atteint la limite acceptée <br />
+                les piéces jointes ne sont pas valides <br />
               </label>
 
+              <input
+                type="radio"
+                id="Choice3"
+                value="La crèche n'est pas agréée"
+                checked={
+                  selectedValue ===
+                  "La crèche n'est pas agréée"
+                }
+                onChange={handleInputChange}
+              />
+              <label for="Choice3" className="px-2 ">
+                La crèche n'est pas agréée <br />
+              </label>
 
               <input
                 type="radio"
                 id="Choice4"
+                value="La crèche ne répond pas aux exigences de qualité"
+                checked={selectedValue === "La crèche ne répond pas aux exigences de qualité"}
+                onChange={handleInputChange}
+                onClick={handleRadioClick}
+              />
+              <label for="Choice4" className="px-2 ">
+              La crèche ne répond pas aux exigences de qualité<br /> {" "}
+              </label>
+
+              <input
+                type="radio"
+                id="Choice5"
                 value="Autre"
                 checked={selectedValue === "Autre"}
                 onChange={handleInputChange}
                 onClick={handleRadioClick}
               />
-              <label for="Choice4" className="px-2 ">
+              <label for="Choice5" className="px-2 ">
                 Autre{" "}
               </label>
 
