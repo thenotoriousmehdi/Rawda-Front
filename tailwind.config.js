@@ -10,7 +10,8 @@ rawdapurple: '#6938EF' ,
 rawdayellow: '#F9F54B'  ,
 rawdawhite:   '#FAF9F9' ,
 rawdablack: '1E1E1E' ,
-mehdi: 'CEA9EC'
+mehdi: 'CEA9EC',
+rawdamotdepasse:'#F1EFF5'
 
 },
 fontFamily: {

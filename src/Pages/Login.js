@@ -153,9 +153,15 @@ const Login = (Props) => {
               </div>
             </div>
 
+            <div className="flex justify-end items-end my-auto text-xs text-rawdapurple mx-auto mt-3  ">
+
+            <a href="/MotDePasseOublie">Mot de passe oublié ?</a>
+</div>
+
+
             <div className="flex justify-center items-center my-auto mx-auto">
               <button
-                class="mb-7 mt-11 w-full h-12  focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
+                class="mb-7 mt-6 w-full h-12  focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
                 type="submit"
               >
                 {" "}
@@ -180,6 +186,9 @@ const Login = (Props) => {
               </buttom>
             </div>
           </form>
+
+
+
         </div>
       </div>
 

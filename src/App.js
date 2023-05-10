@@ -23,7 +23,7 @@ import AddAdmin from "./Pages/AddAdmin";
 import NavAfter from "./Components/NavAfter";
 import HomeAfter from "./Pages/HomeAfter";
 import ModifierCreche from "./Pages/Profile/ModifierCreche";
-
+import MotDePasseOublie from "./Pages/MotDePasseOublie";
 function App() {
 
   const creches = data['creches'];       
@@ -56,6 +56,7 @@ function App() {
 <Route path='/Help' element={ <Help/>}  /> 
 <Route path='/AddAdmin' element={ <AddAdmin/>}  /> 
 <Route path="/ModifierCreche/:id" element={ <ModifierCreche/> } />
+<Route path="MotDePasseOublie" element={ <MotDePasseOublie/> } />
 </Routes>
 
 

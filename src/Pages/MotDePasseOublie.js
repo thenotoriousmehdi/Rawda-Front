@@ -1,8 +1,8 @@
 import { useState } from "react";
-import logo from './logo.svg';
-import filletriste from './filletriste.png';
-import filleheureuse from './filleheureuse.png';
-function App(props) {
+import logo from '../assets/logo.svg';
+import filletriste from '../assets/filletriste.png';
+import filleheureuse from '../assets/filleheureuse.png';
+function MotDePasseOublie(props) {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
@@ -72,11 +72,11 @@ function App(props) {
 
   return (
     <div>
-        <div className='bg-white h-14 flex justify-center justify-items'>
-<a href='/'>
-    <img className="mt-4 w-28" src={logo} alt="logo" />
-</a>
-  </div>
+        <div className=" flex items-center justify-center sticky top-0 z-50  bg-white border-b border-gray-300">
+        <a href="/">
+          <img className="w-1/2 ml-10 m-3 " src={logo} alt="logo" />
+        </a>
+      </div>
 
   {step === 1 && (
     <div className="bg-rawdamotdepasse min-h-screen flex items-start justify-center">
@@ -229,4 +229,4 @@ function App(props) {
 
 );
 }
-export default App;
+export default MotDePasseOublie;
