@@ -205,8 +205,8 @@ console.log("nom d'etablissement", nomdetablissement)
   };
 return (
   <> 
-  <div className=" sm:ml-6 sm:block">
-  <div className="nav-search  flex justify-between mx-6 mt-2 sm:mx-0 sm:mt-0 bg-white items-center border border-gray-300 rounded-xl ">
+  <div className=" sm:ml-6 sm:block ">
+  <div className="nav-search flex justify-between sticky top-18  mx-6 mt-2 sm:mx-0 sm:mt-0 bg-white items-center border border-gray-300 rounded-xl ">
     <div
       className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
       onClick={handlenomClick}
@@ -240,12 +240,12 @@ return (
   <Disclosure
     as="nav"
     id="main-menu-filter"
-    className="bg-white sticky top-10 z-40 border-b border-gray-300 p-5"
+    className="bg-white border-b border-gray-300 p-5"
   >
     <div className="mx-8 flex items-center justify-center  bg-opacity-5 bg-rawdapurple mb-16 rounded-xl mt-6 ">
       {" "}
       {/* start */}
-      <div className="mx-auto  sm:px-6  ">
+      <div className="mx-auto sm:px-6  ">
         <div className="relative flex-col mx-2 my-2 w-full h-max justify-center items-center md:mb-10 mb-4 ">
           <div
             className="container flex flex-wrap p-2  md:flex-row 

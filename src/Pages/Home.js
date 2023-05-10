@@ -26,14 +26,14 @@ function Home({creches}) {
         <Services />
         <Avis />
         <Faq />
-         <div className="flex justify-center items-center gap-6 m-4">
+        {/*  <div className="flex justify-center items-center gap-6 m-4">
           <a href="/VoirProfil"> Profil </a>
           <a href="/Notifications">Notifications </a>
           <a href="/AddCreche">Add Creche </a>
           <a href="/Dashboard">Dashboard </a>
           <a href="/creches">infos creche </a>
           <a href="AddAdmin"> Add Admin</a>
-        </div>  
+        </div>   */}
         <Footer />
       </div>
     </>

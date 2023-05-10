@@ -29,13 +29,6 @@ export default function Hero() {
             <div className="  mb-[0.5px] w-[175px] mt-[-15px] md:w-[180px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div>
           </div>
           </div>
-
-          {/*  <h1
-            className="max-w-md text-4xl font-bold text-left text-rawdapurple
-            md:text-4xl md:textleft"
-          >
-            Le 1er moteur de recherche de crèches en Algérie
-          </h1> */}
           <p className=" max-w-sm text-left text-rawdablack md:text-left">
             Rechercher la crèche qui vous convient, et soyez sur que votre
             enfant est entre de bonnes mains.
@@ -50,8 +43,8 @@ export default function Hero() {
             </button>
           </div>
         </div>
-        <div className=" md:w-[220 px] my-6 py-6 ">
-          <img className=" md:h-[300px] " src={illus11} alt="logorawda" />
+        <div className="w-[120 px] md:w-[220 px] my-6 py-6 ">
+          <img className="h-[200px] md:h-[300px] " src={illus11} alt="illus" />
         </div>
       </div>
     </section>
