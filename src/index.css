@@ -50,7 +50,7 @@ input:invalid[focusedp="true"] ~ span{
 
 .swiper{
     padding:40px !important ; 
-    width: 300px;
+
 }
 .swiper-button-prev {
     left: 0px !important;
