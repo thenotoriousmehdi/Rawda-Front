@@ -42,11 +42,11 @@ export default function Hero() {
           </p>
           <div className="flex justify-center md:justify-start">
             <button
-              href="#"
+              
               className="p-3 px-6  text-rawdawhite bg-rawdapurple rounded-full baseline  hover:bg-rawdapurple hover:bg-opacity-80 shadow-sm shadow-rawdapurple"
             >
-              {" "}
-              Commencer{" "}
+            
+          <a href="/Search"> Commencer </a>    
             </button>
           </div>
         </div>

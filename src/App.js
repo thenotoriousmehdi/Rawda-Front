@@ -11,7 +11,7 @@ import Notification from "./Components/NotifRdv";
 import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Pages/Profile/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/dashboard/Dashboard";
 import {Routes, Route} from 'react-router-dom';
 import VoirProfil from "./Pages/Profile/VoirProfil";
 import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
@@ -43,7 +43,14 @@ function App() {
 <Route path='/CrechInfoCard' element={ <CrechInfoCard reches={creches}/>}  /> 
 <Route path='/creches' element={ <RsltRechercheCreches creches={creches}/>}  /> 
 <Route path='/creches/:id' element={ <CrechInfoCard creches={creches}/>}  /> 
-<Route path='/Search' element={ <Search/>}  /> 
+<Route path='/Search' element={
+  
+  <div className=" mt-12 ml-4 mr-4">
+    <Search/>
+    </div>
+  }  
+  
+  /> 
 <Route path='/RsltRechercheCreches' element={ <RsltRechercheCreches creches={creches}/>}  /> 
 <Route path='/Help' element={ <Help/>}  /> 
 <Route path='/AddAdmin' element={ <AddAdmin/>}  /> 

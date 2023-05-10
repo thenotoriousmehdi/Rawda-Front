@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Wilayas from "../data/wilayas.json";
 import loupe from "../assets/loupe.svg";
+import RsltRechercheCreches from '../Pages/RsltRechercheCreches';
 import axios from 'axios';
 import {
   
@@ -204,8 +205,8 @@ console.log("nom d'etablissement", nomdetablissement)
   };
 return (
   <> 
-  <div className="hidden sm:ml-6 sm:block">
-  <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
+  <div className=" sm:ml-6 sm:block">
+  <div className="nav-search  flex justify-between mx-6 mt-2 sm:mx-0 sm:mt-0 bg-white items-center border border-gray-300 rounded-xl ">
     <div
       className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
       onClick={handlenomClick}
@@ -219,21 +220,21 @@ return (
     <input
       id="desktop-search"
       type="text"
-      placeholder="Rechercher par nom..."
+      placeholder="Rechercher..."
       required
       onChange={handlenomChange}
-      className="nav-search w-full outline-none bg-transparent px-4 py-2 text-sm text-gray-600"
+      className="nav-search w-full outline-none bg-transparent px-4 py-2 sm:text-sm text-xs  text-gray-600"
     />
     <a href="#search" onClick={handleClick}>
       <AdjustmentsHorizontalIcon
-        className="hidden md:inline-flex h-10 rounded-full p-2 cursor-pointer mx-4 text-gray-500"
+        className=" md:inline-flex h-10 rounded-xl p-2 cursor-pointer mx-4 text-gray-500 hover:bg-rawdawhite hover:bg-opacity hover:w-[40px] hover:h-[40px]"
         onClick={handleClick}
       />
     </a>
   </div>
 </div>
 
-
+<div className='flex justify-center items-center'>   
 
 {fopen ? (
   <Disclosure
@@ -410,7 +411,7 @@ return (
                         value={capacite}
                         onChange={handlecapChange}
                         required
-                        className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
+                        className="rounded  h-[38px] w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
@@ -496,7 +497,7 @@ return (
                     min="0"
                     max="100000"
                     required
-                    className="rounded w-[250px] h-[38px] md:w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  placeholder-gray-600 shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                    className="rounded h-[38px] w-[210px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  placeholder-gray-600 shadow-sm text-base focus:outline-rawdawhite focus:ring-2 focus:ring-violet-500 focus:border-transparent"
                     onChange={handleprixChange}
                   />
                 </div>
@@ -520,7 +521,7 @@ return (
     </div>
   </Disclosure>
 ) : null}
-
+</div>
 </>
 
 

@@ -22,7 +22,7 @@ function RsltRechercheCreches({ creches }) {
   return (
     <div>
       <Header />
-      <div className="flex flex-col  gap  m-10    w-full bg-white mt-0  pt-3  fixed z-30  ">
+      <div className="flex flex-col justify-center items-center  gap  m-10    w-full bg-white mt-0  pt-3  fixed z-30  ">
         <h3 className="font-body  font-bold sm:text-4xl  text-2xl  text-rawdapurple  z-10 ">
           Résultats de recherche
         </h3>
