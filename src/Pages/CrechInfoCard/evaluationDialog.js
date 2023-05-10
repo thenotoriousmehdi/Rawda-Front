@@ -54,7 +54,7 @@ export default function FormDialog() {
         variant="outlined"
         onClick={handleClickOpen}
         sx={{
-          mt: 6,
+          mt: 3,
           width: 160,
           height: 50,
           border: "solid #6938EF 2px",
@@ -94,6 +94,7 @@ export default function FormDialog() {
           <TextareaAutosize
             aria-label="minimum height"
             minRows={7}
+            maxlength="600"
             ref={textAreaRef}
             placeholder="Laisser un commentaire (moins de 150 mots)"
             style={{ width: 500 }}

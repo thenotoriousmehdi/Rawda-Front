@@ -31,7 +31,7 @@ export default function CrechInfoCard() {
     <div>
       {creche && (
         <div className="App">
-      
+          <Header/>
           <Infocreche creche={creche}  />
           <Localisation /> 
           <Avis creche={creche}/>
