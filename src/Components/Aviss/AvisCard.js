@@ -1,7 +1,7 @@
 export default function AvisCrd({ photo, nom, avis }) {
   return (
     <div className="keen-slider__slide h-max w-max  bg-rawdapurple bg-opacity-[3%]  flex justify-center p-6 sm:p-24 rounded-lg mb-24">
-      <div className=" flex jusitify-center w-[300px]  h-[300px] md:w-[600px] md:h-[270px]  border border-dashed border-rawdapurple mx-4 rounded-md">
+      <div className=" flex jusitify-center w-[300px]  h-[300px] md:w-[600px] md:h-[320px]  border border-dashed border-rawdapurple mx-4 rounded-md">
         <div className="flex justify-center gap">
           {/*  <div className=" h-[150px] w-[150px] rounded-full  mt-[-51px] ml-[-51px] border-2 border-dashed border-rawdayellow"> */}
           <img
