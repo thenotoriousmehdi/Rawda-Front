@@ -11,7 +11,7 @@ import AvisCard from "../Components/Aviss/AvisCard";
 import FaqCard from "../Components/Faq/FaqCard";
 import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 import AddAdmin from "./AddAdmin";
-
+import Team from "../Components/Team/Team"
 function Home({creches}) {
   return (
     <>
@@ -24,6 +24,7 @@ function Home({creches}) {
         <About />
         <Crechesmieuxnotees  creches={creches} />
         <Services />
+        <Team/>
         <Avis />
         <Faq />
           <div className="flex justify-center items-center gap-6 m-4">

@@ -1,0 +1,44 @@
+.swiper-button-next {
+    background-image: url("../../assets/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .swiper-button-next::after {
+    display: none;
+  }
+
+  .swiper-button-prev {
+    background-image: url("../../assets/arrow-left.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .swiper-button-prev::after {
+    display: none;
+  }
+  
+
+  
+    @media (min-width: 768px) { 
+
+      .swiper-button-prev {
+       
+        width: 70px;
+        height: 70px;
+      }
+  
+      .swiper-button-next {
+        
+        width: 70px;
+        height: 70px;
+      }
+      
+  
+     }
