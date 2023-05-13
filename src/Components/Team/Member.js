@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Member(props) {
     return (
-        <div className=" w-[300px]  h-[380px] md:h-[500px] bg-rawdawhite  rounded-[3px] flex flex-col  items-center border-2 border-rawdapurple">
+        <div className=" w-[340px]  h-[380px] md:h-[500px] bg-rawdawhite  rounded-[3px] flex flex-col  items-center border-2 border-rawdapurple">
        <div className="h-[125px] w-[125px] md:h-[160px] md:w-[160px] rounded-[50%] md:mt-[60px] mt-[30px] bg-white flex flex-row justify-center items-center border-[3.5px] md:border-[4px] border-l-rawdapurple border-b-rawdapurple border-r-rawdawhite border-t-rawdawhite">
         <div className=" h-[110px] w-[110px] md:h-[140px] md:w-[140px] rounded-[50%]">
             <img src={props.img} className="w-[100%] h-[100%] rounded-[50%] object-cover"></img>
@@ -32,7 +32,11 @@ export default function Member(props) {
                 </div></a>
             <a href="linkedin.com"><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
                
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <svg 
+            className="bg-rawdablack fill-rawdablack"
+            viewBox="0 0 512 512">
+      <path d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z"/>
+    </svg>
 
 
 
