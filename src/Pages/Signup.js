@@ -156,7 +156,7 @@ const Signup = (props) => {
 
             <div class="mx-auto my-auto md:w-6/12 ">
               <button
-                class="lg:mb-7 w-full h-12 mt-5  font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
+                class="lg:mb-7 w-full h-12 mt-5  font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600 hover:scale-105 duration-200"
                 type="submit"
                 onClick={handleFormSubmit}
               >

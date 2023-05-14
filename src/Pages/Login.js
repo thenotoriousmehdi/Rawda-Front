@@ -161,7 +161,7 @@ const Login = (Props) => {
 
             <div className="flex justify-center items-center my-auto mx-auto">
               <button
-                class="mb-7 mt-6 w-full h-12  focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
+                class="mb-7 mt-6 w-full h-12  focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600 hover:scale-105 duration-200"
                 type="submit"
               >
                 {" "}

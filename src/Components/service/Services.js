@@ -21,7 +21,7 @@ export default function Services() {
       <p className="text-sm md:text-xl font-medium font-Poppins text-rawdapurple text-opacity-70  text-center md:mb-2">Rawda vous offre un voyage sans précédent dans le monde des crèches en Algérie
 </p>
       <div className="  flex flex-col items-center justify-evenly  h-full md:h-[500px]  md:flex md:flex-row md:justify-evenly ">
-      <Service img={maison} title={obj.title[0]} description={obj.des[0]}></Service>
+      <Service img={maison} title={obj.title[0]} description={obj.des[0]}></Service> 
       <Service img={enfants} title={obj.title[1]} description={obj.des[1]}></Service>
       <Service img={contact} title={obj.title[2]} description={obj.des[2]}></Service>
       </div>
