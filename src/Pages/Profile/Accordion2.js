@@ -11,7 +11,7 @@ function Accordion2() {
                       
                             id="Modifierprofile"
                             type="button"
-                            className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite "
+                            className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite hover:scale-105 duration-200 "
                           >
                             Modifier mon profile
                           </button>

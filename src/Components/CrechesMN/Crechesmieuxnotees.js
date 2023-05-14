@@ -47,8 +47,19 @@ const Crechesmieuxnotees = ({creches}) => {
         </div>
         <div className="w-full ">
   <Swiper
-  slidesPerView={3}
-  spaceBetween={30}
+// slidesPerView={1}
+ spaceBetween={10}
+ breakpoints={
+{   690: {
+     slidesPerView: 2,
+     spaceBetween: 20
+   },
+   980: {
+     slidesPerView: 3,
+     spaceBetween: 30
+   }}
+ }
+security=""
     cssMode={true}
     navigation
     pagination={{ clickable: true }}

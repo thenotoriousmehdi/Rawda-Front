@@ -23,14 +23,27 @@ export default function Team() {
   >
 
 
+
+
 <div className="flex flex-col gap-8 mb-[100px] sm:mb-[300px] mt-10 sm:mt-[-120px]">
-<div className="flex flex-col items-center gap md:gap-y-0 ">
+
+<div className="flex flex-col items-center gap md:gap-y-0 mb-2 mt-24 ">
+          <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">
+            {" "}
+            Rencontrez L'equipe de Rawda.{" "}
+          </p>
+          <div className="  mb-[0.5px] mt-[-15px] w-[70px] md:w-[480px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
+        </div>
+
+
+
+{/* <div className="flex flex-col flex-wrap items-center gap md:gap-y-0 ">
                 <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">
                   {" "}
                  Rencontrez L'equipe de Rawda.
                 </p>
                 <div className="  mb-[0.5px] mt-[-15px] w-[100px] md:w-[500px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
-              </div>
+              </div> */}
 
 <Swiper navigation={true} modules={[Navigation]} className=" w-[500px] h-[400px]  sm:w-[600px] sm:h-[400px] md:w-[900px] md:h-[550px]  " slidesPerView={isMobile ? 1 : 2}>
         <SwiperSlide className="flex flex-row justify-evenly items-center"><Member img={mehdi} name="MEHDI MAMOUNI" description="Etudiant 2CP G06, Designer et développeur web Front-end " ></Member>    </SwiperSlide>

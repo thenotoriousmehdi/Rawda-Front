@@ -637,7 +637,7 @@ console.log("nom d'etablissement", nomdetablissement)
       <a href="#Filter-search">
         <button
           type="submit"
-          className="p-3 px-10 pt-3 mt-[-50px] text-rawdawhite text-xl bg-rawdapurple hover:bg-rawdapurple hover:bg-opacity-70 rounded-full baseline shadow-sm shadow-rawdapurple"
+          className="p-3 px-10 pt-3 mt-[-50px] text-rawdawhite text-xl bg-rawdapurple hover:bg-rawdapurple hover:bg-opacity-100 rounded-full baseline shadow-sm shadow-rawdapurple hover:scale-105 duration-200"
           onClick={handleSubmit}
         >
           <a href="/RsltRechercheCreches"> Rechercher </a>

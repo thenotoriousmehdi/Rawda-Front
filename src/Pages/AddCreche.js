@@ -797,7 +797,7 @@ function AddCreche() {
                         onClick={handleSubmit}
                         id="s'inscrire"
                         type="button"
-                        className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
+                        className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-rawdapurple hover:scale-105 duration-200   m-6"
                       >
                         <a href="">Ajouter ma creche</a>
                       </button>
