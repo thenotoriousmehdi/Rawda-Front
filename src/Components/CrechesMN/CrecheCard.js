@@ -2,7 +2,7 @@ import Rating from "@mui/material/Rating";
 export default function CrecheCard({ creche }) {
   let indexid = creche.numid - 1;
   return (
-    <div className="keen-slider__slide   h-max w-[200px]  flex flex-col justify-center items-center  rounded-xl ">
+    <div className="keen-slider__slide   h-max w-[200px]  flex flex-col justify-center items-center  rounded-xl hover:scale-105 duration-200 ">
       <div className="w-[300px] bg-white border border-gray-200 rounded-lg shadow m-6">
         <img
           className="rounded-t-lg   h-48 object-cover w-full"
@@ -29,7 +29,7 @@ export default function CrecheCard({ creche }) {
 
           <a
             href={`/creches/${creche._id}`}
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-rawdapurple rounded-lg hover:bg-rawdapurple hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-rawdapurple rounded-lg hover:bg-rawdapurple hover:bg-opacity-100 hover:scale-110 duration-200"
           >
             Details
             <svg

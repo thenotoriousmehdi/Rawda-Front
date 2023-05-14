@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="flex justify-center md:justify-start">
             <button
               
-              className="p-3 px-6  text-rawdawhite bg-rawdapurple rounded-full baseline  hover:bg-rawdapurple hover:bg-opacity-80 shadow-sm shadow-rawdapurple"
+              className="p-3 px-6   text-rawdawhite bg-rawdapurple rounded-full baseline  hover:bg-rawdapurple hover:bg-opacity-100 shadow-sm shadow-rawdapurple hover:scale-105 duration-200"
             >
             
           <a href="/Search"> Commencer </a>    
