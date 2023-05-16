@@ -18,7 +18,7 @@ export default function Services() {
         <p className="  text-center text-3xl md:text-4xl font-bold text-Poppins z-10 ">Nos Services</p>
       <div className="  mb-[20px] mt-[-15px] w-[200px] md:w-[230px] h-[20px] md:mt-[-15px] bg-rawdayellow shadow-rawdayellow "></div></div>
       
-      <p className="text-sm md:text-xl font-medium font-Poppins text-rawdapurple text-opacity-70  text-center md:mb-2">Rawda vous offre un voyage sans précédent dans le monde des crèches en Algérie
+      <p className="text-sm md:text-xl font-medium font-Poppins text-rawdapurple text-opacity-70  text-center md:mb-4">Rawda vous offre un voyage sans précédent dans le monde des crèches en Algérie
 </p>
       <div className="  flex flex-col items-center justify-evenly  h-full md:h-[500px]  md:flex md:flex-row md:justify-evenly ">
       <Service img={maison} title={obj.title[0]} description={obj.des[0]}></Service> 

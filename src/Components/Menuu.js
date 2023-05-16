@@ -1,5 +1,5 @@
 import * as React from "react";
-import mehdi1 from "../assets/mehdi1.png";
+import mehdi1 from "../assets/ano.jpg";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
