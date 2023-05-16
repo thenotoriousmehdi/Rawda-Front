@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Services(props) {
     return(
-        <div className="  p-5 w-[350px] h-[400px] border border-rawdapurple border-opacity-60 md:p-8 bg-rawdawhite  xl:w-[400px] md:w-[30%] xl:h-[500px] md:h-[400px] shadow shadow-rawdapurple rounded-[8px] hover:scale-105 duration-200">
+        <div className="  p-5 w-[350px] h-[400px] border border-rawdapurple border-opacity-60 md:p-8 bg-rawdawhite  xl:w-[400px] md:w-[30%] xl:h-[500px] md:h-[420px] shadow shadow-rawdapurple rounded-[8px] hover:scale-105 duration-200">
 
 <a href="/Login">
         <img src={props.img}></img>
