@@ -13,7 +13,7 @@ export default function Member(props) {
         <p className=" text-lg text-center text-rawdablack mx-5 mt-[15px] md:mt-[20px] md:text-xl">{props.description}</p>
 
           <div className=" flex flex-row  w-full md:h-[60px] justify-evenly items-center mt-[20px] md:mt-[40px]">
-            <a href="facebook.com"><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
+            <a href={props.facebook}><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
                 
             <svg
                 className="w-[100%] h-[100%] object-cover"
@@ -30,7 +30,7 @@ export default function Member(props) {
                 
                  
                 </div></a>
-            <a href="linkedin.com"><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
+            <a href={props.linkedin}><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
                
             <svg 
             className="bg-rawdablack fill-rawdablack"
@@ -47,7 +47,7 @@ export default function Member(props) {
                 
                 
                 </a>
-            <a href="github.com"><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
+            <a href={props.github}><div className=" w-[30px] h-[30px] md:w-[35px] md:h-[35px]">
             <svg
                 className="w-[100%] h-[100%] object-cover"
                 fill="currentColor"

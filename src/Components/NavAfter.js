@@ -1,11 +1,11 @@
 
 import mehdi1 from "../assets/mehdi1.png";
-import Footer from "../Components/Footer.js";
+import Footer from "./Footer.js";
 
 
 import iconotif from "../assets/iconotif.svg";
 import helpicon from "../assets/helpicon.svg";
-import Menuu from "../Components/Menuu";
+import Menuu from "./Menuu";
 
 import Select from "react-select";
 import React, { useState } from "react";

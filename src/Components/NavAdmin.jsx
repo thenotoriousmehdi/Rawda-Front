@@ -1,7 +1,15 @@
-import Select from "react-select";
-import React, { useState } from "react";
+
 import mehdi1 from "../assets/mehdi1.png";
 import Footer from "./Footer.js";
+
+
+import iconotif from "../assets/iconotif.svg";
+import helpicon from "../assets/helpicon.svg";
+import Menuu from "./Menuu";
+
+import Select from "react-select";
+import React, { useState } from "react";
+
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Signup from "../Pages/Signup";
@@ -24,7 +32,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+export default function NavAfter() {
+  
+
+  
+
+
   const [Wilaya, setWilaya] = useState("");
   const [WilayaId, setWilayaId] = useState(0);
   const [commune, setCommune] = useState();
@@ -41,9 +54,7 @@ export default function Header() {
     );
     setWilayaId(wilayaObject.id);
   };
-  const mehdi = () => {
-    return <Footer />;
-  };
+ 
 
   const [fopen, setFOpen] = React.useState(false);
   const handleClick = () => {
@@ -244,26 +255,15 @@ console.log("nom d'etablissement", nomdetablissement)
     <>
       <Disclosure
         as="nav"
-        className=" sticky top-0 z-50 bg-white border-b border-gray-300 "
+        className="sticky top-0 z-50 bg-white border-b border-gray-300 "
       >
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
-                {/* Mobile menu button*/}
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-rawdapurple hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="sr-only">Open main menu</span>
-                    {open ? (
-                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                    ) : (
-                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                    )}
-                  </Disclosure.Button>
-                </div>
                 {/* Mobile menu button */}
-                <div className="flex space-x-32 flex-1 items-center justify-center sm:items-stretch ">
-                  <div className="flex flex-shrink-0 items-center">
+                <div className="flex space-x-52 justify-center sm:items-stretch ">
+                  <div className="flex flex-shrink-0 items-center justify-between">
                     <a href="/">
                       <img
                         className="block h-8 w-auto lg:hidden"
@@ -277,11 +277,14 @@ console.log("nom d'etablissement", nomdetablissement)
                       />
                     </a>
                   </div>
-                  
-{/* <div className="hidden sm:block">
-<Search/>
-</div> */}
-                  <div className="hidden sm:ml-6 sm:block">
+
+                
+
+
+                </div>
+               
+
+                <div className="hidden sm:ml-6 sm:block">
                     <div className="nav-search flex space-x-0 bg-white items-center border border-gray-300 rounded-xl ">
                       <div
                         className="flex ml-2 justify-center items-center bg-rawdapurple rounded-xl h-[30px] w-[60px]"
@@ -309,58 +312,35 @@ console.log("nom d'etablissement", nomdetablissement)
                      </div>
                    </div>
 
+<div className="flex gap-2">
+
+                  <div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
+
+<a href="/Help">
+  <img src={helpicon} />
+    </a>
+
+</div>
+
+<div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
+
+<a href="/Notifications">
+  <img src={iconotif} />
+    </a>
+
+</div>
 
 
+                  {/* Profile dropdown */}
+                 <Menuu userType="admin"/>
 
-                  
-                </div>
-                <div className="hidden absolute sm:space-x-4 sm:inset-y-0 sm:right-0 sm:flex sm:items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    id="se connecter"
-                    type="button"
-                    className="rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite "
-                  >
-                    <a href="/Login">Se connecter</a>
-                  </button>
-
-                  <button
-                    id="s'inscrire"
-                    type="button"
-                    className="rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
-                  >
-                    <a href="/Signup">S'inscrire</a>
-                  </button>
                 </div>
               </div>
             </div>
-
-            <Disclosure.Panel className="flex justify-center sm:hidden ">
-              <div className="space-y-1 px-2 pt-2 pb-3">
-                <button
-                  fullWidth
-                  type="button"
-                  className=" rounded-full font-medium text-sm bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite"
-                >
-                  <a href="/Login">Se connecter</a>
-                </button>
-              </div>
-              <div className="space-y-1 px-2 pt-2 pb-3">
-                <button
-                  fullWidth
-                  type="button"
-                  className=" rounded-full font-medium text-sm bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple"
-                >
-                  <a href="/Signup">S'inscrire</a>
-                </button>
-              </div>
-            </Disclosure.Panel>
           </>
         )}
       </Disclosure>
-     <div className="mb-[-60px] sm:hidden ">
-      <Search/>
 
-      </div> 
       {fopen ? (
   <Disclosure
     as="nav"
@@ -646,10 +626,6 @@ console.log("nom d'etablissement", nomdetablissement)
     </div>
   </Disclosure>
 ) : null}
-
-         
-      
     </>
-    
   );
 }
