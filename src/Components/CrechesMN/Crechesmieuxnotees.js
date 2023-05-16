@@ -38,7 +38,7 @@ const Crechesmieuxnotees = ({creches}) => {
         id="Creche"
         className=" relative flex flex-col w-full h-screen justify-center items-center   "
       >
-        <div className="flex flex-col items-center gap md:gap-y-0 mb-2 mt-24 ">
+        <div className="flex flex-col items-center gap md:gap-y-0 mb-2 mt-44 sm:mt-24 ">
           <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">
             {" "}
             Les crèches les mieux notées{" "}

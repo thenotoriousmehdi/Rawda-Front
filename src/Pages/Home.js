@@ -12,53 +12,53 @@ import AvisCard from "../Components/Aviss/AvisCard";
 import FaqCard from "../Components/Faq/FaqCard";
 import Crechesmieuxnotees from "../Components/CrechesMN/Crechesmieuxnotees";
 import AddAdmin from "./AddAdmin";
-import Team from "../Components/Team/Team"
+import Team from "../Components/Team/Team";
 import NavAdmin from "../Components/NavAdmin";
 import NavParent from "../Components/NavParent";
 import NavProprio from "../Components/NavProprio";
-function Home({userType,creches}) {
-
+function Home({ userType, creches }) {
   let HeaderComponent;
 
   switch (userType) {
-    case 'admin':
+    case "admin":
       HeaderComponent = NavAdmin;
       break;
-    case 'parent':
+    case "parent":
       HeaderComponent = NavParent;
       break;
-    case 'proprio':
+    case "proprio":
       HeaderComponent = NavProprio;
       break;
     default:
-      HeaderComponent = Header; 
+      HeaderComponent = Header;
       break;
   }
 
   return (
     <>
-
-
       <div className="bg-rawdawhite">
-      <HeaderComponent />
+        <HeaderComponent />
         <Hero />
         <div>
           <img src={deco1} />
         </div>
         <About />
-        <Crechesmieuxnotees  creches={creches} />
+        <Crechesmieuxnotees creches={creches} />
         <Services />
-        <Team/>
+        <div className="hidden sm:block">
+          <Team />{" "}
+        </div>
+
         <Avis />
         <Faq />
-           <div className="flex flex-wrap justify-center items-center gap-6 m-4">
+        <div className="flex flex-wrap justify-center items-center gap-6 m-4">
           <a href="/VoirProfil"> Profil </a>
           <a href="/Notifications">Notifications </a>
           <a href="/AddCreche">Add Creche </a>
           <a href="/Dashboard">Dashboard </a>
           <a href="/creches">infos creche </a>
           <a href="AddAdmin"> Add Admin</a>
-        </div>   
+        </div>
         <Footer />
       </div>
     </>

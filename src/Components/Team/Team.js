@@ -25,7 +25,7 @@ export default function Team() {
 
 
 
-<div className="flex flex-col gap-8 mb-[100px] sm:mb-[300px] mt-10 sm:mt-[-120px]">
+<div className="flex flex-col gap-8 mb-[100px] sm:mb-[300px] mt-[-120px] sm:mt-[-120px]">
 
 <div className="flex flex-col items-center gap md:gap-y-0 mb-2 mt-24 ">
           <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdablack z-10">
