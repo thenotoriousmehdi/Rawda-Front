@@ -3,6 +3,7 @@ import Hero from "./Components/Hero";
 import Footer from "./Components/Footer";
  import About from "./Components/About"; 
  import Home from "./Pages/Home";
+ import React, { useState } from "react";
  import AddCreche from "./Pages/AddCreche";
  import Login from "./Pages/Login";
  import Signup from "./Pages/Signup";
@@ -25,15 +26,14 @@ import HomeAfter from "./Pages/HomeAfter";
 import ModifierCreche from "./Pages/Profile/ModifierCreche";
 import MotDePasseOublie from "./Pages/MotDePasseOublie";
 function App() {
-
+  const [userRole, setUserRole] = useState('');
   const creches = data['creches'];       
   return (
 
 <Routes>
  
-  <Route path='/Signedproprio' element ={<HomeAfter creches={creches}/>} />
-  <Route path='/Signedparent' element ={<HomeAfter creches={creches}/>} />
-<Route path='/' element={<Home />} />
+  
+<Route path='/' element={<Home userRole={userRole} />} />
 <Route path='/Login' element={<Login/>} />
 <Route path='/Signup' element={<Signup/>} />
 <Route path='/VoirProfil/' element={<VoirProfil photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix"  />} />

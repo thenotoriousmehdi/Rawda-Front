@@ -1,17 +1,17 @@
 import React, { useState, Component } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
 import image1 from "../assets/iluss2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import google from "../assets/google1.svg";
-
+import { useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.svg";
 
 const Login = (Props) => {
   const [email, setEmail] = useState("");
   //const [password, setPassword] = useState("");
-
+  const history = useNavigate();
+  
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -49,6 +49,7 @@ const Login = (Props) => {
     }
     console.log("Email:", email);
     console.log("Password:", password);
+  
   };
 
   return (
