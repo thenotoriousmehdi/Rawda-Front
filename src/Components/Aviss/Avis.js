@@ -4,11 +4,11 @@ import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
 import AvisCard from "./AvisCard";
 import arrow from "../../assets/arrow1.svg";
-import mehdi from "../../assets/mehdi1.png";
-import mouloud from "../../assets/mouloud.jpg";
-import ines from "../../assets/ines.jpg";
-import kahina from "../../assets/kahina.jpg";
-import wassim from "../../assets/wassim.PNG";
+import jhon from "../../assets/jhon.jpg";
+import tarantino from "../../assets/tarantino.jpg";
+import linus from "../../assets/linus.jpeg";
+import nekfeu from "../../assets/nekfeu.jpg";
+
 
 const Avis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,36 +25,32 @@ const Avis = () => {
   });
   const data = [
     {
-      photo: mehdi,
-      nom: "Mehdi MAMOUNI",
+      photo: jhon,
+      nom: "John Doe",
       avis: `Je suis tellement reconnaissant d'avoir découvert Rawda ! Grâce à ce site web,
       j'ai pu trouver la crèche parfaite pour mon enfant.
        Je recommande vivement Rawda à tous les parents qui cherchent une crèche de qualité en Algérie.`,
     },
     {
-      photo: mouloud,
-      nom: "Mouloud SERIR",
+      photo: nekfeu,
+      nom: "Ken Samaras",
       avis: `Maman cherchait ya quelques temps une crèche pour mon frère qui travaille le samedi je lui ai proposé de me 
       laisser le faire à travers rawda et franchement je ne regrette pas, j’ai inscrit mon frère dans la crèche en moins
        de 10 minute le seul bemole était le temps d’attente pour recevoir une réponse de la part de la crèche `,
     },
     {
-      photo: kahina,
-      nom: "Kahina SAADAOUI",
+      photo: tarantino,
+      nom: "Quentin Tarantino",
       avis: `Rawda est super ! J'ai pu trouver toutes les informations dont j'avais besoin sur les différentes 
       crèches disponibles en Algérie, et j'ai même pu lire les avis d'autres parents pour me faire une idée plus précise
       `,
     },
     {
-      photo: ines,
-      nom: "Ines MEDERBEL",
+      photo: linus,
+      nom: "Linus Torvalds",
       avis: "je suis impressionné par la qualité de service, j’ai cliqué sur le bouton a gauche de la barre de recherche et une multitude de critère sont affiche devant moi ca m’a pris 1 minute pour sélectionner les critère qui répondent à mes besoins et puis les crèches correspondant étaient affichées, j’ai pu trouver une crèche pour mon fils et même réserver une place ",
     },
-    {
-      photo: wassim,
-      nom: "Wassim BELDJOUDI",
-      avis: "Je suis vraiment satisfait de Rawda ! Grâce à cette plateforme, j'ai trouvé une crèche de grande qualité pour mon frère. Les informations étaient claires et précises, ce qui m'a facilité la recherche. De plus, j'ai pu lire les avis d'autres parents qui m'ont aidé à faire mon choix en toute confiance. Je recommande vivement Rawda à tous les parents en Algérie !",
-    },
+    
   ];
   return (
     <>
