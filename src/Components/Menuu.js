@@ -62,13 +62,18 @@ function Menuu({userType}) {
         {
           label: "Deconnecter",
           href: "/Login",
+
         },
       ];
       break;
     default:
       menuItems = [];
   }
-
+  const handleSignOut = (label) => {
+    if ( label == "Deconnecter" ) {
+      localStorage.clear()
+    }
+  }
   return (
     <Menu as="div" className="relative ml-3">
       <div>
@@ -96,8 +101,10 @@ function Menuu({userType}) {
                     active ? "bg-gray-100" : "",
                     "block px-4 py-2 text-sm text-gray-700"
                   )}
+                  onClick={handleSignOut(item.label)}
                 >
                   {item.label}
+
                 </a>
               )}
             </Menu.Item>

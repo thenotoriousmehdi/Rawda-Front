@@ -1,5 +1,4 @@
 import Header from "../Components/Header";
-
 import Hero from "../Components/Hero";
 import Footer from "../Components/Footer";
 import About from "../Components/About";
@@ -16,28 +15,44 @@ import Team from "../Components/Team/Team";
 import NavAdmin from "../Components/NavAdmin";
 import NavParent from "../Components/NavParent";
 import NavProprio from "../Components/NavProprio";
-function Home({ userType, creches }) {
-  let HeaderComponent;
+import { useEffect, useState } from "react";
 
-  switch (userType) {
-    case "admin":
-      HeaderComponent = NavAdmin;
-      break;
-    case "parent":
-      HeaderComponent = NavParent;
-      break;
-    case "proprio":
-      HeaderComponent = NavProprio;
-      break;
-    default:
-      HeaderComponent = Header;
-      break;
+function Home({ creches }) {
+  const [userType, setUserType] = useState() ;
+
+  useEffect(()=> {
+    console.log(localStorage.getItem('role'))
+    setUserType(localStorage.getItem('role'))
+  },[]);
+
+  
+  const renderSwitch = (userType) => {
+    switch(userType) {
+      case "admin":
+        return <NavAdmin/>;
+        break;
+      case "parent":
+      return <NavParent/>;
+        break;
+      case "proprio":
+        return <NavProprio/>;
+        break;
+      default:
+        return  <Header/>;
+        break;
+    }
   }
 
+  /* headerReturn(){
+    switch (userType) {
+      
+    }
+  } */
+ 
   return (
     <>
       <div className="bg-rawdawhite">
-        <HeaderComponent />
+        {renderSwitch(userType)}
         <Hero />
         <div>
           <img src={deco1} />
@@ -63,5 +78,6 @@ function Home({ userType, creches }) {
       </div>
     </>
   );
+
 }
 export default Home;

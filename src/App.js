@@ -12,7 +12,7 @@ import Notification from "./Components/NotifRdv";
 import Notifications from "./Pages/Notifications";
 import ModifierProfil from "./Pages/Profile/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/dashboard/Dashboard";
 import {Routes, Route} from 'react-router-dom';
 import VoirProfil from "./Pages/Profile/VoirProfil";
 import RsltRechercheCreches from "./Pages/RsltRechercheCreches";
@@ -33,7 +33,7 @@ function App() {
 <Routes>
  
   
-<Route path='/' element={<Home userRole={userRole} />} />
+<Route path='/' element={<Home/>} />
 <Route path='/Login' element={<Login/>} />
 <Route path='/Signup' element={<Signup/>} />
 <Route path='/VoirProfil/' element={<VoirProfil photo={mehdi} nomc="Mehdi Mamouni" role="Parent" email="km_mamouni@esi.dz" num="056000000" daten="23/07/2002" adresse="Rue de la paix"  />} />

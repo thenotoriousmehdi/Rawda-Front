@@ -56,7 +56,7 @@ const Signup = (props) => {
         role,
       });
     } catch (e) {
-      console.log(" USER NOT SIGNED ");
+      alert(" USER NOT SIGNED ");
     }
 
     console.log("Email:", nom);
@@ -166,7 +166,7 @@ const Signup = (props) => {
             </div>
 
             <div className="mx-auto my-auto">
-              <section className=" border-b border-gray-500 border-opacity-50 mt-4 mb border-solid w-[250px]"></section>
+              <section className=" border-b border-gray-500 border-opacity-50 mt-4 mb border-solid w-[100px] sm:w-[250px]"></section>
             </div>
 
             <div class="mx-auto my-auto ">

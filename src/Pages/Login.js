@@ -31,7 +31,7 @@ const Login = (Props) => {
     setPassword(event.target.value);
   };
  */
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -42,7 +42,15 @@ const Login = (Props) => {
           password,
         })
         .then((res) => {
-          if ((res.data = "User Existed")) res.status(200);
+          console.log(res.data);
+          // if ((res.data = "User Existed")) res.status(200);
+          localStorage.setItem('token',res.data.token )  
+          localStorage.setItem('key',res.data.key )  
+          localStorage.setItem('role',res.data.role )        
+          navigate("/")
+        /* }).catch((e) => {
+          console.log(e.message)
+          alert('User not existed') */
         });
     } catch (e) {
       console.log("USER NOT LOGGED");
@@ -164,9 +172,10 @@ const Login = (Props) => {
               <button
                 class="mb-7 mt-6 w-full h-12  focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600 hover:scale-105 duration-200"
                 type="submit"
+                onClick={handleSubmit}
               >
                 {" "}
-                <a href="/">Se connecter </a>
+               Se connecter 
               </button>
             </div>
 
