@@ -10,7 +10,7 @@ function Footer (){
         </div>
         <div className="px-20 py-6 bg-rawdapurple  md:flex md:items-center md:justify-between">
           <span className="text-sm text-rawdawhite sm:text-center">
-            © 2023 <a href="https://rawda.com/">Rawda™</a>. Touts les droits sont réserver.
+            © 2023 <a href="https://rawda.com/">Rawda™</a>. Tous les droits sont réserver.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
             <a
