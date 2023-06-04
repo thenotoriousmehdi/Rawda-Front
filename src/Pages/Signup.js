@@ -143,14 +143,14 @@ const Signup = (props) => {
                 onClick={handleParentClick}
                 className=" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 hover:text-rawdawhite hover:bg-rawdapurple border-rawdapurple focus:outline-none "
               >
-              <a href="Signedparent"> Un parent</a> 
+              Un parent
               </button>
 
               <button
                 onClick={handleProprioClick}
                 className=" py-3 font-body font-bold text-center text-lg rounded-lg bg-white text-rawdablack border-2 hover:text-rawdawhite hover:bg-rawdapurple border-rawdapurple focus:outline-none"
               >
-              <a href="Signedproprio"> Un Proprio </a>  
+               Un Proprio 
               </button>
             </div>
 
