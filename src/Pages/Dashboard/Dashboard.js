@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer";
 import mehdi from "../../assets/mehdi.jpeg";
 import linepurple from "../../assets/linepurple.svg";
 import lineyellow from "../../assets/lineyellow.svg";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, Bar } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
 
@@ -32,7 +32,7 @@ function Dashboard({ nom }) {
           <div className="font-Medium text-xl justify-start items-start text-rawdablack font-Poppins  mt-[30px] ">
             <h1>Bonjour, {nom}</h1>
           </div>
-
+<div className="flex flex-col gap-8">   
           <div className="flex flex-wrap gap-4">
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-0">
@@ -158,6 +158,15 @@ function Dashboard({ nom }) {
             </div>
 
             {/* <Notif type="Demande de rendez-vous" photo={mehdi} nomc="Mehdi MAMOUNI" heuree="2" heure="16:30" date="27/05/2023" num="0560000000" email="km_mamouni@esi.dz"/> */}
+          </div>
+          <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[738px] rounded-xl ">
+          <div className="justify-center h-[300px] w-[300px]">
+                  {/* <Bar data={"blue"} /> */}
+                </div>
+            </div>
+
+
+
           </div>
         </div>
         <Footer />
