@@ -22,7 +22,7 @@ const data = {
     },
   ],
 };
-function Dashboard ({ nom }) {
+function Dashboard({ nom }) {
   return (
     <>
       <div className="h-full bg-rawdapurple bg-opacity-10 ">
@@ -33,10 +33,8 @@ function Dashboard ({ nom }) {
             <h1>Bonjour, {nom}</h1>
           </div>
 
-          <div className="flex  flex-wrap gap-4">
-
+          <div className="flex flex-wrap gap-4">
             <div className="flex flex-col gap-8">
-
               <div className="flex flex-col gap-0">
                 <Stat
                   line={linepurple}
@@ -50,14 +48,62 @@ function Dashboard ({ nom }) {
                   number="6000"
                   pourcentage="8"
                 />
- </div>
-                <div className="flex gap-5">
-                  <div className="bg-rawdawhite rounded-xl h-[150px] w-[170px]"></div>
+              </div>
+              <div className="flex gap-5">
+                <div className="bg-rawdawhite rounded-xl h-[150px] w-[170px]">
+                  <div className="flex flex-col pt-4  justify-center items-center gap-4">
+                    <h1 className="text-rawdablack text-xl font-medium">
+                      Parents
+                    </h1>
 
-                  <div className="bg-rawdawhite rounded-xl h-[150px] w-[170px]"></div>
+                    <h2 className="text-rawdapurple text-3xl font-bold">
+                      2000
+                    </h2>
+                  </div>
                 </div>
-             
 
+                <div className="bg-rawdawhite rounded-xl h-[150px] w-[170px]">
+                  <div className="flex flex-col pt-4  justify-center items-center gap-4">
+                    <h1 className="text-rawdablack text-xl font-medium">
+                      Proprio
+                    </h1>
+                    <h2 className="text-rawdapurple text-3xl font-bold">400</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-[-35px]">
+                <Stat
+                  line={linepurple}
+                  titre="Recherches effectuées"
+                  number="2345"
+                  pourcentage="12"
+                />
+              </div>
+
+              <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[360px] rounded-xl ">
+                <div className="flex flex-col items-center gap-4">
+                  <h1 className="text-rawdapurple text-xl font-medium">
+                    Les crèches les plus consultées
+                  </h1>
+                  <div className="flex flex-col gap-4">
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      1- Creche mehdi
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      2- Creche mouloud
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      3- Creche Kahina
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      4- Creche Simou
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      5- Creche Amine
+                    </h2>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col justify-center items-center gap-0">
@@ -75,6 +121,40 @@ function Dashboard ({ nom }) {
                   pourcentage="9.5"
                 />
               </div>
+
+              <div>
+                <Stat
+                  line={lineyellow}
+                  titre="Moyenne du temps passee sur l'application"
+                  number="15min"
+                />
+              </div>
+
+              <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[360px] mt-[30px] rounded-xl ">
+              <div className="flex flex-col items-center gap-4">
+                  <h1 className="text-rawdapurple text-xl font-medium">
+                    Les Termes les plus recherchés
+                  </h1>
+                  <div className="flex flex-col gap-4">
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      1- Creche 
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      2- kouba
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      3- tizi
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      4- Alger
+                    </h2>
+                    <h2 className="text-rawdablack text-lg font-bold">
+                      5- Jardin
+                    </h2>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             {/* <Notif type="Demande de rendez-vous" photo={mehdi} nomc="Mehdi MAMOUNI" heuree="2" heure="16:30" date="27/05/2023" num="0560000000" email="km_mamouni@esi.dz"/> */}
@@ -84,5 +164,5 @@ function Dashboard ({ nom }) {
       </div>
     </>
   );
-};
+}
 export default Dashboard;
