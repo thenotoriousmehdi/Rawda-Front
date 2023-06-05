@@ -34,7 +34,7 @@ const Login = (Props) => {
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     try {
       await axios
         .post("http://localhost:8000/login", {
@@ -43,7 +43,7 @@ const Login = (Props) => {
         })
         .then((res) => {
           console.log(res.data);
-          // if ((res.data = "User Existed")) res.status(200);
+         // if ((res.data = "User Existed")) res.status(200);
           localStorage.setItem('token',res.data.token )  
           localStorage.setItem('key',res.data.key )  
           localStorage.setItem('role',res.data.role )        
