@@ -27,7 +27,7 @@ const AddAdmin = (props) => {
   };
 
   
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     
     const role = "admin";
@@ -50,11 +50,8 @@ const AddAdmin = (props) => {
     console.log("Email:", email);
     console.log("Password:", password);
     navigate("/")
-  }; /* fin de l'envoie */
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
   };
+  
 
   return (
     <div class="h-screen bg-rawdawhite">
