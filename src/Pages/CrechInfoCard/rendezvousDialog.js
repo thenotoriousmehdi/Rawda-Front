@@ -9,9 +9,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
+import { useParams } from "react-router";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -54,7 +55,10 @@ BootstrapDialogTitle.propTypes = {
 
 
 export default function CustomizedDialogsRdv() {
+  const { crecheId } = useParams();
   const [open, setOpen] = React.useState(false);
+
+
   
 
   const handleClickOpen = () => {
@@ -110,22 +114,25 @@ export default function CustomizedDialogsRdv() {
   };
 
 
-  const handleSubmit = (event) => {
-   
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setbuttonTextform('Envoyé!');
-    setRdvclosed(false)  ; 
-    console.log('Nom :', nomc);
+    try {
+      const response = await axios.post(`http://localhost:8000/crecherdv/${crecheId}`, {
+        heure: selectedOption,
+        dateRdv: datetoken.toISOString(),
+      });
   
-    console.log('prenom :', pnom);
-
-    console.log('Numero de †elephone:', num);
-    
-    console.log('date', datetoken);
-
-    console.log('time', selectedOption);
-    
-  }
+      if (response.status === 201) {
+        setRdvclosed(false);
+        console.log('Rendez-vous pris avec succès!');
+      } else {
+        console.log('Failed to create rendez-vous');
+      }
+    } catch (error) {
+      console.log('An error occurred:', error);
+    }
+  };
   
   const [Textconfirmation, setTextconfirmation] = useState(false) ; 
   const handleconfirmation = (e) =>{
