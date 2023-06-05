@@ -9,6 +9,7 @@ import lineyellow from "../../assets/lineyellow.svg";
 import { Doughnut, Bar } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 import { useEffect , useState  } from "react";
+import Nav from "../../Components/Nav";
 import axios from "axios";
 Chart.register(ArcElement);
 
@@ -71,7 +72,7 @@ function Dashboard({ nom }) {
   return (
     <>
       <div className="h-full bg-rawdapurple bg-opacity-10 ">
-        <NavAfter />
+        <Nav />
 
         <div className="flex justify-center items-center flex-col gap-2 mb-10">
           <div className="font-Medium text-xl justify-start items-start text-rawdablack font-Poppins  mt-[30px] ">

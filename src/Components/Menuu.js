@@ -50,6 +50,10 @@ function Menuu({userType}) {
     case "admin":
       menuItems = [
         {
+          label: "Dahboard",
+          href: "/Dashboard",
+        },
+        {
           label: "Profil",
           href: "/VoirProfil",
         },
