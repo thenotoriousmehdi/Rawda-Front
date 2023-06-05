@@ -29,16 +29,17 @@ export default function ContactSection({ creche , idcreche}) {
   const navigate = useNavigate();
   const handleModifClick = async (event) => {
     event.preventDefault();
-  try {
-   navigate(`/ModifierCreche/${creche._id}` ,{state : {  data :creche  }});
+  
+      try {
+   navigate(`/ModifierCreche/${creche._id}` ,{state : {  data :creche , ageMin: creche.ageAccueil.ageMin , ageMax: creche.ageAccueil.ageMax }});
    console.log(" data sent ");
+   console.log(creche.ageAccueil.ageMax);
   }catch (e) {
     console.log(" DATE NOT SENT  ");
   }}
   const [userType, setUserType] = useState() ;
-
   useEffect(()=> {
-    console.log(localStorage.getItem('role'))
+    //console.log(localStorage.getItem('role'))
     setUserType(localStorage.getItem('role'))
   },[]);
  
@@ -162,7 +163,7 @@ export default function ContactSection({ creche , idcreche}) {
       <a href={`/ModifierCreche/${creche._id}`} onClick={handleModifClick} className="buttonStyle bg-rawdapurple hover:bg-purple-600 font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2">
         Modifier ma créche
       </a>
-    ) : null
+    ) : <p></p>
   }
           </div> 
          
@@ -170,5 +171,4 @@ export default function ContactSection({ creche , idcreche}) {
 )
   
 }
-
 
