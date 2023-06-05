@@ -322,13 +322,7 @@ console.log("nom d'etablissement", nomdetablissement)
 
 </div>
 
-<div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
 
-<a href="/Notifications">
-  <img src={iconotif} />
-    </a>
-
-</div>
 
 
                   {/* Profile dropdown */}

@@ -16,9 +16,9 @@ import NavAdmin from "../Components/NavAdmin";
 import NavParent from "../Components/NavParent";
 import NavProprio from "../Components/NavProprio";
 import { useEffect, useState } from "react";
-
+import Nav from "../Components/Nav";
 function Home({ creches }) {
-  const [userType, setUserType] = useState() ;
+  /* const [userType, setUserType] = useState() ;
 
   useEffect(()=> {
     console.log(localStorage.getItem('role'))
@@ -42,7 +42,7 @@ function Home({ creches }) {
         break;
     }
   }
-
+ */
   /* headerReturn(){
     switch (userType) {
       
@@ -52,7 +52,8 @@ function Home({ creches }) {
   return (
     <>
       <div className="bg-rawdawhite">
-        {renderSwitch(userType)}
+       {/* {renderSwitch(userType)} */}
+       <Nav/>
         <Hero />
         <div>
           <img src={deco1} />

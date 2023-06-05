@@ -19,10 +19,7 @@ function Menuu({userType}) {
           label: "Profil",
           href: "/VoirProfil",
         },
-        {
-          label: "Ajouter un enfant",
-          href: "",
-        },
+        
         {
           label: "Deconnecter",
           href: "/Login",

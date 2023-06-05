@@ -43,18 +43,17 @@ const Login = (Props) => {
         })
         .then((res) => {
           console.log(res.data);
-         // if ((res.data = "User Existed")) res.status(200);
-          localStorage.setItem('token',res.data.token )  
-          localStorage.setItem('key',res.data.key )  
-          localStorage.setItem('role',res.data.role )        
+          const { key , role , token }= res.data;
+          //if ((res.data = "User Existed")) res.status(200);
+          localStorage.setItem('token',token )  
+          localStorage.setItem('key',key )  
+          localStorage.setItem('role',role)  
           navigate("/")
-        /* }).catch((e) => {
-          console.log(e.message)
-          alert('User not existed') */
         });
     } catch (e) {
       console.log("USER NOT LOGGED");
     }
+    console.log(localStorage.getItem('key')); 
     console.log("Email:", email);
     console.log("Password:", password);
   

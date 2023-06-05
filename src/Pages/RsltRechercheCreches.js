@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Pagination from "../Components/Pagination";
 import CrechesCardS from "../Components/CrechesCardS";
 import { useLocation } from "react-router-dom";
-
+import Nav from "../Components/Nav";
 function RsltRechercheCreches({ creches }) {
   const location = useLocation();
   const [crechesSearch, setCrechesSearch] = useState(creches);
@@ -21,7 +21,7 @@ function RsltRechercheCreches({ creches }) {
 
   return (
     <div>
-      <Header />
+      <Nav />
       <div className="flex flex-col justify-center items-center  gap     w-full bg-white mt-16 sm:mt-0  pt-3  fixed z-30  ">
         <h3 className="font-body  font-bold sm:text-4xl  text-2xl  text-rawdapurple  z-10 ">
           Résultats de recherche

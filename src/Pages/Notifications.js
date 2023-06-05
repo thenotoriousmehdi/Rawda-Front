@@ -1,5 +1,5 @@
 import Notification from "../Components/NotifRdv";
-import NavAfter from "../Components/NavAfter";
+import Nav from "../Components/Nav";
 import mehdi from "../assets/mehdi.jpeg";
 import kahina from "../assets/kahina.jpg";
 import mouloud from "../assets/mouloud.jpg";
@@ -10,7 +10,7 @@ import NotifCreche from "../Components/NotifCreche";
 function Notifications() {
   return (
     <>
-      <NavAfter />
+      <Nav />
       <div className="bg-rawdawhite">
         <div className="flex flex-col items-center gap pt-8 md:gap-y-0 ">
           <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdapurple z-10">

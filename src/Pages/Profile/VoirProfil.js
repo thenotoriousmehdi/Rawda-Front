@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer";
 import Accordion2 from "./Accordion2";
 import axios from "axios";
 import anonymePhoto from "../../assets/ano.jpg";
-
+import Nav from "../../Components/Nav";
 export default function VoirProfil() {
   const [data, setData] = useState([]);
 
@@ -36,7 +36,7 @@ export default function VoirProfil() {
 
   return (
     <div className="bg-rawdawhite">
-      <NavAfter />
+      <Nav  />
       <div className="flex items-center justify-center">
         <div
           id="profile"
