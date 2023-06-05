@@ -1,6 +1,8 @@
 import CustomizedDialogs from "./inscriptionDialog";
 import CustomizedDialogsRdv from "./rendezvousDialog";
 import { useNavigate } from "react-router-dom";
+import { useState  } from "react";
+import { useEffect } from "react";
 
 //import fileDownload from 'js-file-download'
  
@@ -142,13 +144,21 @@ const role ="user" ;
      {// <CustomizedDialogs/>
         //   <CustomizedDialogsRdv/> 
      }
-           <a href={`/ModifierCreche/${creche._id}`} onClick={handleModifClick} className="buttonStyle bg-rawdapurple hover:bg-purple-600  font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2  " >
-      Modifier ma créche 
-     </a> 
-
-
-
-          </div>  
+         
+         {userType === "admin" ? null :
+    userType === "parent" ? (
+      <>
+        <CustomizedDialogs />
+        <CustomizedDialogsRdv />
+      </>
+    ) :
+    userType === "proprio" ? (
+      <a href={`/ModifierCreche/${creche._id}`} onClick={handleModifClick} className="buttonStyle bg-rawdapurple hover:bg-purple-600 font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2">
+        Modifier ma créche
+      </a>
+    ) : null
+  }
+          </div> 
          
   </div>  
 )
