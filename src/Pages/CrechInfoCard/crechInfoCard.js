@@ -33,7 +33,7 @@ export default function CrechInfoCard() {
         <div className="App">
           <Header/>
           <Infocreche creche={creche}  />
-          <Localisation /> 
+          <Localisation creche={creche}/> 
           <Avis creche={creche}/>
           <ContactSection creche={creche}/>
           <Footer /> 
