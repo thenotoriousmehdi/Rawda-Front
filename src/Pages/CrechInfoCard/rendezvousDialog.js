@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
-import { useParams } from "react-router";
+import { useParams } from 'react-router-dom';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -55,7 +55,7 @@ BootstrapDialogTitle.propTypes = {
 
 
 export default function CustomizedDialogsRdv() {
-  const { crecheId } = useParams();
+  const { id } = useParams();
   const [open, setOpen] = React.useState(false);
 
 
@@ -118,7 +118,7 @@ export default function CustomizedDialogsRdv() {
     event.preventDefault();
     setbuttonTextform('Envoyé!');
     try {
-      const response = await axios.post(`http://localhost:8000/crecherdv/${crecheId}`, {
+      const response = await axios.post(`http://localhost:8000/crecherdv/${id}`, {
         heure: selectedOption,
         dateRdv: datetoken.toISOString(),
       });
