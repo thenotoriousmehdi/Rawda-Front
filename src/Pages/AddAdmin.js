@@ -30,6 +30,7 @@ const AddAdmin = (props) => {
 
   const handleSubmit = async (event) => {
     /* envoie des infos vers le back */
+    const role = "admin";
     event.preventDefault();
     try {
       await axios.post("http://localhost:8000/signup", {
@@ -37,6 +38,7 @@ const AddAdmin = (props) => {
         prenom,
         email,
         password,
+        role,
         
       });
     } catch (e) {
