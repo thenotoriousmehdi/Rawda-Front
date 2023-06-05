@@ -65,7 +65,7 @@ const AddAdmin = (props) => {
       <div className="flex flex-col items-center gap md:gap-y-0 mt-12 ">
                 <p className="  text-center text-3xl md:text-4xl font-Poppins font-bold text-rawdapurple z-10">
                   {" "}
-                 Ajout d'un nouveau Admin
+                 Ajout d'un nouvel Admin
                 </p>
                 <div className="  mb-[0.5px] mt-[-15px] w-[100px] md:w-[430px] h-[20px]  bg-rawdayellow shadow-rawdayellow "></div>
               </div>
