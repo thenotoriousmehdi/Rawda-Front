@@ -8,9 +8,12 @@ import linepurple from "../../assets/linepurple.svg";
 import lineyellow from "../../assets/lineyellow.svg";
 import { Doughnut, Bar } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
+import { useEffect , useState  } from "react";
+import axios from "axios";
 Chart.register(ArcElement);
 
-const data = {
+
+const don = {
   labels: ["Respos", "Parents", "Non-inscrits"],
 
   datasets: [
@@ -22,7 +25,49 @@ const data = {
     },
   ],
 };
+
 function Dashboard({ nom }) {
+  const [infos, setinfos] = useState([]);
+  const [termes, settermes] = useState([]);
+  const token = localStorage.getItem('token');
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/dash",
+          config
+        );
+       
+        settermes(response.data.termes)
+        setinfos(response.data.infos);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  
+    fetchData();
+  }, []);
+  
+  const [creche, setcreche] = useState([]);
+  useEffect(() => {
+    async function fetchCreche() {
+      try {
+        const response = await axios.get('http://localhost:8000/stats',config);
+        setcreche(response.data); 
+      
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  
+    fetchCreche();
+  }, []);
   return (
     <>
       <div className="h-full bg-rawdapurple bg-opacity-10 ">
@@ -39,13 +84,13 @@ function Dashboard({ nom }) {
                 <Stat
                   line={linepurple}
                   titre="Creches ajoutees"
-                  number="2500"
+                  number= {infos.nbcreche}
                   pourcentage="4.5"
                 />
                 <Stat
                   line={lineyellow}
                   titre="Enfants inscris"
-                  number="6000"
+                  number={infos.nbenfant}
                   pourcentage="8"
                 />
               </div>
@@ -57,7 +102,7 @@ function Dashboard({ nom }) {
                     </h1>
 
                     <h2 className="text-rawdapurple text-3xl font-bold">
-                      2000
+                      {infos.nbparent}
                     </h2>
                   </div>
                 </div>
@@ -67,7 +112,7 @@ function Dashboard({ nom }) {
                     <h1 className="text-rawdablack text-xl font-medium">
                       Proprio
                     </h1>
-                    <h2 className="text-rawdapurple text-3xl font-bold">400</h2>
+                    <h2 className="text-rawdapurple text-3xl font-bold">{infos.nbprop}</h2>
                   </div>
                 </div>
               </div>
@@ -75,7 +120,7 @@ function Dashboard({ nom }) {
                 <Stat
                   line={linepurple}
                   titre="Recherches effectuées"
-                  number="2345"
+                  number={infos.nbrecherche + 180}
                   pourcentage="12"
                 />
               </div>
@@ -86,7 +131,14 @@ function Dashboard({ nom }) {
                     Les crèches les plus consultées
                   </h1>
                   <div className="flex flex-col gap-4">
-                    <h2 className="text-rawdablack text-lg font-bold">
+
+                    {creche.map((crechemn , index) => (
+                      <h2 className="text-rawdablack text-lg font-bold">
+                        {index+1} - 
+                          {crechemn.nom}
+                    </h2>
+                    ))}
+                  { /* <h2 className="text-rawdablack text-lg font-bold">
                       1- Creche mehdi
                     </h2>
                     <h2 className="text-rawdablack text-lg font-bold">
@@ -100,7 +152,7 @@ function Dashboard({ nom }) {
                     </h2>
                     <h2 className="text-rawdablack text-lg font-bold">
                       5- Creche Amine
-                    </h2>
+                    </h2> */}
                   </div>
                 </div>
               </div>
@@ -109,7 +161,7 @@ function Dashboard({ nom }) {
             <div className="flex flex-col justify-center items-center gap-0">
               <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[360px] mt-[30px] rounded-xl ">
                 <div className="justify-center h-[300px] w-[300px]">
-                  <Doughnut data={data} />
+                  <Doughnut data={don} />
                 </div>
               </div>
 
@@ -125,7 +177,7 @@ function Dashboard({ nom }) {
               <div>
                 <Stat
                   line={lineyellow}
-                  titre="Moyenne du temps passee sur l'application"
+                  titre="Moyenne du temps passee "
                   number="15min"
                 />
               </div>
@@ -137,7 +189,7 @@ function Dashboard({ nom }) {
                   </h1>
                   <div className="flex flex-col gap-4">
                     <h2 className="text-rawdablack text-lg font-bold">
-                      1- Creche 
+                      1- Rawdas
                     </h2>
                     <h2 className="text-rawdablack text-lg font-bold">
                       2- kouba
