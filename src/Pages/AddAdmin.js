@@ -4,7 +4,7 @@ import google from "../assets/google1.svg";
 import axios from "axios"; 
 import decosu from "../assets/decosu.svg";
 import decosu1 from "../assets/decosu1.svg";
-
+import { useNavigate } from 'react-router-dom';
 const AddAdmin = (props) => {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
@@ -29,7 +29,7 @@ const AddAdmin = (props) => {
   
 
   const handleSubmit = async (event) => {
-    /* envoie des infos vers le back */
+    
     const role = "admin";
     event.preventDefault();
     try {
@@ -49,7 +49,7 @@ const AddAdmin = (props) => {
     console.log("Password:", prenom);
     console.log("Email:", email);
     console.log("Password:", password);
- 
+    navigate("/")
   }; /* fin de l'envoie */
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -129,7 +129,7 @@ const AddAdmin = (props) => {
                 type="submit"
                 onClick={handleSubmit}
               >
-                <a href="/"> Ajouter un admin </a>
+                 Ajouter un admin 
               </button>
 
             </div>

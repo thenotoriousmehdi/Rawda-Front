@@ -1,7 +1,7 @@
 
 import mehdi1 from "../assets/mehdi1.png";
 import Footer from "./Footer.js";
-
+import NotificationsAdm from "../Pages/NotificationsAdm";
 
 import iconotif from "../assets/iconotif.svg";
 import helpicon from "../assets/helpicon.svg";
@@ -324,7 +324,7 @@ console.log("nom d'etablissement", nomdetablissement)
 
 <div className="flex justify-center items-center bg-rawdawhite rounded-full h-[35px] w-[35px]">
 
-<a href="/Notifications">
+<a href="/NotificationsAdm">
   <img src={iconotif} />
     </a>
 
