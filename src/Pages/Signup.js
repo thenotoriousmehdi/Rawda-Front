@@ -4,7 +4,7 @@ import google from "../assets/google1.svg";
 import axios from "axios";
 import decosu from "../assets/decosu.svg";
 import decosu1 from "../assets/decosu1.svg";
-
+import { useNavigate } from "react-router-dom";
 const Signup = (props) => {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
@@ -14,6 +14,7 @@ const Signup = (props) => {
   const [role, setRole] = useState("");
 
   const handleParentClick = () => {
+    
     setRole("parent");
   };
 
@@ -40,7 +41,7 @@ const Signup = (props) => {
   const handleUserTypeChange = (type) => {
     setUserType(type);
   };
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     /* envoie des infos vers le back */
     event.preventDefault();
@@ -51,9 +52,18 @@ const Signup = (props) => {
         email,
         password,
         role,
+      }) .then((res) => {
+        console.log(res.data);
+        const { key , role , token }= res.data;
+        //if ((res.data = "User Existed")) res.status(200);
+        localStorage.setItem('token',token )  
+        localStorage.setItem('key',key )  
+        localStorage.setItem('role',role)  
+        navigate("/")
       });
     } catch (e) {
       alert(" USER NOT SIGNED ");
+      console.error(e);
     }
 
     console.log("Email:", nom);
