@@ -35,7 +35,13 @@ export default function ContactSection({ creche , idcreche}) {
   }catch (e) {
     console.log(" DATE NOT SENT  ");
   }}
-const role ="user" ; 
+  const [userType, setUserType] = useState() ;
+
+  useEffect(()=> {
+    console.log(localStorage.getItem('role'))
+    setUserType(localStorage.getItem('role'))
+  },[]);
+ 
  
   return (
     <div className="mx-4 my-8 sm:mx-16 sm:my-16 p-5  rounded-md  bg-rawdapurple  bg-opacity-5">
