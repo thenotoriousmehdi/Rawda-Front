@@ -3,7 +3,28 @@ import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
 import CustomizedDialogs from "./refusDialogAjout";
 import eye from "../assets/eye.svg";
-function NotifCreche({photo, nomc,nomcreche, heuree,num, email }) {
+import axios from 'axios'
+function NotifCreche({nomc, nomcreche, heuree, email}) {
+  const sendEmail = async (email, message) => {
+    try {
+      await axios.post('http://localhost:8000/send-email', {
+        name: nomc,
+        email: email,
+        message: message,
+      });
+      console.log('Email sent successfully!');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAccepterClick = () => {
+    sendEmail(email,'Bonjour\nVotre demande d ajout de votre crèche a été acceptée.\nCordialement.');
+  };
+
+  const handleRefuserClick = () => {
+    sendEmail(email,'Bonjour\nVotre demande d ajout de votre creche a été malheureusement refusée.\nCordialement.');
+  };
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
@@ -30,7 +51,7 @@ function NotifCreche({photo, nomc,nomcreche, heuree,num, email }) {
               <div className="flex justify-items-stretch gap-4">
                 {" "}
                 {/* flex nom photo date */}
-                <img className="h-[23px] w-[23px] rounded-full" src={photo} />
+  
                 <h2 className="flex text-sm">{nomc}</h2>
                 <h3 className="flex text-[#475467] text-xs font-light">
                   Depuis {heuree}H
@@ -70,9 +91,7 @@ src={eye}
               <div className="flex gap-4">
                 {" "}
                 {/* flex num et email */}
-                <h3 className="text-sm font-thin text-rawdapurple bg-[#D9D9D9]">
-                  {num}
-                </h3>
+                
                 <h3 className="text-sm font-thin text-rawdapurple bg-[#D9D9D9]">
                   {email}
                 </h3>
@@ -85,18 +104,25 @@ src={eye}
           {" "}
           {/* flex buttons */}
           <div>
-            <a href="">
               <button
                 id="accept"
                 type="button"
                 className="rounded-full font-medium text-sm bg-[#37BB5C] bg-opacity-80 px-4 py-2 text-white hover:bg-[#37BB5C]  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 "
+                onClick={handleAccepterClick}
               >
                 Accepter
               </button>
-            </a>
           </div>
+          <button
+                id="refuser"
+                type="button"
+                className="rounded-full font-medium text-sm bg-[#E53E3E] bg-opacity-80 px-4 py-2 text-white hover:bg-[#E53E3E]  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                onClick={handleRefuserClick}
+            >
+              Refuser
+            </button>
           <div>
-            <CustomizedDialogs />
+            
           </div>
         </div>
       </div>
