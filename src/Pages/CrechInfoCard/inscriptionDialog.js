@@ -43,7 +43,7 @@ function BootstrapDialogTitle(props) {
 }
 
 export default function CustomizedDialogs() {
-  const { crecheId } = useParams();
+  const { id } = useParams();
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
   const [focusedp, setFocusedp] = useState(false);
@@ -98,7 +98,7 @@ export default function CustomizedDialogs() {
     };
   
     try {
-      await axios.post(`http://localhost:8000/crechereserver/${crecheId}`, data);
+      await axios.post(`http://localhost:8000/crechereserver/${id}`, data);
       setButtonText('Enfant inscrit!');
       console.log('Enfant inscrit');
     } catch (error) {
