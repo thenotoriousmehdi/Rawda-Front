@@ -2,14 +2,34 @@ import linenotif from "../assets/linenotif.svg";
 import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
 import CustomizedDialogs from "./refusDialog.js";
-function NotifRdv({photo, nomc, heuree, heure, date, num, email }) {
+import axios from 'axios';
+function NotifRdv({nomc, heure, heuree, date, email }) {
+  const sendEmail = async (email, message) => {
+    try {
+      await axios.post('http://localhost:8000/send-email', {
+        name: nomc,
+        email: email,
+        message: message,
+      });
+      console.log('Email sent successfully!');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAccepterClick = () => {
+    sendEmail(email,'Bonjour\nVotre demande de reservation pour votre enfant a été acceptée.\nCordialement.');
+  };
+
+  const handleRefuserClick = () => {
+    sendEmail(email,'Bonjour\nVotre demande a été malheureusement refusée\nCordialement.');
+  };
   return (
     <div className="flex flex-col bg-rawdawhite w-[360px] md:w-[720px] h-[365px] md:h-[250px] border border-rawdapurple rounded-md">
       <div className="flex bg-rawdapurple bg-opacity-50 w-[360px] md:w-[720px] h-[60px] rounded-t-md p-4 pl-6 justify-between">
         {" "}
         {/* flex top */}
         <h1 className="text-white font-bold">Demande de rendez-vous</h1>
-        <img className="h-[15px]" src={croix} />
       </div>
 
       <div className="flex flex-wrap md:gap-[140px]">
@@ -18,7 +38,7 @@ function NotifRdv({photo, nomc, heuree, heure, date, num, email }) {
           {/* flex nom prenom et line */}
           <div className="flex ml-8 md:ml-0 justify-items-stretch gap-6">
             <div className="ml-1 md:ml-6 mt-[4px]">
-              <img className=" h-[180px] w-[6px]" src={linenotif} />
+              
             </div>
 
             <div className="mt-[30px] flex flex-col gap-4">
@@ -27,7 +47,7 @@ function NotifRdv({photo, nomc, heuree, heure, date, num, email }) {
               <div className="flex justify-items-stretch gap-4">
                 {" "}
                 {/* flex nom photo date */}
-                <img className="h-[23px] w-[23px] rounded-full" src={photo} />
+                
                 <h2 className="flex text-sm">{nomc}</h2>
                 <h3 className="flex text-[#475467] text-xs font-light">
                   Depuis {heuree}H
@@ -45,9 +65,7 @@ function NotifRdv({photo, nomc, heuree, heure, date, num, email }) {
               <div className="flex gap-4">
                 {" "}
                 {/* flex num et email */}
-                <h3 className="text-sm font-thin text-rawdapurple bg-[#D9D9D9]">
-                  {num}
-                </h3>
+               
                 <h3 className="text-sm font-thin text-rawdapurple bg-[#D9D9D9]">
                   {email}
                 </h3>
@@ -60,19 +78,26 @@ function NotifRdv({photo, nomc, heuree, heure, date, num, email }) {
           {" "}
           {/* flex buttons */}
           <div>
-            <a href="/posturad">
               <button
                 id="accept"
                 type="button"
                 className="rounded-full font-medium text-sm bg-[#37BB5C] bg-opacity-80 px-4 py-2 text-white hover:bg-[#37BB5C]  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 "
+                onClick={handleAccepterClick}
               >
                 Accepter
               </button>
-            </a>
           </div>
           <div>
-            <CustomizedDialogs />
+            <button
+              id="refuser"
+              type="button"
+              className="rounded-full font-medium text-sm bg-[#E53E3E] bg-opacity-80 px-4 py-2 text-white hover:bg-[#E53E3E]  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              onClick={handleRefuserClick}
+            >
+              Refuser
+            </button>
           </div>
+          
         </div>
       </div>
     </div>
