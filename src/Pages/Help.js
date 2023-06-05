@@ -3,6 +3,7 @@ import {react,useState} from 'react';
 import ines from '../assets/ines.png';
 import { FaUser, FaHome, FaTimes} from 'react-icons/fa';
 import Modal from 'react-modal';
+import { Button } from '@mui/material';
 
 
    // pop up du parent
@@ -22,6 +23,16 @@ import Modal from 'react-modal';
       event.preventDefault();
     }
 
+    const handleContactUs = () => {
+      const recipientEmail = "Rawda.social@gmail.com"
+      const subject = 'Demande de contact';
+      const body = 'Bonjour,\n\nJe souhaite vous contacter concernant...';
+    
+      const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    };
+    
+
   return (
 
 <div className="lg:bg-purple-100 h-screen ">
@@ -36,41 +47,15 @@ import Modal from 'react-modal';
       pour arriver a votre besoin.
   </p>
   <p className="font-body mt-6 mb-6 font-semibold ml-11 text-lg"> Vous avez quand meme une question ? Posez la en dessous </p>
-  <div className="flex flex-row">
-  <div className='w-1/2'>
-   <form className="font-body mt-6 mb-6 ml-2 lg:ml-6 text-sm flex flex-col justify-center" onSubmit={handleSubmit}>
 
+   <div className="flex  justify-around flex-row m-5">
+  
+   
+ <Button sx={{fontFamily:'Poppins' ,fontWeight:600  , fontSize: {xs:'13px' , sm:"17px" } , background:"#6938EF"  , margin:'20px', padding:'26px' , color: 'black' }}  onClick={handleContactUs} className=" bg-rawdapurple font-semibold text-rawdapurple rounded-lg   p-11  font-body text-xl " >
+ <a href="mailto:Rawda.social@gmail.com">Nous envoyer un email</a>  
+   </Button> 
 
-     <label className="flex flex-col  lg:ml-6 "> <p className="mb-4">Merci de saisir votre adresse mail :</p>
-      <input
-      class=" p-3 w-full mb-4 rounded-md font-light bg-rawdapurple  border-neutral-200 bg-opacity-[15%] lg:bg-white lg:border-neutral-200 focus:outline-none"
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-      />
-
-
-     </label>
-     <label className="flex flex-col  lg:ml-6 "> <p className="mb-4"> Posez votre question ici :</p> 
-      <input
-      class=" p-3 w-full h-20  rounded-md font-light bg-rawdapurple  border-neutral-200 bg-opacity-[15%] lg:bg-white lg:border-neutral-200  focus:outline-none"
-          type="email"
-          value={question}
-          onChange={handleQuestionChange}
-      />
-     </label>
-
-     <button
-          class="mb-7 mt-7  lg:ml-48 h-10 lg:w-3/12  lg:h-12 focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
-          type="submit"
-        >
-          {" "}
-          Envoyer{" "}
-     </button>
-
-
-   </form>
-   </div>
+   
    <div className='w-1/2 mt-5 ml-10 flex justify-center'>
 
         <button className='animate-pulse p-3 w-72 h-82 lg:w-72 lg:h-56 mb-4 rounded-md font-light bg-gradient-to-r from-yellow-300 to-yellow-400 text-black border-neutral-200 focus:outline-none hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white transform hover:-translate-y-1 hover:scale-110 transition-all duration-300 ease-in-out'>
@@ -104,6 +89,15 @@ const handleSubmit =  (event) => {
   event.preventDefault();
 }
 
+const handleContactUs = () => {
+  const recipientEmail = "Rawda.social@gmail.com"
+  const subject = 'Demande de contact';
+  const body = 'Bonjour,\n\nJe souhaite vous contacter concernant...';
+
+  const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+};
+
 return (
 
 <div className="lg:bg-purple-100 h-screen ">
@@ -120,41 +114,11 @@ return (
 
 </p>
 <p className="font-body mt-6 mb-6 font-semibold ml-11 text-lg"> Vous avez quand meme une question ? Posez la en dessous </p>
-<div className="flex flex-row">
-<div className='w-1/2'>
- <form className="font-body mt-6 mb-6 ml-2 lg:ml-6 text-sm flex flex-col justify-center" onSubmit={handleSubmit}>
+<div className="flex justify-evenly flex-row">
 
-   <label className="flex flex-col  lg:ml-6 "> <p className="mb-4">Merci de saisir votre adresse mail :</p>
-    <input
-    class=" p-3 w-full mb-4 rounded-md font-light bg-rawdapurple  border-neutral-200 bg-opacity-[15%] lg:bg-white lg:border-neutral-200 focus:outline-none"
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-    />
-   </label>
-
-
-   <label className="flex flex-col  lg:ml-6 "> <p className="mb-4"> Posez votre question ici :</p> 
-    <input
-    class=" p-3 w-full h-20  rounded-md font-light bg-rawdapurple  border-neutral-200 bg-opacity-[15%] lg:bg-white lg:border-neutral-200  focus:outline-none"
-        type="email"
-        value={question}
-        onChange={handleQuestionChange}
-    />
-   </label>
-
-
-   <button
-        class="mb-7 mt-7  lg:ml-48 h-10 lg:w-3/12  lg:h-12 focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600"
-        type="submit"
-      >
-        {" "}
-        Envoyer{" "}
-      </button>
- </form>
-
-
- </div>
+<Button sx={{fontFamily:'Poppins' ,fontWeight:600  , fontSize: {xs:'13px' , sm:"17px" } , background:"#6938EF"  , margin:'20px', padding:'26px' , color: 'black' }}  onClick={handleContactUs} className=" bg-rawdapurple font-semibold text-rawdapurple rounded-lg   p-11  font-body text-xl " >
+ <a href="mailto:Rawda.social@gmail.com">Nous envoyer un email</a>  
+   </Button> 
 
  <div className='w-1/2 mt-5 ml-10 flex justify-center'>
       <button className='animate-pulse p-3 w-72 h-82 lg:w-72 lg:h-56 mb-4 rounded-md font-light bg-gradient-to-r from-yellow-300 to-yellow-400 text-black border-neutral-200 focus:outline-none hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white transform hover:-translate-y-1 hover:scale-110 transition-all duration-300 ease-in-out'>
