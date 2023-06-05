@@ -3,6 +3,7 @@ import mehdi1 from "../assets/ano.jpg";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -66,11 +67,15 @@ function Menuu({userType}) {
     default:
       menuItems = [];
   }
-  const handleSignOut = (label) => {
-    if ( label == "Deconnecter" ) {
-      localStorage.clear()
+
+  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+
+  const handleMenuItemClick = (href, label) => {
+    if (label === "Deconnecter") {
+      localStorage.clear();
     }
-  }
+    navigate(href);
+  };
   return (
     <Menu as="div" className="relative ml-3">
       <div>
@@ -98,7 +103,8 @@ function Menuu({userType}) {
                     active ? "bg-gray-100" : "",
                     "block px-4 py-2 text-sm text-gray-700"
                   )}
-                  onClick={handleSignOut(item.label)}
+                // onClick={handleSignOut(item.label)}
+                  onClick={() => handleMenuItemClick(item.href, item.label)}
                 >
                   {item.label}
 
