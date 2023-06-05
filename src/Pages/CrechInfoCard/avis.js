@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import FormDialog from "./evaluationDialog";
 import Rating from "@mui/material/Rating";
-import mehdi1 from "../../assets/wassim.PNG";
+import anonymePhoto from "../../assets/ano.jpg";
 
 export default function Avis({ creche }) {
   const eva = creche.avis.evaluations;
@@ -23,16 +23,16 @@ export default function Avis({ creche }) {
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
-          breakpoints={
-         {   690: {
+          breakpoints={{
+            690: {
               slidesPerView: 2,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             980: {
               slidesPerView: 3,
-              spaceBetween: 30
-            }}
-          }
+              spaceBetween: 30,
+            },
+          }}
           cssMode={true}
           navigation
           pagination={{ clickable: true }}
@@ -44,12 +44,28 @@ export default function Avis({ creche }) {
           {eva.map((profilcomment) => (
             <SwiperSlide>
               <div className=" border    border-rawdapurple flex relative flex-col  h-4/6 rounded-lg items-center justify-center p-7 gap-4   ">
-                <img src={mehdi1} className="w-12 h-12 rounded-full" />
+                <img
+                  src={
+                    profilcomment.personne.photo !== ""
+                      ? `http://localhost:8000/${profilcomment.personne.photo}`
+                      : anonymePhoto
+                  }
+                  className="w-12 h-12 rounded-full"
+                />
                 <span className=" font-body font-semibold text-lg lg:text-xl leading-7 lg:leading-9   ">
-                  {profilcomment.nom}{" "}
+                  {profilcomment.personne.nom +
+                    " " +
+                    profilcomment.personne.prenom}{" "}
                 </span>
-                <Rating name="read-only" value={profilcomment.noteIndiv} readOnly />
-                <p className="font-body font-medium text-base  text-black leading-7  text-left pl-3   h-32  w-full  "  style={{overflowWrap : "break-word" , overflow: "auto" }}>
+                <Rating
+                  name="read-only"
+                  value={profilcomment.noteIndiv}
+                  readOnly
+                />
+                <p
+                  className="font-body font-medium text-base  text-black leading-7  text-left pl-3   h-32  w-full  "
+                  style={{ overflowWrap: "break-word", overflow: "auto" }}
+                >
                   {profilcomment.commentaires}
                 </p>
               </div>

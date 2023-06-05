@@ -37,15 +37,17 @@ export default function FormDialog() {
 
   const { id } = useParams();
   const handleSubmit = async () => {
-    try {
-      console.log(value + 15);
-      await axios.patch(`http://localhost:8000/evaluerCreche/${id}`, {
-        note: value,
-        commentaires: textAreaRef.current.value,
-      });
-    } catch (e) {
-      console.log("Une erreur s'est produite");
+    if (textAreaRef.current.value != "") {
+      try {
+        await axios.patch(`http://localhost:8000/evaluerCreche/${id}`, {
+          note: value,
+          commentaires: textAreaRef.current.value,
+        });
+      } catch (e) {
+        console.log("Une erreur s'est produite");
+      }
     }
+    console.log("le commentaire est vide");
   };
 
   return (
