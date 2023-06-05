@@ -28,7 +28,22 @@ function RsltRechercheCreches({ creches }) {
         </h3>
         <div className="  mb-3  -mt-4  w-[280px]  sm:w-[410px]  h-4 bg-yellow-300 shadow-yellow-300 "></div>
       </div>
-      <CrechesCardS
+      {crechesSearch.length === 0 ? 
+  <p  className=" text-center w-full  font-body text-slate-500  p-10  mb-[117px] pb-48  mt-40  border border-rawdapurple rounded-lg">No creches found.</p>
+ : 
+  <>
+    <CrechesCardS
+      creches={crechesSearch.slice(firstPostIndex, lastPostIndex)}
+    />
+    <Pagination
+      totalPosts={crechesSearch.length}
+      postsPerPage={postsPerPage}
+      setCurrentPage={setCurrentPage}
+      currentPage={currentPage}
+    />
+  </>
+}
+    { /*   <CrechesCardS
         creches={crechesSearch.slice(firstPostIndex, lastPostIndex)}
       />
       <Pagination
@@ -37,6 +52,8 @@ function RsltRechercheCreches({ creches }) {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+*/ }
+
       <Footer />
     </div>
   );
