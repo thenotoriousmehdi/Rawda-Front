@@ -3,13 +3,39 @@ import mehdi1 from "../assets/ano.jpg";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 function Menuu({ userType }) {
   let menuItems;
+  const [data, setData] = useState([]);
 
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/profile",
+          config
+        );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, []);
   switch (userType) {
     case "parent":
       menuItems = [
@@ -61,7 +87,6 @@ function Menuu({ userType }) {
         {
           label: "Deconnecter",
           href: "/",
-
         },
       ];
       break;
@@ -69,7 +94,7 @@ function Menuu({ userType }) {
       menuItems = [];
   }
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleMenuItemClick = (href, label) => {
     if (label === "Deconnecter") {
@@ -82,7 +107,13 @@ function Menuu({ userType }) {
       <div>
         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800">
           <span className="sr-only">Open user menu</span>
-          <img className="h-8 w-8 rounded-full" src={mehdi1} alt="user pic" />
+          <img
+            className="h-8 w-8 rounded-full"
+            src={
+              data.photo !== "" ? `http://localhost:8000/${data.photo}` : mehdi1
+            }
+            alt="user pic"
+          />
         </Menu.Button>
       </div>
       <Transition
