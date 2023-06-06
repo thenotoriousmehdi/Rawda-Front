@@ -3,7 +3,7 @@ import Localisation from "./localisation";
 import Footer from "../../Components/Footer";
 import Avis from "./avis";
 import ContactSection from "./contactSection";
-import Header from "../../Components/Header";
+import Nav from "../../Components/Nav";
 import useFetch from "./useFetch";
 import { useParams } from "react-router";
 import React, { useState, useEffect } from "react";
@@ -12,7 +12,7 @@ import axios from "axios";
 export default function CrechInfoCard() {
   const [creche, setCreche] = useState(null);
   const { id } = useParams();
-//const creche = creches[id-1];
+  //const creche = creches[id-1];
   const fetchCreche = async () => {
     try {
       const response = await axios(`http://localhost:8000/Creche/${id}`);
@@ -26,20 +26,18 @@ export default function CrechInfoCard() {
     fetchCreche();
   }, [id]);
 
-
   return (
     <div>
       {creche && (
         <div className="App">
-          <Header/>
-          <Infocreche creche={creche}  />
-          <Localisation creche={creche}/> 
-          <Avis creche={creche}/>
-          <ContactSection creche={creche}/>
-          <Footer /> 
-       </div>
-         )}    
-           
+          <Nav />
+          <Infocreche creche={creche} />
+          <Localisation creche={creche} />
+          <Avis creche={creche} />
+          <ContactSection creche={creche} />
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

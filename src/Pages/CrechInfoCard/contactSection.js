@@ -1,12 +1,10 @@
 import CustomizedDialogs from "./inscriptionDialog";
 import CustomizedDialogsRdv from "./rendezvousDialog";
 import { useNavigate } from "react-router-dom";
-import { useState  } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 
 //import fileDownload from 'js-file-download'
- 
-
 
 /*import axios from 'axios'
 import fileDownload from 'js-file-download'
@@ -25,25 +23,31 @@ handleDownload = (url, filename) => {
 }}>Download Image</button>
 }*/
 
-export default function ContactSection({ creche , idcreche}) {
+export default function ContactSection({ creche, idcreche }) {
   const navigate = useNavigate();
   const handleModifClick = async (event) => {
     event.preventDefault();
-  
-      try {
-   navigate(`/ModifierCreche/${creche._id}` ,{state : {  data :creche , ageMin: creche.ageAccueil.ageMin , ageMax: creche.ageAccueil.ageMax }});
-   console.log(" data sent ");
-   console.log(creche.ageAccueil.ageMax);
-  }catch (e) {
-    console.log(" DATE NOT SENT  ");
-  }}
-  const [userType, setUserType] = useState() ;
-  useEffect(()=> {
+
+    try {
+      navigate(`/ModifierCreche/${creche._id}`, {
+        state: {
+          data: creche,
+          ageMin: creche.ageAccueil.ageMin,
+          ageMax: creche.ageAccueil.ageMax,
+        },
+      });
+      console.log(" data sent ");
+      console.log(creche.ageAccueil.ageMax);
+    } catch (e) {
+      console.log(" DATE NOT SENT  ");
+    }
+  };
+  const [userType, setUserType] = useState();
+  useEffect(() => {
     //console.log(localStorage.getItem('role'))
-    setUserType(localStorage.getItem('role'))
-  },[]);
- 
- 
+    setUserType(localStorage.getItem("role"));
+  }, []);
+
   return (
     <div className="mx-4 my-8 sm:mx-16 sm:my-16 p-5  rounded-md  bg-rawdapurple  bg-opacity-5">
       <div className="flex flex-col mb-10  items-center justify-center">
@@ -53,7 +57,6 @@ export default function ContactSection({ creche , idcreche}) {
         </h3>
         <div className="  mb-1  -mt-4  w-36  sm:w-40 h-4 bg-yellow-300  shadow-yellow-300 "></div>
       </div>
-
 
       <div className=" flex flex-wrap      justify-center    ">
         <div className="inline-flex items-center  w-64 sm:mx-20 m-1 sm:m-6 mb-9 sm:border-r-2 ">
@@ -76,7 +79,6 @@ export default function ContactSection({ creche , idcreche}) {
             {creche.num}{" "}
           </span>
         </div>
-
 
         <div className="inline-flex items-center  w-64 sm:ml-10 m-1 sm:m-6  sm:mb-9  mb-3   ">
           <svg
@@ -101,7 +103,6 @@ export default function ContactSection({ creche , idcreche}) {
         </div>
       </div>
 
-
       <div className=" flex flex-wrap   justify-center    ">
         <div className="inline-flex items-center w-64 sm:border-r-2 sm:mx-20 m-1 sm:m-6 mt-9">
           <svg
@@ -120,7 +121,7 @@ export default function ContactSection({ creche , idcreche}) {
             />
           </svg>
           <span className=" font-sans font-light text-lg sm:text-xl leading-7 pl-3">
-            {creche.prop.nom+" "+creche.prop.prenom}
+            {creche.prop.nom + " " + creche.prop.prenom}
           </span>
         </div>
         <div className="inline-flex items-center  w-64 sm:ml-10 m-1 sm:m-6 mt-9 ">
@@ -146,29 +147,42 @@ export default function ContactSection({ creche , idcreche}) {
         </div>
       </div>
 
- <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
-      
-     {// <CustomizedDialogs/>
-        //   <CustomizedDialogsRdv/> 
-     }
-         
-         {userType === "admin" ? null :
-    userType === "parent" ? (
-      <>
-        <CustomizedDialogs />
-        <CustomizedDialogsRdv />
-      </>
-    ) :
-    userType === "proprio" ? (
-      <a href={`/ModifierCreche/${creche._id}`} onClick={handleModifClick} className="buttonStyle bg-rawdapurple hover:bg-purple-600 font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2">
-        Modifier ma créche
-      </a>
-    ) : <p></p>
-  }
-          </div> 
-         
-  </div>  
-)
-  
-}
+      <div className="  flex  flex-wrap  items-center justify-around mt-24 ">
+        {
+          // <CustomizedDialogs/>
+          //   <CustomizedDialogsRdv/>
+        }
 
+        {userType === "admin" ? (
+          <>
+            <div className="flex flex-col">
+              <div className="flex flex-wrap  justify-around">
+                <CustomizedDialogs />
+                <CustomizedDialogsRdv />
+              </div>
+              <a
+                href={`/ModifierCreche/${creche._id}`}
+                onClick={handleModifClick}
+                className="buttonStyle bg-rawdapurple text-center  w-full hover:bg-purple-600 font-body focus:ring-1 focus:ring-purple-600 border-2 border-rawdapurple hover:border-purple-800 rounded-md text-white font-medium text-base sm:text-lg lg:text-xl py-2 px-3 sm:py-4 sm:px-6 mb-2"
+              >
+                Modifier la créche
+              </a>
+            </div>
+          </>
+        ) : userType === "parent" ? (
+          <>
+            <CustomizedDialogs />
+            <CustomizedDialogsRdv />
+          </>
+        ) : userType === "proprio" ? (
+          <>
+            <CustomizedDialogs />
+            <CustomizedDialogsRdv />
+          </>
+        ) : (
+          <p></p>
+        )}
+      </div>
+    </div>
+  );
+}
