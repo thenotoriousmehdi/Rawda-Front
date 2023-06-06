@@ -1,8 +1,10 @@
 import linenotif from "../assets/linenotif.svg";
+import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
+import CustomizedDialogs from "./refusDialogAjout";
 import eye from "../assets/eye.svg";
 import axios from 'axios'
-function NotifCreche({nomc, nomcreche, heuree, email}) {
+function NotifCreche({nomc, creche, heuree, email}) {
   const sendEmail = async (email, message) => {
     try {
       await axios.post('http://localhost:8000/send-email', {
@@ -59,7 +61,7 @@ function NotifCreche({nomc, nomcreche, heuree, email}) {
                 {" "}
                 {/* text */}
                 <p className="font-light text-xs ">
-                Bonjour, je suis {nomc} et je souhaite ajouter ma crèche ({nomcreche}) dans votre site.  
+                Bonjour, je suis {nomc} et je souhaite ajouter ma crèche ({creche}) dans votre site.  
                 </p>
               </div>
 
