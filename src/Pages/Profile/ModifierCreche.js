@@ -7,7 +7,8 @@ import galery from "../../assets/galery.svg";
 import exit from "../../assets/exit1.svg";
 import axios from "axios";
 import "../../../src/index.css";
-import { useEffect} from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -83,25 +84,24 @@ function ModifierCreche() {
     { value: "non", label: "non" },
   ];
 
-
-  var [crechesSearch , setCrechesSearch] = useState("");
+  var [crechesSearch, setCrechesSearch] = useState("");
   useEffect(() => {
     let loc = location.state.data;
     setCrechesSearch(loc);
   }, []);
   console.log(crechesSearch);
   const [nom, setNomdetablissement] = useState("");
-  let Nom =crechesSearch.nom ;
-  const [inptnomchanged , setInptnomchanged] = useState(false) ; 
+  let Nom = crechesSearch.nom;
+  const [inptnomchanged, setInptnomchanged] = useState(false);
   const handlenomChange = (event) => {
-   setInptnomchanged(true) ; 
+    setInptnomchanged(true);
     setNomdetablissement(event.target.value);
   };
 
   const [adresse, setadresse] = useState("");
-  const [inptadschanged , setInptadschanged] = useState(false) ; 
+  const [inptadschanged, setInptadschanged] = useState(false);
   const handleadresseChange = (event) => {
-    setInptadschanged(true) ; 
+    setInptadschanged(true);
     setadresse(event.target.value);
   };
 
@@ -156,37 +156,37 @@ function ModifierCreche() {
   };
 
   const [prix, setPrix] = useState("");
-const [inptprixchanged , setinptprixchanged]= useState(false) ; 
+  const [inptprixchanged, setinptprixchanged] = useState(false);
   const handleprixChange = (event) => {
-setinptprixchanged(true) ; 
+    setinptprixchanged(true);
     setPrix(event.target.value);
   };
 
   const [mail, setEmail] = useState("");
   const [num, setNum] = useState("");
   const [description, setdescription] = useState("");
-  const [inptdeschanged , setinptdeschanged]= useState(false) ; 
+  const [inptdeschanged, setinptdeschanged] = useState(false);
   const handledescirptionChange = (event) => {
-    setinptdeschanged(true) ;
+    setinptdeschanged(true);
     setdescription(event.target.value);
   };
-  const [inptmailchanged , setinptmailchanged]= useState(false) ; 
+  const [inptmailchanged, setinptmailchanged] = useState(false);
   const handleEmailChange = (event) => {
-    setinptmailchanged(true) ;
+    setinptmailchanged(true);
     setEmail(event.target.value);
   };
-  const [inptnumchanged , setinptnumchanged]= useState(false) ; 
-  
+  const [inptnumchanged, setinptnumchanged] = useState(false);
+
   const handlenumChange = (event) => {
-      setinptnumchanged(true) ;
+    setinptnumchanged(true);
     setNum(event.target.value);
   };
 
   const [value, setValue] = useState("");
-  const [inptkapchanged , setInptkapchanged] = useState(false) ; 
-  
+  const [inptkapchanged, setInptkapchanged] = useState(false);
+
   function handlecapChange(event) {
-      setInptadschanged(true) ; 
+    setInptadschanged(true);
     const inputValue = event.target.value;
     const numericValue = parseInt(inputValue, 10);
 
@@ -208,11 +208,9 @@ setinptprixchanged(true) ;
   const delim = ",";
   const capacite = value;
 
-  
-
   const [files, setfiles] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
- 
+
   const selectImage = (e) => {
     const f = e.target.files;
     const filesArray = Array.from(f);
@@ -237,7 +235,7 @@ setinptprixchanged(true) ;
       setfiles(files.concat(currentFiles));
     }
   };
-
+  const { id } = useParams();
   const handleSubmit = async (event) => {
     const localisation = commune + delim + Wilaya + delim + adresse;
     event.preventDefault();
@@ -259,20 +257,19 @@ setinptprixchanged(true) ;
     formData.append("mail", mail);
     formData.append("description", description);
     formData.append("prix", prix);
-    
+
     selectedImages.forEach((image) => {
       formData.append("photos", image.fl);
     });
 
     try {
-      await axios.post("http://localhost:8000/Creche", formData, {
+      await axios.patch(`http://localhost:8000/Creche/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       console.log("Requête envoyée avec succès !");
       console.log(selectedImages);
-     
     } catch (error) {
       console.error("Erreur lors de l'envoi de la requête :", error);
     }
@@ -319,8 +316,9 @@ setinptprixchanged(true) ;
                         id="Nom de l'etablissement"
                         placeholder="Nom de l'etablissement"
                         required
-                      
-                        value={(nom=="" && !inptnomchanged) ? crechesSearch.nom : nom}
+                        value={
+                          nom == "" && !inptnomchanged ? crechesSearch.nom : nom
+                        }
                         onChange={handlenomChange}
                         className="rounded w-[250px] h-[38px] md:w-[210px] bg-white border-gray-700 border-opacity-30 border py-2 px-2   text-gray-700 placeholder-gray-600  shadow-sm text-base "
                       />
@@ -332,11 +330,15 @@ setinptprixchanged(true) ;
                             <Select
                               name="Type d’etablissement"
                               options={Typeta}
-                               
                               placeholder="Type de creche "
                               maxlength="255"
-
-                              value={Typeta.find(option => option.value === ( typEtab==""?  crechesSearch.typeEtab : typEtab ))}
+                              value={Typeta.find(
+                                (option) =>
+                                  option.value ===
+                                  (typEtab == ""
+                                    ? crechesSearch.typeEtab
+                                    : typEtab)
+                              )}
                               onChange={handletypEtabChange}
                               isSearchable={true}
                               isMulti={false}
@@ -352,9 +354,15 @@ setinptprixchanged(true) ;
                           <div className="dropdown-container w-[210px]">
                             <Select
                               name="Type d’accueil"
-                              options={Typeac  }
+                              options={Typeac}
                               placeholder="Type d'accueil"
-                              value={Typeac.find(option => option.value === ( typeAc==""?  crechesSearch.typeAccueil : typeAc ))}
+                              value={Typeac.find(
+                                (option) =>
+                                  option.value ===
+                                  (typeAc == ""
+                                    ? crechesSearch.typeAccueil
+                                    : typeAc)
+                              )}
                               onChange={handletypeAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -377,8 +385,7 @@ setinptprixchanged(true) ;
                               name="Jours d’accueil"
                               options={jourac}
                               placeholder="Jours d'accueil"
-                              value={jourAc }
-                              
+                              value={jourAc}
                               isSearchable={true}
                               isMulti={true}
                               onChange={(jourAc) => setJourAc(jourAc)}
@@ -396,7 +403,13 @@ setinptprixchanged(true) ;
                               name="Age min d'accueil"
                               options={ageac}
                               placeholder="Age min d'accueil"
-                              value={ ageac.find(option => option.value === ( ageminAc==""?  crechesSearch.ageminAccueil : ageminAc ))}
+                              value={ageac.find(
+                                (option) =>
+                                  option.value ===
+                                  (ageminAc == ""
+                                    ? crechesSearch.ageminAccueil
+                                    : ageminAc)
+                              )}
                               onChange={handleageminAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -414,7 +427,13 @@ setinptprixchanged(true) ;
                               name="Age max d'accueil"
                               options={ageac}
                               placeholder="Age max d'accueil"
-                              value={ ageac.find(option => option.value === ( agemaxAc==""?  crechesSearch.agemaxAccueil : agemaxAc ))}
+                              value={ageac.find(
+                                (option) =>
+                                  option.value ===
+                                  (agemaxAc == ""
+                                    ? crechesSearch.agemaxAccueil
+                                    : agemaxAc)
+                              )}
                               onChange={handleagemaxAcChange}
                               isSearchable={true}
                               isMulti={false}
@@ -439,8 +458,11 @@ setinptprixchanged(true) ;
                             min="0"
                             max="100"
                             step="1"
-                           
-                            value={(value=="" && !inptkapchanged) ? crechesSearch.capacite : value}
+                            value={
+                              value == "" && !inptkapchanged
+                                ? crechesSearch.capacite
+                                : value
+                            }
                             onChange={handlecapChange}
                             required
                             className="rounded w-[250px] h-[38px] md:w-[210px] bg-white   border-gray-700 border-opacity-30  opacity border py-2 px-2   text-gray-700 placeholder-gray-600 shadow-sm text-base "
@@ -456,7 +478,13 @@ setinptprixchanged(true) ;
                               name="Pedagogie"
                               options={Pedagogie}
                               placeholder="Pedagogie"
-                              value={  Pedagogie.find(option => option.value === ( pedag==""?  crechesSearch.pedagogie : pedag ))}
+                              value={Pedagogie.find(
+                                (option) =>
+                                  option.value ===
+                                  (pedag == ""
+                                    ? crechesSearch.pedagogie
+                                    : pedag)
+                              )}
                               onChange={handlepedagChange}
                               isSearchable={true}
                               isMulti={false}
@@ -474,7 +502,11 @@ setinptprixchanged(true) ;
                               name="Langue"
                               options={Langue}
                               placeholder="Langue"
-                              value={ Langue.find(option => option.value === ( lang==""?  crechesSearch.langue : lang ))}
+                              value={Langue.find(
+                                (option) =>
+                                  option.value ===
+                                  (lang == "" ? crechesSearch.langue : lang)
+                              )}
                               onChange={handlelangChange}
                               isSearchable={true}
                               isMulti={false}
@@ -497,7 +529,13 @@ setinptprixchanged(true) ;
                               name="Transport"
                               options={verite}
                               placeholder="Transport"
-                              value={ verite.find(option => option.value === ( trans==""?  crechesSearch.transport : trans ))}
+                              value={verite.find(
+                                (option) =>
+                                  option.value ===
+                                  (trans == ""
+                                    ? crechesSearch.transport
+                                    : trans)
+                              )}
                               onChange={handletransChange}
                               isSearchable={true}
                               isMulti={false}
@@ -515,7 +553,13 @@ setinptprixchanged(true) ;
                               name="Alimentation"
                               options={verite}
                               placeholder="Alimentation"
-                              value={ verite.find(option => option.value === ( alim==""?  crechesSearch.alimentation : alim ))}
+                              value={verite.find(
+                                (option) =>
+                                  option.value ===
+                                  (alim == ""
+                                    ? crechesSearch.alimentation
+                                    : alim)
+                              )}
                               onChange={handlealimChange}
                               isMulti={false}
                               required
@@ -527,7 +571,11 @@ setinptprixchanged(true) ;
                     <div>
                       <input
                         type="number"
-                        value={ (prix=="" && !inptprixchanged) ? crechesSearch.prix : prix}
+                        value={
+                          prix == "" && !inptprixchanged
+                            ? crechesSearch.prix
+                            : prix
+                        }
                         id="Prix"
                         placeholder="Prix max /mois (DA)"
                         step="1"
@@ -549,7 +597,11 @@ setinptprixchanged(true) ;
                         id="Description"
                         placeholder="Description (150 mots max)"
                         required
-                        value={ (description=="" && !inptdeschanged) ? crechesSearch.description : description}
+                        value={
+                          description == "" && !inptdeschanged
+                            ? crechesSearch.description
+                            : description
+                        }
                         onChange={handledescirptionChange}
                         className="p-4 rounded bg-white border-gray-700 border-opacity-30 w-[250px] h-[38px] md:w-[670px] md:h-[200px]   opacity border py-2 px-6   text-gray-700 placeholder-gray600 shadow-sm text-base "
                       />
@@ -572,14 +624,18 @@ setinptprixchanged(true) ;
                       <div className="flex space-x-4 m-2 md:m-0">
                         <select
                           name="wilaya"
-                           className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
+                          className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
                           onChange={(wilaya) =>
                             handleWilaya(wilaya.target.value)
                           }
                           placeholder=""
                           required
                         >
-                          <option value="">{crechesSearch? crechesSearch.localisation.split(",")[1] : ""}</option>
+                          <option value="">
+                            {crechesSearch
+                              ? crechesSearch.localisation.split(",")[1]
+                              : ""}
+                          </option>
                           {Wilayas.map((wilaya, i) => {
                             return (
                               <option
@@ -599,13 +655,16 @@ setinptprixchanged(true) ;
                         <select
                           name="commune"
                           className="w-[310px] h-[38px] rounded p-2 border border-gray-700 border-opacity-30 bg-white outline-none"
-                          
                           onChange={(commune) =>
                             handlecommune(commune.target.value)
                           }
                           required
                         >
-                          <option value="">{crechesSearch? crechesSearch.localisation.split(",")[0] : "" }</option>
+                          <option value="">
+                            {crechesSearch
+                              ? crechesSearch.localisation.split(",")[0]
+                              : ""}
+                          </option>
                           {Wilayas[WilayaId - 1]?.dairas.map((daira) => {
                             return (
                               <>
@@ -638,7 +697,11 @@ setinptprixchanged(true) ;
                         placeholder="L’adresse complète de l’établissement"
                         maxlength="255"
                         required
-                        value={(adresse=="" && !inptadschanged ) ? crechesSearch.localisation : adresse}
+                        value={
+                          adresse == "" && !inptadschanged
+                            ? crechesSearch.localisation
+                            : adresse
+                        }
                         onChange={handleadresseChange}
                         className="rounded w-[250px] h-[38px] md:w-[650px]  bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
@@ -686,7 +749,7 @@ setinptprixchanged(true) ;
                         ></input>
                       </div>
 
-                      {  selectedImages.length <= 10 &&
+                      {selectedImages.length <= 10 &&
                         selectedImages &&
                         selectedImages.map((image, i) => {
                           return (
@@ -742,7 +805,9 @@ setinptprixchanged(true) ;
                         pattern="[0-9]{10}"
                         maxlength="10"
                         required
-                        value={(num=="" && !inptnumchanged) ? crechesSearch.num : num}
+                        value={
+                          num == "" && !inptnumchanged ? crechesSearch.num : num
+                        }
                         onChange={handlenumChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2 text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
@@ -755,15 +820,16 @@ setinptprixchanged(true) ;
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         required
                         maxlength="255"
-                        value={(mail=="" && !inptmailchanged) ? crechesSearch.mail : mail}
+                        value={
+                          mail == "" && !inptmailchanged
+                            ? crechesSearch.mail
+                            : mail
+                        }
                         onChange={handleEmailChange}
                         className="rounded w-[250px] h-[38px] md:w-[310px] bg-white border-gray-700 border-opacity-30 opacity border py-2 px-2  text-gray-700 placeholder-gray-600 shadow-sm text-base "
                       />
                     </div>
                   </div>
-
-                
-                  
 
                   <div className="flex flex-wrap justify-center">
                     {" "}
@@ -776,15 +842,16 @@ setinptprixchanged(true) ;
                         {" "}
                         Ajouter ma creche{" "}
                       </button> */}
-              <a href={`/../creches/${crechesSearch._id}`}>
-                      <button
-                        onClick={handleSubmit}
-                        id="s'inscrire"
-                        type="button"
-                        className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
-                      >
-                       Enregistrer les modifications
-                      </button></a>
+                      <a href={`/../creches/${crechesSearch._id}`}>
+                        <button
+                          onClick={handleSubmit}
+                          id="s'inscrire"
+                          type="button"
+                          className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-violet-800 m-6"
+                        >
+                          Enregistrer les modifications
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>
