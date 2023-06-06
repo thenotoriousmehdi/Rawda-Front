@@ -6,12 +6,29 @@ import Wilayas from "../data/wilayas.json";
 import galery from "../assets/galery.svg";
 import exit from "../assets/exit1.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../../src/index.css";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function AddCreche() {
+
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const handleRedirect = () => {
+    closePopup();
+    navigate("/");
+  };
   const [Wilaya, setWilaya] = useState("");
   const [WilayaId, setWilayaId] = useState(0);
   const [commune, setCommune] = useState();
@@ -794,13 +811,27 @@ function AddCreche() {
                       </button> */}
 
                       <button
-                        onClick={handleSubmit}
+                        onClick={handleButtonClick}
+                       // onClick={handleSubmit}
                         id="s'inscrire"
                         type="button"
                         className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-rawdapurple hover:scale-105 duration-200   m-6"
                       >
-                        <a href="">Ajouter ma creche</a>
+                        Ajouter ma creche
                       </button>
+                      {showPopup && (
+                      <div className="popup">
+                          <div className="bg-white p-4 shadow-md rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                           <h1 className="text-rawdapurple">Demande envoyée.</h1>
+            <p>Votre demande d'ajout de crèche a été enregistrer avec success, nous vous contacterons prochainement pour vous informez du resultat du traitement.</p>
+            <div className="flex gap-4"> 
+            <button className="rounded font-medium text-lg mt-2  bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  " onClick={handleRedirect} >Revenir a la page d'accueil</button>
+            <button className="rounded font-medium text-lg mt-2 bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  " onClick= {closePopup}>Fermer</button>
+            </div>
+                          </div>
+                        </div>
+ )}
+                      
                     </div>
                   </div>
                 </div>
