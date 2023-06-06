@@ -7,10 +7,7 @@ import { useNavigate } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-function Menuu({userType}) {
-
-
-
+function Menuu({ userType }) {
   let menuItems;
 
   switch (userType) {
@@ -20,7 +17,7 @@ function Menuu({userType}) {
           label: "Profil",
           href: "/VoirProfil",
         },
-        
+
         {
           label: "Deconnecter",
           href: "/Login",
@@ -35,7 +32,7 @@ function Menuu({userType}) {
         },
         {
           label: "Rawdati",
-          href: "/CrecheInfoCard:id",
+          href: "/Rawdati",
         },
         {
           label: "Ajouter une creche",
@@ -64,7 +61,6 @@ function Menuu({userType}) {
         {
           label: "Deconnecter",
           href: "/Login",
-
         },
       ];
       break;
@@ -107,11 +103,10 @@ function Menuu({userType}) {
                     active ? "bg-gray-100" : "",
                     "block px-4 py-2 text-sm text-gray-700"
                   )}
-                // onClick={handleSignOut(item.label)}
+                  // onClick={handleSignOut(item.label)}
                   onClick={() => handleMenuItemClick(item.href, item.label)}
                 >
                   {item.label}
-
                 </a>
               )}
             </Menu.Item>
@@ -120,6 +115,5 @@ function Menuu({userType}) {
       </Transition>
     </Menu>
   );
-
 }
 export default Menuu;

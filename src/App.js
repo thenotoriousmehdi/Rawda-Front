@@ -21,6 +21,7 @@ import useFetch from "./Pages/CrechInfoCard/useFetch";
 import data from "./data/db.json";
 import Help from "./Pages/Help";
 import AddAdmin from "./Pages/AddAdmin";
+import Rawdati from "./Pages/Rawdati"
 
 import HomeAfter from "./Pages/HomeAfter";
 import ModifierCreche from "./Pages/Profile/ModifierCreche";
@@ -51,6 +52,7 @@ function App() {
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/AddCreche" element={<AddCreche />} />
       <Route path="/creches/:id/AddCreche" element={<AddCreche />} />
+      <Route path="/Rawdati" element={<Rawdati />} />
       <Route
         path="/CrechInfoCard"
         element={<CrechInfoCard reches={creches} />}
