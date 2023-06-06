@@ -278,6 +278,12 @@ function AddCreche() {
     } catch (error) {
       console.error("Erreur lors de l'envoi de la requête :", error);
     }
+    try {
+      await axios.post("http://localhost:8000/notifAdm/add", {creche : nom});
+      console.log("notif envoyée avec succès !");
+    }catch (error){
+      console.error("Erreur lors de l'envoi de la notif :", error);
+    }
   };
 
   return (
