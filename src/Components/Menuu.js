@@ -23,7 +23,7 @@ function Menuu({userType}) {
         
         {
           label: "Deconnecter",
-          href: "/Login",
+          href: "/",
         },
       ];
       break;
@@ -43,7 +43,7 @@ function Menuu({userType}) {
         },
         {
           label: "Deconnecter",
-          href: "/Login",
+          href: "/",
         },
       ];
       break;
@@ -63,7 +63,7 @@ function Menuu({userType}) {
         },
         {
           label: "Deconnecter",
-          href: "/Login",
+          href: "/",
 
         },
       ];
@@ -72,7 +72,7 @@ function Menuu({userType}) {
       menuItems = [];
   }
 
-  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+  const navigate = useNavigate(); 
 
   const handleMenuItemClick = (href, label) => {
     if (label === "Deconnecter") {
