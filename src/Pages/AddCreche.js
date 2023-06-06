@@ -278,8 +278,18 @@ function AddCreche() {
     } catch (error) {
       console.error("Erreur lors de l'envoi de la requête :", error);
     }
+    try {
+      await axios.post("http://localhost:8000/notifAdm/add", {creche : nom});
+      console.log("notif envoyée avec succès !");
+    }catch (error){
+      console.error("Erreur lors de l'envoi de la notif :", error);
+    }
   };
-
+  const handleButtonaddClick = (event) => {
+    event.preventDefault();
+    handleButtonClick ();
+    handleSubmit (event);
+  };
   return (
     <>
       <NavAfter />
@@ -811,8 +821,8 @@ function AddCreche() {
                       </button> */}
 
                       <button
-                        onClick={handleButtonClick}
-                       // onClick={handleSubmit}
+                       onClick={handleButtonaddClick}
+                        //onClick={handleSubmit}
                         id="s'inscrire"
                         type="button"
                         className="rounded-full font-medium text-2xl bg-rawdapurple px-10 py-4 text-rawdawhite hover:bg-rawdapurple hover:scale-105 duration-200   m-6"

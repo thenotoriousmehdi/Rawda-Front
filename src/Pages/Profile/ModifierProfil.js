@@ -7,17 +7,18 @@ import axios from "axios";
 import iconm from "../../assets/iconmodphoto.svg";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
 function ModifierProfil({ nomc, role }) {
+
   const [profilePicture, setProfilePicture] = useState(null);
   const [profilePicture2, setProfilePicture2] = useState(null);
   const handleIconClick = () => {
-    // Create an input element of type "file"
+  
     const input = document.createElement("input");
     input.type = "file";
 
-    // Add an "onchange" event listener to the input element
     input.onchange = (event) => {
       const file = event.target.files[0];
       setProfilePicture(file);
@@ -39,17 +40,22 @@ function ModifierProfil({ nomc, role }) {
     new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
   );
   const [showPopup, setShowPopup] = useState(false);
-
+  const navigate = useNavigate();
   const [adress, setadresse] = useState("");
+ 
+
+  
   const handleadresseChange = (event) => {
     setadresse(event.target.value);
   };
   const handleButtonClick = () => {
     setShowPopup(true);
   };
-  const handleClosePopup = () => {
+  
+  const closePopup = () => {
     setShowPopup(false);
   };
+  
 
   const [phone, setNum] = useState("");
   const handlenumChange = (event) => {
@@ -59,6 +65,7 @@ function ModifierProfil({ nomc, role }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+   
     const formData = new FormData();
     console.log(profilePicture);
     formData.append("phone", phone);
@@ -77,7 +84,11 @@ function ModifierProfil({ nomc, role }) {
     }
     console.log("Requête PATCH effectuée avec succès !");
   };
-
+  const handleconfirmerbutton = (event) => {
+    event.preventDefault();
+    handleSubmit(event);
+     navigate("/");
+   };
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -294,7 +305,7 @@ function ModifierProfil({ nomc, role }) {
                               <div className="mt-6 flex flex-wrap justify-center gap-4">
                                 <a>
                                   <button
-                                    onClick={handleClosePopup}
+                                    onClick={closePopup}
                                     id="Annuler la  modifictaion"
                                     type="button"
                                     className="rounded font-medium text-lg bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  "
@@ -325,6 +336,7 @@ function ModifierProfil({ nomc, role }) {
                 <div className="mt-6 flex flex-wrap justify-center gap-4">
                   <a>
                     <button
+                    onClick={closePopup}
                       id="Annuler la  modifictaion"
                       type="button"
                       className="rounded-full font-medium text-lg bg-rawdawhite px-4 py-2 text-rawdapurple hover:bg-rawdapurple hover:bg-opacity-50 hover:text-rawdawhite  "
@@ -334,7 +346,7 @@ function ModifierProfil({ nomc, role }) {
                   </a>
                   <a>
                     <button
-                      onClick={handleSubmit}
+                      onClick={handleconfirmerbutton}
                       id="Confirmer la modification"
                       type="button"
                       className="rounded-full font-medium text-lg bg-rawdapurple px-4 py-2 text-rawdawhite  hover:bg-rawdapurple hover:bg-opacity-20 hover:text-rawdapurple "
