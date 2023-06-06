@@ -41,22 +41,36 @@ export default function Avis({ creche }) {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className=" p-8 "
         >
-            { eva.length === 0 ?  <p className=" font-body text-slate-500  w-full border-rawdapurple border px-10  py-20  rounded-xl "> Aucun commentaire pour l'instant </p>:(
-            eva.map((profilcomment) => (
+          {eva.map((profilcomment) => (
             <SwiperSlide>
               <div className=" border    border-rawdapurple flex relative flex-col  h-4/6 rounded-lg items-center justify-center p-7 gap-4   ">
-               
-                <img src={mehdi1} className="w-12 h-12 rounded-full" />
+                <img
+                  src={
+                    profilcomment.personne.photo !== ""
+                      ? `http://localhost:8000/${profilcomment.personne.photo}`
+                      : anonymePhoto
+                  }
+                  className="w-12 h-12 rounded-full"
+                />
                 <span className=" font-body font-semibold text-lg lg:text-xl leading-7 lg:leading-9   ">
-                  {profilcomment.nom}{" "}
+                  {profilcomment.personne.nom +
+                    " " +
+                    profilcomment.personne.prenom}{" "}
                 </span>
-                <Rating name="read-only" value={profilcomment.noteIndiv} readOnly />
-                <p className="font-body font-medium text-base  text-black leading-7  text-left pl-3   h-32  w-full  "  style={{overflowWrap : "break-word" , overflow: "auto" }}>
+                <Rating
+                  name="read-only"
+                  value={profilcomment.noteIndiv}
+                  readOnly
+                />
+                <p
+                  className="font-body font-medium text-base  text-black leading-7  text-left pl-3   h-32  w-full  "
+                  style={{ overflowWrap: "break-word", overflow: "auto" }}
+                >
                   {profilcomment.commentaires}
                 </p>
               </div>
             </SwiperSlide>
-          )))}
+          ))}
         </Swiper>
 
         <FormDialog />
