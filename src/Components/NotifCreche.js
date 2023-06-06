@@ -1,7 +1,5 @@
 import linenotif from "../assets/linenotif.svg";
-import mehdi from "../assets/mehdi.jpeg";
 import croix from "../assets/croix.svg";
-import CustomizedDialogs from "./refusDialogAjout";
 import eye from "../assets/eye.svg";
 import axios from 'axios'
 function NotifCreche({nomc, nomcreche, heuree, email}) {
