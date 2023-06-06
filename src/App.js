@@ -10,6 +10,7 @@ import Signup from "./Pages/Signup";
 import mehdi from "./assets/mehdi.jpeg";
 import Notification from "./Components/NotifRdv";
 import Notifications from "./Pages/Notifications";
+import NotificationsAdm from "./Pages/NotificationsAdm";
 import ModifierProfil from "./Pages/Profile/ModifierProfil";
 import CrechInfoCard from "./Pages/CrechInfoCard/crechInfoCard";
 import Dashboard from "./Pages/dashboard/Dashboard";
@@ -49,6 +50,7 @@ function App() {
         }
       />
       <Route path="/Notifications" element={<Notifications />} />
+        <Route path="/NotificationsAdm" element={<NotificationsAdm />} />
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/AddCreche" element={<AddCreche />} />
       <Route path="/creches/:id/AddCreche" element={<AddCreche />} />
