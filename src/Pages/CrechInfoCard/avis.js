@@ -7,7 +7,6 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import FormDialog from "./evaluationDialog";
 import Rating from "@mui/material/Rating";
 import anonymePhoto from "../../assets/ano.jpg";
-
 export default function Avis({ creche }) {
   const eva = creche.avis.evaluations;
   return (
@@ -80,7 +79,7 @@ export default function Avis({ creche }) {
           )}
         </Swiper>
 
-        <FormDialog />
+         <FormDialog />
       </div>
     </div>
   );

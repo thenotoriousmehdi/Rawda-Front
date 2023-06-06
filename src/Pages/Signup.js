@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import google from "../assets/google1.svg";
 import axios from "axios";
-import decosu from "../assets/decosu.svg";
-import decosu1 from "../assets/decosu1.svg";
+
 import { useNavigate } from "react-router-dom";
 const Signup = (props) => {
   const [nom, setNom] = useState("");
@@ -13,12 +12,13 @@ const Signup = (props) => {
   const [userType, setUserType] = useState(null);
   const [role, setRole] = useState("");
 
-  const handleParentClick = () => {
-    
+  const handleParentClick = (event) => {
+    event.preventDefault();
     setRole("parent");
   };
 
-  const handleProprioClick = () => {
+  const handleProprioClick = (event) => {
+    event.preventDefault();
     setRole("proprio");
   };
 
@@ -92,7 +92,7 @@ const Signup = (props) => {
         </p>
 
         <div class="flex flex-col items-center justify-center ">
-          <form onSubmit={handleSubmit} class="w-1/3">
+          <form onSubmit={handleSubmit} class="md:w-1/3 w-[220px]">
             <div className="flex flex-wrap justify-between mx-auto ">
               <div className="w-full container mx-auto mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 ">
                 <label class="">
@@ -159,22 +159,22 @@ const Signup = (props) => {
                 </button>
               </div>
 
-              <div class="mx-auto my-auto md:w-6/12 ">
+              <div class="mx-auto my-auto w-1/2 ">
                 <button
-                  class="lg:mb-7 w-full h-12 mt-5  font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600 hover:scale-105 duration-200"
+                  class="lg:mb-7 mb-10 w-full h-12 mt-5  font-body focus:outline-none bg-rawdapurple hover:bg-violet-900 text-white rounded-xl shadow-sm opacity-100 shadow-purple-600 hover:scale-105 duration-200"
                   type="submit"
-                  onClick={handleFormSubmit}
+                  onClick={handleSubmit}
                 >
                   S'inscrire
                 </button>
               </div>
 
-              <div className="mx-auto my-auto">
+              {/* <div className="mx-auto my-auto">
                 <section className=" border-b border-gray-500 border-opacity-50 mt-4 mb border-solid w-[100px] sm:w-[250px]"></section>
-              </div>
+              </div> */}
 
               <div class="mx-auto my-auto ">
-                <span className="mr-4 text-xs  text-gray-500 ">
+                <span className="mr-12 text-xs  text-gray-500 ">
                   {" "}
                   Vous avez deja un compte ?
                 </span>{" "}
