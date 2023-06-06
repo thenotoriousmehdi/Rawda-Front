@@ -184,9 +184,8 @@ function ModifierProfil({ nomc, role }) {
                         onChange={(date) => {
                           setDatetoken(date);
                         }}
-                        minDate={
-                          new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
-                        }
+                        minDate={new Date(1940, 0, 1)} // January 1, 1940
+  maxDate={new Date(2005, 11, 31)} // December 31, 2005
                         filterDate={(date) =>
                           date.getDay() !== 5 && date.getDay() !== 6
                         }

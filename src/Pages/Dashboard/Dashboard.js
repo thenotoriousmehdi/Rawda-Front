@@ -1,18 +1,44 @@
 import NavAfter from "../../Components/NavAfter";
 import Notification from "../../Components/NotifRdv";
 import { Stat } from "./Stat";
-import Notif from "./Notif";
 import Footer from "../../Components/Footer";
-import mehdi from "../../assets/mehdi.jpeg";
 import linepurple from "../../assets/linepurple.svg";
 import lineyellow from "../../assets/lineyellow.svg";
 import { Doughnut, Bar } from "react-chartjs-2";
-import { Chart, ArcElement } from "chart.js";
+import { Chart, ArcElement, CategoryScale, registerables } from "chart.js";
 import { useEffect , useState  } from "react";
 import Nav from "../../Components/Nav";
 import axios from "axios";
 Chart.register(ArcElement);
-
+Chart.register(CategoryScale);
+Chart.register(...registerables);
+const labels = [1,2,3,4,5,6,7];
+const mehdi = {
+  labels: labels,
+  datasets: [{
+    label: 'Le nombre de visiteurs par mois',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ],
+    borderColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 159, 64)',
+      'rgb(255, 205, 86)',
+      'rgb(75, 192, 192)',
+      'rgb(54, 162, 235)',
+      'rgb(153, 102, 255)',
+      'rgb(201, 203, 207)'
+    ],
+    borderWidth: 1
+  }]
+};
 
 const don = {
   labels: ["Respos", "Parents", "Non-inscrits"],
@@ -213,8 +239,8 @@ function Dashboard({ nom }) {
             {/* <Notif type="Demande de rendez-vous" photo={mehdi} nomc="Mehdi MAMOUNI" heuree="2" heure="16:30" date="27/05/2023" num="0560000000" email="km_mamouni@esi.dz"/> */}
           </div>
           <div className="flex items-center justify-center bg-rawdawhite  h-[330px] w-[738px] rounded-xl ">
-          <div className="justify-center h-[300px] w-[300px]">
-                  {/* <Bar data={"blue"} /> */}
+          <div className="justify-center h-[300px] w-[600px]">
+                   <Bar data={mehdi} />  
                 </div>
             </div>
 
