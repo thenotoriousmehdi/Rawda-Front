@@ -5,7 +5,7 @@ import axios from "axios";
 import decosu from "../assets/decosu.svg";
 import decosu1 from "../assets/decosu1.svg";
 import { useNavigate } from 'react-router-dom';
-const AddAdmin = (props) => {
+const AddAdmin = (props) => { 
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
